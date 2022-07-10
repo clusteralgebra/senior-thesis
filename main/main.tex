@@ -2,22 +2,47 @@
 \usepackage{style}
 \usepackage[margin=0.75in]{geometry}
 \usepackage[super]{nth}
-\title{Senior Thesis}
+\title{Ultra Log-concavity of Basis Partition Sequence}
 \author{Alan Yan \\ Senior Thesis Advisor: Professor June Huh}
 \begin{document}
 
 \maketitle
 
 \begin{abstract}
-	stuff 
+	Let $M = (E, \mcI)$ be a matroid of rank $r$ and let $E = A \sqcup B$ be a fixed partition of the ground set. For $0 \leq k \leq r$, let $N_k$ be the number of bases whose intersection with $A$ has size $k$. We consider whether or not the sequence $\{N_k\}$ is ultra-log-concave. 
 \end{abstract}
 \tableofcontents
 
 \newpage 
 
-\section{Small Details}
+\section{Introduction}
 
-To prove that $(1 + \theta w_i \partial_j)f$ is indeed stable when $f$ is stable, we know that $(1 + w_{n+1} \partial_j)f$ is stable, and then just do the diagonlization to set $w_{n+1} = w_i$. 
+The question is motivated by the results in \cite{STANLEY}. In particular, Stanley proves that 
+\begin{thm}
+	If $M$ is regular, then $N_k$ is $r$-ultra-log-concave. 
+\end{thm}
+
+Stanley's proof relates the sequence $N_k$ to a sequence of mixed volume. The ultra-log-concave follows from the Alexandrov-Fenchel inequality. The relationship relies on the unimodular coordinazation that exists for regular matroids. It is unclear whether or not the result holds true for general matroids. According to \cite{LIGGETT}, we say that a non-negative sequence $a_i$ is ultra-logconcave of order $m$ denoted $ULC(m)$ if $a_i = 0$ for $i > m$ and the sequence $a_i / \binom{m}{i}$ is logconcave. Note that $ULC(m) \implies ULC(m+1)$. 
+
+\begin{example}
+	Let $M = U_{n, r}$ be the uniform matroid of rank $r$ on $n$ elements. Consider the partition $[n] = \{1, \ldots, m \} \cup \{m+1, \ldots, n \}$ for some $1 \leq m \leq n-1$. Then, we can explicitly compute for $k \in [m]$ the value 
+	\[
+		N_k = \binom{m}{k} \cdot \binom{n-m}{r-k}.
+	\]
+	We want to prove under the assumption that $k \leq r-1$ and $N_{k+1}, N_{k-1} \neq 0$ that 
+	\[
+		\frac{N_k^2}{N_{k+1} N_{k-1}} \cdot \frac{\binom{r}{k-1} \binom{r}{k+1}}{\binom{r}{k}^2} \geq 1. 
+	\]
+	It seems like the calculation I did with June Huh on the board was wrong ... I'll check again tomorrow ... This example shows that ultra-log-concavity does not hold in general (at least not in the rank). However, $N_k$ is still log-concave. 
+\end{example}
+
+\section{Combinatorial Objects}
+
+
+\bibliographystyle{plain}
+\bibliography{ref}
+
+
 \end{document}
 
 
