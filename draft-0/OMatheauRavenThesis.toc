@@ -1,0 +1,112 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{Abstract}{i}{Doc-Start}%
+\contentsline {section}{List of Tables}{ii}{chapter*.1}%
+\contentsline {section}{List of Figures}{iii}{chapter*.2}%
+\contentsline {section}{Introduction}{iv}{section*.4}%
+\contentsline {paragraph}{}{iv}{section*.5}%
+\contentsline {paragraph}{}{iv}{section*.6}%
+\contentsline {paragraph}{}{v}{section*.7}%
+\contentsline {paragraph}{}{v}{section*.8}%
+\contentsline {section}{Acknowledgements}{vii}{section*.9}%
+\contentsline {section}{Declarations}{viii}{section*.10}%
+\contentsline {chapter}{\numberline {1}Preliminaries}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Random Walks on Finite Groups}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Markov Chains from Random Walks}{1}{subsection.1.1.1}%
+\contentsline {paragraph}{}{2}{section*.11}%
+\contentsline {subsection}{\numberline {1.1.2}Convergence to a Stationary Distribution}{5}{subsection.1.1.2}%
+\contentsline {subsubsection}{Total Variation Distance}{5}{section*.12}%
+\contentsline {subsubsection}{Separation Distance}{7}{section*.13}%
+\contentsline {subsubsection}{Bounds on Total Variation and Separation Distance}{8}{section*.14}%
+\contentsline {subsection}{\numberline {1.1.3}The Cutoff Phenomenon}{11}{subsection.1.1.3}%
+\contentsline {paragraph}{}{13}{section*.15}%
+\contentsline {section}{\numberline {1.2}Representations, Modules, and Applications to Random Walks}{14}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Representations, Characters and Modules}{14}{subsection.1.2.1}%
+\contentsline {subsubsection}{Representations and Modules}{14}{section*.16}%
+\contentsline {subsubsection}{Character Theory}{19}{section*.17}%
+\contentsline {subsection}{\numberline {1.2.2}Discrete Fourier Transforms}{21}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}The Upper Bound Lemma}{23}{subsection.1.2.3}%
+\contentsline {paragraph}{}{24}{section*.18}%
+\contentsline {chapter}{\numberline {2}The Symmetric Group and its Modules}{26}{chapter.2}%
+\contentsline {paragraph}{}{26}{section*.19}%
+\contentsline {section}{\numberline {2.1}The Symmetric Group}{26}{section.2.1}%
+\contentsline {paragraph}{}{26}{section*.20}%
+\contentsline {section}{\numberline {2.2}The Structure of Modules for The Symmetric Group}{27}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Young Diagrams}{28}{subsection.2.2.1}%
+\contentsline {paragraph}{}{28}{section*.21}%
+\contentsline {subsection}{\numberline {2.2.2}Young Tableaux}{29}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Permutation Modules}{30}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Specht Modules}{32}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Branching Rules for Specht Modules}{35}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}Switching to Words }{36}{subsection.2.2.6}%
+\contentsline {paragraph}{}{37}{section*.22}%
+\contentsline {section}{\numberline {2.3}Random Walks on The Symmetric Group}{38}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}The Random Transposition Shuffle}{39}{subsection.2.3.1}%
+\contentsline {paragraph}{}{39}{section*.23}%
+\contentsline {paragraph}{}{40}{section*.24}%
+\contentsline {subsubsection}{Upper Bound}{40}{section*.25}%
+\contentsline {subsubsection}{Lower Bound}{43}{section*.26}%
+\contentsline {paragraph}{}{44}{section*.27}%
+\contentsline {subsection}{\numberline {2.3.2}The Top-to-Random Shuffle}{44}{subsection.2.3.2}%
+\contentsline {paragraph}{}{44}{section*.28}%
+\contentsline {subsubsection}{Upper Bound}{45}{section*.29}%
+\contentsline {subsubsection}{Lower Bound}{47}{section*.30}%
+\contentsline {paragraph}{}{47}{section*.31}%
+\contentsline {subsection}{\numberline {2.3.3}The Random-to-Random Shuffle}{48}{subsection.2.3.3}%
+\contentsline {paragraph}{}{48}{section*.32}%
+\contentsline {paragraph}{}{50}{section*.33}%
+\contentsline {paragraph}{}{53}{section*.34}%
+\contentsline {chapter}{\numberline {3}The One-sided Transposition Shuffle}{55}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Main Results}{55}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Lifting Eigenvectors for Transposition Shuffles}{57}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Lifting Eigenvectors for the One-sided Transposition Shuffle}{57}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Lifting Eigenvectors for the Random Transposition Shuffle}{67}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Eigenvalues Analysis}{69}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Upper Bound for the One-sided Transposition Shuffle}{73}{section.3.4}%
+\contentsline {subsubsection}{The Eigenvalues of Partition $(n-1,1)$}{75}{section*.37}%
+\contentsline {subsection}{\numberline {3.4.1}Large Partitions}{76}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Small Partitions}{77}{subsection.3.4.2}%
+\contentsline {section}{\numberline {3.5}Lower Bound for the One-sided Transposition Shuffle}{79}{section.3.5}%
+\contentsline {paragraph}{}{80}{section*.39}%
+\contentsline {subsubsection}{Proof of the Lower Limit in Theorem \ref {chpt5:thm:cutoff}}{83}{section*.40}%
+\contentsline {paragraph}{}{83}{section*.41}%
+\contentsline {section}{\numberline {3.6}Biased One-sided Transposition shuffles}{83}{section.3.6}%
+\contentsline {subsubsection}{Lifting Eigenvectors for the Biased One-sided Transposition Shuffle}{84}{section*.42}%
+\contentsline {subsubsection}{Mixing Times of Biased One-sided Transposition Shuffles}{85}{section*.43}%
+\contentsline {paragraph}{}{85}{section*.44}%
+\contentsline {subsection}{\numberline {3.6.1}Cutoff for Biased One-sided Transposition Shuffles with $\alpha \leq 1$}{86}{subsection.3.6.1}%
+\contentsline {subsubsection}{Upper Bound}{86}{section*.45}%
+\contentsline {subsubsection}{Lower Bound}{89}{section*.46}%
+\contentsline {subsection}{\numberline {3.6.2}Cutoff for Biased One-sided Transposition Shuffles with $\alpha \geq 1$}{91}{subsection.3.6.2}%
+\contentsline {subsubsection}{Upper Bound}{91}{section*.47}%
+\contentsline {subsubsection}{Lower Bound}{95}{section*.48}%
+\contentsline {subsection}{\numberline {3.6.3}Cutoff for Biased One-sided Transposition Shuffles with General Weight Functions}{97}{subsection.3.6.3}%
+\contentsline {paragraph}{}{97}{section*.49}%
+\contentsline {section}{\numberline {3.7}Separation Distance for the One-sided Transposition Shuffle}{98}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}Cutoff for the Unbiased One-sided Transposition Shuffle}{98}{subsection.3.7.1}%
+\contentsline {subsubsection}{A Strong Stationary Time Argument}{99}{section*.50}%
+\contentsline {paragraph}{}{102}{section*.51}%
+\contentsline {subsection}{\numberline {3.7.2}Generalising for Biased One-sided Transposition Shuffles}{102}{subsection.3.7.2}%
+\contentsline {paragraph}{}{104}{section*.52}%
+\contentsline {chapter}{\numberline {4}The Hyperoctahedral Group and Random Walks}{105}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The Hyperoctahedral Group}{105}{section.4.1}%
+\contentsline {section}{\numberline {4.2}The Structure of Modules for the Hyperoctahedral Group.}{107}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Bi-partitions}{107}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Bi-tableaux}{109}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}The Module Structure of the Hyperoctahedral Group}{110}{subsection.4.2.3}%
+\contentsline {subsubsection}{Permutation Modules}{110}{section*.53}%
+\contentsline {subsubsection}{Specht Modules}{111}{section*.54}%
+\contentsline {paragraph}{}{112}{section*.55}%
+\contentsline {subsection}{\numberline {4.2.4}Switching to Words}{115}{subsection.4.2.4}%
+\contentsline {paragraph}{}{115}{section*.56}%
+\contentsline {paragraph}{}{116}{section*.57}%
+\contentsline {section}{\numberline {4.3}The Random Transposition Shuffle on The Hyperoctahedral Group}{118}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Upper Bound for the Random Transposition Shuffle}{119}{subsection.4.3.1}%
+\contentsline {paragraph}{}{119}{section*.59}%
+\contentsline {subsection}{\numberline {4.3.2}Lifting Eigenvectors for the Random Transposition Shuffle}{122}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}One-sided Transposition Shuffles on The Hyperoctahedral Group}{131}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}Lifting Eigenvectors for One-sided Transposition Shuffles}{132}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}A Strong Stationary Time for the Unbiased One-sided Transposition Shuffle on The Hyperoctahedral Group.}{133}{subsection.4.4.2}%
+\contentsline {subsubsection}{A Strong Stationary Time Argument}{134}{section*.60}%
+\contentsline {section}{\numberline {4.5}Further Work}{137}{section.4.5}%
+\contentsline {paragraph}{}{138}{section*.61}%
+\contentsline {chapter}{Bibliography}{141}{equation.4.5.53}%

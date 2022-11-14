@@ -1,10 +1,14 @@
 \begin{thebibliography}{1}
 
-\bibitem{LIGGETT}
-Thomas~M Liggett.
-\newblock Ultra logconcave sequences and negative dependence.
-\newblock {\em Journal of Combinatorial Theory, Series A}, 79(2):315--325,
-  1997.
+\bibitem{bapat_raghavan_1997}
+R.~B. Bapat and T.~E.~S. Raghavan.
+\newblock {\em Nonnegative Matrices and Applications}.
+\newblock Encyclopedia of Mathematics and its Applications. Cambridge
+  University Press, 1997.
+
+\bibitem{lorentzian-polynomials}
+Petter Brändén and June Huh.
+\newblock Lorentzian polynomials, 2019.
 
 \bibitem{STANLEY}
 Richard~P Stanley.
