@@ -9,7 +9,7 @@
 \maketitle
 
 \begin{abstract}
-	Let $M = (E, \mcI)$ be a matroid of rank $r$ and let $E = A \sqcup B$ be a fixed partition of the ground set. For $0 \leq k \leq r$, let $N_k$ be the number of bases whose intersection with $A$ has size $k$. We consider whether or not the sequence $\{N_k\}$ is ultra-log-concave. 
+	Let $M = (E, \mcI)$ be a matroid of rank $r$ and let $E = A \sqcup B$ be a fixed partition of the ground set. For $0 \leq k \leq r$, let $N_k$ be the number of bases whose intersection with $A$ has size $k$. We prove that the sequence $\{N_k\}$ is ultra-log-concave. 
 \end{abstract}
 \tableofcontents
 
@@ -17,80 +17,7 @@
 
 \section{Background Material}
 
-\subsection{Matroids}
-
-\subsection{Mixed Volumes}
-
-\subsection{Mixed Discriminants}
-
-The background material for mixed discriminants comes mostly from \cite{bapat_raghavan_1997}.  
-\begin{defn}
-	If $A_k = (a^k_{ij})_{1 \leq i, j \leq n}$ are $n \times n$ matrices for $1 \leq k \leq n$, we define the \textbf{mixed discriminant} of $A_1, \ldots, A_n$ as
-	\[
-		\mathsf{D}(A_1, \ldots, A_k) := \frac{1}{n!} \sum_{\sigma \in \mathfrak{S}_n}\det \begin{bmatrix}
-			a^{\sigma(1)}_{11} & \ldots & a_{1n}^{\sigma(n)} \\
-			\vdots & \ddots & \vdots \\
-			a_{n1}^{\sigma(1)} & \ldots & a_nn^{\sigma(n)}
-		\end{bmatrix}
-	\]
-\end{defn}
-
-\begin{thm}
-	Let $A_1, \ldots, A_m$ be $n \times n$ matrices. Then 
-	\[
-		\det \left ( \sum_{i = 1}^m x_i A_i \right ) = \sum_{1 \leq i_1, \ldots, i_n \leq m} \mathsf{D}(A_{i_1}, \ldots, A_{i_n}) \cdot x_{i_1} \ldots x_{i_n}.
-	\]
-\end{thm}
-
-\begin{prop}[Properties of the Mixed Discriminant] \label{mixed-discriminant-properties}
-	In this proposition we consider three properties of mixed discriminants. 
-	\begin{enumerate}[label = (\alph*)]
-		\item For $\sigma \in S_n$ and matrices $A_1, \ldots, A_n$, we have 
-		\[
-			\mathsf{D}(A_{\sigma(1)}, \ldots, A_{\sigma(n)}) = \mathsf{D} (A_1, \ldots, A_n). 
-		\]
-		\item Let $A_2, \ldots, A_n$ be fixed matrices and let $A = \beta B + \gamma C$ where $B, C$ are matrices and $\beta, \gamma \in \RR$. Then 
-		\[
-			\mathsf{D}(A, A_2, \ldots, A_n) = \beta \cdot \mathsf{D}(B, A_2, \ldots, A_n) + \gamma \cdot D(C, A_2, \ldots, A_n). 
-		\]
-		\item Let $x_1, \ldots, x_n \in \RR^n$, then 
-		\[
-			\mathsf{D}(x_1x_1^T, \ldots, x_nx_n^T) = \frac{1}{n!} \left ( \det (x_1, \ldots, x_n) \right )^2. 
-		\]
-		\item Let $A_k$ be positive semidefinite $n \times n$ matrices and suppose $A_k = X_k X_k^T$ for each $k$. Then 
-		\[
-			\mathsf{D}(A_1, \ldots, A_n) = \frac{1}{n!} \sum \left ( \det (x_1, \ldots, x_n) \right )^2
-		\]
-		where $x_1, \ldots, x_n$ range over the columns of $X_1, \ldots, X_n$, respectively. 
-	\end{enumerate}
-\end{prop}
-
-\begin{thm}[Positivity of the Mixed Discriminant, Theorem 5.2.2 in \cite{bapat_raghavan_1997}]
-	Let $A_k$, $k = 1, 2, \ldots, n$ be $n \times n$ positive semidefinite matrices. Then the following conditions are equivalent:
-	\begin{enumerate}[label = (\alph*)]
-		\item $D(A_1, \ldots, A_n) > 0$. 
-		\item For any $T \subset \{1, 2, \ldots, n \}$,
-		\[
-			|T| + \dim \left \{ \bigcap_{i \in T} \ker A_i \right \} \leq n. 
-		\]
-		\item For any $T \subseteq \{1, 2, \ldots, n\}$, 
-		\[
-			\dim \text{im} \left ( \sum_{i \in T} A_i \right ) \geq |T|. 
-		\]
-	\end{enumerate}
-\end{thm}
-
-\begin{thm}[Alexandroff Inequality, THeorem 5.3.3 in \cite{bapat_raghavan_1997}]
-	Let $A, B, P_1, \ldots, P_{n-2}$ be $n \times n$ positive definite matrices. Then, 
-	\[
-		\mathsf{D}(A, B, P_1, \ldots, P_{n-2})^2 \geq \mathsf{D}(A, A, P_1, \ldots, P_{n-2}) \cdot \mathsf{D}(B, B, P_1, \ldots, P_{n-2})
-	\]
-	where equality holds if and only if $A = \lambda B$ for some real $\lambda$. 
-\end{thm}
-\begin{proof}
-	(insert proof)
-\end{proof}
-
+(To be added: Matroids, Mixed Volumes, Mixed Discriminants, Lorentzian Polynomials)
 
 \section{Introduction}
 
@@ -243,10 +170,10 @@ The proof of Theorem~\ref{general-theorem} uses the Lorentzian property of the b
 	\[
 		\sum_{k = 0}^r N_k u^k v^{r-k}
 	\]
-	and this is Lorentzian. This suffices for the proof. 
+	and this is Lorentzian. This implies that the coefficients are ultra-log-concave. This suffices for the proof. 
 \end{proof}
 
-It is interesting to note that Stanley wouldn't have been able to prove this result using his mixed volumes method because there are examples of basis generating polynomials which cannot be written as the mixed volume polynomial for some set of convex bodies. 
+\textit{Remark.} Stanley's method of proof would not have worked with non-regular matroids because there exist basis generating polynomials which cannot be written as the mixed volume polynomial for any set of convex bodies.
 
 \section{Equality Case}
 
@@ -262,6 +189,12 @@ We make the following conjecture.
 \begin{conj} \label{new-conjecture}
 	For simple matroids, we have strict inequality in the ultra-log-concavity. 
 \end{conj}
+
+Using the small matroid database of Gordon Royle and Dillon Mayhew (cite in a more official manner), we have verified the following result. 
+
+\begin{thm}
+	Conjecture~\ref{new-conjecture} holds for matroids of size at most $9$. 
+\end{thm}
 
 We attempt to prove this conjecture for three different cases. 
 \begin{enumerate}[label = (\roman*)]
@@ -291,87 +224,46 @@ We can prove the general version of the ultra-log concavity of the matroid count
 	The result now follows from the Alexandrov inequality for mixed discriminants. 
 \end{proof}
 
-Let's consider the case $s = 2$, as we have been doing. In this case, we have a partition $E = A \sqcup B$, and $N_k = D(A_1[k], A_2[n-k])$ where $A_1 = X_1 X_1^T$ and $A_2 = X_2 X_2^T$ where $X_1$ is the part of the unimodular matrix corresponding to the elements in $A$ and $X_2$ is the part of the unimodular matrix corresponding to the elements in $B$. Let $e_1, \ldots, e_n \in \RR^a$ be the rows of $X_1$ and $f_1, \ldots, f_n \in \RR^b$ be the rows of $X_2$. Then $A_1 = [\langle e_i, e_j \rangle ]$ and $A_2 = [\langle f_i, f_j \rangle]$. In the equality case, we must have $\langle e_i, e_j \rangle = \lambda \langle f_i, f_j \rangle$. Suppose $e_1, \ldots, e_a$ was a basis. Then we can find some orthonormal bases $\omega_i = \sum \lambda_{ij} e_j$. But then the corresponding $\eta_i = \sum \lambda_{ij} f_j$ will also be orthonormal. Thus the matroids represented by the vectors $\{e_1, \ldots, e_n\}$ and $\{f_1, \ldots, f_n\}$ are the same. You also know that both of them are full rank. So a necessary condition is that $a = b$. In other words, $E = A \sqcup B$ splits it into exactly half and half. (This is in the case where $N_k > 0$ since we know the constant is positive)
-
-\begin{prop}
-	Let $M$ be a regular matroid. If $N_k^2 = N_{k-1} N_{k+1}$ and $N_k > 0$, then we must have $|A| = |B|$. 
-\end{prop}
+Let's consider the case $s = 2$, as we have been doing. In this case, we have a partition $E = A \sqcup B$, and $N_k = D(A_1[k], A_2[n-k])$ where $A_1 = X_1 X_1^T$ and $A_2 = X_2 X_2^T$ where $X_1$ is the part of the unimodular matrix corresponding to the elements in $A$ and $X_2$ is the part of the unimodular matrix corresponding to the elements in $B$. Let $e_1, \ldots, e_n \in \RR^a$ be the rows of $X_1$ and $f_1, \ldots, f_n \in \RR^b$ be the rows of $X_2$. Then $A_1 = [\langle e_i, e_j \rangle ]$ and $A_2 = [\langle f_i, f_j \rangle]$. In the equality case, we must have $\langle e_i, e_j \rangle = \lambda \langle f_i, f_j \rangle$. 
 
 \begin{thm}
-	Suppose that $\frac{N_k}{\binom{r}{k}}^2 = \frac{N_{k-1}}{\binom{r}{k-1}} \frac{N_{k+1}}{\binom{r}{k+1}}$ for some $k$. Then $\frac{N_0}{\binom{r}{0}} = \frac{N_1}{\binom{r}{1}} = \ldots = \frac{N_r}{\binom{r}{r}}$. 
+	Suppose that $\frac{N_k}{\binom{r}{k}}^2 = \frac{N_{k-1}}{\binom{r}{k-1}} \frac{N_{k+1}}{\binom{r}{k+1}}$ for some $k$. Then $N_i = \lambda^r c \binom{r}{i}$ for all $0 \leq i \leq r$ where $\lambda \in \QQ_{> 0}$ and $c \in \ZZ_{> 0}$. 
 \end{thm}
 
 \begin{proof}
-	Let $D_i = D(A_1[i], A_2 [r-i])$. From the equality case of the Alexandrov inequality for mixed discriminants, we have $A_1 = \lambda A_2$ for some real $\lambda$. But then it's an equality case for all things. This suffices for the proof. 
+	Let $D_i = D(A_1[i], A_2 [r-i]) = N_i / \binom{r}{i}$. From the equality case of the Alexandrov inequality for mixed discriminants, we have $A_1 = \lambda A_2$ for some real $\lambda$. But then it's an equality case for all things. In particular, we have 
+	\[
+		\frac{D_1}{D_0} = \frac{D_2}{D_1} = \ldots = \frac{D_r}{D_{r-1}} = \lambda
+	\]
+	for some $\lambda \geq 0$. Thus, for any $k \geq 1$, we have 
+	\[
+		\frac{D_k}{D_0} = \prod_{i = 1}^k \frac{D_{i}}{D_{i-1}} = \lambda^r \implies D_k = \lambda^r D_0
+	\]
 \end{proof}
 
-This proves that, at least for unimodular matrices, we have $N_k = c \binom{r}{k}$ in the equality case. We now prove the conjecture for graphic matroids. 
+In particular, for equality to hold if suffices to verify that $N_0 / \binom{r}{0} = N_1 / \binom{r}{1}$ or $N_1 = r N_0$. 
+
+\begin{thm}
+	If equality holds at some index, then $N_k = a\binom{r}{k}$ for some $ a \geq 0$ and $c > 0$. 
+\end{thm}
+
+\begin{proof}
+	From the previous theorem, we know that 
+	\[
+		\lambda = \frac{N_0}{\binom{r}{0}} = \ldots = \frac{N_r}{\binom{r}{r}} \implies N_k = \binom{r}{k} \lambda 
+	\]
+\end{proof}
+This proves that, at least for unimodular matrices, we have $N_k = \lambda \cdot c^k \binom{r}{k}$ in the equality case. We now prove the conjecture for graphic matroids. 
 
 \begin{thm}
 	(NOT COMPLETE YET) Suppose that $M$ is a graphic matroid. Then Conjecture~\ref{main-conjecture} is true.
 \end{thm}
 \begin{proof}
-	There seems to be a small issue with the graph laplacian method. The issue is that the standard representation of the matroid as the vertex, edge adjacency list is not necessary fully unimodular. 
+	(small issue with proof) 
 \end{proof}
 
 \section{Equality cases for Lorentzian polynomials}
 
-A vector $h \in \RR^n$ is non-negative ($h \geq 0$) if all its entries are non-negative, and is positive ($h > 0$) if all its entries are positive. We denote by $e_i$ the $i$th coordinate vector. A map $T : (\RR^n)^k \to \RR$ is called a tensor (of degree $k$) if $T(h_1, \ldots, h_k)$ is linear in each argument $h_i$ and is called symmetric if it is unchanged under permutation of $h_1, \ldots, h_k$. A tensor is called non-negative if $T(h_1, \ldots, h_k) \geq 0$ for any $h_1, \ldots, h_k \geq 0$. A non-negative symmetric tensor is called Lorentzian if it is not identically zero and satisfies the Alexandrov-Fenchel inequality 
-\[
-	T(f, g, h_1, \ldots, h_{k-2})^2 \geq T(f, f, h_1, \ldots, h_{k-2}) T(g, g, h_1, \ldots, h_{k-2})
-\]
-for all $f, g, h_1, \ldots, h_{k-2} \geq 0$. 
-
-More or less by definition, a tensor $T(h_1, \ldots, h_k)$ is Lorentzian if and only if $h \to T(h, \ldots, h)$ is a Lorentzian polynomial. 
-
-\begin{defn}
-	Let $T$ be a Lorentzian tensor of degree $k$, and let $h \geq 0$. Then 
-	\[
-		\dim (h) = \max \{ 0 \leq d \leq k: T(h[d], 1[k-d]) > 0\}.
-	\]
-	Here $h[d]$ means $h$ is repeated $d$ times, and $1$ is the vector of all ones. 
-\end{defn}	
-Notes:
-\begin{enumerate}
-	\item The definition of dimension depends on the tensor $T$. 
-	\item $\dim (h)$ only depends on which entries of $h$ are positive, not on their values. 
-	\item The vector $1$ can be replaced by any positive vector. 
-	\item This definition agrees precisely with dimension of convex bodies in $\RR^k$: $\dim (K) = \max \{0 \leq d \leq k : V(K[d], B[k-d]) > 0\}$. This way of defining dimension algebraically is called ``numerical dimension'' in algebraic geometry. 
-	\item In some ways, this notion of dimension behaves exactly as in geometry, but in other ways it does not. For example, it is possible for some Lorentzian tensors that every non-zero vector is full-dimensional, while in geometry you can find for any space of dimension $d$ a subspace of dimension $d-1$. 
-	\item It appears $\dim (h)$ is easy to compute in examples. 
-\end{enumerate}
-
-We can use dimension to characterize positivity just as in convex geometry (but with a very different proof). 
-
-\begin{prop}
-	Let $T$ be a Lorentzian tensor of degree $k$ and $h_1, \ldots, h_k \geq 0$. Then the following are equivalent. 
-	\begin{enumerate}[label = (\arabic*)]
-		\item $T(h_1, \ldots, h_k) > 0$. 
-		\item $\dim (h_{i_1} + \ldots + h_{i_d}) \geq d$ for all $1 \leq d \leq k$, $i_1 < \ldots < i_d$. 
-	\end{enumerate}
-\end{prop}
-
-For the equality cases, as for the Alexandrov-Fenchel inequality we should consider separately the supercritical, critical, and subcritical cases. 
-
-\begin{defn}
-	Let $T$ be a Lorentzian tensor of degree $k$. Then $h_1, \ldots, h_{k-2} \geq 0$ are supercritical if $\dim (h_{i_1} + \ldots + h_{i_d}) \geq d+2$ for all $d$, $i_1 < \ldots < i_d$. 
-\end{defn}
-
-\begin{thm}[Supercritical equality cases]
-	Let $T$ be a Lorentzian tensor of degree $k$, and let $h_1, \ldots, h_{k-2} \geq 0$ be supercritical. Let $f, g \geq 0$ be such that 
-	\[
-		T(f, g, h_1, \ldots, h_{k-2}) > 0.
-	\]
-	Then 
-	\[
-		T(f, g, h_1, \ldots, h_{k-2})^2 = T(f, f, h_1, \ldots, h_{k-2}) T(g, g, h_1, \ldots, h_{k-2})
-	\]
-	if and only if there exists $a > 0$ such that 
-	\[
-		T(f - ag, e_{x_0}, \ldots, e_{x_{k-2}}) = 0
-	\]
-	for all $x_0, \ldots, x_{k-2} \in [n]$ such that $(h_i)_{x_i} > 0$ for all $i = 1, \ldots, k-2$. 
-\end{thm}
 \bibliographystyle{plain}
 \bibliography{ref}
 
