@@ -17,7 +17,7 @@
 
 \section{Background Material}
 
-(To be added: Matroids, Mixed Volumes, Mixed Discriminants, Lorentzian Polynomials)
+(To be added: Matroids, Mixed Volumes, Mixed Discriminants, Lorentzian Polynomials, Hodge Riemann Relations)
 
 \section{Introduction}
 
@@ -262,7 +262,65 @@ This proves that, at least for unimodular matrices, we have $N_k = \lambda \cdot
 	(small issue with proof) 
 \end{proof}
 
+\section{Current Progress}
+
+Our problem can be reframed in the following way. Given a matroid $M$ on $[n]$, we can define its \textbf{basis generating polynomial} as 
+\[
+	f_M (x_1, \ldots, x_n) := \sum_{B \in \mathsf{BASE}(M)} \left ( \prod_{i \in B} x_i \right ). 
+\]
+We can then define the polynomial
+\[
+	g_M (x_A, x_B) := f_M(x_A, \ldots, x_A, x_B, \ldots, x_B) = \sum_{k = 0}^r N_k x_A^k x_B^{r-k}.
+\]
+From \cite{strictness-of-basis-generating-polynomial} we have the following technical lemma
+\begin{lem}[Lemma 4.2 in \cite{strictness-of-basis-generating-polynomial}]
+	Let $f \in \RR[x_1, \ldots, x_n]$ be a homogeneous polynomial having the $\text{HRR}_1$ with respect to $l_a$ with $a \in \RR^n$ and let $l_1, l_2 \in S$ be linear forms. If $l_1$ and $l_2$ are $\RR$-linearly independent in $R_f^1$ and $(l_1l_2f)(a) > 0$, then 
+	\[
+		\det \begin{pmatrix}
+			(l_1l_1f)(a) & (l_1l_2f)(a) \\
+			(l_1l_2f)(a) & (l_2l_2f(a)
+		\end{pmatrix} < 0.
+	\]
+\end{lem}
+
+It seems like it would be enough to prove the following things:
+\begin{itemize}
+	\item $g(x_A, x_B)$ has $\text{HRR}_1$ wrt $\partial_A$
+	\item $\partial_A$ and $\partial_B$ are linearly independent in $R_f^1$
+	\item $\partial_A^2 g (1, 0) > 0$. 
+\end{itemize}
+
+Given a matroid $M$, define its truncation $TM$ to be the matroid on the same set with bases being the independent sets of rank $\text{rank}(M) - 1$. 
+
+\begin{prop}
+	Let $M$ be a matroid. Then, we have that 
+	\[
+		g_{TM} (x_A, x_B) = \sum_{k = 0}^{r-1} \left \{ (k+1)N_{k+1} + (r-k) N_k\right \} x_A^k x_B^{r-k-1} = (\partial_A + \partial_B) g_M
+	\]
+\end{prop}
+
+\begin{proof}
+	Combinatorially the formula is clear, but if that is not enough we have that 
+	\begin{align*}
+		g_{TM}(x_A, x_B) & = f_{TM}(x_A, \ldots, x_A, x_B, \ldots, x_B) \\
+		f_{TM} & = (\partial_1 + \ldots + \partial_n) f_M \\
+		& = (\partial_1 + \ldots + \partial_n) \sum_{k = 0}^r \sum_{U \in \mathcal{B}(M): |U \cap A| = k} x^U \\
+		& = \sum_{k = 0}^r \sum_{|U \cap A| = k} (\partial_1 + \ldots + \partial_n) x^U. 
+	\end{align*}
+	Substituting $x_A$ and $x_B$, we get 
+	\begin{align*}
+		g_{TM}(x_A, x_B) & = \sum_{k = 0}^r N_k (kx_A^{k-1} x_B^{r-k} + (r-k)x_A^k x_B^{r-k-1}) \\
+		& = \sum_{k = 1}^r k N_k x_A^{k-1} x_B^{r-k} + \sum_{k = 0}^{r-1} (r-k)N_k x_A^k x_B^{r-k-1} \\
+		& = \sum_{k = 0}^{r-1} (k+1)N_{k+1} x_A^k x_B^{r-k-1} + \sum_{k =0}^{r-1} (r-k) N_k x_A^k x_B^{r-k-1} \\
+		& = \sum_{k = 0}^{r-1} \left \{ (k+1)N_{k+1} + (r-k) N_k\right \} x_A^k x_B^{r-k-1}.
+	\end{align*}
+	This seems less than desirable.
+\end{proof}
+Perhaps there is another operator to make matroids smaller that preserves simplicity? Or maybe the truncation operator is good enough to imply the desired inequalities. 
+
 \section{Equality cases for Lorentzian polynomials}
+
+(???)
 
 \bibliographystyle{plain}
 \bibliography{ref}

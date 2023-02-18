@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  4 JAN 2023 12:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  17 FEB 2023 11:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -876,47 +876,58 @@ mr/m/n/12 = []$
 LaTeX Warning: Reference `mixed-discriminant-properties' on page 5 undefined on
  input line 220.
 
-[5] (main.bbl) [6] (main.aux)
+[5] [6]
+
+LaTeX Warning: Citation `strictness-of-basis-generating-polynomial' on page 7 u
+ndefined on input line 275.
+
+
+LaTeX Warning: Citation `strictness-of-basis-generating-polynomial' on page 7 u
+ndefined on input line 276.
+
+[7] (main.bbl) [8] (main.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0B0F0D78522BC414AA3A351711DD3B65;615.
+(rerunfilecheck)             Checksum: 62CF91CBCB63702849BF3B87017F3242;741.
  ) 
 Here is how much of TeX's memory you used:
- 23640 strings out of 478659
- 457856 string characters out of 2845920
- 728151 words of memory out of 3000000
- 41290 multiletter control sequences out of 15000+600000
- 416063 words of font info for 75 fonts, out of 8000000 for 9000
+ 23655 strings out of 478659
+ 458011 string characters out of 2845920
+ 729151 words of memory out of 3000000
+ 41297 multiletter control sequences out of 15000+600000
+ 417101 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 113i,10n,108p,706b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
-<C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmbx10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmbxti10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/alany/AppData/Local/Programs/
-MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/alany/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/alany/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/ala
-ny/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/U
-sers/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.p
-fb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr12.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr17.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmr6.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/alany/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/alany/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/alany/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/al
-any/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:
-/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eu
-fm10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/symbols/msbm10.pfb>
-Output written on main.pdf (6 pages, 266952 bytes).
+ 113i,10n,108p,706b,400s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\alany\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1200.pk><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/alany/AppData/Local/Programs/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/alany/AppData/Local/Pro
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/alany/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/alany
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Use
+rs/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb
+><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
+mr10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmr12.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmr17.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr6.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/alany/AppData/Local/Programs/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmss12.pfb><C:/Users/alany/AppData/Local/P
+rograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/alany/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/alan
+y/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Us
+ers/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pf
+b><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmti12.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
+fonts/euler/eufm10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (8 pages, 286255 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 45 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 227 PDF objects out of 1000 (max. 8388607)
+ 42 named destinations out of 1000 (max. 500000)
+ 53 words of extra memory for PDF output out of 10000 (max. 10000000)
 
