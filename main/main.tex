@@ -1,7 +1,9 @@
 \documentclass[12pt]{article}
 \usepackage{style}
-\usepackage[margin=0.75in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage[super]{nth}
+\newcommand{\SLP}{\mathsf{SLP}}
+\newcommand{\HRR}{\mathsf{HRR}}
 \title{Ultra Log-concavity of Basis Partition Sequence}
 \author{Alan Yan \\ Senior Thesis Advisor: Professor June Huh}
 \begin{document}
@@ -217,7 +219,7 @@ We can prove the general version of the ultra-log concavity of the matroid count
 	\[
 		B(r_1, \ldots, r_s) = \frac{1}{r_1! \ldots r_s!} \cdot \sum \det (x_1, \ldots, x_n)^2
 	\]
-	where in the sum the first $r_1$ entries are columns in $X_1$, the next $r_2$ are columns in $X_2$, and so on. Let $A_k = X_k X_k^T$. From Proposition~\ref{mixed-discriminant-properties}(d), we have 
+	where in the sum the first $r_1$ entries are columns in $X_1$, the next $r_2$ are columns in $X_2$, and so on. Let $A_k = X_k X_k^T$. From ..., we have 
 	\[
 		D(A_1 [r_1], \ldots, A_s [r_s]) = \frac{1}{n!} \sum \det (x_1, \ldots, x_n)^2 = \frac{B(r_1, \ldots, r_s)}{\binom{n}{r_1, \ldots, r_s}}. 
 	\] 
@@ -272,8 +274,8 @@ We can then define the polynomial
 \[
 	g_M (x_A, x_B) := f_M(x_A, \ldots, x_A, x_B, \ldots, x_B) = \sum_{k = 0}^r N_k x_A^k x_B^{r-k}.
 \]
-From \cite{strictness-of-basis-generating-polynomial} we have the following technical lemma
-\begin{lem}[Lemma 4.2 in \cite{strictness-of-basis-generating-polynomial}]
+From \cite{MNY} we have the following technical lemma
+\begin{lem}[Lemma 4.2 in \cite{MNY}]
 	Let $f \in \RR[x_1, \ldots, x_n]$ be a homogeneous polynomial having the $\text{HRR}_1$ with respect to $l_a$ with $a \in \RR^n$ and let $l_1, l_2 \in S$ be linear forms. If $l_1$ and $l_2$ are $\RR$-linearly independent in $R_f^1$ and $(l_1l_2f)(a) > 0$, then 
 	\[
 		\det \begin{pmatrix}
@@ -318,9 +320,137 @@ Given a matroid $M$, define its truncation $TM$ to be the matroid on the same se
 \end{proof}
 Perhaps there is another operator to make matroids smaller that preserves simplicity? Or maybe the truncation operator is good enough to imply the desired inequalities. 
 
-\section{Equality cases for Lorentzian polynomials}
+\section{Hodge-Riemann Relations for the Basis Generating Polynomial}
 
-(???)
+For every homogeneous polynomial in real coefficients, we can associate a ``cohomology ring'' which satisfy nice properties. 
+
+\begin{defn}
+	Let $f \in \RR[x_1, \ldots, x_n]$ be a homogeneous polynomial and let $S := \RR [ \partial_1, \ldots, \partial_n]$ be the polynomial ring in variables which are differentials corresponding to $x_1, \ldots, x_n$. We define 
+	\[
+		A^\bullet_f := S / \text{Ann}(f)
+	\]
+	where we give it a graded ring structure graded by degree. 
+\end{defn}
+
+The cohomology ring described above is a Poincare duality algebra. Explicitly, this means that if $f$ is a homogeneous polynomial of degree $d$, then $A^d_f \simeq \RR$ and the bilinear map $A_f^k \times A_f^{d-k} \to A_f^d \simeq \RR$ is non-degenerate. 
+
+\begin{prop}
+	Let $f \in \RR[x_1, \ldots, x_n]$ be a homogeneous polynomial of degree $d$. Then $A_f^\bullet$ is a Poincare Duality algebra.
+\end{prop}
+
+\begin{proof}
+	Consider the map $A_f^d \to \RR$ by $\xi \mapsto \xi \cdot f$. This is clearly surjective. This is injective because $\xi \cdot f = 0$ if and only if $\xi \in \text{Ann}(f)$. Now, we prove that $A_f^k \times A_f^{d-k} \to \RR$ is non-degenerate. Suppose that $\xi \alpha \cdot f = 0$ for all $\alpha \in A_f^{d-k}$. This implies that $\alpha (\xi f) = 0$ for all $\alpha \in A_f^{d-k}$. If $\xi f \neq 0$, then we can take $\alpha$ to be one of the dual differential operators to a non-zero monomial. This will get a non-zero value and is a contradiction. 
+\end{proof}
+
+\begin{defn} [Strong Lefschetz Property]
+	Let $l \in S$ be a linear form. We say that a homogeneous polynomial $f \in \RR[x_1, \ldots, x_n]$ satisfies the Strong Lefschetz Property of degree $k$ with respect to $l$ (also notated $\mathsf{SLP}_k$ with respect to $l$) if the map 
+	\[
+		\times l^{d-2k} : A_f^k \to A_f^{d-k}
+	\]
+	is an isomorphism. 
+\end{defn}
+
+\begin{defn} [Hodge-Riemann Relation]
+	We say $f$ satisfies the Hodge-Riemann Relation of degree $k$ with respect to $l$ (also notated as $\mathsf{HRR}_k$ with respect to $l$) if it satisfies $\mathsf{SLP}_k$ with respect to $l$ and the bilinear form 
+	\[
+		Q^k_l : A_f^k \times A_f^k \to \RR
+	\] 
+	defined by $Q^k_l(\xi_1, \xi_2) = (-1)^k \xi_1 \xi_2 l^{d-2k}$ is positive definite on the kernel of $\times l^{d-2k+1} : A_f^k \to A_f^{d-k+1}$.
+\end{defn}
+
+\begin{lem}
+	Let $f \in \RR [x_1, \ldots, x_n]$ be a homomogeneous polynomial of degree $d$ and $a \in \RR^n$ be a point such that $f(a) > 0$. Then 
+	\begin{enumerate}[label = (\alph*)]
+		\item $f$ satisfies $\mathsf{SLP}_1$ with respect to $l$ if and only if $Q_l^1$ is non-singular. 
+		\item $f$ satisfies $\mathsf{HRR}_1$ with respect to $l$ if and only if $-Q_l^1$ has signature $(+, -, \ldots, -)$. 
+	\end{enumerate}
+\end{lem}
+
+\begin{lem}
+	If $f$ is Lorentzian and $f(a) > 0$, then $f$ has $\mathsf{HRR}_1$ if and only if it has $\mathsf{SLP}_1$. 
+\end{lem}
+
+\begin{lem}
+	If $f$ is Lorentzian, then $\mathsf{HRR}_1$ holds on $\RR_{> 0}^n$. 
+\end{lem}
+
+One possible question to ask about the basis generating polynomial $f_M$ is whether or not it satisfies Hodge-Riemann Relation on the facets of the positive orthant. We can decompose the boundary of the positive orthant as 
+\[
+	\partial \RR_{\geq 0}^E = \bigcup_{i \in E} H_i
+\]
+where $H_i := \{x \in \RR_{\geq 0}^n : \langle e_i, x \rangle = 0\}$. We say $f$ satisfies $\mathsf{SLP}$ or $\mathsf{HRR}$ with respect to $a \in \RR^n$ when it satisfies the property with respect to the linear differential operator
+\[
+	l_a := a_1 \partial_1 + \ldots + a_n \partial_n. 
+\]
+
+\begin{conj}
+	Let $M$ be a simple matroid. The basis generating polynomial $f_M$ satisfies $\mathsf{HRR}_1$ for $f_M$ on $\text{relint}(H_i)$ if and only if $i$ is not a coloop in $M$. 
+\end{conj}
+
+\begin{fact}
+	Let $e \in M$ be an element of the matroid that is not a co-loop. Then 
+	\[
+		f_M = x_e f_{M / e} + f_{M \backslash e}.
+	\]
+\end{fact}
+\begin{proof}
+	We omit the proof. 
+\end{proof}
+
+If $M$ is simple, then the matroid $M \backslash e$ is still simple. 
+
+\begin{fact}
+	The cohomology ring of $f_M$ is isomorphic to the cohomology ring of $f_{\widetilde{M}}$ where $\widetilde{M}$ is the simplification of $M$. 
+\end{fact}
+
+\begin{proof}
+	We omit the proof. 
+\end{proof}
+
+
+\begin{prop}
+	$\partial_1 f_M, \ldots, \partial_n f_M$ are linearly independent if and only if $M$ is simple.  
+\end{prop}
+\begin{proof}
+	If $M$ is not simple, it either has loops or parallel elements. If $i$ is a loop, then $\partial_i f_M = 0$. If $i, j$ are parallel, then $(\partial_i - \partial_j) f_M = 0$. This suffices for the proof. 
+\end{proof}
+
+\subsection{Current Approach}
+
+For any $a \in \RR^n$ with $f_M(a) > 0$, we know that $f_M$ has $\HRR_1$ if and only if it has $\SLP_1$. Let us consider $a = (a_1, \ldots, a_{n-1}, 0)$ or even $a_1 = \ldots = a_{n-1} = 1$ and $a_n = 0$. For $i, j \in [n-1]$, we have 
+\[
+	\partial_i \partial_j f = x_n \partial_i \partial_j f_{M / n} + \partial_{i} \partial_j f_{M \backslash n}.
+\]
+When $a \in H_n$, we have $\partial_i \partial_j f = \partial_i \partial_j f_{M \backslash n}$.  If $j = n$, then we have 
+\[
+	\partial_i \partial_n f = \partial_i f_{M / n}.
+\]
+Thus, the Hessian of $f$ at $a$ where $a_n = 0$ is of the form 
+\[
+	H_f = \begin{bmatrix}
+		H_{f_{M \backslash n}} & \nabla f_{M/n} \\
+		\left ( \nabla f_{M/n} \right )^{\mathsf{T}} & 0
+	\end{bmatrix}.
+\]
+We want to know when this matrix is non-singular. Luckily, we have a neat formula to compute block determinants. 
+
+\begin{thm} [\cite{Silvester2000DeterminantsOB}]
+	When $D$ is invertible and $A$ is a square matrix, we have
+	\[
+		\det \begin{bmatrix}
+			A & B \\ C & D
+		\end{bmatrix} = \det (A - BD^{-1}C) \det (D).
+	\]
+\end{thm}
+
+This allows us to compute
+\[
+	\det H_f = \det H_{f_{M \backslash n}} \cdot (\nabla f_{M / n})^T H_{f_{M\backslash n}}^{-1} \cdot \nabla f_{M/n}. 
+\]
+We know that $\det H_{f_{M\backslash n}} \neq 0$ since $M \backslash n$ is simple and we are substituting an element from the positive orthant into it. So, we want to prove that 
+\[
+ 	\nabla f_{M/n}^\mathsf{T} \cdot H_{f_{M - n}}^{-1} \cdot \nabla f_{M/n} \neq 0.
+\]
 
 \bibliographystyle{plain}
 \bibliography{ref}

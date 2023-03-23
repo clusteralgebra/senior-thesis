@@ -5,44 +5,44 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
-You've used 3 entries,
+You've used 4 entries,
             2118 wiz_defined-function locations,
-            516 strings with 4390 characters,
-and the built_in function-call counts, 785 in all, are:
-= -- 73
-> -- 33
+            525 strings with 4500 characters,
+and the built_in function-call counts, 1159 in all, are:
+= -- 110
+> -- 45
 < -- 0
-+ -- 13
-- -- 10
-* -- 44
-:= -- 140
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 13
++ -- 18
+- -- 14
+* -- 77
+:= -- 202
+add.period$ -- 11
+call.type$ -- 4
+change.case$ -- 19
 chr.to.int$ -- 0
-cite$ -- 3
-duplicate$ -- 30
-empty$ -- 70
-format.name$ -- 10
-if$ -- 165
+cite$ -- 4
+duplicate$ -- 40
+empty$ -- 101
+format.name$ -- 14
+if$ -- 240
 int.to.chr$ -- 0
-int.to.str$ -- 3
+int.to.str$ -- 4
 missing$ -- 3
-newline$ -- 17
-num.names$ -- 6
-pop$ -- 19
+newline$ -- 22
+num.names$ -- 8
+pop$ -- 18
 preamble$ -- 1
-purify$ -- 11
+purify$ -- 15
 quote$ -- 0
-skip$ -- 23
+skip$ -- 30
 stack$ -- 0
-substring$ -- 30
-swap$ -- 3
+substring$ -- 80
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 10
+type$ -- 16
 warning$ -- 0
-while$ -- 7
-width$ -- 4
-write$ -- 32
+while$ -- 11
+width$ -- 5
+write$ -- 43

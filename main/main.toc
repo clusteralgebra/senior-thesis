@@ -2,4 +2,5 @@
 \contentsline {section}{\numberline {2}Introduction}{2}{section.2}%
 \contentsline {section}{\numberline {3}Equality Case}{5}{section.3}%
 \contentsline {section}{\numberline {4}Current Progress}{7}{section.4}%
-\contentsline {section}{\numberline {5}Equality cases for Lorentzian polynomials}{8}{section.5}%
+\contentsline {section}{\numberline {5}Hodge-Riemann Relations for the Basis Generating Polynomial}{8}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Current Approach}{10}{subsection.5.1}%

@@ -1,14 +1,19 @@
 \begin{thebibliography}{1}
 
-\bibitem{bapat_raghavan_1997}
-R.~B. Bapat and T.~E.~S. Raghavan.
-\newblock {\em Nonnegative Matrices and Applications}.
-\newblock Encyclopedia of Mathematics and its Applications. Cambridge
-  University Press, 1997.
-
 \bibitem{lorentzian-polynomials}
 Petter Brändén and June Huh.
 \newblock Lorentzian polynomials, 2019.
+
+\bibitem{MNY}
+Satoshi Murai, Takahiro Nagaoka, and Akiko Yazawa.
+\newblock Strictness of the log-concavity of generating polynomials of
+  matroids.
+\newblock {\em Journal of Combinatorial Theory, Series A}, 181:105351, 2021.
+
+\bibitem{Silvester2000DeterminantsOB}
+John~R. Silvester.
+\newblock Determinants of block matrices.
+\newblock {\em The Mathematical Gazette}, 84:460 -- 467, 2000.
 
 \bibitem{STANLEY}
 Richard~P Stanley.
