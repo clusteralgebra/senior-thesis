@@ -50,9 +50,9 @@ In particular, Stanley uses the Alexandrov-Fenchel inequality to prove the follo
 	This proves that $N_k / \binom{r}{k}$ is log-concave. 
 \end{proof}
 
-Stanley's proof relates the sequence $N_k$ to a sequence of mixed volume. The ultra-log-concave follows from the Alexandrov-Fenchel inequality. The relationship relies on the unimodular coordinazation that exists for regular matroids. It is unclear whether or not the result holds true for general matroids. There are three possible conjectures each of increasing strength. 
+Stanley's proof relates the sequence $N_k$ to a sequence of mixed volume. The ultra-log-concave follows from the Alexandrov-Fenchel inequality. The relationship relies on the unimodular coordinazation that exists for regular matroids. It is unclear whether or not the result holds true for general matroids. There are three possible conjectures each of increasing strength. There is another proof of the theorem using mixed discriminants \cite{bapat_raghavan_1997}. 
 
-\begin{thm}
+\begin{proof}
 	Let $M = (E, \mathcal{I})$ be a matroid of rank $r$ and consider a partition 
 	\[
 		E = S_1 \sqcup S_2 \sqcup \ldots \sqcup S_t
@@ -61,23 +61,23 @@ Stanley's proof relates the sequence $N_k$ to a sequence of mixed volume. The ul
 	\[
 		B(r_1, \ldots, r_t) = \binom{r}{r_1, \ldots, r_t} \mathsf{D} (A_1 [r_1], \ldots, A_t [r_t])
 	\]
-	where $A_i = X_i X_i^T$ where $X_i$ is the matrix containing as columns the vectors cooresponding to the vectors in $S_i$. 
-\end{thm}
-
-\begin{proof}
-	This is immediate from the properties of the mixed discriminant. 
+	where $A_i = X_i X_i^T$ where $X_i$ is the matrix containing as columns the vectors cooresponding to the vectors in $S_i$. Specializing to the case where $t = 2$, we have that 
+	\[
+		N_k = \binom{r}{k} \mathsf{D}(A_1[k], A_2[r-k]). 
+	\]
+	Thus the equality $\widetilde{N}_k^2 = \widetilde{N}_{k-1} \cdot \widetilde{N}_{k+1}$ is realy a question on the equality of 
+	\[
+		\mathsf{D}(A_1[k], A_2[r-k])^2 \geq \mathsf{D}(A_1[k-1], A_2[r-k+1]) \cdot \mathsf{D}(A_1[k+1], A_2[r-k-1]). 
+	\]
 \end{proof}
-
-Specializing to the case where $t = 2$, we have $N_k = \binom{r}{k} \mathsf{D} (A_1[k], A_2[r-k])$. Thus the equality of 
-\[
-	\left ( \frac{N_k}{\binom{r}{k}} \right )^2 = \frac{N_{k-1}}{\binom{r}{k-1}} \cdot \frac{N_{k+1}}{\binom{r}{k+1}}
-\]
-is really a question on the equality of 
-\[
-	\mathsf{D}(A_1[k], A_2[r-k])^2 \geq \mathsf{D}(A_1[k-1], A_2[r-k+1]) \cdot \mathsf{D}(A_1[k+1], A_2[r-k-1]). 
-\]
-Equality holds if and only if $A_1 = \lambda A_2$ for some real $\lambda$. 
-
+ 
+\begin{thm}[Alexandroff Inequality for Mixed Discriminants]
+	Let $A_1, \ldots, A_{n-r}, A$ be $n \times n$ positive definite matrices. Then, 
+	\[
+		\mathsf{D}(A_1, \ldots, A_{n-r}, A[r])^2 \geq \mathsf{D} (A_1, \ldots, A_{n-r}, A_{n-r}, A[r-1]) \cdot \mathsf{D} (A_1, \ldots, A_{n-r-1}, A[r+1]), 
+	\]
+	where equality holds if and only if $A = \alpha A^{n-r}$ for some real $\alpha$. 
+\end{thm}
 
 \begin{conj} \label{main-conjecture}
 	Let $M$ be a matroid of rank $r$ and order $n$. Then,  
@@ -387,6 +387,8 @@ where $H_i := \{x \in \RR_{\geq 0}^n : \langle e_i, x \rangle = 0\}$. We say $f$
 	Let $M$ be a simple matroid. The basis generating polynomial $f_M$ satisfies $\mathsf{HRR}_1$ for $f_M$ on $\text{relint}(H_i)$ if and only if $i$ is not a coloop in $M$. 
 \end{conj}
 
+It is easy to see that if $i$ is a coloop, then $\mathsf{HRR}_1$ is not satisfied on the corresponding facet. Indeed, the bilinear form $-Q^1_l$ will have the same signature has the Hessian. The Hessian would be singular in the case that there is a coloop. If we don't require the matroid to be simple, consider the matroid $M = ([3], B)$ where $B = (\{1, 3\}, \{2, 3\})$. Then $e = 1$ is not a coloop, but since in the simplification it is a coloop it doesn't satisfy the conjecture. This implies that the restriction that $M$ is simple is necessary. 
+
 \begin{fact}
 	Let $e \in M$ be an element of the matroid that is not a co-loop. Then 
 	\[
@@ -451,6 +453,8 @@ We know that $\det H_{f_{M\backslash n}} \neq 0$ since $M \backslash n$ is simpl
 \[
  	\nabla f_{M/n}^\mathsf{T} \cdot H_{f_{M - n}}^{-1} \cdot \nabla f_{M/n} \neq 0.
 \]
+
+For example, this proves that for $M = U_{n, k}$ uniform matroid with $l = \partial_1 + \ldots + \partial_{n-1}$, we know that $f_M$ has $\mathsf{HRR}_1$ with respect to $l$. 
 
 \bibliographystyle{plain}
 \bibliography{ref}
