@@ -5,44 +5,46 @@ Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
-You've used 5 entries,
+Warning--empty publisher in chung-spectral-graph-theory
+You've used 7 entries,
             2118 wiz_defined-function locations,
-            531 strings with 4669 characters,
-and the built_in function-call counts, 1422 in all, are:
-= -- 136
-> -- 58
+            543 strings with 4868 characters,
+and the built_in function-call counts, 1879 in all, are:
+= -- 180
+> -- 72
 < -- 0
-+ -- 23
-- -- 18
-* -- 90
-:= -- 249
-add.period$ -- 15
-call.type$ -- 5
-change.case$ -- 23
++ -- 29
+- -- 22
+* -- 114
+:= -- 329
+add.period$ -- 22
+call.type$ -- 7
+change.case$ -- 30
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 52
-empty$ -- 123
-format.name$ -- 18
-if$ -- 297
+cite$ -- 8
+duplicate$ -- 76
+empty$ -- 167
+format.name$ -- 22
+if$ -- 395
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 5
-newline$ -- 27
-num.names$ -- 10
-pop$ -- 25
+int.to.str$ -- 7
+missing$ -- 9
+newline$ -- 37
+num.names$ -- 14
+pop$ -- 38
 preamble$ -- 1
-purify$ -- 19
+purify$ -- 25
 quote$ -- 0
-skip$ -- 37
+skip$ -- 49
 stack$ -- 0
-substring$ -- 85
-swap$ -- 5
+substring$ -- 95
+swap$ -- 7
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 18
-warning$ -- 0
-while$ -- 13
-width$ -- 6
-write$ -- 54
+type$ -- 22
+warning$ -- 1
+while$ -- 17
+width$ -- 8
+write$ -- 76
+(There was 1 warning)

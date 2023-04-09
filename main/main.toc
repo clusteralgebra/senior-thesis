@@ -1,6 +1,8 @@
 \contentsline {section}{\numberline {1}Background Material}{2}{section.1}%
-\contentsline {section}{\numberline {2}Introduction}{2}{section.2}%
-\contentsline {section}{\numberline {3}Equality Case}{5}{section.3}%
-\contentsline {section}{\numberline {4}Current Progress}{7}{section.4}%
-\contentsline {section}{\numberline {5}Hodge-Riemann Relations for the Basis Generating Polynomial}{8}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Current Approach}{10}{subsection.5.1}%
+\contentsline {section}{\numberline {2}Matroids}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Graphic Matroids}{2}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Introduction}{3}{section.3}%
+\contentsline {section}{\numberline {4}Equality Case}{6}{section.4}%
+\contentsline {section}{\numberline {5}Current Progress}{8}{section.5}%
+\contentsline {section}{\numberline {6}Hodge-Riemann Relations for the Basis Generating Polynomial}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Current Approach}{13}{subsection.6.1}%

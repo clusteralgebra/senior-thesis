@@ -2,36 +2,358 @@
 \usepackage{style}
 %%%%%%%%IMPORTANT INFORMATION%%%%%%%%%%%%%%%%%%%%
 %Using puthesis-UG.cls includes an Honor Code declaration. By using this file you are 
-%decalring that this paper is your own work in accordance with University retgulations.
+%declaring that this paper is your own work in accordance with University retgulations.
 %
 %The file puthesis-UG.cls must be downloaded from the math department website and 
 %saved in the same directory as this file.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \author{Alan Yan}
 \adviser{Professor June E. Huh}
-\title{Ultra-log-concavity of Matroid Sequences}
+\title{Log-concavity in Combinatorics}
 \abstract{(write something flowery)}
 \acknowledgements{I would like to thank}
 \date{today}
 
 
+% Things I want to talk about:
+
+% 1. Combinatorial Atlas
+% 2. Lorentzian Polynomials
+% 3. Alexandrov-Fenchel Inequality
+% 4. 
+%
+
 
 \begin{document}
+ 
+\chapter{Conventions and Notation}
 
-Hello 
-\chapter{Chapter}
+\chapter{Introduction}
 
-\section{Section}
+\chapter{Combinatorial Structures}
 
-\subsection{Subsection}
+\section{Partially Ordered Sets}
 
-Text.
+\section{Matroids}
 
-\section{New Section}
+Our main reference for matroids are (cite)
 
-\subsection{Subsection}
-More text.
+\begin{defn}
+	A \textbf{matroid} is an ordered pair $M = (E, \mcI)$ consisting of a finite set $E$ and a collection of subsets $\mathcal{I} \subseteq 2^E$ which satisfy the following three properties:
+	\begin{enumerate}
+		\item[(\textbf{I1})] $\emptyset \in \mathcal{I}$.
+		\item[(\textbf{I2})] If $X \subseteq Y$ and $Y \in \mathcal{I}$, then $X \in \mathcal{I}$. 
+		\item[(\textbf{I3})] If $X, Y \in \mathcal{I}$ and $|X| > |Y|$, then there exists some element $e \in X \backslash Y$ such that $Y \cup \{e\} \in \mathcal{I}$. 
+	\end{enumerate}
+	The set $E$ is called the ground set of the matroid and the collection of subsets $\mathcal{I}$ are called independent sets. 
+\end{defn}
 
+Given a matroid $M = (E, \mathcal{I})$, we call a subset $X \subseteq E$ a \textbf{dependent set} if and only if $X \notin \mathcal{I}$. We define a basis $B \in \mathcal{I}$ to be a maximal independent set. 
+
+\begin{prop}
+	Let $M = (E, \mathcal{I})$ be a matroid and $B_1, B_2$ be bases. Then $|B_1| = |B_2|$. 
+\end{prop}
+\begin{proof}
+	If $|B_1| < |B_2|$, then by (I3), there exists some element $e \in B_2 \backslash B_1$ satisfying $B_1 \cup \{e\} \in \mathcal{I}$. But $|B_1 \cup \{e\}| = |B_1| + 1 > |B_1|$ which contradicts the maximality of $B_1$. 
+\end{proof}
+
+(DEFINE WHAT A SIMPLE MATROID IS)
+
+\section{Convex Bodies}
+
+In this section, we review the notions of convexity and convex bodies. Our main reference for the theory of convex bodies is (cite).
+
+\begin{defn}
+	A \textbf{convex body} is a compact, convex subset of $\RR^n$.
+\end{defn}
+\subsection{Mixed Volumes}
+
+\chapter{Mechanisms for Log-concavity}
+
+\section{Alexandrov's Inequality for Mixed Discriminants}
+
+\section{Alexandrov-Fenchel Inequality}
+
+\section{Lorentzian Polynomials}
+
+\section{Combinatorial Atlas}
+
+\chapter{Log-concavity Results for Posets and Matroids}
+
+\section{Stanley's Inequality}
+
+\section{Kahn-Saks Inequality}
+
+\section{Stanley's Matroid Inequality}
+
+
+\chapter{Hard Lefschetz and Hodge-Riemann Relations}
+
+\section{Chow Ring of the Basis Generating Polynomial (???) }
+
+In this section, we study a cohomology ring studied in (CITE Murai). For every homogeneous polynomial $f \in \RR[x_1, \ldots, x_n]$ we can associate a graded ring which is a proxy for cohomology (measuring socles??? Think about this later)
+
+\begin{defn}
+	Let $f \in \RR[x_1, \ldots, x_n]$ be a homomgeneous polynoimal and let $S := \RR[\partial_1, \ldots, \partial_n]$ be the polynomial ring of differentials where $\partial_i := \partial_{x_i}$. We define the ring 
+	\[
+		A_f^\bullet := S / \Ann_S (f).
+	\]
+	which we call the Chow (???) ring. 
+\end{defn}
+
+We first prove that the Chow ring is a graded $\RR$-algebra. To do this, we first prove Lemma (REFERENCE)
+
+\begin{lem} \label{homogeneous-parts}
+	Let $\xi \in \RR[\partial_1, \ldots, \partial_n]$ and $f \in \RR[x_1, \ldots, x_n]$ be a homogeneous polynomial. We can decompose $\xi = \xi_0 + \xi_1 + \ldots$ into its homogeneous parts. If $\xi (f) = 0$, then $\xi_d (f) = 0$ for all $d \geq 0$. 
+\end{lem}
+
+\begin{proof}
+	Let $d = \deg (f)$. If $\xi_i (f) \neq 0$, then $i \leq d$ and $\xi_i(f)$ is a homomgeneous polynomial of degree $d-i$. Thus, 
+	\[
+		\xi (f) = \xi_0 (f) + \xi_1(f) + \ldots
+	\]
+	will be the homomgeneous decomposition of the polynomial $\xi(f)$. Since this is equal to $0$, all components of the decomposition are equal to zero. This proves the proposition. 
+\end{proof}
+
+\begin{prop}
+	The Chow ring $A_f^\bullet$ is a graded $\RR$-algebra where $A_f^k$ consists of the forms of degree $k$. 
+\end{prop}
+
+\begin{proof}
+	Let us define $A_f^k$ as in the statement of the lemma. Let $d = \deg (f)$ be the degree of the homomgeneous polynomial. Whenver $k > d$, the ring $A_f^k$ is clearly trivial. From Lemma~\ref{homogeneous-parts}, we have the direct sum decomposition 
+	\[
+		A_f^\bullet = \bigoplus_{k = 0}^d A_f^k.
+	\]
+	It is also clear that multiplication induces maps $A_f^r \times A_f^s \to A_f^{r+s}$ for all $r, s \geq 0$.
+\end{proof}
+
+The following result (Proposition (CITE)) is well-known and it follows from Theorem 2.1 in CITE(Maeno, Watanabe, Lefschetz elements of ARtinian Gorenstein algebras and Hessians of homogeneous polynomials)
+\begin{prop} \label{chow-ring-is-a-PD-algebra}
+	Let $f$ be a homogeneous polynoimal of degree $d$. Then, the ring $A_f^\bullet$ is a Poincare-Duality algebra. That is, the ring satisfies the following two properties:
+	\begin{enumerate}[label = (\alph*)]
+		\item $A_f^d \simeq A_f^0 \simeq \RR$;
+
+		\item The pairing induced by multiplication $A_f^{d-k} \times A_f^k \to A_f^d \simeq \RR$ is non-degenerate for all $0 \leq k \leq d$. 
+	\end{enumerate}
+\end{prop}
+
+We first make a small remark on non-degeneracy to make it clear what we mean when we say a pairing is non-degenerate. 
+\begin{lem} \label{non-degeneracy-definition}
+	Let $B : V \times W \to k$ be a bilinear pairing between two finite-dimensional $k$-vector spaces $V$ and $W$. Then, any two of the following three conditions imply the third. 
+		\begin{enumerate}[label = (\roman*)]
+			\item The map $B_V : V \to W^*$ defined by $v \mapsto B(v, \cdot)$ has trivial kernel.
+			\item The map $B_W : W \to V^*$ defined by $w \mapsto B(\cdot, w)$ has trivial kernel. 
+			\item $\dim V = \dim W$. 
+		\end{enumerate}
+	\end{lem}
+
+	\begin{proof}
+		Condition (i) implies $\dim V \leq \dim W$ and Condition (ii) implies $\dim W \leq \dim V$. Thus (i) and (ii) both imply (iii). Now, suppose that (i) and (iii) are true. Then $B_V$ is an isomorphism between $V$ and $W*$ [3.69 in Axler (CITE???)]. Let $v_1, \ldots, v_n$ be a basis for $V$. Then $B_V(v_1), \ldots, B_V(v_n)$ is a basis of $W^*$. Let $w_1, \ldots, w_n$ be the dual basis in $W$ with respect to this basis of $W^*$. Suppose that $\sum \lambda_i w_i \in \ker B_W$. Then for all $v \in V$, we have 
+		\[
+			\sum_{i = 1}^n \lambda_i B_V(v)(w) = B \left ( v, \sum_{i = 1}^n \lambda_i w_i \right ) = 0. 
+		\]
+		By letting $v = v_1, \ldots, v_n$, we get $\lambda_i = 0$ for all $i$. 
+	\end{proof}
+
+We say a pairing between finite-dimensional vector spaces is non-degenerate whenever all three conditions in Lemma~\ref{non-degeneracy-definition} hold. As a corollary, we have the following result.
+
+\begin{cor} \label{same-dimensions}
+	Let $f$ be a homogeneous polynomial of degree $d \geq 2$ and let $k$, $0 \leq k \leq d$, by a non-negative integer. Then $\dim_\RR A_f^k = \dim_\RR A_f^{d-k}$. 
+\end{cor}
+
+In Proposition(CITE), we can define $\deg_f : A_f^d \to \RR$ to be the isomorphism defined by evaluation at $f$. That is, for any $\xi \in A_f^d$, we can define $\deg_f (\xi) := \xi(f)$ where $\xi$ acts on $f$ by differentiation. FOllowing (CITE HODGE THEORY OF COMBINATORIAL GEOMETRIES), we formulate the following definition
+
+\begin{defn}
+	Let $f$ be a homogeneous polynomial of degree $d$ and let $k \leq d/2$ be a non-negative integer. For an element $l \in A_f^1$, we define the following notions:
+	\begin{enumerate}[label = (\alph*)]
+		\item The \textbf{Lefschetz operator} on $A_f^k$ associated to $l$ is the map $L_l^k : A_f^k \to A_f^{d-k}$ defined by $\xi \mapsto l^{d-2k} \cdot \xi$. 
+
+		\item The \textbf{Hodge-Riemann form} on $A_f^k$ associated to $l$ is the bilinear form $Q_l^k : A_f^k \times A_f^k \to \RR$ defined by $Q_l^k (\xi_1, \xi_2) = (-1)^k \deg (\xi_1 \xi_2 l^{d-2k})$.
+
+		\item The \textbf{primitive subspace} of $A_f^k$ associated to $l$ is the subspace
+		\[
+			P_l^k := \{\xi \in A_f^k : l^{d-2k+1} \cdot \xi = 0\} \subseteq A_f^k.
+		\]
+	\end{enumerate}
+\end{defn}
+
+\begin{defn}
+	Let $f$ be a homogeneous polynomial of degree $d$, let $k \leq d/2$ be a non-negative integer, and let $l \in A_f^1$ be a linear differential form. We define the following notions:
+	\begin{enumerate}[label = (\alph*)]
+		\item (Hard Lefschetz Property) We say $A_f$ satisfies $\HL_k$ with respect to $l$ if the Lefschetz operator $L_l^k$ is an isomorphism.
+
+		\item (Hodge-Riemann Relations) We say $A_f$ satisfies $\HRR_k$ with respect to $l$ if the Hodge-Riemann form $Q_l^k$ is positive definite on the primitive subspace $P_l^k$. 
+	\end{enumerate}
+\end{defn}
+
+Sometimes, instead of saying $A_f$ satisfies Hodge-Riemann Relations or the Hard Lefschetz Property, we will say that $f$ satisfies Hodge-Riemann Relations or the Hard Lefschetz property. For any $a \in \RR^n$, we can define the linear differential form $l_a := a_1 \partial_1 + \ldots + a_n \partial_n$. We say that $f$ satisfies $\HL$ or $\HRR$ with respect to $a$ if and only if it satisfies $\HL$ or $\HRR$ with respect to $l_a$. Most applications of the Hodge-Riemann Relations only end up using the relations up to degree $k \leq 1$. (GIVE EXAMPLE OF AN APPLICATION WHICH USES HIGHER DIMENSION,, maybe Chris Eur???) 
+
+\begin{prop} [Lemma 3.4 in (CITE MURAI)]
+	Let $f \in \RR[x_1, \ldots, x_n]$ be a homogeneous polynomial of degree $d \geq 2$ and $a \in \RR^n$. Assume that $f(a) > 0$. Then, 
+	\begin{enumerate}[label = (\alph*)]
+		\item $A_f$ has $\HL_1$ with respect to $l_a$ if and only $Q_{l_a}^1$ is non-degenerate. 
+
+		\item $A_f$ has $\HRR_1$ with respect to $l_a$ if and only if $-Q_{l_a}^1$ has signature $(+, -, \ldots, -)$. 
+	\end{enumerate}
+\end{prop}
+
+\begin{proof}
+	We include a proof for the sake of completeness. We first prove the statement in (a). Suppose that $A_f$ has $\HL_1$ with respect to $l_a$. We have the following commutative diagram:
+	\[\begin{tikzcd}
+	{A_f^1 \times A_f^1} && {A_f^1 \times A_f^{d-1}} \\
+	& {\mathbb{R}}
+	\arrow["{\text{id} \times L_{l_a}^1}", from=1-1, to=1-3]
+	\arrow["{-Q_{l_a}^1}"', from=1-1, to=2-2]
+	\arrow[from=1-3, to=2-2]
+\end{tikzcd}\]
+where the missing mapping is multiplication. If $A_f$ has $\HL_1$ with respect to $l_a$, then the top map between $A_f^1 \times A_f^1 \to A_f^1 \times A_f^{d-1}$ is an bijection. Thus the non-degeneracy of $Q_{l_a}^1$ follows from the non-degeneracy of the multiplication pairing as stated in Proposition~\ref{chow-ring-is-a-PD-algebra}. Now, suppose that $Q_{l_a}^1$ is non-degenerate. Then, the map $B : A_f^1 \to (A_f^1)^*$ defined by $\xi \mapsto -Q_{l_a}^1(\xi, \cdot)$ is given by $m(L_{l_a}^1 \xi, \cdot)$ where $m : A_f^1 \to A_f^{d-1} \to \RR$ is the multiplication map. This is the composition of $A_f^1 \to A_f^{d-1} \to (A_f^1)_*$ where the first map is $L_{l_a}^1$ and the second map is injective from the non-degeneracy of the multiplication map. This proves that $L_{l_a}^1$ is injective. From Corollary~\ref{same-dimensions}, the map $L_{l_a}^1$ is an isomorphism. This suffices for the proof of (a). \\
+
+To prove (b)
+	
+\end{proof}
+
+\subsection{Chow Ring of the Basis Generating Polynomial}
+
+\begin{defn}
+	Let $M$ be a matroid. We define $A^\bullet(M) := A^\bullet_{f_M}$ to be the Chow ring of the basis generating polynomial of $M$. 
+\end{defn}
+
+For simple matroids, the vector space structure of $A^1(M)$ is simple. 
+
+\begin{lem} [Theorem 2.5 in (CITE MURAI)]
+	If $M = ([n], \mcI)$ is simple, then $\partial_1, \ldots, \partial_n$ is a basis of $A^1(M)$.
+\end{lem}
+We are interested on the domain in which $A(M)$ satisfies $\HRR_k$. From cite (MURAI), the following is known. 
+
+\begin{thm} [Theorem 3.8 in (MURAI) ]
+	If $f \in \RR[x_1, \ldots, x_n]$ is Lorentzian, then $f$ has $\HRR_1$ with respect to $l_a$ for any $a \in \RR_{> 0}^n$. 
+\end{thm}
+
+In particular, since $f_M$ is Lorentzian (CITE PREVIOUS PART OF THESIS), the Chow ring $A(M)$ satisfies $\HRR_1$ on the positive orthant. We can be more precise if $A_f^1$ has $\partial_1, \ldots, \partial_n$ as a basis. 
+
+\begin{prop}
+	Let $f$ be a homogeneous polynomial of degree $d \geq 2$. If $\partial_1 f, \ldots, \partial_n f$ are linearly independent in $\RR[x_1, \ldots, x_n]$ and $f(a) > 0$ for some $a \in \RR^n$, then $A_f$ satisfies $\HRR_1$ with respect to $l_a$ if and only if $\Hess_f|_{x = a}$ has signature $(+, -, \ldots, -)$. 
+\end{prop}
+
+Let $M = (E, \mathcal{I})$ be a matroid and let $\widetilde{M}$ be its simplification. Recall that $\widetilde{M}$ is a matroid on the ground set of rank-$1$ flats $E(\widetilde{M}) = \{\bar{x} : x \in E(M) \backslash E_0 (M)\}$ whose independent sets consist of the subsets of $E(\widetilde{M})$ where by taking one representative from each rank-$1$ flat, we get an independent set of $M$. We can define $\phi : S_M \to S_{\widetilde{M}}$ and $\psi : S_{\widetilde{M}} \to S_M$ defined by 
+\begin{align*}
+	\phi (\partial_{x_e}) & := \partial_{\overline{x_e}} \\
+	\psi (\partial_{\overline{x}}) & := \frac{1}{|\overline{x}|} \sum_{e \in \overline{x}} \partial_{x_e}
+\end{align*}
+and extending linearly to the whole space. 
+
+\begin{thm}
+	The maps $\phi : S_M \to S_{\widetilde{M}}$ and $\psi : S_{\widetilde{M}} \to S_M$ induce isomorphisms between $A(M)$ and $A(\widetilde{M})$. 
+\end{thm}
+
+\begin{proof}
+	We first prove that $\phi$ and $\psi$ induce homomorphisms between the Chow rings. To show that $\phi$ induces a homomorphism, consider the diagram
+	\[\begin{tikzcd}
+	{S_M} && {S_{\widetilde{M}}} && {A(\widetilde{M})} \\
+	\\
+	&& {A(M)}
+	\arrow["\phi", from=1-1, to=1-3]
+	\arrow["{\pi_{\widetilde{M}}}", from=1-3, to=1-5]
+	\arrow["{\pi_M}"', from=1-1, to=3-3]
+	\arrow["{\exists ! \Phi}"', dashed, from=3-3, to=1-5]
+\end{tikzcd}\]
+
+Let $\xi \in S_M$ be an element satisfying $\xi (f_M) = 0$. From Proposition~\ref{homogeneous-parts}, it suffices to consider the case where $\xi$ is homomgeneous. Let $e_1, \ldots, e_s$ be representatives of all parallel classes. Then, we have that 
+\begin{align*}
+	f_{\widetilde{M}}(x_{\overline{e_1}}, \ldots, x_{\overline{e_s}}) & = \sum_{\substack{1 \leq i_1 < \ldots < i_r \leq s \\ \{\overline{e_{i_1}}, \ldots, \overline{e_{i_r}}\} \in \mathcal{B}(\widetilde{M})}} x_{\overline{e_{i_1}}} \ldots x_{\overline{e_{i_r}}} \\ 
+	f_M(x_1, \ldots, x_n) & = f_{\widetilde{M}} \left ( y_1, \ldots, y_s \right )
+\end{align*}
+where for $1 \leq i \leq s$, we define 
+\[
+	y_i := \sum_{e \in \overline{e_i}} x_e.
+\]
+Suppose that $\xi$ is homomgeneous of degree $k$. Then, we can write 
+\[
+	\xi = \sum_{\substack{\alpha \subseteq [n] \\ |\alpha| = k}} c_\alpha \partial^\alpha
+\]
+Then, we have 
+\begin{align*}
+	\xi (f_M) & = \sum_{\beta \in \mathcal{B}} \xi (x^\beta)  \\
+	& = \sum_{\beta \in \mathcal{B}(M)} \sum_{\substack{\alpha \subseteq [n] \\ |\alpha| = k}} c_\alpha \partial^\alpha x^\beta \\
+	& = \sum_{\gamma \in \mathcal{I}_{r-k}(M)} \left ( \sum_{ \substack{\alpha \in \mathcal{I}_k \\ \alpha \cup \gamma \in \mathcal{I}_r(M)}} c_\alpha  \right ) x^\gamma. 
+\end{align*}
+Thus, for any $\gamma \in \mathcal{I}_{r-k}(M)$, we have 
+\[
+	\sum_{\substack{\alpha \in I_k \\ \alpha \cup \gamma \in \mathcal{I}_r(M)}} c_\alpha = 0.
+\]
+On the other hand, we have 
+\[
+	\phi (\xi) = \sum_{\substack{\alpha \subseteq [n] \\ |\alpha| = k}} c_\alpha \prod_{e \in \alpha} \partial_{\overline{e}} = \sum_{\beta \in \mathcal{I}_{k}(\widetilde{M})} \left ( \sum_{\alpha \in \text{fiber}(\beta)} c_\alpha \right ) \partial^\beta. 
+\]
+We can compute 
+\begin{align*}
+	\phi(\xi) (f_{\widetilde{M}}) & = \sum_{\gamma \in \mathcal{I}_{r-k}(\widetilde{M})} \left ( \sum_{\substack{\beta \in \mcI_k(\widetilde{M}) \\ \beta \cup \gamma \in \mathcal{B}(\widetilde{M})}} \sum_{\alpha \in \text{fiber}(\beta)} c_\alpha \right ) x^\gamma = \sum_{\gamma \in \mathcal{I}_{r-k}(\widetilde{M})} \left ( \sum_{\substack{\alpha \in \mcI_k(M) \\ \alpha \cup \gamma_0 \in \mathcal{B}(M)}} c_\alpha \right ) x^\gamma = 0.
+\end{align*}
+where $\gamma_0 \in \text{fiber}(\gamma)$ is an arbitrary element in the fiber of $\gamma$. This proves that $\Ann_M \subseteq \ker \pi_{\widetilde{M}} \circ \phi$. Thus, there is a unique ring homomorphism $\Phi : A(M) \to A(\widetilde{M})$ which makes diagram (REFERENCE) commute. \\
+
+To prove that $\psi$ induces a map between the Chow rings, consider the diagram
+\[\begin{tikzcd}
+	{S_{\widetilde{M}}} && {S_M} && {A(M)} \\
+	\\
+	&& {A(\widetilde{M})}
+	\arrow["{\pi_{\widetilde{M}}}"', from=1-1, to=3-3]
+	\arrow["\psi", from=1-1, to=1-3]
+	\arrow["{\pi_M}"', from=1-3, to=1-5]
+	\arrow["{\exists! \Psi}"', dotted, from=3-3, to=1-5]
+\end{tikzcd}\]
+
+Consider a differential $\xi \in S_{\widetilde{M}}$ satisfying $\xi(f_{\widetilde{M}}) = 0$. We can write 
+\[
+	\xi = \sum_{\alpha \in \mathcal{I}_k (\widetilde{M})} c_\alpha \partial^\alpha.
+\]
+Then
+\[
+	\psi(\xi) = \sum_{\alpha \in \mathcal{I}_k (\widetilde{M})} \frac{c_\alpha}{\prod_{e \in \alpha} |e|}\sum_{\beta \in \text{fiber}(\alpha)} \partial^\beta.
+\]
+Fix a $\alpha \in \mathcal{I}_k(\widetilde{M})$ and a $\beta \in \text{fiber}(\alpha)$. Since $\partial y_i / \partial x_e = \1_{e \in \overline{e_i}}$, we have  
+\begin{align*}
+	\partial^\beta f_M (x_1, \ldots, x_n) & = \partial^\beta f_{\widetilde{M}} (y_1, \ldots, y_s) \\
+	& = \partial^\alpha f_{\widetilde{M}} (x_1, \ldots, x_s) |_{x_1 = y_1, \ldots, x_s = y_s} \\
+	& = 0.
+\end{align*}
+Thus, we have that $\psi (\xi)(f_M) = 0$. Hence, $\Ann_{\widetilde{M}} \subseteq \ker \pi_M \circ \psi$ and there is a unique ring homomrphism $\Psi : A(\widetilde{M}) \to A(M)$ which causes the diagram (REFERENCE) to commute. It is easy to check that $\Psi$ and $\Phi$ are inverses of each other. Thus, they are both isomorphisms between the rings $A(M)$ and $A(\widetilde{M})$. 
+\end{proof}
+
+From Theorem (CITE), we get Corollary (CITE) and (CITE) immediately.  
+
+\begin{cor}
+	Let $M = (E, \mathcal{I})$ be a matroid. For any $a \in \RR^E$, we can define the linear form $l_a := \sum_{e \in E} a_e \cdot \partial_{x_e} \in A^1(M)$. Let $\widetilde{l_a} := \Phi(l_a) = \sum_{e \in E} a_e \cdot \partial_{x_{\overline{e}}} \in A^1(\widetilde{M})$. Then, the following diagram is an isomorphism of chain complexes:
+	\[\begin{tikzcd}
+	\ldots & {A^{i-1}(M)} & {A^i(M)} & {A^{i+1}(M)} & \ldots \\
+	\ldots & {A^{i-1}(\widetilde{M})} & {A^i(\widetilde{M})} & {A^{i+1}(\widetilde{M})} & \ldots
+	\arrow["{\times l_a}", from=1-1, to=1-2]
+	\arrow["{\times \widetilde{l_a}}", from=2-1, to=2-2]
+	\arrow["\Phi"', from=1-2, to=2-2]
+	\arrow["{\times l_a}", from=1-2, to=1-3]
+	\arrow["{\times \widetilde{l_a}}", from=2-2, to=2-3]
+	\arrow["{\times l_a}", from=1-3, to=1-4]
+	\arrow["{\times \widetilde{l_a}}", from=2-3, to=2-4]
+	\arrow["\Phi"', from=1-3, to=2-3]
+	\arrow["\Phi"', from=1-4, to=2-4]
+	\arrow["{\times l_a}", from=1-4, to=1-5]
+	\arrow["{\times \widetilde{l_a}}", from=2-4, to=2-5]
+\end{tikzcd}\]
+
+\begin{cor}
+	Let $M = (E, \mathcal{I})$ be a matroid. Then $A(M)$ satisfies $\HRR_k$ with respect to $l$ if and only if $A(\widetilde{M})$ satisfies $\HRR_k$ with respect to $\Phi(l)$. 
+\end{cor}
+\end{cor}
+
+\section{Hodge Riemann Relations on the Boundary}
+\begin{thm}
+	Let $M = (E, \mcI)$ be a matroid which satisfies $\rank (M) \geq 2$. For any $e \in E(M)$, the basis generating polynomial $f_M$ satisfies $\HRR_1$ on $\relint (H_e)$ if and only if $e$ is not a co-loop.
+\end{thm}
+
+\begin{proof}
+	Without loss of generality, let $M$ be a matroid on the set $[n]$ and let $e = 1$. Then, we want to prove that whenever $a_2, \ldots, a_n > 0$, the ring $A(M)$ satisfies $\HRR_1$ on $(0, a_2, \ldots, a_n)$ if and only if $e$ is not a co-loop. We first prove that if $1$ is not a co-loop, then $A(M)$ satisfies $\HRR_1$. To prove this, we induct on the rank of $M$. For the base case $\rank (M) = 2$, 
+\end{proof}
+\chapter{Appendix}
+
+\chapter{References}
 \end{document}

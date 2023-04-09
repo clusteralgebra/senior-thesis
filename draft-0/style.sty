@@ -1,20 +1,9 @@
 \ProvidesPackage{style}
 % Nice features provided by AMS-TeX
 \usepackage{amsmath, amsfonts, amsthm, amssymb}
-\usepackage{xcolor, graphicx,
-tikz-cd, enumerate, mathtools, 
-xpatch, enumitem, hyperref, dsfont}
-
-\hypersetup{
-    colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
-}
-
-\usepackage{tikz}
-\usetikzlibrary{arrows}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{dsfont}
 
 % Theorem Environments ...
 % Includes
@@ -25,7 +14,7 @@ xpatch, enumitem, hyperref, dsfont}
 % 5. Fact
 % 6. Corollary
 \newtheorem{thm}{Theorem}[section]
-\newtheorem{defn}{Definition}[section]
+
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{lem}{Lemma}[section]
 \newtheorem{conj}{Conjecture}[section]
@@ -36,47 +25,15 @@ xpatch, enumitem, hyperref, dsfont}
 
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
-% Wrappers
-\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
-\newcommand{\abs}[1]{\left | #1 \right |}
-\newcommand{\parens}[1]{\left ( #1 \right )}
-\newcommand{\ol}[1]{\overline{#1}}
-\newcommand{\bparens}[1]{\left [ #1 \right ]}
-\newcommand{\cparens}[1]{\left \{ #1 \right \}}
-\newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
-\newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
 
-% Blackboard Bold
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
 
-\newcommand{\mbb}[1]{\mathbb{#1}}
-% \AA already defined
-\newcommand{\BB}{\mathbb{B}}
-\newcommand{\CC}{\mathbb{C}}
-\newcommand{\DD}{\mathbb{D}}
-\newcommand{\EE}{\mathbb{E}}
-\newcommand{\FF}{\mathbb{F}}
-\newcommand{\GG}{\mathbb{G}}
-\newcommand{\HH}{\mathbb{H}}
-\newcommand{\II}{\mathbb{I}}
-\newcommand{\JJ}{\mathbb{J}}
-\newcommand{\KK}{\mathbb{K}}
-\newcommand{\LL}{\mathbb{L}}
-\newcommand{\MM}{\mathbb{M}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\OO}{\mathbb{O}}
-\newcommand{\PP}{\mathbb{P}}
-\newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
-% \SS already defined
-\newcommand{\TT}{\mathbb{T}}
-\newcommand{\UU}{\mathbb{U}}
-\newcommand{\VV}{\mathbb{V}}
-\newcommand{\WW}{\mathbb{W}}
-\newcommand{\XX}{\mathbb{X}}
-\newcommand{\YY}{\mathbb{Y}}
-\newcommand{\ZZ}{\mathbb{Z}}
-
-
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\HL}{\mathsf{HL}}
+\DeclareMathOperator{\Hess}{Hess}
+\newcommand{\HRR}{\mathsf{HRR}}
 % Math Calligraphy
 \newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\mcA}{\mathcal{A}}
@@ -105,35 +62,6 @@ xpatch, enumitem, hyperref, dsfont}
 \newcommand{\mcX}{\mathcal{X}}
 \newcommand{\mcY}{\mathcal{Y}}
 \newcommand{\mcZ}{\mathcal{Z}}
-
-% Math Frak Sets
-\newcommand{\mf}[1]{\mathfrak{#1}}
-\newcommand{\mfA}{\mathfrak{A}}
-\newcommand{\mfB}{\mathfrak{B}}
-\newcommand{\mfC}{\mathfrak{C}}
-\newcommand{\mfD}{\mathfrak{D}}
-\newcommand{\mfE}{\mathfrak{E}}
-\newcommand{\mfF}{\mathfrak{F}}
-\newcommand{\mfG}{\mathfrak{G}}
-\newcommand{\mfH}{\mathfrak{H}}
-\newcommand{\mfI}{\mathfrak{I}}
-\newcommand{\mfJ}{\mathfrak{J}}
-\newcommand{\mfK}{\mathfrak{K}}
-\newcommand{\mfL}{\mathfrak{L}}
-\newcommand{\mfM}{\mathfrak{M}}
-\newcommand{\mfN}{\mathfrak{N}}
-\newcommand{\mfO}{\mathfrak{O}}
-\newcommand{\mfP}{\mathfrak{P}}
-\newcommand{\mfQ}{\mathfrak{Q}}
-\newcommand{\mfR}{\mathfrak{R}}
-\newcommand{\mfS}{\mathfrak{S}}
-\newcommand{\mfT}{\mathfrak{T}}
-\newcommand{\mfU}{\mathfrak{U}}
-\newcommand{\mfV}{\mathfrak{V}}
-\newcommand{\mfW}{\mathfrak{W}}
-\newcommand{\mfX}{\mathfrak{X}}
-\newcommand{\mfY}{\mathfrak{Y}}
-\newcommand{\mfZ}{\mathfrak{Z}}
 
 % Math Serif Sets
 
@@ -184,3 +112,5 @@ xpatch, enumitem, hyperref, dsfont}
 \newcommand{\FRAG}{\mathsf{P}_{\mathsf{FRAG}}}
 \newcommand{\BRANCH}{\mathsf{P}_{\mathsf{BRANCH}}}
 \newcommand{\1}{\mathds{1}}
+
+\DeclareMathOperator{\Ann}{Ann}

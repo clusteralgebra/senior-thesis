@@ -10,6 +10,11 @@ R.~B. Bapat and T.~E.~S. Raghavan.
 Petter Brändén and June Huh.
 \newblock Lorentzian polynomials, 2019.
 
+\bibitem{chung-spectral-graph-theory}
+Fan R~K Chung.
+\newblock {\em Spectral graph theory}.
+\newblock 1996.
+
 \bibitem{MNY}
 Satoshi Murai, Takahiro Nagaoka, and Akiko Yazawa.
 \newblock Strictness of the log-concavity of generating polynomials of
@@ -26,5 +31,11 @@ Richard~P Stanley.
 \newblock Two combinatorial applications of the aleksandrov-fenchel
   inequalities.
 \newblock {\em Journal of Combinatorial Theory, Series A}, 31(1):56--65, 1981.
+
+\bibitem{Stanley-alg-combo}
+Richard~P Stanley.
+\newblock {\em Algebraic combinatorics}.
+\newblock Undergraduate texts in mathematics. Springer, New York, NY, 2013
+  edition, June 2013.
 
 \end{thebibliography}

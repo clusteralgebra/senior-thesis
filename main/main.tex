@@ -19,6 +19,68 @@
 
 \section{Background Material}
 
+\section{Matroids}
+
+
+
+\subsection{Graphic Matroids}
+
+The theory about Laplacians of graphs was taken from \cite{chung-spectral-graph-theory}.
+\begin{defn}
+	Given a graph $G$ with $n$ vertices $v_1, \ldots, v_n$, its Laplacian matrix $L \in \mathsf{Mat}_{n, n} (\ZZ)$ is defined element-wise as 
+	\[
+		L_{i, j} := \begin{cases}
+			\deg (v_i) & \text{if $i = j$} \\
+			- E_{v_i, v_j} & \text{if $i \neq j$ and $v_i$ is adjacent to $v_j$}
+		\end{cases}
+	\]
+	where $E_{v_i, v_j}$ is the number of edges between $v_i$ and $v_j$.
+\end{defn}
+	
+\begin{defn}
+	Let $G = (V, E)$ be a graph and let $V = \{v_1, \ldots, v_n\}$ be an arbitrary ordering of the vertices. For this ordering, we can define a $|V| \times |E|$ matrix $B_{G}$ called the incidence matrix where the entry indexed by $v \in V$ and $e = \{v_i, v_j\} \in E$ where $v_i > v_j$ is equal to 
+	\[
+		B_{ve} = \begin{cases}
+			1, & \text{if $v = v_i$} \\
+			-1, & \text{if $v = v_j$} \\
+			0, & \text{otherwise.}.
+		\end{cases}
+	\]
+\end{defn}
+
+\begin{prop}
+	Let $G$ be a graph and let $L$ be its Laplacian. Then, for any arbitrary ordering on the vertices, we have $L = BB^T$. 
+\end{prop}
+
+\begin{proof}
+	For each $e = \{v_i, v_j\} \in E$ with $v_i > v_j$, we define $\pi_e(v_i) = 1$ and $\pi_e(v_j) = -1$. We have that
+	\[
+		(BB^T)_{v,w} = \sum_{e \in E : v, w \in e} \pi_e(v) \pi_e(w).
+	\]
+	When $v = w$, then each summand is equal to $1$ and we get exactly $\deg (v_i)$. If $v$ and $w$ are not adjacent then the sum is empty and the entry is equal to zero. Otherwise, each summand is $-1$ and there are $E_{v_i, v_j}$ elements in the sum. This suffices for the proof of the proposition.
+\end{proof}
+
+\begin{defn}
+	(Graphic Matroid)
+\end{defn}
+
+
+\begin{lem}[Example 5.4 in \cite{bapat_raghavan_1997}]
+	The matrix $C$ obtained by deleting a row of $B$, say the last row, is called the \textit{reduced incidence matrix}. A set of columns of $B$ or $C$ are linearly independent if and only if the graph formed by the corresponding edges does not contain a cycle. 
+\end{lem}
+
+\begin{proof}
+	See \cite{bapat_raghavan_1997} Example 5.4.
+\end{proof}
+
+\begin{lem}[Lemma 5.3.4 in \cite{bapat_raghavan_1997} (actually cite oxley for more citations)]
+	The incidence matrix $B$ is totally unimodular. 
+\end{lem}
+
+\begin{proof}
+	
+\end{proof}
+
 (To be added: Matroids, Mixed Volumes, Mixed Discriminants, Lorentzian Polynomials, Hodge Riemann Relations)
 
 \section{Introduction}
@@ -258,10 +320,10 @@ In particular, for equality to hold if suffices to verify that $N_0 / \binom{r}{
 This proves that, at least for unimodular matrices, we have $N_k = \lambda \cdot c^k \binom{r}{k}$ in the equality case. We now prove the conjecture for graphic matroids. 
 
 \begin{thm}
-	(NOT COMPLETE YET) Suppose that $M$ is a graphic matroid. Then Conjecture~\ref{main-conjecture} is true.
+	Suppose that $M$ is a graphic matroid corresponding to a connected graph. Then Conjecture~\ref{new-conjecture} is true.
 \end{thm}
 \begin{proof}
-	(small issue with proof) 
+	  Let $B$ be the incidence matrix. Then it is a totally unimodular matrix which represents $M$. We can split it up into the columns in $A$ and $B$ say $B = [B_1 | B_2]$. Let $C$ be the reduced incidence matrix which comes from $B$ with the last row removed. Then $C = [X_1 | X_2]$ where $B_1 = \begin{bmatrix} X_1 \\ v_1^T \end{bmatrix}$ and $B_2 = \begin{bmatrix} X_2 \\ v_2^T \end{bmatrix}$ where $v_1, v_2 \in \{-1, 0, 1\}^e$. The equality case is $X_1X_1^T = X_2X_2^T$. Note that $B_1B_1^T$ and $B_2B_2^T$ are the Laplacian matrix when only considering edges in $A$ and $B$, respectively. Moreover, $X_1X_1^T$ and $X_2X_2^T$ is the top $r \times r$ matrix of the $r+1$ matrix of $B_1B_1^T$ and $B_2B_2^T$. The dimensions are like this because the graph is connected. In the case where our graph is simple, note that an entry in $X_1X_1^T$ is $\pm$ if and only if an entry in $X_2X_2^T$ is $\pm$. These matrices are the Laplacians corresponding to the graph on the first $r$ vertices and on the edges in $A$ and $B$, respectively except the diagonal terms might be different. Thus, $v_i, v_j$ for $i, j \leq r$ are not adjacent in $A$ if and only if it is not adjacent in $B$. Thus, if has an edge in $A$, then there must be a parallel edge in $B$. This cannot be the case. Hence there cannot be any edges here. Thus all edges must be connected to $v_{r+1}$. So, it suffices to consider the conjecture on the claw graph on $r+1$ vertices. The corresponding matroid is the boolean matroid. In this case, the only basis is the whole graph, so equality does not hold. This suffices for the proof. 
 \end{proof}
 
 \section{Current Progress}
@@ -358,17 +420,68 @@ The cohomology ring described above is a Poincare duality algebra. Explicitly, t
 	defined by $Q^k_l(\xi_1, \xi_2) = (-1)^k \xi_1 \xi_2 l^{d-2k}$ is positive definite on the kernel of $\times l^{d-2k+1} : A_f^k \to A_f^{d-k+1}$.
 \end{defn}
 
-\begin{lem}
-	Let $f \in \RR [x_1, \ldots, x_n]$ be a homomogeneous polynomial of degree $d$ and $a \in \RR^n$ be a point such that $f(a) > 0$. Then 
+\begin{prop}[Non-degeneracy] \label{non-degeneracy}
+	Let $B : V \times W \to k$ be a bilinear pairing between two finite-dimensional $k$-vector spaces $V$ and $W$. Two of the following imply the third.
+	\begin{enumerate}[label = (\roman*)]
+		\item The map $B_V : V \to W^*$ defined by $v \mapsto B(v, \cdot)$ has trivial kernel. 
+
+		\item The map $B_W : W \to V^*$ defined by $w \mapsto B(\cdot, w)$ has trivial kernel. 
+
+		\item $\dim V = \dim W$.
+	\end{enumerate} 
+\end{prop}
+
+We say a bilinear pair is non-degenerate if it satisfies all of the conditions in Proposition~\ref{non-degeneracy}. 
+\begin{proof}
+	Condition (i) implies $\dim V \leq \dim W$ and condition (ii) implies $\dim W \leq \dim V$. Thus (i) and (ii) imply (iii). Now suppose that (i) and (iii) are true. Then $B_V$ is an isomorphism between $V$ and $W^*$. Let $v_1, \ldots, v_n$ be a basis for $V$. Then $B_V(v_1), \ldots, B_V(v_n)$ is a basis of $W^*$. Then $w_1, \ldots, w_n$ be the dual basis in $W$ with respect to this basis of $W^*$. Suppose that $\sum \lambda_i w_i \in \ker B_W$. Then for all $v \in V$, we have
+	\[
+		\sum_{i = 1}^n \lambda_i B_V(v)(w_i) = B \left (v, \sum_{i = 1}^n \lambda_i w_i \right ) = 0.
+	\]
+	By letting $v = v_1, \ldots, v_n$ we get $\lambda_i = 0$ for all $i$. 
+\end{proof}
+
+\begin{lem} [Lemma 3.4 in \cite{MNY}]
+	Let $f \in \RR [x_1, \ldots, x_n]$ be a homomogeneous polynomial of degree $d$ and $a \in \RR^n$ be a point such that $f(a) > 0$. Then for $l= l_a$, we have
 	\begin{enumerate}[label = (\alph*)]
 		\item $f$ satisfies $\mathsf{SLP}_1$ with respect to $l$ if and only if $Q_l^1$ is non-singular. 
 		\item $f$ satisfies $\mathsf{HRR}_1$ with respect to $l$ if and only if $-Q_l^1$ has signature $(+, -, \ldots, -)$. 
 	\end{enumerate}
 \end{lem}
 
-\begin{lem}
+\begin{proof}
+	We include the proof. Let $m_f^1 : A_f^1 \times A_f^{d-1} \to A_f^d$ be the multiplication map. Then $Q_l^1 (\xi_1, \xi_2) = - m_f^1(\xi_1, \xi_2 l^{d-2})$. 
+	\[\begin{tikzcd}
+	{A_f^1 \times A_f^1} && {A_f^1 \times A_f^{d-1}} \\
+	\\
+	{A_f^d}
+	\arrow["{Q_l^1}"', from=1-1, to=3-1]
+	\arrow["{(\xi_1, \xi_2) \mapsto (\xi_1, - \xi_2 l^{d-2})}", from=1-1, to=1-3]
+	\arrow["{m_f^1}", from=1-3, to=3-1]
+\end{tikzcd}\]
+
+\[\begin{tikzcd}
+	{A_f^1} && {A_f^{d-1}} \\
+	\\
+	{(A_f^1)^*}
+	\arrow["{(Q_l^1)_{A_f^1}}", from=1-1, to=3-1]
+	\arrow["{\mathsf{PD}_1}", from=1-1, to=1-3]
+	\arrow["{-(m_f^1)_{A_f^{d-1}}}", from=1-3, to=3-1]
+\end{tikzcd}\]
+
+These diagrams prove (a). This should actually be true for any degree $k$. Now for (b), let $\psi_a : A_f^1 \to A_f^d$ by $\psi_a(h) = l_a^{d-1}h$. Then the map $A_f^0 \to A_f^1 \to A_f^d$ is an isomorphism. Thus, we know $R_f^1 = \RR l_a \oplus \ker \psi_a$ and the two subspaces are orthogonal with respect to $Q_l^1$. We have 
+\[
+	Q_{l_a}^1(l_a, l_a) = - l_a^d (f) = d! f(a) > 0.
+\]
+Thus, we know that $A_f$ satisfies $HRR_1$ if and only if $-Q_{l_a}^1$ has signature $(+, -, \ldots, -)$. 
+\end{proof}
+
+\begin{lem} [Lemma 3.5 in \cite{MNY}]
 	If $f$ is Lorentzian and $f(a) > 0$, then $f$ has $\mathsf{HRR}_1$ if and only if it has $\mathsf{SLP}_1$. 
 \end{lem}
+
+\begin{proof}
+	$H_f|_a$ is the matrix representing $Q_l^1$ with respect to the generating set $\partial_1, \ldots, \partial_n$. Thus $Q_l^1$ has at most one positive eigenvalue. There is at least one positive eigenvalue since $f(a) > 0$ and $Q_l^1(l, l) = d!f(a)$. This completes the proof. 
+\end{proof}
 
 \begin{lem}
 	If $f$ is Lorentzian, then $\mathsf{HRR}_1$ holds on $\RR_{> 0}^n$. 
@@ -383,12 +496,18 @@ where $H_i := \{x \in \RR_{\geq 0}^n : \langle e_i, x \rangle = 0\}$. We say $f$
 	l_a := a_1 \partial_1 + \ldots + a_n \partial_n. 
 \]
 
-\begin{conj}
+\begin{conj} \label{HRR-conjecture}
 	Let $M$ be a simple matroid. The basis generating polynomial $f_M$ satisfies $\mathsf{HRR}_1$ for $f_M$ on $\text{relint}(H_i)$ if and only if $i$ is not a coloop in $M$. 
 \end{conj}
 
 It is easy to see that if $i$ is a coloop, then $\mathsf{HRR}_1$ is not satisfied on the corresponding facet. Indeed, the bilinear form $-Q^1_l$ will have the same signature has the Hessian. The Hessian would be singular in the case that there is a coloop. If we don't require the matroid to be simple, consider the matroid $M = ([3], B)$ where $B = (\{1, 3\}, \{2, 3\})$. Then $e = 1$ is not a coloop, but since in the simplification it is a coloop it doesn't satisfy the conjecture. This implies that the restriction that $M$ is simple is necessary. 
 
+\begin{thm}
+ 	Conjecture~\ref{HRR-conjecture} is true for rank $2$ simple matroids. 
+\end{thm}
+\begin{proof}
+	In this case, we have $f_M = \sum_{i < j} x_i x_j$. It suffices to compute the signature of the Hessian. The Hessian is independnet of the choice of $a$ and is equal to $a_{ij} = \1_{i \neq j}$. From Proposition 1.5 of \cite{Stanley-alg-combo}, this has eigenvalues $-1$ with multiplicity $n-1$ and $n-1$ with multiplicity $1$. Thus it has signature $(+, -, \ldots, -)$ and the conjecture is true for this case. 
+\end{proof}
 \begin{fact}
 	Let $e \in M$ be an element of the matroid that is not a co-loop. Then 
 	\[
@@ -456,6 +575,37 @@ We know that $\det H_{f_{M\backslash n}} \neq 0$ since $M \backslash n$ is simpl
 
 For example, this proves that for $M = U_{n, k}$ uniform matroid with $l = \partial_1 + \ldots + \partial_{n-1}$, we know that $f_M$ has $\mathsf{HRR}_1$ with respect to $l$. 
 
+\begin{thm}
+	Let $M$ be a matroid of rank $r \geq 3$ and $f_M$ its basis generating polynomial. Then 
+	\[
+		\{\xi \in A_f^1 : \partial_i \xi = 0 \text{ for $i = 2, \ldots, n$}\} = \{0\}.
+	\]
+	In other words, if $\xi = \sum_{i = 1}^n c_i \partial_i$ for real constants $c_i \in \RR$, and $\xi (\partial_i f_M) = 0$ for $i = 2, \ldots, n$, then this implies that $\xi f_M = 0$. 
+\end{thm}
+
+\begin{proof}
+	For all $i \in [n]$, we have that
+	\begin{align*}
+		\xi \partial_i f_M & = \sum_{j \neq i} c_j \partial_i \partial_j f_M \\
+		& = \sum_{j = 1}^n c_j \sum_{\substack{\alpha \in \mathcal{I}_{r-2} \\ \alpha \cup \{i,j\} \in \mathcal{I}_r}} x^\alpha \\
+		& = \sum_{\substack{\alpha \in \mathcal{I}_{r-2} \\ \alpha \cup \{i\} \in \mathcal{I}_{r-1}}}\left ( \sum_{\substack{j \in [n] \\ \alpha \cup \{i, j\} \in \mathcal{I}_r}} c_j \right ) x^\alpha.
+	\end{align*}
+	When $i \neq 1$, this expression is $0$. Thus, for all $i \neq 1$ and $\alpha \in \mathcal{I}_{r-2}$ such that $\alpha \cup \{i\} \in \mathcal{I}_{r-1}$, we have that 
+	\[
+		\sum_{j \in [n] : (\alpha \cup \{i\}) \cup \{j\} \in \mathcal{I}_r} c_j = \sum_{j \in [n] : \alpha \cup \{i, j\} \in \mathcal{I}_r} c_j = 0.
+	\]
+	Since $r \geq 3$, any $\beta \in \mathcal{I}_{r-1}$ can be written as $\beta = \alpha \cup \{i\}$ where $i \notin \alpha$ and $i \neq 1$. Thus, for all $\beta \in \mathcal{I}_{r-1}$ we have
+	\[
+		\sum_{j \in [n] : \beta \cup \{j\} \in \mathcal{I}_r} c_j = 0.
+	\]
+	But then,
+	\begin{align*}
+		\xi f = \sum_{j = 1}^n c_j \partial_j f_M & = \sum_{j = 1}^n c_j \sum_{\substack{\beta \in \mathcal{I}_{r-1} \\ \beta \cup \{j\} \in \mathcal{I}_r}} x^\beta \\
+		& = \sum_{\beta \in \mathcal{I}_{r-1}} \left ( \sum_{\substack{j \in [n] \\ \beta \cup \{j\} \in \mathcal{I}_r}} c_j \right ) x^\beta = 0.
+	\end{align*}
+	This suffices for the proof. 
+
+\end{proof}
 \bibliographystyle{plain}
 \bibliography{ref}
 
