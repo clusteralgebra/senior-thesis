@@ -287,13 +287,36 @@ If the value of $a$ is not restricted to the positive orthant and additionally w
 \end{proof}
 \section{Chow Ring of the Basis Generating Polynomial}
 
+(maybe rename to Gorenstein ring? you should ask June)
 \begin{defn}
 	Let $M$ be a matroid. We define $A^\bullet(M) := A^\bullet_{f_M}$ to be the Chow ring of the basis generating polynomial of $M$. We then define $S_M := \RR [ x_e : e \in E]$ and $\Ann_M := \Ann_{S_M}(f_M)$. 
 \end{defn}
 
-As we have defined the Chow Ring, it becomes an excellent tool to study the basis generating polynomial of a matroid. This is because the Chow Ring of a matroid only depends on its simplification. Indeed, if $a, b \in E(M)$ are parallel elements, then $\partial_a - \partial_b$ gets annihilated and if $e \in E(M)$ is a loop then $\partial_e$ gets annihilated. 
+As we have defined the Chow Ring, it becomes an excellent tool to study the basis generating polynomial of a matroid. This is because the Chow Ring of a matroid only depends on its simplification. Indeed, if $a, b \in E(M)$ are parallel elements, then $\partial_a - \partial_b$ gets annihilated and if $e \in E(M)$ is a loop then $\partial_e$ gets annihilated. We will describe this isomorphism in Theorem~\ref{only-simplification-matters}. Before proving this result, we first describe some common elements in the ideal $\Ann_M$. 
+
+\begin{prop}[Proposition 3.1 in \cite{MN-gorenstein}]
+	The annihilator $\Ann_M$ contains the elements
+	\[
+		\Lambda_M := \{x_e^2 : e \in E(M)\} \cup \{x^S : S \notin \mcI (M)\} \cup \{x^A - x^{A'} : A, A' \in \mcI(M), \overline{A} = \overline{A'}\}.
+	\]
+\end{prop}
 
 
+
+\begin{example}
+	The elements $\Lambda_M$ unfortunately do not generate $\Ann_M$ in general. In \cite{MN-gorenstein}, they give an example of matroid which is the matroid described by the linear independence of the following five vectors. 
+	\begin{align*}
+	 	e_1 & = (1, 0, 0) \\
+	 	e_2 & = (0, 1, 0) \\
+	 	e_3 & = (0, 0, 1) \\
+	 	e_4 & = (1, 1, 0) \\
+	 	e_5 & = (0, 1, 1).
+	\end{align*}
+	The bases are $123, 125, 134, 135$, and $145$. From Example 3.5 in \cite{MN-gorenstein}, it happens that 
+	\[
+		\Ann_M = \langle \Lambda_M \rangle + (\partial_1 \partial_3 + \partial_{4} \partial_5 - \partial_1 \partial_5 - \partial_3 \partial_4).
+	\]
+\end{example}
 
 
 Let $M = (E, \mathcal{I})$ be a matroid and let $\widetilde{M}$ be its simplification. Recall that $\widetilde{M}$ is a matroid on the ground set of rank-$1$ flats $E(\widetilde{M}) = \{\bar{x} : x \in E(M) \backslash E_0 (M)\}$ whose independent sets consist of the subsets of $E(\widetilde{M})$ where by taking one representative from each rank-$1$ flat, we get an independent set of $M$. We can define $\phi : S_M \to S_{\widetilde{M}}$ and $\psi : S_{\widetilde{M}} \to S_M$ by 
@@ -551,6 +574,36 @@ With a similar type of proof, you can prove the following result.
 \begin{thm}
 	Let $M = (E, \mcI)$ be a matroid which satisfies $\rank (M) \geq 2$. For any $S \subseteq E$, if $\rank(S) \leq \rank (M) - 2$ and $S$ contains no co-loops, then $f_M$ satisfies $\HRR_1$ on $\relint (H_S)$. 
 \end{thm}
+
+\begin{conj}
+	For any matroid $M$, $A (M)$ has $\HL_k$ for all $k$ with respect to some linear form $l$. 
+\end{conj}
+
+\begin{lem}
+	Let $A(M)$ satisfies $\HRR_i$ for $1 \leq i \leq k$, then, we have 
+	\[
+		\mathsf{sig}(Q_l^k) = \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M)).
+	\]
+\end{lem}
+\begin{lem}
+	Let $k \geq 2$ and $A(M)$ satisfies $\HRR_{i}$ and $\HL_{i}$ with respect to $l = l_a$ where $a \in \RR_{> 0}^n$ for all $1 \leq i \leq k-1$. Then
+	\begin{enumerate}[label = (\alph*)]
+		\item $A(M)$ satisfies $\HL_k$ with respect to $l$ if and only if $Q_l^k$ is non-degenerate on $A^k(M)$. 
+
+		\item $A(M)$ satisfies $\HRR_k$ with respect to $l$ if and only if 
+		\[
+			\mathsf{sig}(Q_l^k) = \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M))
+		\]
+		where $A^{-1}(M) = 0$. Specifically, we want $Q_l^k$ to have 
+		\[
+			\frac{1}{2} \left ( \dim A^k(M) + \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M)) \right ) \text{ positive eigenvalues}
+		\]
+		and
+		\[
+			\frac{1}{2} \left ( \dim A^k(M) - \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M)) \right ) \text{ negative eigenvalues}.
+		\]
+	\end{enumerate}
+\end{lem}
 \chapter{Appendix}
 
 \chapter{References}

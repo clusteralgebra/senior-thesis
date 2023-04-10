@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  9 APR 2023 02:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  10 APR 2023 00:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -620,45 +620,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 223--225
  []
 
 [10] [11] [12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 345--347
+Underfull \hbox (badness 10000) in paragraph at lines 368--370
 
  []
 
+[14]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 3
-65.
+88.
+
 (C:\Users\alany\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [14]
-Underfull \hbox (badness 10000) in paragraph at lines 406--408
+) [15]
+Underfull \hbox (badness 10000) in paragraph at lines 429--431
 
  []
 
-[15] [16] [17] [18]
-Underfull \hbox (badness 10000) in paragraph at lines 530--532
+[16] [17] [18] [19]
+Underfull \hbox (badness 10000) in paragraph at lines 553--555
 
  []
 
-[19]
-Underfull \hbox (badness 10000) in paragraph at lines 544--546
+
+Underfull \hbox (badness 10000) in paragraph at lines 567--569
 
  []
 
-[20]
+[20] [21] [22]
 Chapter 7.
-[21
+[23
 
 ]
 Chapter 8.
-(puthesis-main.bbl [22
+(puthesis-main.bbl [24
 
-]) [23
+]) [25
 
 ] (puthesis-main.aux) ) 
 Here is how much of TeX's memory you used:
- 15061 strings out of 478659
- 317031 string characters out of 2845920
- 587192 words of memory out of 3000000
- 32902 multiletter control sequences out of 15000+600000
+ 15062 strings out of 478659
+ 317046 string characters out of 2845920
+ 596293 words of memory out of 3000000
+ 32903 multiletter control sequences out of 15000+600000
  411033 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  129i,17n,132p,1002b,1067s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -686,9 +688,9 @@ onts/cm/cmti10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/pu
 blic/doublestroke/dsrom10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/alany/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on puthesis-main.pdf (29 pages, 319502 bytes).
+Output written on puthesis-main.pdf (31 pages, 327457 bytes).
 PDF statistics:
- 203 PDF objects out of 1000 (max. 8388607)
+ 210 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

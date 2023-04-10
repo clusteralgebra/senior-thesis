@@ -21,5 +21,5 @@
 \contentsline {section}{\numberline {6.2}Local Hodge-Riemann Relations}{11}{}%
 \contentsline {section}{\numberline {6.3}Chow Ring of the Basis Generating Polynomial}{12}{}%
 \contentsline {section}{\numberline {6.4}Hodge-Riemann relations on the facets of the positive orthant}{17}{}%
-\contentsline {chapter}{\numberline {7}Appendix}{21}{}%
-\contentsline {chapter}{\numberline {8}References}{22}{}%
+\contentsline {chapter}{\numberline {7}Appendix}{23}{}%
+\contentsline {chapter}{\numberline {8}References}{24}{}%

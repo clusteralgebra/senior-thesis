@@ -1,5 +1,11 @@
 \begin{thebibliography}{1}
 
+\bibitem{MN-gorenstein}
+Toshiaki Maeno and Yasuhide Numata.
+\newblock {Sperner property and finite-dimensional Gorenstein algebras
+  associated to matroids}.
+\newblock {\em Journal of Commutative Algebra}, 8(4):549 -- 570, 2016.
+
 \bibitem{MNY}
 Satoshi Murai, Takahiro Nagaoka, and Akiko Yazawa.
 \newblock Strictness of the log-concavity of generating polynomials of
