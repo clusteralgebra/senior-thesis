@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  8 APR 2023 19:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  9 APR 2023 02:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -615,61 +615,80 @@ Chapter 6.
 [7
 
 ] [8] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 209--211
+Underfull \hbox (badness 10000) in paragraph at lines 223--225
 
  []
 
-[10] [11] [12]
-Underfull \hbox (badness 10000) in paragraph at lines 292--294
+[10] [11] [12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 345--347
 
  []
 
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 3
-14.
+65.
 (C:\Users\alany\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [13] [14]
+) [14]
+Underfull \hbox (badness 10000) in paragraph at lines 406--408
+
+ []
+
+[15] [16] [17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 530--532
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 544--546
+
+ []
+
+[20]
 Chapter 7.
-[15
+[21
 
 ]
 Chapter 8.
-[16
+(puthesis-main.bbl [22
+
+]) [23
 
 ] (puthesis-main.aux) ) 
 Here is how much of TeX's memory you used:
- 14938 strings out of 478659
- 314291 string characters out of 2845920
- 582375 words of memory out of 3000000
- 32784 multiletter control sequences out of 15000+600000
- 410000 words of font info for 53 fonts, out of 8000000 for 9000
+ 15061 strings out of 478659
+ 317031 string characters out of 2845920
+ 587192 words of memory out of 3000000
+ 32902 multiletter control sequences out of 15000+600000
+ 411033 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 129i,17n,132p,1002b,1065s stack positions out of 5000i,500n,10000p,200000b,80000s
-<C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmbx10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/alany/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/alany/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/alany/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C:/Us
-ers/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.p
-fb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmmi5.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmmi7.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/pu
-blic/amsfonts/cm/cmr10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr5.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/alany/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/alany/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/alany/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/al
-any/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/
-Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10
-.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/doublestr
-oke/dsrom10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/symbols/msbm10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on puthesis-main.pdf (22 pages, 275533 bytes).
+ 129i,17n,132p,1002b,1067s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\alany\AppData\Local\MiKTeX\fonts/pk/ljfour/jk
+nappen/ec/dpi600\tcrm1000.pk><C:/Users/alany/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/alany/AppData/Local/Programs/Mi
+KTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/alany/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/alany/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/ala
+ny/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb>
+<C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
+mi10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmmi5.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmr10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/alany/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/alany/AppData/Local/Pr
+ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/alany/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/alany
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Us
+ers/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pf
+b><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
+cmsy7.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmti10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/doublestroke/dsrom10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/alany/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on puthesis-main.pdf (29 pages, 319502 bytes).
 PDF statistics:
- 171 PDF objects out of 1000 (max. 8388607)
+ 203 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
