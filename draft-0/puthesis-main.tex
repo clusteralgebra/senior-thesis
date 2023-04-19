@@ -1,5 +1,6 @@
 \documentclass{puthesis-UG}
 \usepackage{style}
+
 %%%%%%%%IMPORTANT INFORMATION%%%%%%%%%%%%%%%%%%%%
 %Using puthesis-UG.cls includes an Honor Code declaration. By using this file you are 
 %declaring that this paper is your own work in accordance with University retgulations.
@@ -35,48 +36,314 @@
 
 \section{Partially Ordered Sets}
 
+Our main reference for partially ordered sets is \cite{ordered-sets}. 
+\begin{defn}
+	A \textbf{partially ordered set} is an ordered pair $(P, \leq)$ of a set $P$ and a binary relation $\leq$ on $P$ such that 
+	\begin{enumerate}
+		\item[(\textbf{P1})] $x \leq x$ for all $x \in P$. 
+		\item[(\textbf{P2})] If $x \leq y$ and $y \leq x$, then $x = y$. 
+		\item[(\textbf{P3})] If $x \leq y$ and $y \leq z$, then $x \leq z$. 
+	\end{enumerate}
+\end{defn}
+
+\begin{example}
+
+\end{example}
+
+\subsection{Linear Extensions}
+
+\begin{defn}
+	Let $(P, \leq)$ be a poset on $n$ elements. A \textbf{linear extension} is any bijective map $f : P \to [n]$ satisfying $f(x) < f(y)$ for all $x, y \in P$ satisfying $x < y$.
+\end{defn}
+\subsection{Lattices}
+
+\begin{defn}
+	We say a poset $\mcL$ is a lattice if for any $x, y \in \mcL$ there exist (unique) poset elemenets $x \vee y$ (called the \textbf{meet} or \textbf{greatest lower bound}) and $x \wedge y$ (called the \textbf{join} or \textbf{least upper bound}) satisfying 
+	\begin{enumerate}
+		\item[(\textbf{L1})] $x \vee y \geq x$, $x \vee y \geq y$, and for any $z \in \mcL$ satisfying $z \geq x$ and $z \geq y$, we have $z \geq x \vee y$. 
+		\item[(\textbf{L2})] $x \wedge y \leq x$, $x \wedge y \leq y$, and for any $z \in \mcL$ satisfying $z \leq x$ and $z \leq y$, we have $z \leq x \wedge y$. 
+	\end{enumerate}
+\end{defn}
+
+The only lattice that we will be concerned with are geometric lattices. 
+\section{Graph Theory}
+
+We assume a working knowledge of basic graph theory. This includes concepts such as connected components, paths, trees, etcetera. We provide the definition of a graph that we will use in this paper. Note that we allow multi-edges and but not loops. This is because in later results concerning graphic matroids, the presense of loops does not affect log-concavity. Our main reference for basic notions in graph theory come from \cite{diestel}. For more the more sophistication notions that come from spectral graph theory, we refer to \cite{chung-spectral-graph-theory}. 
+
+\begin{defn}
+	A \textbf{graph} is an ordered pair $(V, E)$ of vertices and edges such that each edge is associated with either two distinct vertices or one vertex. If an edge is associated with two distinct vertices, then we call it a \textbf{simple edge}. If an edge is associated with one vertex, then we call it a \textbf{loop}. 
+\end{defn}
+
+\subsection{Spectral Graph Theory}
+
+\begin{defn}
+	Given a graph $G$ with $n$ vertices $v_1, \ldots, v_n$, we define its Laplacian matrix $L := L_G$ to be the $n \times n$ matrix defined element-wise as 
+	\[
+		L_{i, j} := \begin{cases}
+			\deg (v_i) & \text{if $i = j$} \\
+			-E_{v_i, v_j} & \text{if $i \neq j$ and $v_i$ is adjacent to $v_j$}
+		\end{cases}
+	\]
+	where $E_{v_i, v_j}$ is the number of edges between $v_i$ and $v_j$. 
+\end{defn}
+
+\begin{defn}
+	Let $G$ be a graph and let $V = \{v_1, \ldots, v_n\}$ be an arbitrary ordering of the vertices. For this ordering, we can define a $|V| \times |E|$ matroid $B_G$ called the \textbf{incidence matrix} where the entry indexed by $v \in V$ and $e = \{v_i, v_j\} \in E$ where $v_i > v_j$ is equal to 
+	\[
+		B_{ve} = \begin{cases}
+			1, & \text{if $v = v_i$} \\
+			-1, & \text{if $v = v_j$} \\
+			0, & \text{otherwise.}
+		\end{cases}
+	\]
+\end{defn}
+
+
 \section{Matroids}
 
-Our main reference for matroid theory is \cite{10.5555/1197093}. 
+Matroids can be thought of as combinatorial objects which abstracts and generalizes the properties of both linear independence in vectors spaces and cyclelessness in graphs. Despite the seemingly limited scope of this interpretation, matroids successfully describe many objects relevant to other areas in mathematics such as topology \cite{gelfand}, graph theory \cite{milnor-numbers}, combinatorial optimization \cite{optimization}, algebraic geometry \cite{schubert-cell}, and convex geometry \cite{matroid-polytope}. In this subsection, we provide an introduction to the basic notions in matroid theory that we will need in the remainder of this thesis. We use the excellent monographs \cite{10.5555/1197093} and \cite{welsh} as our main references for the basic theory.
 
+\subsection{Independent Sets}
 \begin{defn}
 	A \textbf{matroid} is an ordered pair $M = (E, \mcI)$ consisting of a finite set $E$ and a collection of subsets $\mathcal{I} \subseteq 2^E$ which satisfy the following three properties:
 	\begin{enumerate}
-		\item[(\textbf{I1})] $\emptyset \in \mathcal{I}$.
-		\item[(\textbf{I2})] If $X \subseteq Y$ and $Y \in \mathcal{I}$, then $X \in \mathcal{I}$. 
-		\item[(\textbf{I3})] If $X, Y \in \mathcal{I}$ and $|X| > |Y|$, then there exists some element $e \in X \backslash Y$ such that $Y \cup \{e\} \in \mathcal{I}$. 
+		\item[(\textbf{I1})] $\emptyset \in \mathcal{I}$. \footnote{(\textbf{I1}) is the \textbf{non-emptiness} axiom}
+		\item[(\textbf{I2})] If $X \subseteq Y$ and $Y \in \mathcal{I}$, then $X \in \mathcal{I}$.\footnote{(\textbf{I2}) is the \textbf{hereditary} axiom}
+		\item[(\textbf{I3})] If $X, Y \in \mathcal{I}$ and $|X| > |Y|$, then there exists some element $e \in X \backslash Y$ such that $Y \cup \{e\} \in \mathcal{I}$. \footnote{(\textbf{I3}) is the \textbf{exchange} axiom}
 	\end{enumerate}
-	The set $E$ is called the ground set of the matroid and the collection of subsets $\mathcal{I}$ are called independent sets. 
+	The set $E$ is called the ground set of the matroid and the collection of subsets $\mathcal{I}$ are called independent sets. This naming convention is motivated by Example~\ref{linear-matroid} where the indepedent sets consist exactly of sets of linearly independent vectors. 
 \end{defn}
 
-Given a matroid $M = (E, \mathcal{I})$, we call a subset $X \subseteq E$ a \textbf{dependent set} if and only if $X \notin \mathcal{I}$. We define a basis $B \in \mathcal{I}$ to be a maximal independent set. 
+\begin{example} [Linear Matroids] \label{linear-matroid}
+	Let $V$ be a $k$-vector space and let $E = \{v_1, \ldots, v_n\}$ be a finite set of vectors from $V$. If we let $\mcI$ consist of all subsets of $E$ which are linearly independent, then $(E, \mcI)$ forms a matroid. We call any matroid which can be constructed in this way a \textbf{linear matroid}. 
+\end{example}
 
-\begin{prop}
-	Let $M = (E, \mathcal{I})$ be a matroid and $B_1, B_2$ be bases. Then $|B_1| = |B_2|$. 
+\begin{example} [Graphic Matroids]
+	Let $G = (V, E)$ be a graph and let $\mcI$ be the collection of subsets of $E$ which consist of edges containing no cycles. Then $(E, \mcI)$ forms a matroid called the \textbf{cycle matroid} of the graph $G$. We call any matroid which is isomorphic to a cycle matroid of a graph a \textbf{graphic matroid}. In Proposition~\ref{graphic-are-linear}, we prove that graphic matroids are not only linear, but they can be represented by a totally unimodular matrix. 
+\end{example}
+
+\begin{prop} \label{graphic-are-linear}
+	
 \end{prop}
-\begin{proof}
-	If $|B_1| < |B_2|$, then by (I3), there exists some element $e \in B_2 \backslash B_1$ satisfying $B_1 \cup \{e\} \in \mathcal{I}$. But $|B_1 \cup \{e\}| = |B_1| + 1 > |B_1|$ which contradicts the maximality of $B_1$. 
-\end{proof}
+
+Given a matroid $M = (E, \mathcal{I})$, we call a subset $X \subseteq E$ a \textbf{dependent set} if and only if $X \notin \mathcal{I}$. Given a matroid, we call any minimal dependent set a \textbf{circuit}. Matroids are uniquely determined by their circuits. For a proof of this fact, see Corollary 1.1.5 in \cite{10.5555/1197093}.
+
+\subsection{Bases}
+We define a basis $B \in \mathcal{I}$ to be a maximal independent set. From property (\textbf{I3}), we can deduce that all bases have the same number of elements. Indeed, if $B_1$ and $B_2$ are bases satisfying $|B_1| < |B_2|$ then from (\textbf{I3}) there exists some element $e \in B_2 \backslash B_1$ satisfying $B_1 \cup \{e\} \in \mcI$. But, this means that $B_1 \cup \{e\}$ is an independent set strictly larger than $B_1$. This contradicts the maximality of $B_1$ and implies that all bases contain the same number of elements. 
+\begin{defn}
+	Let $M = (E, \mathcal{I})$ be a matroid and let $\mcB$ be the collection of bases. Then, the following three properties (Lemma 1.2.2 in \cite{10.5555/1197093}):
+	\begin{enumerate}
+		\item[\textbf{(B1)}] $\mcB$ is non-empty.
+		\item[\textbf{(B2)}] If $B_1$ and $B_2$ are members of $\mcB$ and $x \in B_1 \backslash B_2$, then there is an element $y$ of $B_2 \backslash B_1$ such that $(B_1 - x) \cup y \in \mcB$. 
+		\item[\textbf{(B3)}] If $B_1$ and $B_2$ are members of $\mcB$ and $x \in B_1 \backslash B_2$, then there is an element of $y \in B_2 \backslash B_1$ such that $(B_2 - y) \cup x \in \mcB$. 
+	\end{enumerate}
+\end{defn}
+
+Associated with the bases of a matroid, we can define the \textbf{basis generating function} of a matroid $M = (E, \mcB)$ as
+\[
+	f_M (x) := \prod_{B \in \mcB} x^B \in \RR[x_e : e \in E]
+\]
+which is a homomogeneous polynomial in the ring of polynomials with variables indexed by the ground set of our matroid. 
+
+\subsection{Rank Functions}
 
 \begin{defn}
-	For every matroid $M = (E, \mcI)$, we define its rank function $\rank_M : 2^E \to \NN$ to be equal to
+	For any matroid $M = (E, \mcI)$, we define its rank function $\rank_M : 2^E \to \NN$ to be equal to
 	\[
 		\rank_M(X) := \max \{|I| : I \in \mathcal{I}, I \subseteq X\}.
 	\]
-	The rank function satisfies 
+	The rank function satisfies the following three properties (Lemma 1.3.1 in \cite{10.5555/1197093}):
+	\begin{enumerate}
+		\item[(\textbf{R1})] If $X \subseteq E$, then $0 \leq r(X) \leq |X|$. 
+		\item[(\textbf{R2})] If $X \subseteq Y \subseteq E$, then $r(X) \leq r(Y)$. 
+		\item[(\textbf{R3})] If $X$ and $Y$ are subsets of $E$, then $r(X \cup Y) + r(X \cap Y) \leq r(X) + r(Y)$.
+	\end{enumerate}
 \end{defn}
 
-\begin{itemize}
-	\item parallel classes, loops
-	\item simple matroids
-	\item contraction
-	\item deletion
-	\item flats
-\end{itemize}
+
+\subsection{Closure Operators and Lattice of Flats}
+
+\begin{defn}
+	For any matroid $M = (E, \mcI)$, we define its closure operator $\clo_M : 2^E \to 2^E$ to be 
+	\[
+		\clo_M (X) := \overline{X} = \{x \in E : \rank (X \cup \{x\}) = \rank (X) \}.
+	\]
+	The closure operator satisfies the following four properties (Lemma 1.4.3 in \cite{10.5555/1197093}):
+	\begin{enumerate}
+		\item[(\textbf{C1})] If $X \subseteq E$, then $X \subseteq \clo_M (X)$. 
+		\item[(\textbf{C2})] If $X \subseteq Y \subseteq E$, then $\clo_M (X) \subseteq \clo_M (Y)$. 
+		\item[(\textbf{C3})] If $X \subseteq E$, then $\clo_M (\clo_M(X)) = \clo_M(X)$. 
+		\item[(\textbf{C4})] If $X \subseteq E$ and $x \in E$, and $y \in \clo_M(X \cup \{x\}) \backslash \clo_M(X)$, then $x \in \clo_M(X \cup \{y\})$. 
+	\end{enumerate}
+\end{defn}
+
+\begin{example}
+	Let $M := M(\{v_1, \ldots, v_n\})$ be the linear matroid represented by vectors $v_1, \ldots, v_n$ in a $k$-vector space $V$. Then, the closure of a subset $X \subseteq \{v_1, \ldots, v_n\}$ is precisely $\clo_M(X) := \{v_1, \ldots, v_n\} \cap \mathsf{span}_k X$. 
+\end{example}
+
+If $X \subseteq E$ satisfies $X = \clo_M(X)$, then we say $X$ is a \textbf{closed set} or \textbf{flat}. For any matroid $M = (E, \mcI)$, let $\mcL(M)$ denote the partially ordered set consisting of the flats of $M$ equipped with set inclusion. 
+
+\begin{prop}[Theorem 1.7.5 in \cite{10.5555/1197093}]
+	Let $M = (E, \mcI)$ be a matroid. Then, the poset $\mcL(M)$ is a geometric lattice with join and meet operations defined as $X \vee Y := \clo_M(X \cup Y)$, $X \wedge Y := X \cap Y$, and rank function $\rank_{\mcL} (X) := \rank_M(X)$. 
+\end{prop}
+
+
+\subsection{Loops and Parallel Elements}
+We say $e \in E$ is a \textbf{loop} in $M$ if $\{e\}$ is a dependent set. Equivalently, $e \in E$ is a loop if $\rank (\{e\}) = 0$. We define $E_0$ as the set of loops. An element $e \in E$ in the ground set is called a \textbf{coloop} if it is contained in every basis. We say $x_1, x_2 \in E \backslash E_0$ satisfy $x_1 \sim_M x_2$ if and only if $\{x_1, x_2\} \notin \mcI$ or $x_1 = x_2$. Equivalently, $x_1 \sim_M x_2$ if and only if $\rank (\{x_1, x_2\}) = 1$. When $x_1 \sim_M x_2$, we say that $x_1$ and $x_2$ are \textbf{parallel}. For a more in-depth treatment of loops and parallelism, I refer the reader to section 1.4 of \cite{welsh}.
+
+\begin{prop} \label{parallelism-is-equivalence-relation}
+	Let $M = (E, \mcI)$ be a matroid. Then $\sim_M$ is an equivalence relation on $E \backslash E_0$. 
+\end{prop}
+
+\begin{proof}
+	For any $x \in E \backslash E_0$, we have $\rank (\{x, x\}) = \rank (\{x\}) = 1$ since $x \notin E_0$. Thus $x \sim_M x$. For $x, y \in E \backslash E_0$, we have $\rank (\{x, y\}) = \rank \{y, x\}$. This proves that $\sim_M$ is reflexive. To prove transitivity, suppose that we have $x, y, z \in E$ that satisfy $x \sim_M y$ and $y \sim_M z$. If $x = y$ or $y = z$, then we automatically get $x \sim_M z$. Suppose that they are all distinct. Then, we have $\{x, y\}, \{y, z\} \not\in \mcI$. For the sake of contradiction, suppose that $\{x, z\} \in \mcI$. From (\textbf{I3}) applied to $\{x, z\}$ and $\{y\}$, we have that either $\{x, y\} \in \mcI$ or $\{y, z\} \in \mcI$. This is a contradiction. This proves that $\sim_M$ is transitive and an equivalence relation. 
+\end{proof}
+
+From Proposition~\ref{parallelism-is-equivalence-relation}, for any non-loop $e \in E \backslash E_0$, we can consider its equivalence class $[e] := [e]_M$ under the equivalence relation $\sim_M$. We call the equivalence class $[e]$ the \textbf{parallel class} of $e$. Then, we can partition the ground set $E$ into $E = E_1 \sqcup E_2 \sqcup \ldots \sqcup E_s \sqcup E_0$ where $E_1, \ldots, E_s$ are the distinct parallel classes and $E_0$ are the loops. In Proposition~\ref{characterization-of-atoms-of-flats}, we give a characterization of the atoms of the lattice of flats in terms of the parallel classes and loops. 
+
+\begin{prop} \label{characterization-of-atoms-of-flats}
+	Let $M = (E, \mcI)$ be a matroid and let $e \in E$ be an element of the matroid that is not a loop. Then, $\overline{e} = [e] \cup E_0$.
+\end{prop}
+
+\begin{proof}
+	Since any independent set contains no loops, we know that $E_0 \subseteq \overline{e}$. For any $f \in [e]$, we have that $\rank (\{e, f\}) = 1 = \rank (\{e\})$ by definition of $\sim_M$. This proves that $[e] \subseteq \overline{e}$. To prove the opposite inclusion, let $f \in \overline{e}$. Then $\rank(\{e, f\}) = 1$. If $f$ is a loop, then $f \in E_0$. Otherwise, $f \sim_M e$ and $f \in [e]$. This suffices for the proof of the proposition. 
+\end{proof}
+
+We call a matroid $\textbf{simple}$ if it contains no loops and no parallel elements. To every matroid $M$, we can associate a simple matroid $\widetilde{M}$ called the \textbf{simplification} of the matroid $M$. For any matroid $M = (E, \mcI)$, let $\pi_M : E \to 2^E$ be the map $\pi_M (e) = \overline{e}$ which sends a matroid element to its closure. When $e$ is not a loop, then $\overline{e}$ is a one-dimensional flat. If $e$ is a loop, then $\overline{e} = E_0$. From Proposition~\ref{characterization-of-atoms-of-flats}, we can think of $\pi_M (E)$ as the set of one-dimensional flats and the set of loops. 
+
+\subsection{Contraction and Deletion}
+
+In graph theory, there are notions of edge contraction and edge deletion. In Definition, we genealize contraction and deletion from graphs to general matroids. When applying contraction and deletion in the matroid sense to graphic matroids, we recover edge contraction and deletion in graph theory.  
+
+\begin{defn}[Restriction, Contraction, and Deletion]\label{contraction-deletion}
+	Let $M = (E, \mcI)$ be a matroid and let $T \subseteq E$ be a subset. We define $M|_T$ to be the restriction of $M$ on $T$ as the matroid on $T$ with independent sets 
+	\[
+		\mcI (M|_T) := \{I \in \mcI : I \subseteq T\}.
+	\]
+	The deletion $M \backslash T$ of $T$ from $M$ is then defined to be the restriction $M|_{E \backslash T}$. Let $B_T$ be a basis of $M|_T$. The contraction $M / T$ of the matroid $M$ by $T$ is the matroid on $E \backslash T$ defined by
+	\begin{align*}
+		\mcI(M/T) & := \{I \subset E \backslash T: I \cup B_T \in \mcI(M) \}.
+	\end{align*}
+	For a proof of why the definition of $\mcI(M/T)$ is independent of our choice of $B_T$ we refer the reader to Proposition 3.1.7 of \cite{10.5555/1197093}.
+\end{defn}
+
+\begin{lem}
+	Let $M = (E, \mcB)$ be a matroid with basis generating polynomial $f_M$.
+	\begin{enumerate}[label = (\alph*)]
+		\item If $e \in E$ is a loop, then $\partial_e f_M = 0$. 
+		\item If $e \in E$ is not a loop, then $\partial_e f_M = f_{M/e}$. 
+		\item If $e \in E$ is not a coloop, then $f_M = x_e f_{M/e} + f_{M \backslash e}$
+	\end{enumerate}
+\end{lem}
+
+\begin{proof}
+	The first claim follows from the fact that any basis will contain no loops. Hence, for a loop $e \in E$ the variable $x_e$ will not appear in $f_M$. The second claim follows from the fact that the remaining monomials in $\partial_e f_M$ will correspond to sets of the form $B \backslash e$ where $e \in B$ and $B$ is a basis of $M$. This is exactly the set of bases of $M / e$. For the third claim, this follows	because the monomials in $f_M$ which do not contain $x_e$ will correspond to bases of $M$ which do not contain $e$. That is the exactly the bases of $M \backslash e$. This implies that we can write $f_M = x_e p + f_{M \backslash e}$ where $p \in \RR[x_e : e \in E]$ and $p$ contains no monomial with $x_e$. Taking the partial derivative with respect to $x_e$, we get $p = f_{M / e}$ from (a). This suffices for the proof. 
+\end{proof}
+
+\subsection{Regular Matroids}
+
+\begin{defn}
+	A \textbf{regular matroid} is a matroid which is isomorphic to a linear matroid with respect to a real matrix which is totally unimodular. A totally unimodular matrix is a matrix for which every square submatrix has determinant in $\{0, -1, 1\}$. 
+\end{defn}
+\section{Mixed Discriminants}
+
+In this section, we discuss a symmetric multilinear form called the mixed discriminant which arises as the polarization of the determinant. This object will be useful in future sections as it satisfies the log-concavity inequality in Theorem (CITE). Our main reference for the theory of mixed discriminants will come from \cite{bapat_raghavan_1997}. 
+
+\begin{defn}
+	let $n \geq 1$ be a positive integer. Suppose that for each $k \in [n]$, we are given an $n \times n$ matrix $A^k := (a_{ij}^k)_{i, j = 1}^n$. Then, we define the \textbf{mixed discriminant} of $(A^1, \ldots, A^n)$ as the expression 
+	\[
+		\mathsf{D}(A^1, \ldots, A^n) := \frac{1}{n!} \sum_{\sigma \in S_n} 
+		\det 
+		\begin{bmatrix} 
+			a_{11}^{\sigma(1)} & \ldots & a_{1n}^{\sigma(n)} \\
+			\vdots & \ddots & \vdots \\
+			a_{n1}^{\sigma(1)} & \ldots & a_{nn}^{\sigma(n)}
+		\end{bmatrix}.
+	\]
+	Here, $S_n$ is the symmetric group on $n$ letters. 
+\end{defn}
+
+\subsection{Polarization Form}
+
+Let $f \in \RR[x_1, \ldots, x_n]$ be an arbitrary homogeneous polynomial of degree $d$. Then, for fixed $v_1, \ldots, v_d \in \RR^n$, we can consider the coefficients of $f(\lambda_1 \cdot v_1 + \ldots + \lambda_d \cdot v_d)$ as a homogeneous polynomial in $\lambda_1, \ldots, \lambda_d$ of degree $d$. From section 3.2 of \cite{lie-groups} and section 5.5 of \cite{schneider_2013}, there is form $\widetilde{f} (v_1, \ldots, v_d)$ which is linear in each vector and symmetric in its arguments such that $\widetilde{f}(v, \ldots, v) = f(v)$. Indeed, since $f$ is homogeneous of degree $d$, we can always write 
+\[
+	f(x) = \sum_{i_1, \ldots, i_d = 1}^n a_{i_1, \ldots, i_d} \cdot x_{i_1} \ldots x_{i_d}
+\]
+where $x = (x_1, \ldots, x_n)$ and the coefficients $a_{i_1, \ldots, i_d}$ are symmetric. Now, if we define the vectors $v_i = (c_1^{(i)}, c_2^{(i)}, \ldots, c_n^{(i)})$ for all $1 \leq i \leq d$, then, we can define the multilinear form 
+\[
+	\widetilde{f}(v_1, \ldots, v_n) := \sum_{i_1, \ldots, i_d = 1}^n a_{i_1, \ldots, i_d} \cdot c_{i_1}^{(1)} \ldots c_{i_d}^{(d)}
+\]
+which is symmetric in its arguments. This form satisfies the following ``polarization identity''
+\[
+	f(\lambda_1 v_1 + \ldots + \lambda_d v_d) = \sum_{1 \leq i_1, \ldots, i_d \leq d} \lambda_{i_1} \ldots \lambda_{i_d} \widetilde{f}(v_{i_1}, \ldots, v_{i_d}).
+\]
+By taking partial derivatives of this identity and exploiting the symmetric of the form, we get the following formula in terms of the partial derivatives of $f$:
+\begin{equation} \label{differential-formula-for-mixed-discriminants}
+	\widetilde{f}(v_1, \ldots, v_n) := \frac{1}{d!} \cdot \frac{\partial}{\partial \lambda_1} \ldots \frac{\partial}{\partial \lambda_d} f(\lambda_1 v_1 + \ldots + \lambda_d v_d) |_{\lambda = 0}. 
+\end{equation}
+The mixed discriminant of matrices manifests as the polarization form of the determinant function. Indeed, Theorem~\ref{polarization-mixed-discriminant} is well-known and can be found in \cite{Zhao2015-kf} or \cite{schneider_2013}. 
+
+\begin{thm} \label{polarization-mixed-discriminant}
+	For $n \times n$ matrices $A_1, \ldots, A_m$ and $\lambda_1, \ldots, \lambda_m \in \RR$, the determinant of the linear combination $\lambda_1 A_1 + \ldots + \lambda_m A_m$ is a homogeneous polynomial of degree $n$ in the $\lambda_i$ and is given by 
+	\[
+		\det (\lambda_1 A_1 + \ldots + \lambda_m A_m) = \sum_{1 \leq i_1, \ldots, i_n \leq m} \mathsf{D}(A_{i_1}, \ldots, A_{i_n}) \lambda_{i_1} \ldots \lambda_{i_n}. 
+	\]
+\end{thm}
+
+\begin{example}[Mixed discriminants of rank 1 matrices] \label{mixed-discriminant-calculation-for-rank-1}
+	Let $x_1, \ldots, x_n \in \RR^n$ be real matrices. Then, for any $\lambda_1, \ldots, \lambda_n > 0$, we can define $y_i = \sqrt{\lambda_i} x_i$. Then, we have that 
+	\begin{align*}
+		\det \left ( \sum_{i = 1}^n \lambda_i x_i x_i^T \right ) & = \det \left ( \sum_{i = 1}^n y_i y_i^T \right ) \\
+		& = \det \left [ \begin{pmatrix} y_1 & \ldots & y_n \end{pmatrix} \cdot \begin{pmatrix} y_1^T \\ \vdots \\ y_n^T \end{pmatrix} \right ]\\
+		& = \left [ \det \begin{pmatrix} y_1 & \ldots & y_n \end{pmatrix} \right ]^2 \\
+		& = \lambda_1 \ldots \lambda_n \cdot \left [ \det \begin{pmatrix} x_1 & \ldots & x_n \end{pmatrix} \right ]^2.
+	\end{align*}
+	From Equation~\ref{differential-formula-for-mixed-discriminants}, we get the formula 
+	\[
+		\mathsf{D} (x_1x_1^T, \ldots, x_nx_n^T) = \frac{1}{n!}\left [ \det \begin{pmatrix} x_1 & \ldots & x_n \end{pmatrix} \right ]^2.
+	\]
+\end{example}
+
+
+
+\subsection{Positivity}
+
+In this section, we discuss when the mixed discriminant is positive. First, recall the following factorization result in linear algebra for positive (semi-)definite matrices. 
+
+\begin{thm} [Cholesky Factorization, Theorem 4.2.5 in \cite{GoluVanl96}] \label{cholesky}
+	If $A \in \RR^{n \times n}$ is a symmetric positive definite matrix, then there exists a unique lower triangular $L \in \RR^{n \times n}$ with positive diagonal entries such that $A = LL^T$. When $A$ is positive semi-definite, then there exists a (not necessarily unique) lower triangular $L \in \RR^{n \times n}$ with $A = LL^T$. 
+\end{thm}
+
+\begin{lem} [Lemma 5.2.1 in \cite{bapat_raghavan_1997}] \label{mixed-discriminant-explicit-formula}
+	Let $A_1, \ldots, A_n$ be positive semi-definite $n \times n$ matrices, and suppose that $A_k = X_k X_k^T$ for each $k$. Then
+	\[
+		\mathsf{D} (A_1, \ldots, A_n) = \frac{1}{n!} \sum_{\substack{x_j \in \mathsf{col}(X_j) \\ 1 \leq j \leq n}} \left [ \det \begin{pmatrix} x_1 & \ldots & x_n \end{pmatrix} \right ]^2
+	\]
+	where the sum is over all choices of $x_k$ in the columns of $X_k$. 
+\end{lem}
+
+\begin{proof}
+	From the multi-linearity of the mixed discriminant, we have that 
+	\[
+		\mathsf{D}(A_1, \ldots, A_n) = \mathsf{D} \left ( \sum_{x_1 \in \mathsf{col}(X_1)} x_1x_1^T, \ldots, \sum_{x_n \in \mathsf{col}(X_n)} x_nx_n^T \right ) = \sum_{\substack{x_j \in \mathsf{col}(X_j) \\ 1 \leq j \leq n}} \mathsf{D} (x_1x_1^T, \ldots, x_nx_n^T).
+	\]
+	The Lemma follows from the computation in Example~\ref{mixed-discriminant-calculation-for-rank-1}. 
+\end{proof}
+
+\begin{cor}
+	Let $A_1, \ldots, A_n$ be positive semi-definite $n \times n$ real symmetric matrices. Then 
+	\[
+		D(A_1, \ldots, A_n) \geq 0.
+	\]	
+\end{cor}
+
+\begin{proof}
+	This follows from Lemma~\ref{mixed-discriminant-explicit-formula} and Theorem~\ref{cholesky}. 
+\end{proof}
 
 \section{Convex Bodies}
 
-In this section, we review the notions of convexity and convex bodies. Our main reference for the theory of convex bodies is (cite).
+In this section, we review the notions of convexity and convex bodies. We use \cite{schneider_2013} as our main reference for the theory of convex bodies and Brunn-Minkowski inequalities. 
 
 \begin{defn}
 	A \textbf{convex body} is a compact, convex subset of $\RR^n$.
@@ -85,11 +352,62 @@ In this section, we review the notions of convexity and convex bodies. Our main 
 
 \chapter{Mechanisms for Log-concavity}
 
+\section{Log-Concavity and Ultra Log-Concavity}
+
+\begin{defn}
+
+\end{defn}
+
+(Many sequences in combinatorics are proven to be log-concave ... give examples: Read's conjecture, Mason's Conjecture, etc. )
 \section{Alexandrov's Inequality for Mixed Discriminants}
 
+In this section we introduce a fundamental inequality given in Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT} in the theory of mixed discriminants. This inequality is similar to the inequality for mixed volumes of convex bodies given in Theorem~\ref{AF-inequality}. We first give a 
+
+\begin{prop}
+	
+\end{prop}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{thm} [Alexandrov's Inequality for Mixed Discriminants] \label{A-Inequality-MIXED-DISCRIMINANT}
+	Let $X, Y, A_1, \ldots, A_{n-2}$ be real symmetric positive definite $n \times n$ matrices. Then 
+	\[
+		\mathsf{D}(X, Y, A_1, \ldots, A_{n-2})^2 \geq \mathsf{D}(X, X, A_1, \ldots, A_{n-2}) \cdot \mathsf{D} (Y, Y, A_1, \ldots, A_{n-2})
+	\]
+	where equality holds if and only if $B = \lambda A$ for a real number $\lambda$. 
+\end{thm}
+
+\begin{cor} \label{mixed-discriminant-log-concave-sequence}
+	Let $A, B$ be $n \times n$ positive definite symmetric real matrices. For $0 \leq k \leq n$, define the mixed discriminant
+	\[
+		D_k := \mathsf{D} (\underbrace{A, \ldots, A}_{k \text{ times}}, \underbrace{B \ldots, B}_{n-k \text{ times}}).
+	\]
+	Then the sequence $D_0, D_1, \ldots, D_n$ is log-concave. 
+\end{cor}
+
+\begin{cor}
+	Let $A, B, D_k$ for $1 \leq k \leq n$ be as in Corollary~\ref{mixed-discriminant-log-concave-sequence}. If $D_k^2 = D_{k-1}D_{k+1}$ for some $1 \leq k \leq n-1$, then $D_k^2 = D_{k-1} D_{k+1}$ holds for all $k = 1, \ldots, n-1$. 
+\end{cor}
+
+\begin{proof}
+	This follows from the equality case in Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT}. 
+\end{proof}
 \section{Alexandrov-Fenchel Inequality}
 
+\begin{thm}[Alexandrov-Fenchel Inequality] \label{AF-inequality}
+	Let $K_1, K_2, \ldots, K_{d-2} \subseteq \RR^d$ be convex bodies. For any convex bodies $X, Y \subseteq \RR^d$, we have the inequality
+	\[
+		\mathsf{V}_d(X, Y, K_1, \ldots, K_{d-2})^2 \geq \mathsf{V}_d(X, X, K_1, \ldots, K_{d-2}) \cdot \mathsf{V}_d(Y, Y, K_1, \ldots, K_{d-2}). 
+	\]
+\end{thm}
+
 \section{Lorentzian Polynomials}
+
+\begin{defn}
+	
+\end{defn}
 
 \section{Combinatorial Atlas}
 
@@ -104,19 +422,23 @@ In this section, we review the notions of convexity and convex bodies. Our main 
 
 \chapter{Hard Lefschetz Property and Hodge-Riemann Relations}
 
-\section{Chow Ring of Homogeneous Polynomials}
+\section{Gorenstein ring associated to a polynomial}
 
-In this section, we study a cohomology ring studied in (CITE Murai). For every homogeneous polynomial $f \in \RR[x_1, \ldots, x_n]$ we can associate a graded ring which is a proxy for cohomology (measuring socles??? Think about this later)
+In this section, we study a ring introduced in by Toshiaki Maeno and Yasuhide Numata in \cite{MN-gorenstein}. The Gorenstein Ring associated to the basis generating polynomial of a matroid is intimately related to graded Mobius(") algebra associated to a matroid and the Chow ring associated to a matroid. The Gorenstein stein ring associated to a polynomial is defined based on the action of differential forms on a fixed homogeneous polynomial.
 
 \begin{defn}
 	Let $f \in \RR[x_1, \ldots, x_n]$ be a homomgeneous polynoimal and let $S := \RR[\partial_1, \ldots, \partial_n]$ be the polynomial ring of differentials where $\partial_i := \partial_{x_i}$. We define the ring 
 	\[
 		A_f^\bullet := S / \Ann_S (f).
 	\]
-	which we call the Chow (???) ring. 
+	We call $A_f^\bullet$ the Gorenstein ring associated to the polynomial $f$. Alternatively, we view the polynomial ring $\RR[x_1, \ldots, x_n]$ as a module over the polynomial ring $\RR[X_1, \ldots, X_n]$ where the module structure is defined by the relation
+	\[
+		p(X_1, \ldots, X_n) \cdot q(x_1, \ldots, x_n) := p(\partial_1, \ldots, \partial_n) q(x_1, \ldots, x_n). 
+	\]
+	Then the Gorenstein ring can be equivalently defined as $\RR[X_1, \ldots, X_n] / \Ann (f)$. Note that this is trivially equivalent to the first definition. We note this alternative perspective because both conventions are used in the literature \cite{MNY,MN-gorenstein}. 
 \end{defn}
 
-We first prove that the Chow ring is a graded $\RR$-algebra. To do this, we first prove Lemma (REFERENCE)
+The Gorenstein ring associated to a polynomial has a natural grading with respect to the degree of the differential form. Before we prove that this actually gives $A_f^\bullet$ a graded ring structure, we first prove Lemma~\ref{homogeneous-parts}.
 
 \begin{lem} \label{homogeneous-parts}
 	Let $\xi \in \RR[\partial_1, \ldots, \partial_n]$ and $f \in \RR[x_1, \ldots, x_n]$ be a homogeneous polynomial. We can decompose $\xi = \xi_0 + \xi_1 + \ldots$ into its homogeneous parts. If $\xi (f) = 0$, then $\xi_d (f) = 0$ for all $d \geq 0$. 
@@ -203,12 +525,12 @@ In Proposition(CITE), we can define $\deg_f : A_f^d \to \RR$ to be the isomorphi
 
 Sometimes, instead of saying $A_f$ satisfies Hodge-Riemann Relations or the Hard Lefschetz Property, we will say that $f$ satisfies Hodge-Riemann Relations or the Hard Lefschetz property. For any $a \in \RR^n$, we can define the linear differential form $l_a := a_1 \partial_1 + \ldots + a_n \partial_n$. We say that $f$ satisfies $\HL$ or $\HRR$ with respect to $a$ if and only if it satisfies $\HL$ or $\HRR$ with respect to $l_a$. Most applications of the Hodge-Riemann Relations only end up using the relations up to degree $k \leq 1$. (GIVE EXAMPLE OF AN APPLICATION WHICH USES HIGHER DIMENSION,, maybe Chris Eur???) 
 
-\begin{prop} [Lemma 3.4 in (CITE MURAI)] \label{conditions-for-HL-HRR}
+\begin{prop} [Lemma 3.4 in \cite{MNY}] \label{conditions-for-HL-HRR}
 	Let $f \in \RR[x_1, \ldots, x_n]$ be a homogeneous polynomial of degree $d \geq 2$ and $a \in \RR^n$. Assume that $f(a) > 0$. Then, 
 	\begin{enumerate}[label = (\alph*)]
 		\item $A_f$ has $\HL_1$ with respect to $l_a$ if and only $Q_{l_a}^1$ is non-degenerate. 
 
-		\item $A_f$ has $\HRR_1$ with respect to $l_a$ if and only if $-Q_{l_a}^1$ has signature $(+, -, \ldots, -)$. 
+		\item Suppose that $A_f$ satisfies $\HL_1$. Then $A_f$ has $\HRR_1$ with respect to $l_a$ if and only if $-Q_{l_a}^1$ has signature $(+, -, \ldots, -)$. 
 	\end{enumerate}
 \end{prop}
 
@@ -285,14 +607,25 @@ If the value of $a$ is not restricted to the positive orthant and additionally w
 	\]
 	This proves that the signature of $-Q^1_{l_a}$ is the same as the signature of $\Hess_f |_{x = a}$.  We are done from Lemma~\ref{conditions-for-HL-HRR}(b).
 \end{proof}
-\section{Chow Ring of the Basis Generating Polynomial}
+\section{The Gorenstein ring associated to the basis generating polynomial of a matroid}
 
-(maybe rename to Gorenstein ring? you should ask June)
 \begin{defn}
-	Let $M$ be a matroid. We define $A^\bullet(M) := A^\bullet_{f_M}$ to be the Chow ring of the basis generating polynomial of $M$. We then define $S_M := \RR [ x_e : e \in E]$ and $\Ann_M := \Ann_{S_M}(f_M)$. 
+	Let $M$ be a matroid. We define $A^\bullet(M) := A^\bullet_{f_M}$ to be the \textbf{Gorenstein ring associated to the basis generating polynomial} of $M$. In this case, we define 
+	\[
+		S_M := \RR [ \partial_e : e \in E]
+	\]
+	to be the polynomial ring in variables indexed by the ground set. We also define
+	\[
+		\Ann_M := \Ann_{S_M}(f_M)
+	\]
+	which is the annihilator of $f_M$ with respect to $S_M$. Then $A(M) = S_M / \Ann_M$. 
 \end{defn}
 
-As we have defined the Chow Ring, it becomes an excellent tool to study the basis generating polynomial of a matroid. This is because the Chow Ring of a matroid only depends on its simplification. Indeed, if $a, b \in E(M)$ are parallel elements, then $\partial_a - \partial_b$ gets annihilated and if $e \in E(M)$ is a loop then $\partial_e$ gets annihilated. We will describe this isomorphism in Theorem~\ref{only-simplification-matters}. Before proving this result, we first describe some common elements in the ideal $\Ann_M$. 
+\begin{remark}
+	For the sake of brevity, we will refer to the ring $A(M)$ as simply the \textbf{Gorenstein ring} of the matroid $M$. As a warning, note that this is not standard in the literature since there are \textbf{many} Gorenstein rings associated to matroids. Immediate examples are the Chow ring and augmented Chow ring of a matroid \cite{huh-semi-small}. 
+\end{remark}
+
+We will now prove that the Gorenstein ring associated to the basis generating polynomial of matroid only depends on its simplification. Indeed, if $a, b \in E(M)$ are parallel elements, then $\partial_a - \partial_b$ gets annihilated and if $e \in E(M)$ is a loop then $\partial_e$ gets annihilated. We will describe this isomorphism in Theorem~\ref{only-simplification-matters}. Before proving this result, we first describe some common elements in the ideal $\Ann_M$. 
 
 \begin{prop}[Proposition 3.1 in \cite{MN-gorenstein}]
 	The annihilator $\Ann_M$ contains the elements
@@ -395,7 +728,7 @@ Thus, we have that $\psi (\xi)(f_M) = 0$ and $\Ann_{\widetilde{M}} \subseteq \ke
 From Theorem~\ref{only-simplification-matters}, we get Corollary~\ref{complex-isomorphism} and Corollary~\ref{simplification-of-HRR} immediately. 
 
 \begin{cor} \label{complex-isomorphism}
-	Let $M = (E, \mathcal{I})$ be a matroid. For any $a \in \RR^E$, we can define the linear form $l_a := \sum_{e \in E} a_e \cdot \partial_{x_e} \in A^1(M)$. Let $\widetilde{l_a} := \Phi(l_a) = \sum_{e \in E} a_e \cdot \partial_{x_{\overline{e}}} \in A^1(\widetilde{M})$. Then, the following diagram is an isomorphism of chain complexes:
+	Let $M = (E, \mathcal{I})$ be a matroid. For any $a \in \RR^E$, we can define the linear form $l_a := \sum_{e \in E} a_e \cdot \partial_{x_e} \in A^1(M)$. Let $\widetilde{l_a} := \Phi(l_a) = \sum_{e \in E} a_e \cdot \partial_{x_{\overline{e}}} \in A^1(\widetilde{M})$. Then, the following diagram commutes:
 	\[\begin{tikzcd}
 	\ldots & {A^{i-1}(M)} & {A^i(M)} & {A^{i+1}(M)} & \ldots \\
 	\ldots & {A^{i-1}(\widetilde{M})} & {A^i(\widetilde{M})} & {A^{i+1}(\widetilde{M})} & \ldots
@@ -509,7 +842,7 @@ Before moving on to the study of $\HRR_1$ on the facets of the positive orthant,
 	This suffices for the proof of the Theorem. 
 \end{proof}
 
-\begin{thm}[Higher Degree Socles]
+\begin{thm}[Higher Degree Socles] \label{higher-degree-socles}
 	Let $M = (E, \mcI)$ be a matroid. Let $S \subseteq E$ be a subset such that $\rank(S) \leq \rank(M) - k - 1$. Then, 
 	\[
 		\{\xi \in A^k(M) : \xi (\partial_e f_M) = 0 \text{ for all } e \in E \backslash S\} = \{0\}.
@@ -575,38 +908,111 @@ With a similar type of proof, you can prove the following result.
 	Let $M = (E, \mcI)$ be a matroid which satisfies $\rank (M) \geq 2$. For any $S \subseteq E$, if $\rank(S) \leq \rank (M) - 2$ and $S$ contains no co-loops, then $f_M$ satisfies $\HRR_1$ on $\relint (H_S)$. 
 \end{thm}
 
+\begin{thm}
+	Let $M = (E, \mcI)$ be a matroid and let $S \subseteq E$ be a subset such that $\rank (S) \leq \rank (M) - k - 1$. Let $l := \sum_{i \in E \backslash S} a_i \cdot e_i$ where $a_i > 0$. If $\partial_e f_M$ is $0$ or satisfies $\HRR_k$ and with respect to $l$ for all $e \in E \backslash S$, then $A(M)$ satisfies $\HL_k$ with respect to $l$. 
+\end{thm}
+
+\begin{proof}
+	Note that $\partial_e f = 0$ if and only if $e$ is a loop. In this case, the variable $x_e$ doesn't appear in the basis generating polynomial. Hence, without loss of generality, we can suppose that $M$ is loopless and $\partial_e f \neq 0$ for all $e \in E$. Since $A(M)$ is a Poincare duality algebra, it suffices to prove for $\Xi \in A^k(M)$ that if $\Xi l^{d-2k} = 0$ in $A^{r-k}(M)$, then $\Xi = 0$ in $A^k(M)$. We know that $\Xi$ is in the primitive subspaces of $\partial_e f$ for all $e \in E$ and we can compute the formula
+	\[
+		0 = Q^k (\Xi, \Xi) = \sum_{i \in E \backslash S} a_i Q_{\partial_i f} (\Xi, \Xi).
+	\]
+	From the positive definiteness on the primitive subspaces, we have $\Xi = 0$ in $A^k_{\partial_i f}$ for all $i \in E\backslash S$. From Theorem~\ref{higher-degree-socles}, we get $\Xi = 0$ in $A^k(M)$. This suffices for the proof. 
+\end{proof}
+
 \begin{conj}
 	For any matroid $M$, $A (M)$ has $\HL_k$ for all $k$ with respect to some linear form $l$. 
 \end{conj}
+\begin{defn}
+	Let $B : V \times V \to k$ be a symmetric bilinear form on a finite dimensional vector space $V$. Suppose that the signature of $B$ has $n_+$ positive eigenvalues and $n_-$ negative eigenvalues. Then, we define the \textbf{net signature} to be $\sigma(B) = n_+ - n_-$. 
+\end{defn}
 
-\begin{lem}
-	Let $A(M)$ satisfies $\HRR_i$ for $1 \leq i \leq k$, then, we have 
+When our bilinear form $B : V \times V \to k$ is non-degenerate, then the net signature $\sigma (B)$ determines the exact signature of the form. Indeed, in the non-degenerate case, we have $n_+ - n_- = \sigma(B)$ and $n_+ + n_- = \dim V$. 
+\begin{lem} \label{formula-for-dimension-when-HRR-HL-are-satisfied}
+	Let $A(M)$ satisfies $\HRR_i$ and $\HL_i$ with respect to $l$ for $1 \leq i \leq k$, then, we have 
 	\[
-		\mathsf{sig}(Q_l^k) = \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M)).
+		\sigma \left ( (-1)^kQ_l^k \right ) = \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M)).
 	\]
 \end{lem}
-\begin{lem}
-	Let $k \geq 2$ and $A(M)$ satisfies $\HRR_{i}$ and $\HL_{i}$ with respect to $l = l_a$ where $a \in \RR_{> 0}^n$ for all $1 \leq i \leq k-1$. Then
+
+\begin{proof}
+	We induct on $k$. For the base case, we have $k = 1$ and the claim follows from Proposition~\ref{conditions-for-HL-HRR}. Suppose that the claim holds for $k-1$. Consider the composition of maps given by the following commutative diagram:
+	\begin{equation} \label{important-composition}
+		\begin{tikzcd}
+			{A^{k-1}(M)} && {A^k(M)} && {A^{d-k}(M)} && {A^{d-k+1}(M)}
+			\arrow["{\times l_a}", from=1-1, to=1-3]
+			\arrow["{\times l_a^{d-2k}}", from=1-3, to=1-5]
+			\arrow["{\times l_a}", from=1-5, to=1-7]
+			\arrow["{\psi_a}", bend right = 30, from=1-3, to=1-7]
+		\end{tikzcd}
+	\end{equation}
+	This diagram exhibits an isomorphism between $A^{k-1}(M)$ and $A^{d-k+1}(M)$ from $\HL_{k-1}$. This implies that we can decompose $A^k(M)$ into 
+	\[
+		A^k(M) = l \cdot A^{k-1}(M) \oplus \ker \psi_a
+	\] 
+	where the two summands in the direct sum are orthogonal with respect to the Hodge-Riemann form $Q_l^k$. Let $u_1, \ldots, u_m \in A^{k-1}(M)$ be a basis for $A^{k-1}(M)$. Then, $l \cdot u_1, \ldots, l \cdot u_m$ is a basis for $A^k(M)$ and
+	\[
+		(-1)^{k} Q_{l}^k (l \cdot u_i, l \cdot u_j) = (-1)^{k-1} Q_{l}^{k-1} (u_i, u_j). 
+	\]
+	Thus, the signature of $Q_{l}^k$ on $l \cdot A^{k-1}(M)$ should be the negative of the signature of $Q_{l}^{k-1}$ on $A^{k-1}(M)$. Since $A(M)$ satisfies $\HRR_k$, we know that the signature of $Q_l^k$ on $\ker \psi$ is $\dim \ker \psi$. This gives us the formula
+	\begin{align*}
+		\sigma ((-1)^k Q_{l_a}^k) & = \sigma \left((-1)^{k-1} Q_{l_a}^{k-1}\right) + (-1)^k (\dim A^k(M) - \dim A^{k-1}(M)) \\
+		& = \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M))
+	\end{align*}
+	from the inductive hypothesis. This suffices for the proof. 
+\end{proof}
+\begin{lem} \label{sufficient-conditions-for-higher-HRR}
+	Let $k \geq 2$ and $A(M)$ satisfies $\HRR_{i}$ and $\HL_{i}$ with respect to $l = l_a$ for some $a \in \RR^n$ for all $1 \leq i \leq k-1$. Then
 	\begin{enumerate}[label = (\alph*)]
 		\item $A(M)$ satisfies $\HL_k$ with respect to $l$ if and only if $Q_l^k$ is non-degenerate on $A^k(M)$. 
 
-		\item $A(M)$ satisfies $\HRR_k$ with respect to $l$ if and only if 
+		\item Suppose that $\HL_k$ is satisfied. Then $A(M)$ satisfies $\HRR_k$ with respect to $l$ if and only if 
 		\[
-			\mathsf{sig}(Q_l^k) = \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M))
-		\]
-		where $A^{-1}(M) = 0$. Specifically, we want $Q_l^k$ to have 
-		\[
-			\frac{1}{2} \left ( \dim A^k(M) + \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M)) \right ) \text{ positive eigenvalues}
-		\]
-		and
-		\[
-			\frac{1}{2} \left ( \dim A^k(M) - \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M)) \right ) \text{ negative eigenvalues}.
+			\sigma ((-1)^kQ_l^k) = \sum_{i = 0}^k (-1)^i (\dim A^i(M) - \dim A^{i-1}(M)).
 		\]
 	\end{enumerate}
 \end{lem}
+
+\begin{proof}
+	The argument for (a) is exactly the same as the argument for (a) in Proposition~\ref{conditions-for-HL-HRR}. For part (b), consider the composition in Equation~\ref{important-composition}. Recall from the proof of Lemma~\ref{formula-for-dimension-when-HRR-HL-are-satisfied}, we have that 
+	\[
+		\sigma ((-1)^k Q_{l_a}^k) = \sigma \left((-1)^{k-1} Q_{l_a}^{k-1}\right) + \sigma \left((-1)^k Q_{l_a}^k |_{\ker \psi_a}\right).
+	\]
+	Since $A(M)$ satisfies $\HRR_k$ if and only if $Q_{l_a}^k$ is positive definition on $\ker \psi_a$, we know that $A(M)$ satisfies $\HRR_k$ if and only if $\sigma (Q_{l_a}^k) = \dim \ker \psi_a = \dim A^k(M) - \dim A^{k-1}(M)$. Then Lemma~\ref{formula-for-dimension-when-HRR-HL-are-satisfied} completes the proof.  
+\end{proof}
+
+\begin{lem} \label{one-element-is-enough}
+	Let $\Omega \subseteq \RR^n$ be a subset such that for all $x \in \Omega$, $A(M)$ satisfies $\HRR_i$ for $i \leq k-1$ and $\HL_i$ for $i \leq k$. Suppose that there is a continuous path $\gamma : [0, 1] \to \RR^n$ with image $\varphi ([0, 1]) \subseteq \Omega$, suct that $A(M)$ satisfies $\HRR_k$ with respect to $l_{\gamma(0)}$. Then $A(M)$ satisfies $\HRR_k$ with respect to $l_{\gamma(1)}$. 
+\end{lem}
+
+\begin{proof}
+	Let $\lambda_i(a)$ be the $i$th largest eigenvalue of $Q_{l_a}^k$ as a function in $a$ for $1 \leq i \leq \dim A^k(M)$. Then for all $1 \leq i \leq \dim A^k(M)$, the $i$th eigenvalue $\lambda_i(a)$ is a continuous function in $a$. Along the path $\gamma$, we know that $Q_{l_a}^k$ is non-degenerate. Hence, none of the functions $\lambda_i(a)$ cross zero. This implies that on the path, the signature $\sigma \left((-1)^k Q_{l_a}^k\right)$ remains constant. From Lemma~\ref{sufficient-conditions-for-higher-HRR}(b), this completes the proof.
+\end{proof}
+In the case when $a = (1, \ldots, 1)$, we have 
+\[
+	Q^k(\xi, \xi) = \sum_{\substack{\alpha_1, \alpha_2 \in \mcI \\ \alpha_1 \cup \alpha_2 \in \mcI_{2k}}} \mathsf{Ext}(\alpha_1 \cup \alpha_2) \cdot c_{\alpha_1} c_{\alpha_2}.
+\]
+\subsection{Graded Mobius Algebra}
+
+\begin{defn}[taken word for word in \cite{huh-semi-small}]
+	For any non-negative integer $k$, we define a vector space
+	\[
+		H^k(M) := \bigoplus_{F \in \mcL^k(M)} \QQ y_F,
+	\]
+	where the direct sum is over the set $\mcL^k(M)$ of rank $k$ flats of $M$. The \textbf{graded Mobius algebra} of $M$ is the graded vector space
+	\[
+		H(M) := \bigoplus_{k \geq 0} H^k(M).
+	\]
+	The multiplication in $H(M)$ is defined by the rule
+	\[
+		y_{F_1} y_{F_2} = \begin{cases}
+			y_{F_1 \vee F_2} & \text{if $\rank_M(F_1) + \rank_M(F_2) = \rank_M (F_1 \vee F_2)$} \\
+			0 & \text{if $\rank_M(F_1) + \rank_M(F_2) > \rank_M(F_1 \vee F_2)$}.
+		\end{cases}
+	\]
+\end{defn}
 \chapter{Appendix}
 
-\chapter{References}
 \bibliographystyle{plain}
 \bibliography{ref}
 \end{document}

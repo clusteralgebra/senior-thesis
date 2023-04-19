@@ -4,22 +4,37 @@
 \contentsline {chapter}{\numberline {2}Introduction}{2}{}%
 \contentsline {chapter}{\numberline {3}Combinatorial Structures}{3}{}%
 \contentsline {section}{\numberline {3.1}Partially Ordered Sets}{3}{}%
-\contentsline {section}{\numberline {3.2}Matroids}{3}{}%
-\contentsline {section}{\numberline {3.3}Convex Bodies}{4}{}%
-\contentsline {subsection}{\numberline {3.3.1}Mixed Volumes}{4}{}%
-\contentsline {chapter}{\numberline {4}Mechanisms for Log-concavity}{5}{}%
-\contentsline {section}{\numberline {4.1}Alexandrov's Inequality for Mixed Discriminants}{5}{}%
-\contentsline {section}{\numberline {4.2}Alexandrov-Fenchel Inequality}{5}{}%
-\contentsline {section}{\numberline {4.3}Lorentzian Polynomials}{5}{}%
-\contentsline {section}{\numberline {4.4}Combinatorial Atlas}{5}{}%
-\contentsline {chapter}{\numberline {5}Log-concavity Results for Posets and Matroids}{6}{}%
-\contentsline {section}{\numberline {5.1}Stanley's Inequality}{6}{}%
-\contentsline {section}{\numberline {5.2}Kahn-Saks Inequality}{6}{}%
-\contentsline {section}{\numberline {5.3}Stanley's Matroid Inequality}{6}{}%
-\contentsline {chapter}{\numberline {6}Hard Lefschetz Property and Hodge-Riemann Relations}{7}{}%
-\contentsline {section}{\numberline {6.1}Chow Ring of Homogeneous Polynomials}{7}{}%
-\contentsline {section}{\numberline {6.2}Local Hodge-Riemann Relations}{11}{}%
-\contentsline {section}{\numberline {6.3}Chow Ring of the Basis Generating Polynomial}{12}{}%
-\contentsline {section}{\numberline {6.4}Hodge-Riemann relations on the facets of the positive orthant}{17}{}%
-\contentsline {chapter}{\numberline {7}Appendix}{23}{}%
-\contentsline {chapter}{\numberline {8}References}{24}{}%
+\contentsline {subsection}{\numberline {3.1.1}Linear Extensions}{3}{}%
+\contentsline {subsection}{\numberline {3.1.2}Lattices}{3}{}%
+\contentsline {section}{\numberline {3.2}Graph Theory}{4}{}%
+\contentsline {subsection}{\numberline {3.2.1}Spectral Graph Theory}{4}{}%
+\contentsline {section}{\numberline {3.3}Matroids}{5}{}%
+\contentsline {subsection}{\numberline {3.3.1}Independent Sets}{5}{}%
+\contentsline {subsection}{\numberline {3.3.2}Bases}{6}{}%
+\contentsline {subsection}{\numberline {3.3.3}Rank Functions}{6}{}%
+\contentsline {subsection}{\numberline {3.3.4}Closure Operators and Lattice of Flats}{7}{}%
+\contentsline {subsection}{\numberline {3.3.5}Loops and Parallel Elements}{7}{}%
+\contentsline {subsection}{\numberline {3.3.6}Contraction and Deletion}{8}{}%
+\contentsline {subsection}{\numberline {3.3.7}Regular Matroids}{9}{}%
+\contentsline {section}{\numberline {3.4}Mixed Discriminants}{10}{}%
+\contentsline {subsection}{\numberline {3.4.1}Polarization Form}{10}{}%
+\contentsline {subsection}{\numberline {3.4.2}Positivity}{11}{}%
+\contentsline {section}{\numberline {3.5}Convex Bodies}{12}{}%
+\contentsline {subsection}{\numberline {3.5.1}Mixed Volumes}{12}{}%
+\contentsline {chapter}{\numberline {4}Mechanisms for Log-concavity}{13}{}%
+\contentsline {section}{\numberline {4.1}Log-Concavity and Ultra Log-Concavity}{13}{}%
+\contentsline {section}{\numberline {4.2}Alexandrov's Inequality for Mixed Discriminants}{13}{}%
+\contentsline {section}{\numberline {4.3}Alexandrov-Fenchel Inequality}{14}{}%
+\contentsline {section}{\numberline {4.4}Lorentzian Polynomials}{14}{}%
+\contentsline {section}{\numberline {4.5}Combinatorial Atlas}{14}{}%
+\contentsline {chapter}{\numberline {5}Log-concavity Results for Posets and Matroids}{15}{}%
+\contentsline {section}{\numberline {5.1}Stanley's Inequality}{15}{}%
+\contentsline {section}{\numberline {5.2}Kahn-Saks Inequality}{15}{}%
+\contentsline {section}{\numberline {5.3}Stanley's Matroid Inequality}{15}{}%
+\contentsline {chapter}{\numberline {6}Hard Lefschetz Property and Hodge-Riemann Relations}{16}{}%
+\contentsline {section}{\numberline {6.1}Gorenstein ring associated to a polynomial}{16}{}%
+\contentsline {section}{\numberline {6.2}Local Hodge-Riemann Relations}{20}{}%
+\contentsline {section}{\numberline {6.3}The Gorenstein ring associated to the basis generating polynomial of a matroid}{22}{}%
+\contentsline {section}{\numberline {6.4}Hodge-Riemann relations on the facets of the positive orthant}{27}{}%
+\contentsline {subsection}{\numberline {6.4.1}Graded Mobius Algebra}{34}{}%
+\contentsline {chapter}{\numberline {7}Appendix}{35}{}%

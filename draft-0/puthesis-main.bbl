@@ -1,4 +1,52 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{bapat_raghavan_1997}
+R.~B. Bapat and T.~E.~S. Raghavan.
+\newblock {\em Nonnegative Matrices and Applications}.
+\newblock Encyclopedia of Mathematics and its Applications. Cambridge
+  University Press, 1997.
+
+\bibitem{huh-semi-small}
+Tom Braden, June Huh, Jacob~P. Matherne, Nicholas Proudfoot, and Botong Wang.
+\newblock A semi-small decomposition of the chow ring of a matroid, 2020.
+
+\bibitem{chung-spectral-graph-theory}
+Fan R~K Chung.
+\newblock {\em Spectral graph theory}.
+\newblock 1996.
+
+\bibitem{diestel}
+Reinhard Diestel.
+\newblock {\em Graph theory: 5th edition}.
+\newblock Springer-Verlag, \copyright{} Reinhard Diestel, February 2017.
+
+\bibitem{optimization}
+Jack Edmonds.
+\newblock Matroids and the greedy algorithm.
+\newblock {\em Mathematical Programming}, 1(1):127--136, December 1971.
+
+\bibitem{schubert-cell}
+I.M Gelfand, R.M Goresky, R.D MacPherson, and V.V Serganova.
+\newblock Combinatorial geometries, convex polyhedra, and schubert cells.
+\newblock {\em Advances in Mathematics}, 63(3):301--316, 1987.
+
+\bibitem{gelfand}
+Israel~M. Gelfand and Robert~D. MacPherson.
+\newblock A combinatorial formula for the pontrjagin classes, 1992.
+
+\bibitem{GoluVanl96}
+Gene~H. Golub and Charles~F. Van~Loan.
+\newblock {\em Matrix Computations}.
+\newblock The Johns Hopkins University Press, third edition, 1996.
+
+\bibitem{matroid-polytope}
+David~C. Haws.
+\newblock Matroid polytopes: Algorithms, theory, and applications, 2009.
+
+\bibitem{milnor-numbers}
+June Huh.
+\newblock Milnor numbers of projective hypersurfaces and the chromatic
+  polynomial of graphs, 2012.
 
 \bibitem{MN-gorenstein}
 Toshiaki Maeno and Yasuhide Numata.
@@ -17,10 +65,36 @@ James~G. Oxley.
 \newblock {\em Matroid Theory (Oxford Graduate Texts in Mathematics)}.
 \newblock Oxford University Press, Inc., USA, 2006.
 
+\bibitem{lie-groups}
+Claudio Procesi.
+\newblock {\em Lie groups}.
+\newblock Universitext. Springer, New York, NY, 2007 edition, October 2006.
+
+\bibitem{schneider_2013}
+Rolf Schneider.
+\newblock {\em Convex Bodies: The Brunn–Minkowski Theory}.
+\newblock Encyclopedia of Mathematics and its Applications. Cambridge
+  University Press, 2 edition, 2013.
+
+\bibitem{ordered-sets}
+Bernd S~W Schroder.
+\newblock {\em Ordered sets}.
+\newblock Birkhauser, Basel, Switzerland, 2 edition, May 2016.
+
 \bibitem{Stanley-alg-combo}
 Richard~P Stanley.
 \newblock {\em Algebraic combinatorics}.
 \newblock Undergraduate texts in mathematics. Springer, New York, NY, 2013
   edition, June 2013.
+
+\bibitem{welsh}
+D.J.A. Welsh.
+\newblock {\em Matroid Theory}.
+\newblock Dover books on mathematics. Dover Publications, 2010.
+
+\bibitem{Zhao2015-kf}
+Chang-Jian Zhao and Xiao-Yan Li.
+\newblock Inequalities for the mixed discriminants.
+\newblock {\em J. Math. Inequal.}, (1):197--202, 2015.
 
 \end{thebibliography}
