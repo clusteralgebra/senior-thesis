@@ -1,14 +1,29 @@
 \begin{thebibliography}{10}
 
+\bibitem{aleksandrov}
+A.~D. Aleksandrov.
+\newblock Zur {Theorie} der gemischten {Volumina} von konvexen {K{\"o}rpern}.
+  {IV}.: {Die} gemischten {Diskriminanten} und die gemischten {Volumina}.
+\newblock {\em Rec. Math. Moscou, n. Ser.}, 3:227--251, 1938.
+
 \bibitem{bapat_raghavan_1997}
 R.~B. Bapat and T.~E.~S. Raghavan.
 \newblock {\em Nonnegative Matrices and Applications}.
 \newblock Encyclopedia of Mathematics and its Applications. Cambridge
   University Press, 1997.
 
+\bibitem{hyperbolic-polynomials}
+Heinz~H. Bauschke, Osman Güler, Adrian~S. Lewis, and Hristo~S. Sendov.
+\newblock Hyperbolic polynomials and convex analysis.
+\newblock {\em Canadian Journal of Mathematics}, 53(3):470–488, 2001.
+
 \bibitem{huh-semi-small}
 Tom Braden, June Huh, Jacob~P. Matherne, Nicholas Proudfoot, and Botong Wang.
 \newblock A semi-small decomposition of the chow ring of a matroid, 2020.
+
+\bibitem{lorentzian-polynomials}
+Petter Brändén and June Huh.
+\newblock Lorentzian polynomials, 2019.
 
 \bibitem{chung-spectral-graph-theory}
 Fan R~K Chung.
@@ -39,9 +54,21 @@ Gene~H. Golub and Charles~F. Van~Loan.
 \newblock {\em Matrix Computations}.
 \newblock The Johns Hopkins University Press, third edition, 1996.
 
+\bibitem{strongly-log-concave}
+Leonid Gurvits.
+\newblock On multivariate newton-like inequalities.
+\newblock In Ilias~S. Kotsireas and Eugene~V. Zima, editors, {\em Advances in
+  Combinatorial Mathematics}, pages 61--78, Berlin, Heidelberg, 2010. Springer
+  Berlin Heidelberg.
+
 \bibitem{matroid-polytope}
 David~C. Haws.
 \newblock Matroid polytopes: Algorithms, theory, and applications, 2009.
+
+\bibitem{Hug2020-ue}
+Daniel Hug and Wolfgang Weil.
+\newblock {\em Lectures on convex geometry}.
+\newblock Springer Nature, Cham, Switzerland, August 2020.
 
 \bibitem{milnor-numbers}
 June Huh.

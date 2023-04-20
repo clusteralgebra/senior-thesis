@@ -1,4 +1,5 @@
 \documentclass{puthesis-UG}
+
 \usepackage{style}
 
 %%%%%%%%IMPORTANT INFORMATION%%%%%%%%%%%%%%%%%%%%
@@ -11,7 +12,7 @@
 
 \author{Alan Yan}
 \adviser{Professor June E. Huh}
-\title{Log-concavity in Combinatorics}
+\title{Hodge-Riemann Relations of the Basis Generating Polynomial of a Matroid}
 \abstract{(write something flowery)}
 \acknowledgements{I would like to thank}
 \date{today}
@@ -47,7 +48,13 @@ Our main reference for partially ordered sets is \cite{ordered-sets}.
 \end{defn}
 
 \begin{example}
-
+	We provide a list of exmaples of common posets which appear naturally in mathematics. 
+	\begin{enumerate}[label = (\alph*)]
+		\item Any subset of the real numbers equipped with the less-than-or-equal-to relations $\leq$.
+		\item Any subset of the integers equipped with the divisibility relation.
+		\item Any collection of sets equipped with the inclusion relation. 
+		\item The vertices of a directed graph where $v \leq w$ if and only if $w$ can be reached from a directed path started at $v$. 
+	\end{enumerate}
 \end{example}
 
 \subsection{Linear Extensions}
@@ -96,7 +103,18 @@ We assume a working knowledge of basic graph theory. This includes concepts such
 			0, & \text{otherwise.}
 		\end{cases}
 	\]
+	The matrix $C_G$ which is obtained by removing the last row of $B_G$ is called the \textbf{reduced incidence matrix}. 
 \end{defn}
+
+The incidence matrix and reduced incidence matrix satisfy the condition in Proposition~\ref{incidence-reduced-incidence-matrix-is-good}. This connects the linear independence of the columns of the incidence matrices of $G$ to the cyclelessness of subgraphs of $G$. This proposition will provide an example of the combinatorial structure of a matroid introduced in the subsequent section. 
+
+\begin{prop} \label{incidence-reduced-incidence-matrix-is-good}
+	For a graph $G = (V, E)$ the incidence matrix $B_G$ and reduced incidence matrix $C_G$ both satisfy the property that a set of columns are linearly independent if and only if the graph formed by the corresponding edges does not contain a cycle. 
+\end{prop}
+
+\begin{proof}
+	See Example 5.4 of \cite{bapat_raghavan_1997}. 
+\end{proof}
 
 
 \section{Matroids}
@@ -245,9 +263,13 @@ In graph theory, there are notions of edge contraction and edge deletion. In Def
 \begin{defn}
 	A \textbf{regular matroid} is a matroid which is isomorphic to a linear matroid with respect to a real matrix which is totally unimodular. A totally unimodular matrix is a matrix for which every square submatrix has determinant in $\{0, -1, 1\}$. 
 \end{defn}
+
+\begin{prop}
+	Any graphic matroid
+\end{prop}
 \section{Mixed Discriminants}
 
-In this section, we discuss a symmetric multilinear form called the mixed discriminant which arises as the polarization of the determinant. This object will be useful in future sections as it satisfies the log-concavity inequality in Theorem (CITE). Our main reference for the theory of mixed discriminants will come from \cite{bapat_raghavan_1997}. 
+In this section, we discuss a symmetric multilinear form called the mixed discriminant which arises as the polarization of the determinant. This object will be useful in future sections as it satisfies the log-concavity inequality in Theorem (CITE). Our main reference for the theory of mixed discriminants will come from \cite{bapat_raghavan_1997}. One connection between mixed discriminants and mixed volumes can be seen in the formal similaritiy of Theorem~\ref{polarization-mixed-discriminant} and Theorem (CITE???). A deeper connection can be seen in Alexandrov's original paper \cite{aleksandrov} where he introduces mixed discriminants to proof Theorem (CITE???). 
 
 \begin{defn}
 	let $n \geq 1$ be a positive integer. Suppose that for each $k \in [n]$, we are given an $n \times n$ matrix $A^k := (a_{ij}^k)_{i, j = 1}^n$. Then, we define the \textbf{mixed discriminant} of $(A^1, \ldots, A^n)$ as the expression 
@@ -343,12 +365,156 @@ In this section, we discuss when the mixed discriminant is positive. First, reca
 
 \section{Convex Bodies}
 
-In this section, we review the notions of convexity and convex bodies. We use \cite{schneider_2013} as our main reference for the theory of convex bodies and Brunn-Minkowski inequalities. 
+In this section, we review the notions of convexity and convex bodies. We use \cite{schneider_2013} as our main reference for the theory of convex bodies and Brunn-Minkowski inequalities. Recall that a subset $C \subseteq \RR^n$ is convex if for every $x, y \in C$, the line segment $[x, y]$ is contained in $C$. Even though the condition of convexity is quite a rigid condition, there still exist topologically wild convex sets. Indeed, for any arbitrary subset $S \subseteq \mathbb{S}^{n-1}$ of the unit sphere in $\RR^{n-1}$, the set $S \cup \mathbb{B}_0^n$ is a convex set. Thus, we only consider a subclass of convex sets called convex bodies. A \textbf{convex body} is a non-empty, compact, convex subset of $\RR^n$. We denote the set of convex bodies in $\RR^n$ by $\mathsf{K}^n$.
+
+\subsection{Support and facial structure}
+
+The dimension of a convex body can be defined as the dimension of the affine span of the convex body. Convex bodies have a well-understood boundary structure in terms of supporting hyperplanes. We call $H$ a \textbf{supporting hyperplane} of $K$ if $K$ lies on one side of the hyperplane and $K \cap H \neq \emptyset$. A \textbf{supporting hyperspace} will then by the half-space corresponding to a supporting hyperplane which contains our convex body $K$. Any convex body will be equal to the intersection of all of its support hyperspaces. To explore the boundary structure in greater detail, we define the following two notions. 
+\begin{defn} \label{face-and-exposed-face}
+	Let $K \subseteq \RR^n$ be a convex body and let $F \subseteq K$ be a subset. 
+	\begin{enumerate}[label = (\alph*)]
+		\item If $F$ is a convex subset such that each segment $[x, y] \subseteq K$ with $F \cap \relint [x, y] \neq \emptyset$ is contained in $F$, then we call $F$ a \textbf{face}. If $\dim F = i$, then we call $F$ an $i$-face. 
+
+		\item If there is a supporting hyperplane $H$ such that $K \cap H = F$, we call $F$ an \textbf{exposed face}. The exposed faces of codimension $1$ are called \textbf{facets} and the exposed faces of dimension $0$ are called \textbf{vertices}. 
+	\end{enumerate}
+	For $i \geq -1$, we define $\mathcal{F}_i(K)$ be the set of $i$-faces of $K$. By convention, we let $\mathcal{F}_{-1}(K) = \{\emptyset\}$ and we consider $\emptyset$ to be the unique face of dimension $-1$. The faces $\mathcal{F}(K) := \bigcup_i \mathcal{F}_i(K)$ equipped with set inclusion forms a poset. 
+\end{defn}
+
+For any convex body, we can find an exposed face in any direction. Indeed, for any convex body $K \in \mathsf{K}^n$ and $u \in \RR^n \backslash \{0\}$, we can define the \textbf{support function} $h_K(u)$ of $K$ in the direction $u$ and the \textbf{exposed face} $F_K(u)$ of $K$ in the direction $u$ as 
+\begin{align*}
+	h_K(u) & := \sup_{x \in K} \langle u, x \rangle \\
+	F_K(u) & := K \cap \{x \in \RR^n : \langle u, x \rangle = h_K(u)\}.
+\end{align*}
+Geometrically, $h_K(u)$ is (signed) distance of the furthest point on $K$ in the direction $u$ multiplied by the magnitude $|u|$. The exposed face $F_K(u)$ consists of the subset of $K$ which achieve this maximum distance in the direction $u$. 
+
+\begin{remark}
+	In general, the notions of faces and exposed faces are not the same. It is not hard to check that an exposed face is a face. On the other hand, a face is not necessarily an exposed face. For example, in Figure~\ref{counter-example} the top semi-circle is a face which is not exposed. But, in the special case where our convex body is a polytope, the notions of faces and exposed faces are the same. We will talk about these types of convex bodies subsequently. 
+	
+	\begin{figure}[h] \label{counter-example}
+		\begin{center}
+			\includegraphics[scale = 1]{image5.PNG}
+			\caption{Convex body with a face which is not exposed.}
+		\end{center}
+	\end{figure}
+	
+\end{remark}
+
+\subsection{Polytopes and simple strongly isomorphic polytopes }
+
+In this section, we define a subclass of convex bodies which are combinatorial in nature and allow us to approximate general convex bodies. We call a convex body $P \subseteq \RR^n$ a \textbf{polytope} if it can be written as the convex hull of a finite number of points. 
+
+\begin{prop}[Properties of Polytopes]
+	Let $P \subseteq \RR^n$ be an arbitrary polytope. Then, $P$ satisfies the following properties: 
+	\begin{enumerate}[label = (\alph*)]
+		\item The exposed faces of $P$ are exactly the faces of $P$. Moreover, $P$ has a finite number of faces. 
+		\item Let $F_1, \ldots, F_k$ be the facets of $P$ with normal vectors $u_1, \ldots, u_k$. Then 
+		\[
+			P = \bigcap_{i = 1}^k H_{u_i, h_P(u_i)}^-
+		\]
+		In particular, the numbers $h_P(u_1), \ldots, h_P(u_k)$ determine $P$ uniquely. 
+
+		\item The face poset $\mathcal{F}(P)$ of $P$ is a graded lattice which is graded by dimension. It satisfies the \textbf{Jordan-Dedekind chain condition}. In other words, if we have a face $F^j \in \mathcal{F}_j(P)$ and a face $F^k \in \mathcal{F}_k(P)$ satisfying $F^j \subset F^k$, then there are faces $F^i \in \mathcal{F}_i(P)$ for $j+1 \leq i \leq k-1$ such that 
+		\[
+			F^j \subset F^{j+1} \subset \ldots \subset F^{k-1} \subset F^k.
+		\]
+	\end{enumerate}
+\end{prop}
+
+\begin{proof}
+	These properties follow from Corollary 2.4.2, Theorem 2.4.3, Corollary 2.4.4, and Corollary 2.4.8 in \cite{schneider_2013}. 
+\end{proof}
+
+We call a polytope $P \subseteq \RR^n$ \textbf{simple} if $\text{int} (P) \neq \emptyset$ and each of its vertices is contained in exactly $n$ facets. We say two polytopes $P_1, P_2$ are called \textbf{strongly isomorphic} if $\dim F_{P_1}(u) = \dim F_{P_2}(u)$ for all $u \in \RR^n \backslash \{0\}$. Strongly isomorphic polytopes have isomorphic face lattices where the isomorphism is given by matching faces which are cut out by support hyperplanes with the same normal vector. Moreover, the corresponding faces are also strongly isomorphic. 
+
+\begin{lem}[Lemma 2.4.10 in \cite{schneider_2013}]
+	If $P_1, P_2$ are strongly isomorphic polytopes, then for each $u \in \RR^n \backslash \{0\}$, the faces $F_{P_1}(u)$ and $F_{P_2}(u)$ are strongly isomorphic. 
+\end{lem}
+\begin{proof}
+	See Lemma 2.4.10 in \cite{schneider_2013}. 
+\end{proof}
+
+We will be interested in approximating a set of convex bodies by polytopes which are simple and strongly isomorphic. To make sense of approximation of polytopes, we will equip the space of convex bodies with a metric.
+
+\subsection{Hausdorff metric on convex bodies}
+
+In this subsection, we equip the space of convex bodies $\mathsf{K}^n$ with the Hausdorff metric $\delta$. We define the \textbf{Hausdorff metric} of $K, L \in \mathsf{K}^n$ as 
+
+Since convex sets are closed, it is Lebesgue measurable. Hence, it has a well-defined volume which we define as 
+\begin{align*}
+	\delta (K, L) & = \max \left \{ \sup_{x \in K} \inf_{y \in L} |x-y|, \sup_{y \in L} \inf_{x \in K} |x-y|\right \} \\
+	& = \inf \{\varepsilon \geq 0 : K \subseteq L + \varepsilon B^n, L \subseteq K + \varepsilon B^n\} \\
+	& = \norm{h_K - h_L}_\infty.
+\end{align*}
+For a proof of the equivalence of these three descriptions, we direct the reader to Theorem 3.2 in \cite{Hug2020-ue}. In Proposition~\ref{convex-body-is-metric-space}, we prove that $\delta$ is a metric on the space of convex bodies. In Theorem~\ref{approximation-SSI}, we prove that any set of convex bodies can be approximated by simple polytopes such that each simple polytope in the approximation are strongly isomorphic. 
+
+\begin{prop} \label{convex-body-is-metric-space}
+	The ordered pair $(\mathsf{K}^n, \delta)$ is a metric space. 
+\end{prop}
+
+\begin{proof}
+	For $K, L, M \in \mathsf{K}^n$, we have 
+	\[
+		\delta(K, M) = \norm{h_K - h_M}_\infty \leq \norm{h_K - h_L}_\infty + \norm{h_L - h_M}_\infty = \delta(K, L) + \delta(L, M). 
+	\]
+	It is clear that $\delta (K, L) = \delta (L, K)$. Finally, we have $\delta(K, L) = 0$ if and only if $\norm{h_K - h_L}_\infty = 0$. Since $h_K$ and $h_L$ are continuous function, this is true if and only if $h_K = h_L$. Since $K$ and $L$ are the intersections of their support hyperplanes, this implies that $K = L$. This suffices for the proof. 
+\end{proof}
+
+\begin{thm}[Theorem 2.4.15 in \cite{schneider_2013}] \label{approximation-SSI}
+	Let $K_1, \ldots, K_m \in \mathsf{K}^n$ be convex bodies. To every $\varepsilon > 0$, there are simple strongly isomorphic polytopes $P_1, \ldots, P_m$ such that $\delta (K_i, P_i) < \varepsilon$ for $i = 1, \ldots, m$.
+\end{thm}
+
+\begin{proof}
+	See Theorem 2.4.15 in \cite{schneider_2013}. 
+\end{proof}
+
+In order for approximations to be useful, we need functions on $(\mathsf{K}^n, \delta)$ which are continuous. Since convex bodies are compact, they are also Lebesgue and Borel measurable. Thus, there is a well-defined function $\Vol_n : \mathsf{K}^n \to \RR_{\geq 0}$ defined by
+\[
+	\Vol_n (K) := \int_{x \in \RR^n} \1_K(x) \, d \lambda(x)
+\]
+where $\lambda$ is the Lebesgue measure on $\RR^n$. Then $\Vol_n(\cdot)$ is a continuous function on $(\mathsf{K}^n, \delta)$. For a proof of this fact, see Theorem 1.8.20 in \cite{schneider_2013}. For another example of a continuous map, consider the projection map $p : \mathsf{K}^n \times \RR^n \to \RR^n$ which maps $(K, x) \mapsto p(K, x)$ where $p(K, x)$ is the projection of $x$ onto $K$. For the proof that this map is continuous, see Section 1.8 in \cite{schneider_2013}. Finally, the map induced by the Minkowski sum $\mathsf{K}^n \times \mathsf{K}^n \to \mathsf{K}^n$ is continuous. 
+
+
+\subsection{Mixed Volumes}
+
+Recall that in the setting of mixed discriminants, for $n \times n$ matrices $A_1, \ldots, A_m$ we had the identity
+\begin{equation} \label{ye-old}
+	\det (\lambda_1 A_1 + \ldots + \lambda_m A_m) = \sum_{i_1, \ldots, i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot \mathsf{D}(A_{i_1}, \ldots, A_{i_n})
+\end{equation}
+where the multilinear form $\mathsf{D}$ was the mixed discriminant. In this subsection, we aim to achieve a similar expression in the world of convex bodies. That is, for convex bodies $K_1, \ldots, K_m \subseteq \RR^n$, we want to expand $\Vol_n(\lambda_1 K_1 + \ldots + \lambda_m K_m)$ as a homogeneous polynomial. 
+\begin{example}
+	Let $K \subseteq \RR^2$ be a polygon and $L \subseteq \RR^2$ be the unit disc. Then by drawing $\lambda K + \mu L$ on the plane, we can compute 
+	\[
+		\Vol_2 (\lambda K + \mu L) = \lambda^2 \Vol_2(K) + \lambda \mu \cdot \mathsf{perimeter}(K) + \mu^2 \Vol_2(L). 
+	\]
+	This provides some evidence of a expansion of the form Equation~\ref{ye-old} since the coefficients seem to encode geometric information about the convex bodies $K$ and $L$. 
+\end{example}
 
 \begin{defn}
-	A \textbf{convex body} is a compact, convex subset of $\RR^n$.
+	For $n \geq 2$, let $P_1, \ldots, P_n \subseteq \RR^n$ be polytopes and let $\mathcal{U}$ be the set of unit facet normals of $P_1 + \ldots + P_{n-1}$. We define their mixed volume $\mathsf{V}_n(P_1, \ldots, P_n)$ inductively by 
+	\[
+		\mathsf{V}_n(P_1, \ldots, P_n) = \frac{1}{n} \sum_{u \in \mathcal{U}} h_{P_n}(u) \cdot \mathsf{V}_{n-1} (F_{P_1}(u), \ldots, F_{P_{n-1}}(u)).
+	\]
+	On the right hand side of the equation though $F_{P_1}(u), \ldots, F_{P_{n-1}}(u)$ are in $\RR^n$, since they are in parallel hyperplanes we can consider them as subsets of $\RR^{n-1}$ by projecting them orthogonally on the same hyperplane isomorphic to $\RR^{n-1}$. Thus, the mixed volume $\mathsf{V}_{n-1}(F_{P_1}(u), \ldots, F_{P_{n-1}}(u))$ is well-defined. For $n = 1$, we define $V_1 ([a, b]) = b-a$. 
 \end{defn}
-\subsection{Mixed Volumes}
+
+\begin{thm}[Theorem 3.7 in \cite{Hug2020-ue}]
+	For polytopes $P_1, \ldots, P_m \subseteq \RR^n$ be polytopes. Then, we have 
+	\[
+		\Vol_n(\lambda_1 P_1 + \ldots + \lambda_m P_m) = \sum_{i_1, \ldots, i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot \mathsf{V}_n (P_{i_1}, \ldots, P_{i_n}).
+	\]
+\end{thm}
+
+From this formula, it is not difficult to prove the following inversion formula:
+\[
+	\mathsf{V}_n(P_1, \ldots, P_n) = \frac{1}{n!} \sum_{k = 1}^n (-1)^{n+k} \sum_{1 \leq r_1 < \ldots < r_k \leq n} \Vol_n (P_{r_1} + \ldots + P_{r_k}).
+\]
+For a proof of this formula, see Theorem 3.8 in \cite{Hug2020-ue}. This formula implies that we can continuously extend $\mathsf{V}_n$ to arguments in $\mathsf{K}^n$ since $\Vol_n$ and Minkowski sum are continuous on the space of convex bodies. We call the resulting value $\mathsf{V}_n (K_1, \ldots, K_n)$ the \textbf{mixed volume} of $K_1, \ldots, K_n$. From continuity, we have the following theorem. 
+\begin{thm}
+	Let $K_1, \ldots, K_m \subseteq \RR^n$ be convex bodies. Then, we have 
+	\[
+		\Vol_n (\lambda_1 K_1 + \ldots + \lambda_m K_m) = \sum_{i_1 , \ldots , i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot \mathsf{V}_n (K_{i_1}, \ldots, K_{i_n}).
+	\]
+\end{thm}
 
 \chapter{Mechanisms for Log-concavity}
 
@@ -361,14 +527,17 @@ In this section, we review the notions of convexity and convex bodies. We use \c
 (Many sequences in combinatorics are proven to be log-concave ... give examples: Read's conjecture, Mason's Conjecture, etc. )
 \section{Alexandrov's Inequality for Mixed Discriminants}
 
-In this section we introduce a fundamental inequality given in Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT} in the theory of mixed discriminants. This inequality is similar to the inequality for mixed volumes of convex bodies given in Theorem~\ref{AF-inequality}. We first give a 
+In this section we introduce a fundamental inequality given in Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT} in the theory of mixed discriminants. This inequality is similar to the inequality for mixed volumes of convex bodies given in Theorem~\ref{AF-inequality}. We first give a generalization of this inequality to the larger class of objects called \textbf{hyperbolic polynomials}. For an introduction to the theory of hyperbolic polynomials, we refer the reader to \cite{schneider_2013} and \cite{hyperbolic-polynomials}. We call a homogeneous polynomial $p \in \RR[x_1, \ldots, x_n]$ \textbf{hyperbolic in direction} $v$ for $v \in \RR^n$ if and only if $p(v) > 0$ and for each $x \in \RR^n$, the univariate polynomial $p(x + tv)$ when considered a polynomial in $t$ has only real roots. If $p$ is hyperbolic in direction $v \in \RR^n$ then we can define the hyperbolicity cone $\mathcal{H} (p)$ as the set of directions for which $p$ is hyperbolic. 
 
-\begin{prop}
-	
-\end{prop}
+\begin{thm}[Theorem 5.5.3 in \cite{schneider_2013}]
+	Let $p$ be a hyperbolic homogeneous polynomial of degree $k \geq 1$ on $\RR^n$, and let $\tilde{p}$ be its polarization. Let $y, x_2, \ldots, x_k \in \mathcal{H}(p)$, $x \in \overline{\mathcal{H}(p)}$, and $z \in \RR^n$. Then 
+	\[
+		\widetilde{p}(y, z, x_3, \ldots, x_k)^2 \geq \widetilde{p}(y, y, x_3, \ldots, x_k) \widetilde{p} (z, z, x_3, \ldots, x_k).
+	\]
+\end{thm}
 
 \begin{proof}
-	
+	See Theorem 5.5.3 in \cite{schneider_2013}.
 \end{proof}
 
 \begin{thm} [Alexandrov's Inequality for Mixed Discriminants] \label{A-Inequality-MIXED-DISCRIMINANT}
@@ -403,21 +572,77 @@ In this section we introduce a fundamental inequality given in Theorem~\ref{A-In
 	\]
 \end{thm}
 
+\begin{proof}
+	
+\end{proof}
+
 \section{Lorentzian Polynomials}
 
+Our main reference for Lorentzian polynomials is \cite{lorentzian-polynomials}. Following the notation in \cite{lorentzian-polynomials}, we let $H_n^d$ be the space of degree $d$ homogeneous polynomials in $n$ variables with real coefficients equipped with the Euclidean topology with respect to the coefficients.  
 \begin{defn}
-	
+	Let $\underbar{L}_n^2 \subseteq H_n^2$ be the open subset of quadratic forms with positive coefficients and Hessian with signature $(+, -, \ldots, -)$. For $d \geq 3$, we define 
+	\[
+		\underbar{L}_n^d := \{f \in H_n^d : \partial_i f \in \underbar{L}_n^{d-1} \text{ for all $i$}\}.
+	\] 
+	We call polynomials in $\underbar{L}_n^d$ \textbf{strictly Lorentzian}.
 \end{defn}
+
+\begin{defn}
+	A polynomial $f \in \RR[w_1, \ldots, w_n]$ is \textbf{stable} if $f$ is non-vanishing on $\mathbb{H}^n$ where $\mathbb{H}$ is the open upper half plane in $\mathbb{C}$. Following \cite{milnor-numbers}, we denote by $S_n^d$ the set of degree $d$ homogeneous stable polynomials in $n$ variables 
+\end{defn}
+
+\begin{defn}
+	We define $J \subseteq \NN^n$ to be \textbf{$M$-convex} if for any $\alpha, \beta \in J$ and any index $i$ satisfying $\alpha_i > \beta_i$, there is an index $j$ satisfying $\alpha_j < \beta_j$ and $\alpha - e_i + e_j \in J$. 
+\end{defn}
+
+\begin{defn}
+	For any polynomial $f \in \RR[x_1, \ldots, x_n]$ we define $\text{supp}(f) := \{\alpha \in \NN^n : c_\alpha \neq 0\}$ where $c_\alpha$ is the coefficient in front of $x^\alpha$ in $f$. 
+\end{defn}
+
+\begin{defn}
+	Let $M_n^d$ be the set of degree $d$ homogeneous polynomials in $\RR_{\geq 0}[x_1, \ldots, x_n]$ whose supports are $M$-convex.  
+\end{defn}
+
+
+
+\begin{defn}[Definition 2.6 in \cite{lorentzian-polynomials}]
+	We set $L_n^0 = S_n^0$, $L_n^1 = S_n^1$, and $L_n^2 = S_n^2$. For $d \geq 3$, we define 
+	\[
+		L_n^d = \{f \in M_n^d : \partial_i f \in L_n^{d-1} \text{ for all } i \in [n]\}.
+	\]
+	The set $L_n^d$ consists of homogeneous degree $d$ polynomials with non-negative coefficients whose supports are $M$-convex such that for all $\alpha \in \Delta_n^{d-2}$, we have that $\partial^\alpha f$ is a stable quadratic form. 
+\end{defn}
+
+\begin{defn} \label{defn-lorentzian}
+	We call a homogeneous polynomial $f \in \RR_{\geq 0}[x_1, \ldots, x_n]$ of degree $d$ Lorentzian if it satisfies any of the following equivalent conditions:
+	\begin{enumerate}[label = (\roman*)]
+		\item The polynomial $f$ is the closure of $\underbar{L}_n^d \subseteq H_n^d$. 
+
+		\item The polynomial $f \in L_n^d$. 
+
+		\item For any $\alpha \in \NN^n$ with $|\alpha| \leq d-2$, the polynomial $\partial^\alpha f$ is identically zero or log-concave at any $a \in \RR_{>0}^n$. 
+	\end{enumerate}
+\end{defn}
+
+In the literature, condition (iii) in Definition~\ref{defn-lorentzian} is also known as \textbf{strong log-concavity} \cite{strongly-log-concave}. These conditions are proven to be equivalent in \cite{lorentzian-polynomials}. 
+
+\begin{prop}[Proposition 4.5 in \cite{lorentzian-polynomials}]
+	If $f$ is Lorentzian, then for any $v_1 \in \RR^n$ and $v_2, \ldots, v_d \in \RR_{\geq 0}^n$, we have that 
+	\[
+		\widetilde{f}(v_1, v_2, v_3, \ldots, v_d)^2 \geq \widetilde{f}(v_1, v_1, v_3, \ldots, v_d) \cdot \widetilde{f}(v_2, v_2, v_3, \ldots, v_d)
+	\]
+	where $\widetilde{f}$ denotes the polarization of $f$. 
+\end{prop}
 
 \section{Combinatorial Atlas}
 
 \chapter{Log-concavity Results for Posets and Matroids}
 
-\section{Stanley's Inequality}
+\section{Stanley's Poset Inequality}
+
+\section{Stanley's Matroid Inequality} 
 
 \section{Kahn-Saks Inequality}
-
-\section{Stanley's Matroid Inequality}
 
 
 \chapter{Hard Lefschetz Property and Hodge-Riemann Relations}
