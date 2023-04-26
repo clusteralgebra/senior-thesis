@@ -33,7 +33,7 @@
 
 \chapter{Introduction}
 
-\chapter{Combinatorial Structures}
+\chapter{Preliminaries: Combinatorial Structures and Convex Geometry}
 
 \section{Partially Ordered Sets}
 
@@ -139,10 +139,14 @@ Matroids can be thought of as combinatorial objects which abstracts and generali
 \begin{example} [Graphic Matroids]
 	Let $G = (V, E)$ be a graph and let $\mcI$ be the collection of subsets of $E$ which consist of edges containing no cycles. Then $(E, \mcI)$ forms a matroid called the \textbf{cycle matroid} of the graph $G$. We call any matroid which is isomorphic to a cycle matroid of a graph a \textbf{graphic matroid}. In Proposition~\ref{graphic-are-linear}, we prove that graphic matroids are not only linear, but they can be represented by a totally unimodular matrix. 
 \end{example}
-
 \begin{prop} \label{graphic-are-linear}
 	
 \end{prop}
+
+\begin{example}[Uniform Matroids]
+
+\end{example}
+
 
 Given a matroid $M = (E, \mathcal{I})$, we call a subset $X \subseteq E$ a \textbf{dependent set} if and only if $X \notin \mathcal{I}$. Given a matroid, we call any minimal dependent set a \textbf{circuit}. Matroids are uniquely determined by their circuits. For a proof of this fact, see Corollary 1.1.5 in \cite{10.5555/1197093}.
 
@@ -258,6 +262,27 @@ In graph theory, there are notions of edge contraction and edge deletion. In Def
 	The first claim follows from the fact that any basis will contain no loops. Hence, for a loop $e \in E$ the variable $x_e$ will not appear in $f_M$. The second claim follows from the fact that the remaining monomials in $\partial_e f_M$ will correspond to sets of the form $B \backslash e$ where $e \in B$ and $B$ is a basis of $M$. This is exactly the set of bases of $M / e$. For the third claim, this follows	because the monomials in $f_M$ which do not contain $x_e$ will correspond to bases of $M$ which do not contain $e$. That is the exactly the bases of $M \backslash e$. This implies that we can write $f_M = x_e p + f_{M \backslash e}$ where $p \in \RR[x_e : e \in E]$ and $p$ contains no monomial with $x_e$. Taking the partial derivative with respect to $x_e$, we get $p = f_{M / e}$ from (a). This suffices for the proof. 
 \end{proof}
 
+\subsection{Matroids sum and truncation}
+
+In this subsection, we describe a way to add two matroids to get another matroid. Let $M = (E, \mathcal{I}_M)$ and $N = (F, \mathcal{I}_N)$ be matroids. We define the \textbf{matroid sum} of $M$ and $N$ as the matroid $M+N$ on the set $E \sqcup F$ such that the independent sets of $M+N$ are subsets of $E \sqcup F$ of the form $I \cup J$ where $I \in \mcI_M$ and $J \in \mcI_N$. In other words, we define
+\[
+	\mcI(M+N) := \{I \cup J : I \in \mcI(M), J \in \mcI(N)\}.
+\]
+
+\begin{prop} \label{proposition-matroid-sum-is-well-defined}
+	The ordered pair $M+N = (E \sqcup F, \mcI(M+N))$ is a matroid. 
+\end{prop}
+
+\begin{proof}
+	It is clear that $\mcI(M+N)$ contains the empty set and satisfies the hereditary property. Now suppose that $I_1, I_2 \in \mcI(M)$ and $J_1, J_2 \in \mcI(N)$ satisfies $|I_1 \cup J_1| < |I_2 \cup J_2|$. Then we have that
+	\[
+		|I_1| + |J_1| = |I_1 \cup J_1| < |I_2 \cup J_2| = |I_2| + |J_2|.
+	\]
+	Without loss of generality, suppose that $|I_1| < |I_2|$. Then, there is a $e \in I_2 \backslash I_1$ such that $I_1 \cup e \in \mathcal{I}(M)$. This means that there is $e \in (I_2 \cup J_2) \backslash (I_1 \cup J_1)$ satisfying $(I_1 \cup J_1) \cup e \in \mcI(M+N)$. This suffices for the proof. 
+\end{proof}
+
+For a matroid $M = (E, \mcI)$, we define $TM$ to be the \textbf{truncation} of $M$. This is the matroid on $M$ where the independent sets are the independent sets of $M$ of rank at most $\rank(M) - 1$.  
+
 \subsection{Regular Matroids}
 
 \begin{defn}
@@ -271,7 +296,7 @@ In graph theory, there are notions of edge contraction and edge deletion. In Def
 
 In this section, we discuss a symmetric multilinear form called the mixed discriminant which arises as the polarization of the determinant. This object will be useful in future sections as it satisfies the log-concavity inequality in Theorem (CITE). Our main reference for the theory of mixed discriminants will come from \cite{bapat_raghavan_1997}. One connection between mixed discriminants and mixed volumes can be seen in the formal similaritiy of Theorem~\ref{polarization-mixed-discriminant} and Theorem (CITE???). A deeper connection can be seen in Alexandrov's original paper \cite{aleksandrov} where he introduces mixed discriminants to proof Theorem (CITE???). 
 
-\begin{defn}
+\begin{defn} \label{defn-mixed-discriminant}
 	let $n \geq 1$ be a positive integer. Suppose that for each $k \in [n]$, we are given an $n \times n$ matrix $A^k := (a_{ij}^k)_{i, j = 1}^n$. Then, we define the \textbf{mixed discriminant} of $(A^1, \ldots, A^n)$ as the expression 
 	\[
 		\mathsf{D}(A^1, \ldots, A^n) := \frac{1}{n!} \sum_{\sigma \in S_n} 
@@ -280,30 +305,59 @@ In this section, we discuss a symmetric multilinear form called the mixed discri
 			a_{11}^{\sigma(1)} & \ldots & a_{1n}^{\sigma(n)} \\
 			\vdots & \ddots & \vdots \\
 			a_{n1}^{\sigma(1)} & \ldots & a_{nn}^{\sigma(n)}
-		\end{bmatrix}.
+		\end{bmatrix}. = \frac{1}{n!} \sum_{\sigma \in S_n} \text{Det}(v^{\sigma(1)}_{1}, \ldots, v_{n}^{\sigma(n)}).
 	\]
 	Here, $S_n$ is the symmetric group on $n$ letters. 
 \end{defn}
 
-\subsection{Polarization Form}
+From Definition~\ref{defn-mixed-discriminant}, it is clear that the mixed discriminant is multilinear and symmetric in its entries. 
 
-Let $f \in \RR[x_1, \ldots, x_n]$ be an arbitrary homogeneous polynomial of degree $d$. Then, for fixed $v_1, \ldots, v_d \in \RR^n$, we can consider the coefficients of $f(\lambda_1 \cdot v_1 + \ldots + \lambda_d \cdot v_d)$ as a homogeneous polynomial in $\lambda_1, \ldots, \lambda_d$ of degree $d$. From section 3.2 of \cite{lie-groups} and section 5.5 of \cite{schneider_2013}, there is form $\widetilde{f} (v_1, \ldots, v_d)$ which is linear in each vector and symmetric in its arguments such that $\widetilde{f}(v, \ldots, v) = f(v)$. Indeed, since $f$ is homogeneous of degree $d$, we can always write 
+\subsection{Polarization form of a homogeneous polynomial}
+
+Let $f \in \RR[x_1, \ldots, x_n]$ be an arbitrary homogeneous polynomial of degree $d$. Then, for a fixed choice of vectors $v_1, \ldots, v_d \in \RR^n$ we can study the coefficients of the homogeneous polynomial in $\lambda_1, \ldots, \lambda_d$ of the polynomial $f(\lambda_1 \cdot v_1 + \ldots + \lambda_d \cdot v_d)$. We will discuss the notion of the \textbf{polarization form} of a homogeneous polynomial. The notion of the \textbf{polarization form}, also referred to as the \textbf{complete homogeneous form}, is briefly mentioned in section 3.2 of \cite{lie-groups}, section 5.5 of \cite{schneider_2013}, and section 4.1 of \cite{lorentzian-polynomials}. 
+\begin{defn}
+	Let $k$ be a field of characteristic $0$. Let $f \in k[x_1, \ldots, x_n]$ be a homogeneous polynomial of degree $d$. We define the \textbf{polarization form} or \textbf{complete homogeneous form} of $f$ to be the function $F_f : (k^n)^d \to k$ defined by 
+	\[
+		F_f (v_1, \ldots, v_d) := \frac{1}{d!} \frac{\partial}{\partial x_1} \ldots \frac{\partial}{\partial x_d} f(x_1 v_1 + \ldots + x_d v_d).
+	\]
+	This form is multi-linear and symmetric in its arguments. Moreover, $F_f(v, \ldots, v_n) = f(v)$ for all $v \in k^n$. 
+\end{defn}
+
+Let $f \in k[x_1, \ldots, x_n]$ be a homogeneous polynomial of degree $d$. Then, we can write this polynomial in the form 
 \[
-	f(x) = \sum_{i_1, \ldots, i_d = 1}^n a_{i_1, \ldots, i_d} \cdot x_{i_1} \ldots x_{i_d}
+	f(x_1, \ldots, x_n) = \sum_{(\alpha_1, \ldots, \alpha_d) = 1}^n c_{\alpha_1, \ldots, \alpha_d} \cdot x_{\alpha_1} \ldots x_{\alpha_d}.
 \]
-where $x = (x_1, \ldots, x_n)$ and the coefficients $a_{i_1, \ldots, i_d}$ are symmetric. Now, if we define the vectors $v_i = (c_1^{(i)}, c_2^{(i)}, \ldots, c_n^{(i)})$ for all $1 \leq i \leq d$, then, we can define the multilinear form 
+where $c_{\alpha_1, \ldots, \alpha_d}$ is symmetric in $(\alpha_1, \ldots, \alpha_d)$. Let $v_1, \ldots, v_d\in k^n$ be vectors where $v_i = v_1^{(i)} e_1 + \ldots + v_n^{(i)} e_n$ for all $1 \leq i \leq d$ where $e_1, \ldots, e_n$ is the standard basis in $k^n$. For $1 \leq i \leq d$, let 
 \[
-	\widetilde{f}(v_1, \ldots, v_n) := \sum_{i_1, \ldots, i_d = 1}^n a_{i_1, \ldots, i_d} \cdot c_{i_1}^{(1)} \ldots c_{i_d}^{(d)}
+	y_i := \sum_{j = 1}^d x_j v_i^{(j)}.
 \]
-which is symmetric in its arguments. This form satisfies the following ``polarization identity''
-\[
-	f(\lambda_1 v_1 + \ldots + \lambda_d v_d) = \sum_{1 \leq i_1, \ldots, i_d \leq d} \lambda_{i_1} \ldots \lambda_{i_d} \widetilde{f}(v_{i_1}, \ldots, v_{i_d}).
-\]
-By taking partial derivatives of this identity and exploiting the symmetric of the form, we get the following formula in terms of the partial derivatives of $f$:
-\begin{equation} \label{differential-formula-for-mixed-discriminants}
-	\widetilde{f}(v_1, \ldots, v_n) := \frac{1}{d!} \cdot \frac{\partial}{\partial \lambda_1} \ldots \frac{\partial}{\partial \lambda_d} f(\lambda_1 v_1 + \ldots + \lambda_d v_d) |_{\lambda = 0}. 
-\end{equation}
-The mixed discriminant of matrices manifests as the polarization form of the determinant function. Indeed, Theorem~\ref{polarization-mixed-discriminant} is well-known and can be found in \cite{Zhao2015-kf} or \cite{schneider_2013}. 
+Then, we have $f(x_1 v_1 + \ldots + x_d v_d) = f(y_1, \ldots, y_d)$. We can compute
+\begin{align*}
+	F_f(v_1, \ldots, v_d) & = \frac{1}{d!}[x_1 \ldots x_d] f(y_1, \ldots, y_d) \\
+	& = \frac{1}{d!} [x_1 \ldots x_d] \sum_{\alpha_1, \ldots, \alpha_d = 1}^n c_{\alpha_1, \ldots, \alpha_d} y_{\alpha_1} \ldots y_{\alpha_d} \\
+	& = \frac{1}{d!} \sum_{\sigma \in S_n} \sum_{\alpha_1, \ldots, \alpha_d = 1}^n c_{\alpha_{\sigma(1)}, \ldots, \alpha_{\sigma(d)}} v_{\alpha_{\sigma(1)}}^{(1)} \ldots v_{\alpha_{\sigma(d)}}^{(d)} \\
+	& = \sum_{\alpha_1, \ldots, \alpha_d = 1}^n c_{\alpha_1, \ldots, \alpha_d} v_{\alpha_1}^{(1)} \ldots v_{\alpha_d}^{(d)}.
+\end{align*}
+This gives an alternative and equivalent definition of the polarization form. This alternate definition makes it easy to prove the polarization formula given in Theorem~\ref{polariziation-identity}. The formula is well-known in the literature, but it is hard to come across a detailed calculation of the identity. We provide a calculation and proof of the identity below. 
+
+\begin{thm}[Polarization Identity] \label{polariziation-identity}
+	Let $k$ be a field of characteristic $0$. Let $v_1, \ldots, v_m \in k^n$ be arbitrary vectors. Then, we have the identity
+	\[
+		f(x_1 v_1 + \ldots + x_m v_m ) = \sum_{i_1, \ldots, i_d = 1}^m F_f(v_{i_1}, \ldots, v_{i_d}) \cdot x_{i_1} \ldots x_{i_d}.
+	\]
+\end{thm}
+\begin{proof}
+	Let $v_i = v_i^{(1)} e_1 + \ldots + v_i^{(n)} e_n$ for all $1 \leq i \leq n$. Furthermore, define $y_i = \sum_{j = 1}^d x_j v_i^{(j)}$. Then, we have that 
+	\begin{align*}
+		f(x_1 v_1 + \ldots + v_m v_m) & = f(y_1, \ldots, y_m) \\
+		& = \sum_{\alpha_1, \ldots, \alpha_d = 1}^n c_{\alpha_1, \ldots, \alpha_d} \sum_{i_1, \ldots, i_d = 1}^m x_{i_1} \ldots x_{i_d} \cdot v_{\alpha_1}^{(i_1)} \ldots v_{\alpha_d}^{(i_d)} \\
+		& = \sum_{i_1, \ldots, i_d = 1}^m \left ( \sum_{\alpha_1, \ldots, \alpha_d = 1}^n c_{\alpha_1, \ldots, \alpha_d} v_{\alpha_1}^{(i_1)} \ldots v_{\alpha_d}^{(i_d)}\right ) x_{i_1} \ldots x_{i_d} \\
+		& = \sum_{i_1, \ldots, i_d = 1}^m F_f(v_{i_1}, \ldots, v_{i_d}) \cdot x_{i_1} \ldots x_{i_d}.
+	\end{align*}
+	This suffices for the proof. 
+\end{proof}
+
+We can view the mixed discriminant as the polarization form of the determinant function. Indeed, various proofs of Theorem~\ref{polarization-mixed-discriminant} are known and be found in \cite{Zhao2015-kf} or \cite{schneider_2013}. 
 
 \begin{thm} \label{polarization-mixed-discriminant}
 	For $n \times n$ matrices $A_1, \ldots, A_m$ and $\lambda_1, \ldots, \lambda_m \in \RR$, the determinant of the linear combination $\lambda_1 A_1 + \ldots + \lambda_m A_m$ is a homogeneous polynomial of degree $n$ in the $\lambda_i$ and is given by 
@@ -311,6 +365,25 @@ The mixed discriminant of matrices manifests as the polarization form of the det
 		\det (\lambda_1 A_1 + \ldots + \lambda_m A_m) = \sum_{1 \leq i_1, \ldots, i_n \leq m} \mathsf{D}(A_{i_1}, \ldots, A_{i_n}) \lambda_{i_1} \ldots \lambda_{i_n}. 
 	\]
 \end{thm}
+
+\begin{proof}
+	From the definition of the determinant, there exists a multilinear function $\text{Det}: (\RR^n)^n \to \RR$ defined by 
+	\[
+		\text{Det}(v_1, \ldots, v_n) := \det \begin{bmatrix} v_1 & \ldots & v_n \end{bmatrix}
+	\]
+	where we take the determinant of the matrix with columns $v_1, \ldots, v_n$. If $v_1^{(i)}, \ldots$ and $v_n^{(i)}$ be the columns of $A_i$ for $1 \leq i \leq m$, we have that 
+	\begin{align*}
+		\det \left ( \sum_{i = 1}^m \lambda_i A_i \right ) & = \text{Det} \left ( \sum_{i = 1}^m \lambda_i v_1^{(i)}, \ldots, \sum_{i = 1}^m \lambda_i v_n^{(i)} \right ) \\
+		& = \sum_{i_1, \ldots, i_n = 1}^m \text{Det} (\lambda_{i_1} v_{1}^{(i_1)}, \ldots, \lambda_{i_n} v_{n}^{(i_n)} ) \\
+		& = \sum_{i_1, \ldots, i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot \text{Det}(v_{1}^{(i_1)}, \ldots, v_{n}^{(i_n)}).
+	\end{align*}
+	Looking at the coefficient in front of $\lambda_1^{r_1} \ldots \lambda_m^{r_m}$ where $r_1 + \ldots + r_m = n$, it is equal to 
+	\begin{align*}
+		[\lambda_1^{r_1} \ldots \lambda_M^{r_m}] \det \left ( \sum_{i = 1}^m \lambda_i A_i \right ) & = \frac{1}{(r_1)! \ldots (r_m)!} \sum_{\sigma \in S_n} \text{Det}(v_1^{i_{\sigma(1)}}, \ldots, v_n^{i_{\sigma(n)}}) \\
+		& = \binom{n}{r_1,\ldots, r_m} \mathsf{D}(A_1[r_1], \ldots, A_m[r_m])
+	\end{align*}
+	where the multiset $\{i_1, \ldots, i_m\}$ is equal to $\{1[r_1], \ldots, m[r_m]\}.$ This coincides with the right hand side in Theorem~\ref{polarization-mixed-discriminant}.
+\end{proof}
 
 \begin{example}[Mixed discriminants of rank 1 matrices] \label{mixed-discriminant-calculation-for-rank-1}
 	Let $x_1, \ldots, x_n \in \RR^n$ be real matrices. Then, for any $\lambda_1, \ldots, \lambda_n > 0$, we can define $y_i = \sqrt{\lambda_i} x_i$. Then, we have that 
@@ -320,7 +393,7 @@ The mixed discriminant of matrices manifests as the polarization form of the det
 		& = \left [ \det \begin{pmatrix} y_1 & \ldots & y_n \end{pmatrix} \right ]^2 \\
 		& = \lambda_1 \ldots \lambda_n \cdot \left [ \det \begin{pmatrix} x_1 & \ldots & x_n \end{pmatrix} \right ]^2.
 	\end{align*}
-	From Equation~\ref{differential-formula-for-mixed-discriminants}, we get the formula 
+	From Equation (CITE WHAT???) we get the formula 
 	\[
 		\mathsf{D} (x_1x_1^T, \ldots, x_nx_n^T) = \frac{1}{n!}\left [ \det \begin{pmatrix} x_1 & \ldots & x_n \end{pmatrix} \right ]^2.
 	\]
@@ -352,11 +425,12 @@ In this section, we discuss when the mixed discriminant is positive. First, reca
 	The Lemma follows from the computation in Example~\ref{mixed-discriminant-calculation-for-rank-1}. 
 \end{proof}
 
-\begin{cor}
+\begin{cor} \label{final-positivity-corollary}
 	Let $A_1, \ldots, A_n$ be positive semi-definite $n \times n$ real symmetric matrices. Then 
 	\[
-		D(A_1, \ldots, A_n) \geq 0.
+		\mathsf{D}(A_1, \ldots, A_n) \geq 0.
 	\]	
+	If $A_1, \ldots, A_n$ are positive definite, then $\mathsf{D}(A_1, \ldots, A_n) > 0$. 
 \end{cor}
 
 \begin{proof}
@@ -365,7 +439,16 @@ In this section, we discuss when the mixed discriminant is positive. First, reca
 
 \section{Convex Bodies}
 
-In this section, we review the notions of convexity and convex bodies. We use \cite{schneider_2013} as our main reference for the theory of convex bodies and Brunn-Minkowski inequalities. Recall that a subset $C \subseteq \RR^n$ is convex if for every $x, y \in C$, the line segment $[x, y]$ is contained in $C$. Even though the condition of convexity is quite a rigid condition, there still exist topologically wild convex sets. Indeed, for any arbitrary subset $S \subseteq \mathbb{S}^{n-1}$ of the unit sphere in $\RR^{n-1}$, the set $S \cup \mathbb{B}_0^n$ is a convex set. Thus, we only consider a subclass of convex sets called convex bodies. A \textbf{convex body} is a non-empty, compact, convex subset of $\RR^n$. We denote the set of convex bodies in $\RR^n$ by $\mathsf{K}^n$.
+In this section, we review the notions of convexity and convex bodies. We use \cite{schneider_2013} as our main reference for the theory of convex bodies and Brunn-Minkowski inequalities. Recall that a subset $C \subseteq \RR^n$ is convex if for every $x, y \in C$, the line segment $[x, y]$ is contained in $C$. Even though the condition of convexity is quite a rigid condition, there still exist topologically wild convex sets. Indeed, for any arbitrary subset $S \subseteq \mathbb{S}^{n-1}$ of the unit sphere in $\RR^{n-1}$, the set $S \cup \mathbb{B}_0^n$ is a convex set. Thus, we only consider a subclass of convex sets called convex bodies. A \textbf{convex body} is a non-empty, compact, convex subset of $\RR^n$. We denote the set of convex bodies in $\RR^n$ by $\mathsf{K}^n$. One essential notion of for convex bodies will be the Minkowski sum. 
+
+\begin{defn}
+	For any convex bodies $K, L \subseteq \RR^n$, we define the \textbf{Minkowski sum} of the two bodies to be the convex body
+	\[
+		K + L := \{x + y \in \RR^n : x \in K, y \in L\}.
+	\]
+\end{defn}
+
+It is not difficult to prove that the sum of two convex bodies is indeed a convex body. This result can be found in any book on convex geometry (see \cite{schneider_2013}). 
 
 \subsection{Support and facial structure}
 
@@ -385,7 +468,7 @@ For any convex body, we can find an exposed face in any direction. Indeed, for a
 	h_K(u) & := \sup_{x \in K} \langle u, x \rangle \\
 	F_K(u) & := K \cap \{x \in \RR^n : \langle u, x \rangle = h_K(u)\}.
 \end{align*}
-Geometrically, $h_K(u)$ is (signed) distance of the furthest point on $K$ in the direction $u$ multiplied by the magnitude $|u|$. The exposed face $F_K(u)$ consists of the subset of $K$ which achieve this maximum distance in the direction $u$. 
+The support function and the exposed face behaves nicely with Minkowski sum. Indeed, for any convex bodies $K, L \subseteq \RR^n$, we have that $h_{K+L} = h_K + h_L$ and $F_{K+L} = F_K + F_L$. Geometrically, $h_K(u)$ is (signed) distance of the furthest point on $K$ in the direction $u$ multiplied by the magnitude $|u|$. The exposed face $F_K(u)$ consists of the subset of $K$ which achieve this maximum distance in the direction $u$. 
 
 \begin{remark}
 	In general, the notions of faces and exposed faces are not the same. It is not hard to check that an exposed face is a face. On the other hand, a face is not necessarily an exposed face. For example, in Figure~\ref{counter-example} the top semi-circle is a face which is not exposed. But, in the special case where our convex body is a polytope, the notions of faces and exposed faces are the same. We will talk about these types of convex bodies subsequently. 
@@ -423,14 +506,75 @@ In this section, we define a subclass of convex bodies which are combinatorial i
 \begin{proof}
 	These properties follow from Corollary 2.4.2, Theorem 2.4.3, Corollary 2.4.4, and Corollary 2.4.8 in \cite{schneider_2013}. 
 \end{proof}
+\begin{example}[Order Polytope]
+	We give an example of a polytope associated with a poset. Let $(P, \leq)$ be a finite poset. Now, consider the Euclidean space $\RR^P$ where the coordinates are indexed by the elements of $P$. Every vetor $v \in \RR^P$ can be written in the form $v = \sum_{\omega \in P} v_\omega \cdot e_\omega$ where $\{e_\omega\}_{\omega \in P}$ is a chosen orthonormal basis for $\RR^P$. Then, we can define the \textbf{order polytope} of $P$ to be the polytope given by
+	\[
+		\mcO_P := \{x \in [0, 1]^P : x_{i} \geq x_{j} \text{ whenever } i \geq j \text{ in } P\}.
+	\]
+	This polytope will come into play in Chapter~\ref{log-concavity-results} when we cover some log-concavity results on posets using Theorem~\ref{AF-inequality}. Given any bijection $l : P \to [n]$, we can define the \textbf{linear extension simplex}
+	\[
+		\Delta_l := \{x \in [0, 1]^n : 0 \leq x_{l^{-1}(1)} \leq \ldots \leq x_{l^{-1}}(n) \leq 1\}.
+	\]
+	Note that if $e(P)$ is the set of linear extensions of $P$, we can triangulate the order polytope as 
+	\[
+		\mcO_P := \bigsqcup_{l \in e(P)} \Delta_l
+	\]
+	where in the union, the simplicies are disjoint except possibly on the boundary. In particular, this implies that 
+	\begin{equation} \label{volume-of-order-polytope}
+		\Vol_n \left (\mathcal{O}_P \right ) = \frac{e(P)}{n!}
+	\end{equation}
+	and also the more familiar formula $\Vol_n (\Delta) = 1/n!$ where we apply Equation~\ref{volume-of-order-polytope} on the poset on $n$ elements and no comparability relations. Geometrically, we are partitioning the unit hypercube into $n!$ simplices. 
+\end{example}
 
-We call a polytope $P \subseteq \RR^n$ \textbf{simple} if $\text{int} (P) \neq \emptyset$ and each of its vertices is contained in exactly $n$ facets. We say two polytopes $P_1, P_2$ are called \textbf{strongly isomorphic} if $\dim F_{P_1}(u) = \dim F_{P_2}(u)$ for all $u \in \RR^n \backslash \{0\}$. Strongly isomorphic polytopes have isomorphic face lattices where the isomorphism is given by matching faces which are cut out by support hyperplanes with the same normal vector. Moreover, the corresponding faces are also strongly isomorphic. 
+\begin{example}[Matroid Polytope]
 
-\begin{lem}[Lemma 2.4.10 in \cite{schneider_2013}]
+\end{example}
+
+\begin{example}[Zonotope] \label{zonotope-example}
+	In this example, we give a generalization of parallelograms in planar geometry. For any vectors $v_1, \ldots, v_l \in \RR^n$, we can define the \textbf{zonotope} generated by these vectors by 
+	\[
+		Z(v_1, \ldots, v_l) := [0, v_1] + \ldots + [0, v_l] = \left \{ \sum_{i = 1}^l \lambda_i v_i : \lambda_i \in [0, 1] \right \}.
+	\]
+\end{example}
+We call a polytope $P \subseteq \RR^n$ \textbf{simple} if $\text{int} (P) \neq \emptyset$ and each of its vertices is contained in exactly $n$ facets. We say two polytopes $P_1, P_2$ are called \textbf{strongly isomorphic} if $\dim F_{P_1}(u) = \dim F_{P_2}(u)$ for all $u \in \RR^n \backslash \{0\}$. Strong isomorphisms is a strong equivalence relation between polytopes which implies that two polytopes have isomorphic face lattices with corresponding faces being parallel to each other. To illustrate the strength of this equivalence relation, it can be shown that given two strongly isomorphic polytopes, the corresponding faces are also strongly isomorphic. 
+
+\begin{lem}[Lemma 2.4.10 in \cite{schneider_2013}] \label{family-of-strongly-isomorphic}
 	If $P_1, P_2$ are strongly isomorphic polytopes, then for each $u \in \RR^n \backslash \{0\}$, the faces $F_{P_1}(u)$ and $F_{P_2}(u)$ are strongly isomorphic. 
 \end{lem}
 \begin{proof}
 	See Lemma 2.4.10 in \cite{schneider_2013}. 
+\end{proof}
+
+Given any two polytopes, it is not difficult to construct an infinite family of polytopes which are in the same strong isomorphism class. Indeed, any pair of positively-weighted Minkowski sums of two polytopes are strongly isomorphic. 
+
+\begin{prop}[Corollary 2.4.12 in \cite{schneider_2013}] \label{families-of-strongly-isomorphic}
+	If $P_1, P_2 \subseteq \RR^n$ are polytopes which are strongly isomorphic, then $\lambda_1 P_1 + \lambda_2 P_2$ with $\lambda_1, \lambda_2 > 0$ are strongly isomorphic. If $P_1, P_2$ were strongly isomorphic to begin with, then the polytopes $\lambda_1 P_1 + \lambda_2 P_2$ with $\lambda_1, \lambda_2 \geq 0$ and $\lambda_1 + \lambda_2 > 0$ are strongly isomorphic. 
+\end{prop}
+
+\begin{proof}
+	See Corollary 2.4.12 in \cite{schneider_2013}.
+\end{proof}
+
+Any polytope is general is determined by its facet normals and its support values at these facet normals. Given an strong isomorphism class of polytopes $\alpha$ with facet normals $\mathcal{U}$, since all of the polytopes share the same collection of facet normals the polytopes in this isomorphism class are \textit{uniquely} determined by their support values at each of the facet normals. In other words, there is injective map $h : \alpha \to \RR^\mathcal{U}$ from the strong isomorphism class to the finite-dimensional vector space $\RR^{\mathcal{U}}$ defined by 
+\[
+	h_P := h(P) = \left ( H^-_{u, h_P(u)}\right )_{u \in \mathcal{U}}
+\]
+For a polytope $P \in \alpha$, we call $h_P := h(P)$ the \textbf{support vector} of $P$. he map $h$ is not surjective. Indeed, there are some choices of the support values at the facet normals which do not give a polytope in the same isomorphism class. For example, by taking all of the coordinates of $x \in \RR^{\mathcal{U}}$ sufficiently negative, the corresponding polytope with those support values could be empty. The structure of simple strongly isomorphism polytopes is robust: under small perturbations simple polytope remains in its strong isomorphism class. As a corollary, we prove that any vector in $\RR^{\mathcal{U}}$ can be written as a scalar multiple of the difference of two support vectors. 
+
+\begin{lem} \label{perturbation-SSI}
+	Let $P$ be a simple $n$-polytope with facet normals $\mathcal{U}$. Then, there is a number $\beta > 0$ such that every polytope of the form 
+	\[
+		P' := \bigcap_{u \in \mathcal{U}} H_{u, h_P(u) + \alpha_u}^-
+	\]
+	with $|\alpha_u| \leq \beta$ is simple and strong isomorphic to $P$. 
+\end{lem}
+
+\begin{cor} [Lemma 5.1 in \cite{bochner}]\label{difference-of-support-vectors}
+	Let $\alpha$ be the strong isomorphic class of a simple polytope $P$ with facet normals $\mathcal{U}$. For any $x \in \RR^{\mathcal{U}}$ there are $a > 0$ and $Q \in \alpha$ such that $x = a (h_Q - h_P)$. 
+\end{cor}
+
+\begin{proof}
+	From Lemma~\ref{perturbation-SSI} there exists $a^{-1} > 0$ sufficiently small and $Q \in \alpha$ such that $h_Q = a^{-1}(x + h_P)$. By rearranging the equation, we get $x = a(h_Q - h_P)$. 
 \end{proof}
 
 We will be interested in approximating a set of convex bodies by polytopes which are simple and strongly isomorphic. To make sense of approximation of polytopes, we will equip the space of convex bodies with a metric.
@@ -489,6 +633,8 @@ where the multilinear form $\mathsf{D}$ was the mixed discriminant. In this subs
 	This provides some evidence of a expansion of the form Equation~\ref{ye-old} since the coefficients seem to encode geometric information about the convex bodies $K$ and $L$. 
 \end{example}
 
+We first define mixed volumes in for polytopes and then extend this continuously to the space of convex bodies. 
+
 \begin{defn}
 	For $n \geq 2$, let $P_1, \ldots, P_n \subseteq \RR^n$ be polytopes and let $\mathcal{U}$ be the set of unit facet normals of $P_1 + \ldots + P_{n-1}$. We define their mixed volume $\mathsf{V}_n(P_1, \ldots, P_n)$ inductively by 
 	\[
@@ -497,34 +643,258 @@ where the multilinear form $\mathsf{D}$ was the mixed discriminant. In this subs
 	On the right hand side of the equation though $F_{P_1}(u), \ldots, F_{P_{n-1}}(u)$ are in $\RR^n$, since they are in parallel hyperplanes we can consider them as subsets of $\RR^{n-1}$ by projecting them orthogonally on the same hyperplane isomorphic to $\RR^{n-1}$. Thus, the mixed volume $\mathsf{V}_{n-1}(F_{P_1}(u), \ldots, F_{P_{n-1}}(u))$ is well-defined. For $n = 1$, we define $V_1 ([a, b]) = b-a$. 
 \end{defn}
 
-\begin{thm}[Theorem 3.7 in \cite{Hug2020-ue}]
+\begin{thm}[Theorem 3.7 in \cite{Hug2020-ue}] \label{mixed-volume-polynomial-expansion}
 	For polytopes $P_1, \ldots, P_m \subseteq \RR^n$ be polytopes. Then, we have 
 	\[
 		\Vol_n(\lambda_1 P_1 + \ldots + \lambda_m P_m) = \sum_{i_1, \ldots, i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot \mathsf{V}_n (P_{i_1}, \ldots, P_{i_n}).
 	\]
 \end{thm}
 
-From this formula, it is not difficult to prove the following inversion formula:
+\begin{proof}
+	It suffices to prove the equality when $\lambda_1, \ldots, \lambda_m > 0$ since the general equality will follow from continuity. In this case, Proposition~\ref{families-of-strongly-isomorphic} implies that $\lambda_1 P_1 + \ldots + \lambda_m P_m$ and $P_1 + \ldots + P_m$ are strongly isomorphic. Thus the set of facet normals $\mathcal{U}$ are the same for both of these polytopes. We can compute 
+	\begin{align*}
+		\Vol_n (\lambda_1 P_1 + \ldots + \lambda_m P_m) & = \frac{1}{n} \sum_{u \in \mathcal{U}} h_{\lambda_1 P_1 + \ldots + \lambda_m P_m}(u) \cdot \Vol_{n-1} \left ( F_{\lambda_1 P_1 + \ldots + \lambda_m P_m} (u) \right ) \\
+		& = \frac{1}{n} \sum_{u \in \mathcal{U}} \sum_{i = 1}^n \lambda_i h_{P_i}(u) \cdot \Vol_{n-1} \left ( \sum_{i = 1}^m \lambda_i F_{P_i}(u) \right ) \\
+		& = \frac{1}{n} \sum_{u \in \mathcal{U}} \sum_{i_1, \ldots, i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot h_{P_{i_n}}(u) \cdot \mathsf{V}_{n-1} \left (F_{P_{i_1}}(u), \ldots, F_{P_{i_{n-1}}}(u) \right ) \\
+		& = \sum_{i_1, \ldots, i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \sum_{u \in \mathcal{U}} \frac{1}{n} h_{P_{i_n}}(u) \cdot \mathsf{V}_{n-1} \left (F_{P_{i_1}}(u), \ldots, F_{P_{i_{n-1}}}(u) \right ) \\
+		& = \sum_{i_1, \ldots, i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot \mathsf{V}_n \left (F_{P_{i_1}}(u), \ldots, F_{P_{i_{n}}}(u) \right ). 
+	\end{align*}
+	This suffices for the proof. 
+\end{proof}
+
+A apriori it is not clear that the mixed volume from how we defined it is symmetric in its arguments. To prove that it is indeed symmetric in its arguments, we present the proof of Theorem~\ref{inversion-formula} from \cite{schneider_2013}. This result will not only prove that the mixed volume is symmetric, but it will also prove that we can extend the mixed volume to all convex bodies rather than just polytopes. 
+
+\begin{thm}[Inversion Formula, Lemma 5.1.4 in \cite{schneider_2013}] \label{inversion-formula}
+	For polytopes $P_1, \ldots, P_n \subseteq \RR^n$, we have
+	\begin{align*}
+		\mathsf{V}_n(P_1, \ldots, P_n) & = \frac{1}{n!} \sum_{k = 1}^n (-1)^{n+k} \sum_{1 \leq r_1 < \ldots < r_k \leq n} \Vol_n (P_{r_1} + \ldots + P_{r_k}) \\
+		& = \frac{1}{n!} \sum_{I \subseteq [n]} (-1)^{n - |I|} \Vol_n \left ( \sum_{i \in I} P_i \right ).
+	\end{align*}
+\end{thm}
+
+\begin{proof}
+	We present the proof in \cite{schneider_2013} for the sake of completeness. We can define the function $f : \RR^n \to \RR$ defined by 
+	\[
+		f(\lambda_1, \ldots, \lambda_n) := \frac{1}{n!} \sum_{k = 1}^n (-1)^{n+k} \sum_{1 \leq r_1 < \ldots < r_k \leq n} \Vol_n(\lambda_{r_1} P_{r_1} + \ldots+ \lambda_{r_k} P_{r_k}).
+	\]
+	From Theorem~\ref{mixed-volume-polynomial-expansion}, we get that $f$ is either $0$ or a homogeneous polynomial of degree $n$. If we let $\lambda_1 = 0$, then we have
+	\begin{align*}
+		n! (-1)^n f(0, \lambda_2, \ldots, \lambda_n) & := S_1 + \sum_{k = 2}^n S_k
+	\end{align*}
+	where we define $S_1 = - \sum_{2 \leq r_1 \leq n} \Vol_n (\lambda_{r_1} P_{r_1})$ and for $k \geq 2$ we define
+	\begin{align*}
+		S_k & = \sum_{k = 1}^n (-1)^k \left ( \sum_{2 \leq r_2 < \ldots < r_k \leq n} \Vol_n(\lambda_{r_2} P_{r_2} + \ldots + \lambda_{r_k} P_{r_k}) + \sum_{2 \leq r_1 < \ldots < r_k \leq n} \Vol_n (\lambda_{r_1} P_{r_1} + \ldots + \lambda_{r_k} P_{r_k})\right ).
+	\end{align*}
+	Note that this is a telescoping sum and $f(0, \lambda_2, \ldots, \lambda_n) = 0$. By symmetry, we know that $f$ is a scalar multiple of $\lambda_1 \ldots \lambda_n$. The only term in $f$ which contributes $\lambda_1 \ldots \lambda_n$ is in $\Vol_n (\sum_{i = 1}^n \lambda_i P_i)$. Thus, we have that 
+	\[
+		f(\lambda_1, \ldots, \lambda_n) = \lambda_1 \ldots \lambda_n \cdot \mathsf{V}_n (P_1, \ldots, P_n).
+	\]
+	By substituting $\lambda_1 = \ldots = \lambda_n = 1$, this completes the proof. 
+\end{proof}
+
+For an example of the inversion formula, we will compute the mixed volume of a collection of line segments.
+
+\begin{example}\label{mixed-volume-of-line-segments}
+	Let $v_1, \ldots, v_n \in \RR^n$ be vectors. Then, from the inversion formula, we have that 
+	\begin{align*}
+		\mathsf{V}_n([0, v_1], \ldots, [0, v_n]) = \frac{1}{n!} \Vol_n ([0, v_1] + \ldots + [0, v_n])
+	\end{align*}
+	where the other summands are zero since they are contained in lower dimensional affine spaces. Let $T : \RR^n \to \RR^n$ be the linear map which sends $Te_i = v_i$ for $1 \leq i \leq n$. Then, 
+	\[
+		[0, v_1] + \ldots + [0, v_n] = T ([0, 1]^n).
+	\]
+	This gives us the identity 
+	\[
+		\mathsf{V}_n([0, v_1], \ldots, [0, v_n]) = \frac{1}{n!} \Vol_n(T([0, 1]^n)) = \frac{1}{n!} |\text{Det}(v_1, \ldots, v_n)|.
+	\]
+\end{example}
+
+Since the volume functional is continuous on the space of convex bodies equipped with Hausdorff distance, we can extend the definition of mixed volumes to general convex bodies via continuity. 
+
+\begin{defn}
+	Let $K_1, \ldots, K_n \subseteq \RR^n$ be convex bodies. Then, we define the \textbf{mixed volume} of $K_1, \ldots, K_n$ as  
+	\[
+		\mathsf{V}_{n}(K_1, \ldots, K_n) := \frac{1}{n!} \sum_{I \subseteq [n]} (-1)^{n- |I|} \Vol_n \left ( \sum_{i \in I} P_i \right ).
+	\]
+\end{defn}
+
+By defining the mixed volume in this way, we immediately get from Theorem~\ref{inversion-formula} that if $P^{(i)}_k$ for $1 \leq i \leq n$ is a sequence of polytopes such that $P_1^{(k)} \longrightarrow K_i$ as $k \to \infty$, then 
 \[
-	\mathsf{V}_n(P_1, \ldots, P_n) = \frac{1}{n!} \sum_{k = 1}^n (-1)^{n+k} \sum_{1 \leq r_1 < \ldots < r_k \leq n} \Vol_n (P_{r_1} + \ldots + P_{r_k}).
-\]
-For a proof of this formula, see Theorem 3.8 in \cite{Hug2020-ue}. This formula implies that we can continuously extend $\mathsf{V}_n$ to arguments in $\mathsf{K}^n$ since $\Vol_n$ and Minkowski sum are continuous on the space of convex bodies. We call the resulting value $\mathsf{V}_n (K_1, \ldots, K_n)$ the \textbf{mixed volume} of $K_1, \ldots, K_n$. From continuity, we have the following theorem. 
-\begin{thm}
+	\mathsf{V}_n(K_1, \ldots, K_n) = \lim_{k \to \infty} \mathsf{V}_n (P_1^{(k)}, \ldots, P_n^{(k)}).
+\] 
+This is because both $\Vol_n$ and Minkowski sums are continuous on the space of convex bodies. Furthermore, continuity lets us extend Theorem~\ref{mixed-volume-polynomial-expansion} to general convex bodies. 
+\begin{thm} \label{mixed-volume-polynomial-expansion-FINAL}
 	Let $K_1, \ldots, K_m \subseteq \RR^n$ be convex bodies. Then, we have 
 	\[
 		\Vol_n (\lambda_1 K_1 + \ldots + \lambda_m K_m) = \sum_{i_1 , \ldots , i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot \mathsf{V}_n (K_{i_1}, \ldots, K_{i_n}).
 	\]
 \end{thm}
 
+\begin{proof}
+	For $1 \leq i \leq n$, let $P_i^{(k)}$ for $k \geq 1$ be a sequence of polytopes converging to $K_i$ in Hausdorff distance. Then, we have 
+	\begin{align*}
+		\Vol_n \left ( \sum_{i = 1}^n \lambda_i K_i \right ) & = \lim_{k \to \infty} \Vol_n \left ( \sum_{i = 1}^n \lambda_i P_i^{(k)} \right ) \\
+		& = \lim_{k \to \infty} \sum_{i_1 , \ldots , i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot \mathsf{V}_n (P_{i_1}^{(k)}, \ldots, P_{i_n}^{(k)}) \\
+		& = \sum_{i_1 , \ldots , i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot \lim_{k \to \infty} \mathsf{V}_n (P_{i_1}^{(k)}, \ldots, P_{i_n}^{(k)}) \\
+		& = \sum_{i_1 , \ldots , i_n = 1}^m \lambda_{i_1} \ldots \lambda_{i_n} \cdot \mathsf{V}_n (K_{i_1}, \ldots, K_{i_n}).
+	\end{align*}
+	This suffices for the proof. 
+\end{proof}
+
+\begin{example}[Volume of a Zonotope] \label{example-volume-of-a-zonotope}
+	From Theorem~\ref{mixed-volume-polynomial-expansion-FINAL}, we can compute the volume of a zonotope. Let $v_1, \ldots, v_l \in \RR^n$ be vectors. Then, we have that 
+	\begin{align*}
+		\Vol_n (Z(v_1, \ldots, v_l)) & = \Vol_n \left ( \sum_{i = 1}^l [0, v_i] \right ) \\
+		& = \sum_{i_1, \ldots, i_n = 1}^l \mathsf{V}_n ([0, v_{i_1}], \ldots, [0, v_{i_n}]) \\
+		& = \sum_{i_1, \ldots, i_n = 1}^l \frac{1}{n!} |\text{Det}(v_{i_1}, \ldots, v_{i_n}) | \\
+		& = \sum_{1 \leq i_1 < \ldots < i_n \leq l} |\text{Det}(v_{i_1}, \ldots, v_{i_n})|
+	\end{align*}
+	where the equality in the third line follows from the computation in Example~\ref{mixed-volume-of-line-segments}. 
+\end{example}
+
+We now define the notion of mixed area measures which is measure-theoretic interpretation of the mixed volumes. This notion will become essential when considering the equality cases of the Alexandrov-Fenchel inequality. Our treatment of mixed area measures is inspired by Chapter 4 in \cite{Hug2020-ue}. Recall that for polytopes $P_1, \ldots, P_n$, we define the mixed volume as 
+\[
+	\mathsf{V}_n (P_1, \ldots, P_n) = \frac{1}{n} \sum_{u \in \mathbb{S}^{n-1}} h_{P_n}(u) \cdot \mathsf{V}_{n-1}(F_{P_1}(u), \ldots, F_{P_{n-1}}(u))
+\]
+where the sum is well-defined because the number of facet normals. Outside of these facet normals, the mixed volume inside the sum vanishes. For any convex body $K \subseteq \RR^n$ which is not necessarily polytopal, we can take a sequence $P_n^k \to K$ as $k \to \infty$ to get the identity
+\[
+	\mathsf{V}_n(P_1, \ldots, P_{n-1}, K) = \frac{1}{n} \sum_{u \in \mathbb{S}^{n-1}} h_{K_n}(u) \cdot \mathsf{V}_{n-1}(F_{P_1}(u), \ldots, F_{P_{n-1}}(u)).
+\]
+Measure-theoretically, we can define a measure on the unit sphere defined by
+\[
+	S_{P_1, \ldots, P_{n-1}} := \sum_{u \in \mathbb{S}^{n-1}} \mathsf{V}_{n-1}(F_{P_1}(u), \ldots, F_{P_{n-1}}(u)) \cdot \delta_u
+\]
+where $\delta_u$ is the dirac delta measure at $u$. Then, we have 
+\[
+	\mathsf{V}_n(P_1, \ldots, P_{n-1}, K) = \frac{1}{n} \int_{\mathbb{S}^{n-1}} h_{K}(u) \, S_{P_1, \ldots, P_{n-1}}(du).
+\]
+We have defined this measure in the case where the first $n-1$ convex bodies in the mixed volume are polytopes. From the Riesz representation theorem, it can be shown that such a measure exists for general convex bodies (see Theorem 4.1 in \cite{Hug2020-ue} and Theorem 2.14 in \cite{rudin}).
+
+\begin{thm} [Theorem 4.1 in \cite{Hug2020-ue}]
+	For convex bodies $K_1, \ldots, K_{n-1} \subseteq \RR^n$, there exists a uniquely determined finite Borel measure $S_{K_1, \ldots, K_{n-1}}$ on $\mathbb{S}^{n-1}$ such that 
+	\[
+		\mathsf{V}(K_1, \ldots, K_{n-1}, K) = \frac{1}{n} \int_{\mathbb{S}^{n-1}} h_K(u) \, S_{K_1, \ldots, K_{n-1}} (du)
+	\]
+	for all convex bodies $K \subseteq \RR^n$. 
+\end{thm}
+
+\begin{defn}
+	For convex bodies $K_1, \ldots, K_{n-1} \subseteq \RR^n$, we call the measure $S_{K_1, \ldots, K_{n-1}}$ the \textbf{mixed area measure} associated with $(K_1, \ldots, K_{n-1})$. 
+\end{defn}
+
+\subsection{Positivity and Normal Directions}
+
+In this section, we discuss when the mixed volume of a collection of convex bodies is positive. The necessary and sufficient conditions for positivity are collected in Lemma~\ref{positivity-of-mixed-volumes}. 
+
+\begin{lem}[Lemma 2.2 in \cite{shenfeld2022extremals}] \label{positivity-of-mixed-volumes}
+	For conex bodies $C_1, \ldots, C_n \subseteq \RR^n$, the following two conditions are equivalent.
+	\begin{enumerate}[label = (\alph*)]
+		\item $\mathsf{V}_n (C_1, \ldots, C_n) > 0$. 
+		\item There are segments $I_i \subseteq C_i$, $i \in [n]$ with linearly independent directions. 
+		\item $\dim (C_{i_1} + \ldots + C_{i_k}) \geq k$ for all $k \in [n]$, $1 \leq i_1 < \ldots < i_k \leq n$. 
+	\end{enumerate}
+\end{lem}
+
+Next, we provide necessary and sufficient conditions for a vector to be in the support of the mixed area measure $S_{B, P_1, \ldots, P_{n-2}}$ where $P_1, \ldots, P_{n-2}$ are polytopes. The terminology used in Definition~\ref{extreme-normal-directions} was introduced in Lemma 2.3 of \cite{shenfeld2022extremals}. 
+
+\begin{defn}[Lemma 2.3 in \cite{shenfeld2022extremals}] \label{extreme-normal-directions}
+	For $P_1, \ldots, P_{n-2} \subseteq \RR^n$ convex polytopes and $u \in \mathbb{S}^{n-1}$. We call $u$ a $(B, P_1, \ldots, P_{n-2})$-extreme \textbf{normal direction} if and only if at least one of the following three equivalent conditions hold:
+	\begin{enumerate}[label = (\alph*)]
+		\item $u \in \supp S_{B, P_1, \ldots, P_{n-2}}$. 
+		\item There are segments $I_i \subseteq F (P_i, u)$, $i \in [n-2]$ with linearly independent directions. 
+		\item $\dim(F(P_{i_1}, u) + \ldots + F(P_{i_k}, u)) \geq k$ for all $k \geq [n-2]$, $1 \leq i_1 < \ldots < i_k \leq n-2$. 
+	\end{enumerate}
+\end{defn}
+
+The fact that (a)-(c) are equivalent in Definition~\ref{extreme-normal-directions} is exactly the content of Lemma 2.3 in \cite{shenfeld2022extremals}. 
+
 \chapter{Mechanisms for Log-concavity}
+
 
 \section{Log-Concavity and Ultra Log-Concavity}
 
 \begin{defn}
 
 \end{defn}
-
+	
+\begin{example}
+	The sequence of binomial coefficients $\binom{n}{k}$ forms a log-concave sequence. 
+\end{example}
 (Many sequences in combinatorics are proven to be log-concave ... give examples: Read's conjecture, Mason's Conjecture, etc. )
+
+\begin{example}[The Mason Conjectures]
+	Let $M$ be a matroid of rank $r$. For $0 \leq i \leq r$, let $I_i$ denote the number of independent sets of $M$ with $i$ elements. Then there are three conjectures of increasing strength related to the log-concavity of this sequence. 
+	\begin{enumerate}
+		\item (Mason Conjecture) $I_k^2 \geq I_{k-1} I_{k+1}$. 
+		\item (Strong Mason Conjecture) $I_k^2 \geq \left (1 + \frac{1}{k} \right ) I_{k-1} I_{k+1}$. 
+		\item (Ultra-Strong Mason Conjecture) $I_k^2 \geq \left (1 + \frac{1}{k} \right ) \left (1 + \frac{1}{n-k} \right ) I_{k-1} I_{k+1}$. 
+	\end{enumerate}
+	The Mason conjecture says that the sequence $I_i$ is log-concave while the ultra-strong Mason conjecture states that the sequence $I_i$ is ultra-log-concave. All three of these conjectures have been proven. In \cite{AHK}, Karim Adiprasito, June Huh, and Eric Katz proved the Mason conjecture by developing a hodge theory of matroids. Later, the strong Mason conjecture was proven by June Huh, Benjamin Schro"ter, and Botong Wang in \cite{correlation-bounds} and Nima Anari, Kuikui Liu, Shayan Oveis Gharan, and Cynthia Vinzant in \cite{anari2018logconcave} independently. 
+\end{example}
+
+\section{Cauchy's Interlacing Theorem}
+
+Given an $n \times n$ matrix $A$, we call a submatrix $B$ a \textbf{principal submatrix} if it is obtained from $A$ by deleting some rows and the corresponding columns. When $A$ is a Hermitian matrix and $B$ is a principal submatrix of size $(n-1) \times (n-1)$, Theorem~\ref{cauchy-interlacing} gives a mechanism for controlling the eigenvalues of $B$ based on $A$. We present a short proof from \cite{fisk} of this result. For different proofs using the intermediate value theorem, Sylvester's law of inertia, and the Courant-Fischer minimax theorem, we direct the reader to the references \cite{suk}, \cite{symmetric-eigenvalue-problem}, and \cite{GoluVanl96}, respectively. 
+
+\begin{thm}[Cauchy Interlace Theorem] \label{cauchy-interlacing}
+	Let $A$ be a Hermitian matrix of order $n$, and let $B$ be a principal submatrix of $A$ of order $n-1$. If $\lambda_n \leq \lambda_{n-1} \leq \ldots \leq \lambda_2 \leq \lambda_1$ are the eigenvalues of $A$ and $\mu_n \leq \mu_{n-1} \leq \ldots \leq \mu_3 \leq \mu_2$ are the eigenvalues of $B$. Then, we have
+	\[
+		\lambda_n \leq \mu_n \leq \lambda_{n-1} \leq \mu_{n-1} \leq \ldots \leq \lambda_2 \leq \mu_2 \leq \lambda_1.
+	\]
+\end{thm}
+
+Before proving this result, we need Theorem~\ref{interlacing-roots-of-polynomial} which is a theorem about when roots of polynomials interlace. Suppose that $f, g \RR[x]$ are real polynomials with only real roots. We say that the polynomials $f$ and $g$ \textbf{interlace} if their roots $r_1 \leq \ldots \leq r_n$ and $s_1 \leq \ldots \leq s_{n-1}$ satisfy
+\[
+	r_1 \leq s_1 \leq \ldots \leq r_{n-1} \leq s_{n-1} \leq r_n.
+\]
+
+\begin{thm} \label{interlacing-roots-of-polynomial}
+	Let $f, g \in \RR[x]$ be polynomials with only only real roots. Suppose that $\deg (f) = n$ and $\deg (g) = n-1$. Then, $f$ and $g$ interlace if and only if the linear combinations $f + \alpha g$ have all real roots for all $\alpha \in \RR$. 
+\end{thm} 
+\begin{proof}
+	See Theorem 6.3.8 in \cite{rahman}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{cauchy-interlacing}]
+	We follow the proof in \cite{fisk}. Without loss of generality, we can decompose 
+	\[
+		A = \begin{bmatrix}
+			B & v \\
+			v^T & c
+		\end{bmatrix}
+	\]
+	where $v \in \RR^{(n-1) \times 1}$ and $c \in \RR$. Consider the polynomials $f(x) := \det (A - xI)$ and $g(x) := \det (B - xI)$. Note that the roots of $f$ and $g$ are all real and are exactly the eigenvalues of $A$ and $B$, respectively. For any $\alpha \in \RR$, we have
+	\begin{align*}
+		f(x) + \alpha g(x) & = \det\begin{bmatrix}
+			B-xI & v \\
+			v^T & d-x
+		\end{bmatrix} + \alpha \det \begin{bmatrix}
+			B-xI & v \\
+			0 & 1
+		\end{bmatrix} \\
+		& = \det\begin{bmatrix}
+			B-xI & v \\
+			v^T & d-x
+		\end{bmatrix} + \det \begin{bmatrix}
+			B-xI & v \\
+			0 & \alpha
+		\end{bmatrix} \\
+		& = \det \begin{bmatrix}
+			B-xI & v \\
+			v^T & d+\alpha - x
+		\end{bmatrix}.
+	\end{align*}
+	Thus $f + \alpha g$ is the characteristic polynomial of a Hermitian matrix and has real roots. From Theorem~\ref{interlacing-roots-of-polynomial}, the proof is complete. 
+\end{proof}
+
+\begin{cor}
+	Let $M$ be a $n \times n$ matrix with exactly one positive eigenvalue. If $A$ is a principal matrix $A$ of size $2 \times 2$ such that there exists $v \in \RR^2$ with $v^T A v > 0$, then $\det (A) \leq 0$. 
+\end{cor}
+
+\begin{proof}
+	From Theorem~\ref{cauchy-interlacing}, the matrix $A$ has at most one positive eigenvalue. Since $v^T A v > 0$, we know that $A$ has exactly one positive eigenvalue. The other eigenvalue must be at most $0$. Hence, we have $\det (A) \leq 0$. This suffices for the proof. 
+\end{proof}
+
 \section{Alexandrov's Inequality for Mixed Discriminants}
 
 In this section we introduce a fundamental inequality given in Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT} in the theory of mixed discriminants. This inequality is similar to the inequality for mixed volumes of convex bodies given in Theorem~\ref{AF-inequality}. We first give a generalization of this inequality to the larger class of objects called \textbf{hyperbolic polynomials}. For an introduction to the theory of hyperbolic polynomials, we refer the reader to \cite{schneider_2013} and \cite{hyperbolic-polynomials}. We call a homogeneous polynomial $p \in \RR[x_1, \ldots, x_n]$ \textbf{hyperbolic in direction} $v$ for $v \in \RR^n$ if and only if $p(v) > 0$ and for each $x \in \RR^n$, the univariate polynomial $p(x + tv)$ when considered a polynomial in $t$ has only real roots. If $p$ is hyperbolic in direction $v \in \RR^n$ then we can define the hyperbolicity cone $\mathcal{H} (p)$ as the set of directions for which $p$ is hyperbolic. 
@@ -541,12 +911,98 @@ In this section we introduce a fundamental inequality given in Theorem~\ref{A-In
 \end{proof}
 
 \begin{thm} [Alexandrov's Inequality for Mixed Discriminants] \label{A-Inequality-MIXED-DISCRIMINANT}
-	Let $X, Y, A_1, \ldots, A_{n-2}$ be real symmetric positive definite $n \times n$ matrices. Then 
+	Let $A_1, \ldots, A_{n-2}$ be real symmetric positive definite $n \times n$ matrices. Let $X$ be a real symmetric positive definite $n \times n$ square matrix and let $Y$ be a real symmetric positive semidefinite $n \times n$ square matrix. Then 
 	\[
 		\mathsf{D}(X, Y, A_1, \ldots, A_{n-2})^2 \geq \mathsf{D}(X, X, A_1, \ldots, A_{n-2}) \cdot \mathsf{D} (Y, Y, A_1, \ldots, A_{n-2})
 	\]
 	where equality holds if and only if $B = \lambda A$ for a real number $\lambda$. 
 \end{thm}
+
+We present a proof of Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT} given in \cite{bapat_raghavan_1997} and \cite{schneider-mixed-discriminants}. Before we begin the proof, we first need the following result from \cite{hardy1952inequalities}. 
+
+\begin{lem} [\cite{hardy1952inequalities} and Lemma 5.3.2 in \cite{bapat_raghavan_1997}] \label{newton}
+	Let $p(x) = \sum_{k = 0}^n \binom{n}{k} a_k x^k$ be a real-rooted univariate polynomial. Then, we have $a_k^2 \geq a_{k-1}a_{k+1}$ for all $1 \leq i \leq n-1$. If $a_0 \neq 0$ then equality occurs for any $i$ if and only if all the roots of $f(x)$ are equal. 
+\end{lem}
+
+\begin{proof}
+	From Rolle's Theorem, if a polynomial is real-rooted, then so is all of its derivatives. It is also clear that when we reverse the coefficients of a real-rooted polynomial, then it remains real-rooted. We call the operation for reversing the coefficients \textbf{reciprocation} of the polynomial. This implies through a sequence of derivatives and reciprocations, we get the polynomial $\alpha_{i-1} + 2\alpha_i x + \alpha_{i+1} x^2$. Since we arrived at this polynomial throuhg a sequence of derivatives and reciprocations, we know that this polynomial is real-rooted. Hence, the discriminant is non-negative and $\alpha_i^2 \geq \alpha_{i-1} \alpha_{i+1}$. The equality case follows from the fact that Rolle's Theorem implies that the roots of the derivative of a real-rooted polynomial interlaces the roots of the original polynomial. 
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT}]
+	Let $A_1, \ldots, A_m$ be positive semi-definite $n \times n$ matrices. For $(r_1, \ldots, r_m) \in \Delta_m^{n}$ we define the term
+	\[
+		D(r_1, \ldots, r_m) := \mathsf{D}_n \left ( \underbrace{A_1, \ldots, A_1}_{r_1 \text{ times}}, \ldots, \underbrace{A_m, \ldots, A_m}_{r_m \text{ times}} \right ).
+	\] 
+	It suffices to prove that 
+	\[
+		D(r_1, \ldots, r_{m-2}, r_{m-1}, r_m)^2 \geq D(r_1, \ldots, r_{m-2}, r_{m-1}+1, r_m-1) \cdot D(r_1 \ldots, r_{m-2}, r_{m-1}-1, r_m+1).
+	\]
+	To prove this, we induct on $m$. Suppose that $m=2$. Consider the polynomial 
+	\[
+		\det (xA_1 + A_2) = \sum_{i = 0}^n \binom{n}{i} D(i, r-i) x^i.
+	\]
+	Since $A_1$ is positive definite, there is some positive definite $\Sigma_1$ such that $\Sigma_1^2 = A_1$. Thus, we have 
+	\[
+		\det (xA_1 + A_2) = \det (x\Sigma_1^2 + A_2) = \det (\Sigma_1)^2 \cdot \det (x + \Sigma_1^{-1} A_2 \Sigma_1^{-1}).
+	\]
+	Thus, the polynomial $\det (xA_1 + A_2)$ is real-rooted. From Lemma~\ref{newton}, this implies that $D(i, r-i)^2 \geq D(i-1, r-i+1) \cdot D(i+1, r-i-1)$ where equality holds whenever all of the roots are the same. In this case, we have $\Sigma_1^{-1} A_2 \Sigma_1^{-1} = \lambda I \implies A_2 = \lambda A_1$ for some $\lambda \in \RR$. This proves the base case. \\
+
+	Now suppose that the claim is true for $m$. Consider a $m+1$-tuple $(r_1, \ldots, r_{m+1}) \in \Delta_{m+1}^n$ satisfying $r_1 + \ldots + r_{m+1} = n$. We want to prove that 
+	\[
+		D(r_1, \ldots, r_{m-1}, r_m, r_{m+1})^2 \geq D(r_1, \ldots, r_{m-1}, r_m - 1, r_{m+1}+1) \cdot D(r_1, \ldots, r_{m-1}, r_m+1, r_{m+1}-1).
+	\]
+	We can define $B_y := y A_m + A_{m+1}$ where $y$ is a real parameter. Then, we have that
+	\[
+		\det \left ( \sum_{i = 1}^{m-1} x_i A_i + x_m B_y \right ) = \sum_{r_1 + \ldots + r_m = n} \binom{n}{r_1, \ldots, r_m} D(r_1, \ldots, r_m) (y) \cdot x_1^{r_1} \ldots x_m^{r_m}
+	\]
+	where $D(r_1, \ldots, r_m)(y)$ is a polynomial in $y$ of degree $r_m$. We can also write 
+	\begin{align*}
+		\det \left ( \sum_{i = 1}^{m-1} x_i A_i + x_m B_y \right ) & = \det \left ( \sum_{i = 1}^{m-1} x_i A_i + x_m y A_m + x_m A_{m+1} \right ) 
+	\end{align*}
+	\[ = \sum_{r_1 + \ldots + r_{m+1} = n} \binom{n}{r_1, \ldots, r_{m+1}} D_{m+1}(r_1, \ldots, r_{m+1}) \cdot (x_1^{r_1} \ldots x_{m-1}^{r_{m-1}}) \cdot x_m^{r_m + r_{m+1}} \cdot y^{r_m} 
+	\]
+	\[
+	= \sum_{r_1 + \ldots + r_{m-1} + r_m = n} \left \{ \sum_{i = 0}^{r_m} \binom{n}{r_1, \ldots, r_{m-1}, i, r_m - i} D_{m+1}(r_1, \ldots, r_{m-1}, i, r_m - i) \cdot y^i \right \} \cdot x_1^{r_1} \cdot x_m^{r_m}.
+	\]
+	Comparing coefficients, we have that 
+	\begin{align*}
+		D(r_1, \ldots, r_m)(y) & = \sum_{i = 0}^{r_m} \binom{n}{r_1, \ldots, r_{m-1}, i, r_m - i} D_{m+1}(r_1, \ldots, r_{m-1},i, r_m-i) y^i \\
+		& = \binom{n}{r_1, \ldots, r_m} \sum_{i = 0}^{r_m} \binom{r_m}{i} D_{m+1}(r_1, \ldots, r_{m-1}, i, r_m - i) y^i.
+	\end{align*}
+	Now we show that if $A_m$ and $A_{m+1}$ are not proportional, then $D(r_1, \ldots, r_m)(y)$ is real-rooted with simple roots. If this is shown, then we are done from Lemma~\ref{newton}. Following the notation in \cite{schneider-mixed-discriminants}, for fixed $r_1 + \ldots + r_{m-2} \neq n$, we define the polynomial
+	\begin{align*}
+		Q_k(y) & := D_m(r_1, \ldots, r_{m-2}, s-k, k) (y) \\
+		& = \mathsf{D}_m (\underbrace{A_1, \ldots, A_1}_{r_1}, \ldots, \underbrace{A_{m-2}, \ldots, A_{m-2}}_{r_{m-2}}, \underbrace{A_{m-1}, \ldots, A_{m-1}}_{s-k}, \underbrace{B_y, \ldots, B_y}_k).
+	\end{align*}
+	where $s = n - r_1 - \ldots - r_{m-2} = r_{m-1} + r_m$. From the inductive hypothesis, we have 
+	\[
+		Q_k(y)^2 \geq Q_{k-1}(y) \cdot Q_{k+1}(y)
+	\] 
+	where equality holds if and only if $B_y = \lambda_y A_{m-1}$ for some $\lambda_y \in \RR$. Let $y_0$ be a root of $Q_k$. If equality held at $y_0$, we would have $0 = Q_k^2(y_0) = Q_{k-1}(y_0) Q_{k+1}(y_0)$. We have $B_{y_0} = \lambda A_{m-1}$ for some $\lambda \in \RR$ from the inductive hypothesis. We have 
+	\[
+		y_0 A_m + A_{m+1} = \lambda A_{m-1}.
+	\]
+	Note that $\lambda \neq 0$ because then $A_m$ and $A_{m+1}$ would be proportional to each other. If $\lambda > 0$, then $B_{y_0}$ would be positive definite. But Corollary~\ref{final-positivity-corollary} implies that $Q_k(y_0) > 0$, which cannot happen. If $\lambda < 0$, then $B_{y_0}$ is negative definite. This implies that the sign of $Q_k(y_0)$ is $(-1)^k$ and is not zero. This also cannot happen. It must be the case that at all roots of $Q_k(y)$ there is strict inequality. \\
+
+	Now we prove that $Q_k(y)$ has $k$ simple real roots where the roots of $Q_{k-1}(y)$ and $Q_k(y)$ are interlaced for $2 \leq k \leq s$. To prove that $Q_1(y)$ satisfies the claim, note that 
+	\begin{align*}
+		Q_1(y) & = D_m(r_1, \ldots, r_{m-2}, s-1, 1)(y) \\
+		& = \mathsf{D}_m (\underbrace{A_1, \ldots, A_1}_{r_1}, \ldots, \underbrace{A_{m-2}, \ldots, A_{m-2}}_{r_{m-2}}, \underbrace{A_{m-1}, \ldots, A_{m-1}}_{s-1}, B_y) \\
+		& = \mathsf{D}_m (A_1[r_1], \ldots, A_{m-2}[r_{m-2}], A_{m-1}[s-1], A_m) y + \mathsf{D}_m (A_1[r_1], \ldots, A_{m-2}[r_{m-2}], A_{m-1}[s-1], A_{m+1}).
+	\end{align*}
+	The coefficient in front of $y$ is positive from Corollary~\ref{final-positivity-corollary}. Thus the polynomial $Q_1(y)$ has $1$ simple real zero. Let $q_1 := q_1^{(1)}$ be the unique root of this polynomial. Then, from our earlier discussion, we have the strict inequality $Q_1(q_1)^2 > Q_0(q_1) \cdot Q_2(q_1)$. This implies that $Q_2(q_1) < 0$ since $Q_0(q_1) > 0$ from Corollary~\ref{final-positivity-corollary}. Since $Q_2(y)$ is a quadratic with a positive leading coefficient and $Q_2(q_1) < 0$, the intermediate value theorem implies that there exist $q_2^{(1)}$ and $q_2^{(2)}$ which are roots of $Q_2$ and $q_2^{(1)} < q_1^{(1)} < q_2^{(2)}$. Now, suppose that the roots of $Q_{k-1}$ are $q_{k-1}^{(1)}, \ldots, q_{k-1}^{(k-1)}$ and the roots of $Q_k$ are $q_k^{(1)}, \ldots, q_k^{(k)}$ satisfy 
+	\[
+		q_k^{(1)} < q_{k-1}^{(1)} < q_k^{(2)} < \ldots < q_k^{(k-1)} < q_{k-1}^{(k-1)} < q_k^{(k)}.
+	\]
+	Note that we have 
+	\[
+		Q_k(q_k^{(i)})^2 > Q_{k-1}(q_k^{(i)}) \cdot Q_{k+1}(q_k^{(i)}).
+	\]
+	From the inductive hypothesis, $Q_{k-1}(q_k^{(i)})$ alternates in sign. Thus $Q_{k+1}(q_k^{(i)})$ also alternates in sign. Thus the roots of $Q_{k+1}$ are simple, real, and interlace $Q_k$. This proves the auxiliary claim that $Q_k$ has $k$ simple real roots. \\
+
+	This claim proves that $D_m(r_1, \ldots, r_{m-1}, k)(y)$ has $k$ simple real roots. This proves the desired inequality and also guarentees that it is strict in the case where $A_m$ and $A_{m+1}$ are not proportional. This completes the induction and suffices for the proof. 
+\end{proof}
+
 
 \begin{cor} \label{mixed-discriminant-log-concave-sequence}
 	Let $A, B$ be $n \times n$ positive definite symmetric real matrices. For $0 \leq k \leq n$, define the mixed discriminant
@@ -565,6 +1021,8 @@ In this section we introduce a fundamental inequality given in Theorem~\ref{A-In
 \end{proof}
 \section{Alexandrov-Fenchel Inequality}
 
+(explain what is the alexandrov-fenchel inequality)
+
 \begin{thm}[Alexandrov-Fenchel Inequality] \label{AF-inequality}
 	Let $K_1, K_2, \ldots, K_{d-2} \subseteq \RR^d$ be convex bodies. For any convex bodies $X, Y \subseteq \RR^d$, we have the inequality
 	\[
@@ -572,9 +1030,231 @@ In this section we introduce a fundamental inequality given in Theorem~\ref{A-In
 	\]
 \end{thm}
 
+In this section, we will present the proof of the inequality given in \cite{bochner}. From Theorem~\ref{approximation-SSI}, we can approximate our convex bodies by simple strongly isomorphic polytopes. The general result will then follow from taking a suitable limit in the space of convex bodies. When restricted to an isomorphism class $\alpha$ of a simple polytope with facet normals $\mathcal{U}$, the mixed volumes $\mathsf{V}_d (X, Y, P_1, \ldots, P_{d-2})$ can be viewed as a bilinear form applied to the support vectors of $X$ and $Y$. Indeed, for any support vectors $h_P, h_Q$, we can define 
+\[
+	\mathsf{V}_d (h_P, h_Q, P_1, \ldots, P_{d-2}) := \mathsf{V}_d (P, Q, P_1, \ldots, P_{d-2}).
+\]
+We can extend this definition to all of $\RR^{\mathcal{U}}$ using Corollary~\ref{perturbation-SSI}. Indeed, for any $x, y \in \RR^\mathcal{U}$ there are polytopes $A_1, A_2, B_1, B_2 \in \alpha$ such that $x = h_{A_2} - h_{A_1}$ and $y = h_{B_2} - h_{B_1}$. We define 
+\[
+	\mathsf{V}_d (x, y, P_1, \ldots, P_{d-2}) = \sum_{i, j = 1}^2 (-1)^{i+j}\mathsf{V}_d (h_{A_i}, h_{B_j}, P_1, \ldots, P_{d-2}).
+\]
+To prove that this extension is well-defined, it suffices to prove that if $x = h_K - h_L = h_P - h_Q$ for $K, L, P, Q, P_0 \in \alpha$, then 
+\[
+	\mathsf{V}_d (h_{K}, \mathcal{P}) - \mathsf{V}_d (h_{L}, \mathcal{P}) = \mathsf{V}_d (h_P,\mathcal{P}) - \mathsf{V}_d(h_Q, \mathcal{P})
+\]
+where $\mathcal{P} = (P_0, P_1, \ldots, P_{d-2})$. Note that $x = h_K - h_L = h_P - h_Q$ implies that $h_K + h_Q = h_L + h_P$. Thus $h_{K+Q} = h_{L+ P}$ where $K+Q, L+P \in \alpha$ from Proposition~\ref{families-of-strongly-isomorphic} and so $K + Q = L + P$. Thus
+\begin{align*}
+	\mathsf{V}_d(h_K, \mathcal{P}) + \mathsf{V}_d (h_Q, \mathcal{P}) & = \mathsf{V}_d (K, \mathcal{P}) + \mathsf{V}_d (Q, \mathcal{P}) \\
+	& = \mathsf{V}_d (K + Q, \mathcal{P}) \\
+	& = \mathsf{V}_d (L + P, \mathcal{P}) \\
+	& = \mathsf{V}_d(L, \mathcal{P}) + \mathsf{V}_d (P, \mathcal{P}) \\
+	& = \mathsf{V}_d(h_L, \mathcal{P}) + \mathsf{V}_d (h_P,\mathcal{P}).
+\end{align*}
+This proves that the extension of $\mathsf{V}_d (\cdot, \cdot, P_1, \ldots, P_{d-2})$ to $\RR^{\mathcal{U}}$ is well-defined. Thus, it suffices to prove the inequality in Theorem~\ref{AF-SSI-version}. In the same way, for all $u \in \mathcal{U}$ and $x \in \RR^\mathcal{U}$, there is a well-defined extension 
+\[
+	\mathsf{V}_{d-1} (F(x, u), F(\mathcal{P}, u)) := \mathsf{V}_{d-1}(F(Q, u), F(\mathcal{P}, u)) - \mathsf{V}_{d-1}(F(Q', u), F(\mathcal{P}, u))
+\]
+where $F(\mathcal{P}, u) := (F(P_3, u), \ldots, F(P_d, u))$ and $x = h_Q - h_{Q'}$. We can define the matrix $\widetilde{A} : \RR^\mathcal{U} \to \RR^{\mathcal{U}}$ defined by 
+\[
+	\widetilde{A} x := \frac{1}{d} \sum_{u \in \mathcal{U}} \mathsf{V}_{d-1} (F(x, u), F(P_3, u), \ldots, F(P_d, u)) \cdot e_u.
+\]
+This matrix satisfies the property that 
+\begin{align*}
+	\langle h_Q, \widetilde{A} h_P \rangle & = \frac{1}{d} \sum_{u \in \mathcal{U}} h_Q(u) \cdot \mathsf{V}_{d-1} (F(P, u), F(P_3, u), \ldots, F(P_d, u)) \\
+	& = \mathsf{V}_d (P, Q, P_3, \ldots, P_d).
+\end{align*}
+By linearity, we have in general the equality $\langle x, \widetilde{A} y \rangle = \mathsf{V}_d (x, y, P_3, \ldots, P_d)$ and $\widetilde{A}$ is a symmetric matrix. We now prove that $\widetilde{A}$ is irreducible. In particular, the graph associated with matrix of $\widetilde{A}$ is exactly the graph on facets where two facets are adjacent if and only if their intersection is a facet of size $d-2$. 
+
+\begin{lem} \label{lemma-structure-of-matrix-widetilde-A}
+	Let $d \geq 3$. Then the matrix $\widetilde{A}$ is a symmetric irreducible matrix with non-negative off-diagonal entries. 	
+\end{lem}
+
 \begin{proof}
-	
+	Let $\mathcal{U} = \{u_1, \ldots, u_m\}$ be the facet normals of the strong isomorphism class of our polytopes where the facet corresponding to $u_i$ is $F_i$. For $i, j \in [m]$ we write $i \sim j$ if and only if $F_i \cap F_j$ is a face of dimension $d-2$. We write $F_{ij} = F_i \cap F_j$ when we consider $F_i \cap F_j$ as a facet of $F_i$. Let $u_{ij}$ be the facet norm of $F_{ij}$ in $F_i$. For $i \sim j$, let $\theta_{ij}$ be the angle satisfying $\langle u_i, u_j \rangle = \cos \theta_{ij}$. Note that $\codim F_i = \codim F_j = 1$, $\codim F_{ij} = 2$. Since no two of $u_i, u_j, u_{ij}$ are linearly independent, there are coefficients $a_i, a_{ij} \in [-1, 1]$ such that $u_j = a_{ij} u_{ij} + a_i u_i$ where $a_i^2 + a_j^2 = 1$. By taking inner products with $u_i$, we get that $a_i = \cos \theta_{ij}$. This implies that $a_{ij} = \pm \cos \theta_{ij}$. By negating $\theta_{ij}$ is necessary, we have 
+	\[
+		u_j = (\cos \theta_{ij}) u_i + (\sin \theta_{ij}) u_{ij} \implies u_{ij} = (\csc \theta_{ij}) u_j - (\cot \theta_{ij}) u_i.
+	\]
+	We can then compute the support values of $F_{ij}$
+	\begin{align*}
+		h_{F(P, u_i)} (u_{ij}) & = \sup_{x \in F(P, u_i)} \langle u_{ij}, x \rangle \\
+		& = \sup_{x \in F_i(P)} \langle (\csc \theta_{ij}) u_j - (\cot \theta_{ij}) u_i, x \rangle \\
+		& = (\csc \theta_{ij}) \sup_{x \in F(P, u_i)} \langle u_j, x \rangle - (\cot \theta_{ij}) h_P(u_i) \\
+		& = (\csc \theta_{ij}) h_P(u_j) - (\cot \theta_{ij}) h_P(u_i).
+	\end{align*}
+	For $i \sim j$, we can define the constants
+	\[
+		A_{ij} := \frac{\mathsf{V}_{d-2}(F(F(P_3, u_i), u_{ij}), \ldots, F(F(P_d, u_i), u_{ij}))}{d(d-1)}.
+	\]
+	Then, for $x = h_P = \sum_{i = 1}^m x_i e_i$ where $x_i = h_P(u_i)$, we have that 
+	\begin{align*}
+		\widetilde{A} x & = \frac{1}{d} \sum_{i \in [m]} \mathsf{V}_{d-1} (F(P, u_i), F(P_3, u_i), \ldots, F(P_d, u_i)) \cdot e_i \\
+		& = \sum_{i \in [m]}  \left ( \sum_{j \sim i} A_{ij} h_{F(P, u_i)}(u_{ij}) \right ) \cdot e_i \\
+		& = \sum_{i \in [m]} \left (  \sum_{j \sim i} A_{ij} (\csc \theta_{ij}) x_j - A_{ij} (\cot \theta_{ij}) x_i) \right ) \cdot e_i \\
+		& = \sum_{i \in [m]} \left ( \sum_{j \sim i} A_{ij} (\csc \theta_{ij}) x_j \right ) e_i - \sum_{i \in [m]} \left ( \sum_{j \sim i} A_{ij} \cot \theta_{ij} \right ) x_i \cdot e_i.
+	\end{align*}
+	For $i \in [m]$, we have that 
+	\[
+		(\widetilde{A})_{ii} = \langle e_i, \widetilde{A}e_i \rangle = - \sum_{j \sim i} A_{ij} \cot \theta_{ij}.
+	\]
+	For $i, j \in [m]$ distinct, we have 
+	\[
+		(\widetilde{A})_{ij} = \langle e_i, \widetilde{A}e_j \rangle = \1_{i \sim j} \cdot (A_{ij} \csc \theta_{ij}).
+	\]
+	When $i \sim j$, then $(\widetilde{A})_{ij} > 0$. This implies that the non-zero entries of $\widetilde{A}$ except the diagonals have the same non-zero positions as the non-zero entries in the adjacency matrix of the graph on facets where two facets are adjacent if and only if $i \sim j$. This graph is clearly strongly-connected, which prove that it is irreducible. 
 \end{proof}
+
+\begin{thm}[Alexandrov-Fenchel Inequality for Simple Strongly Isomorphic Polytopes] \label{AF-SSI-version}
+	Let $\alpha$ be a strong isomorphism class with facet normals $\mathcal{U} = \{u_1, \ldots, u_m\}$ of simple strongly isomorphic polytopes $P_2, \ldots, P_d$. Then, for all $x, y \in \RR^m$ we have the inequality
+	\[
+		\mathsf{V}_d (x, P_2, \mathcal{P})^2 \geq \mathsf{V}_d (x, x, \mathcal{P}) \cdot \mathsf{V}_d (P_2, P_2, \mathcal{P})
+	\]
+	where $\mathcal{P} := (P_3, \ldots, P_{d})$.
+\end{thm}
+
+The inequality of Theorem~\ref{AF-SSI-version} with respect to a bilinear form implies that the bilinear form $\mathsf{V}_d (x, y, \mathcal{P})$ has similar properties to a bilinear form with respect to a \textbf{hyperbolic} matrix. We call a symmetric matrix $M \in \RR^{d \times d}$ \textbf{hyperbolic} if for all $v, w \in \RR^d$ satisfying $\langle w, Mw \rangle \geq 0$, we have 
+\[
+		\langle v, Mw \rangle^2 \geq \langle v, Mv \rangle \langle w, M w \rangle. 
+\]
+From Lemma 1.4 in \cite{bochner}, we find necessary and sufficient conditions for a matrix to be hyperbolic. 
+
+\begin{lem}[Lemma 1.4 in \cite{bochner}] \label{hyperbolic-quadratic-forms}
+	Let $M$ be a symmetric matrix. Then, the following conditions are equivalent:
+	\begin{enumerate}[label = (\alph*)]
+		\item $M$ is hyperbolic. 
+
+		\item The positive eigenspace of $M$ has dimension at most one. 
+	\end{enumerate}
+\end{lem}
+
+\begin{proof}[Proof of Theorem~\ref{AF-SSI-version}]
+	This proof follows that of \cite{bochner}. We induct on the dimension $d$. For the base case $d = 2$, see Lemma~\ref{base-case-for-AF-inequality} in the appendix. Now suppose that the claim is true for dimensions less than $d$. Currently, it is not clear that the matrix $\widetilde{A}$ is hyperbolic. We will alter it to become a matrix which is hyperbolic. For $u \in \mathcal{U}$, we can define the matrix $A \in \RR^{\mathcal{U} \times \mathcal{U}}$ and diagonal matrix $P = \text{Diag}(p_u : u \in \mathcal{U}) \in \RR^{\mathcal{U} \times \mathcal{U}}$ such that 
+	\begin{align*}
+		Ax & := \sum_{u \in \mathcal{U}} \frac{h_{P_3}(u) \mathsf{V}_{d-1} (F(x, u), F(P_3, u), \ldots, F(P_n, u))}{\mathsf{V}_{d-1}(F(P_3, u), F(P_3, u), \ldots, F(P_n, u))} \cdot e_u\\
+		p_u & := \frac{1}{d} \frac{\mathsf{V}_{d-1} (F(P_3, u), F(P_3, u), \ldots, F(P_d, u))}{h_{P_3}(u)}.
+	\end{align*}
+	We can always translate our polytopes so that $0 \in \text{int}(P_3)$ or equivalently $h_{P_3} > 0$. If we define the inner product $\langle x, y \rangle_{P} := \langle x, P y \rangle$, then we have that 
+	\[
+		\langle x, Ay \rangle_P = \langle x, \widetilde{A} y \rangle = \mathsf{V}_d (x, y, P_3, \ldots, P_d)
+	\]
+	since $\widetilde{A} = PA$. In particular, the matrix $A$ is self-adjoint with respect to the inner product $\langle \cdot, \cdot \rangle_P$. From Lemma~\ref{lemma-structure-of-matrix-widetilde-A}, we know that $A$ is irreducible with non-negative entries in the off-diagonal entries. Moreover, we have that 
+	\[
+		A(h_{P_3}) = \sum_{u \in \mathcal{U}}\frac{h_{P_3}(u) \mathsf{V}_{d-1} (F(P_3, u), F(P_3, u), \ldots, F(P_n, u))}{\mathsf{V}_{d-1}(F(P_3, u), F(P_3, u), \ldots, F(P_n, u))} \cdot e_u = \sum_{u \in \mathcal{U}} h_{P_3}(u) \cdot e_u = h_{P_3}.
+	\]
+	Thus $A$ has an eigenvector of eigenvalue $1$. Let $c > 0$ be sufficiently large so that $A + c I$ has non-negative entries. From the Perron-Frobenius Theorem (see Theorem 1.4.4 in \cite{bapat_raghavan_1997}), the vector $h_{P_3}$ is an eigenvector of eigenvalue $1 + c$ of $A + cI$ and since it has strictly positive entries this is the largest eigenvector and happens to be simple. Thus, the largest eigenvalue of $A$ is $1$ and this eigenvalue has multiplicity $1$. From the inductive hypothesis, we have that
+	\begin{align*}
+		\langle Ax, Ax \rangle_P & = \sum_{u \in \mathcal{U}} (Ax)_u^2 p_u \\
+		& = \sum_{u \in \mathcal{U}} \frac{1}{d} \cdot \frac{h_{P_3}(u) \mathsf{V}_{d-1}(F(x, u), F(P_3, u), \ldots, F(P_d, u))^2}{\mathsf{V}_{d-1}(F(P_3, u), F(P_3, u), \ldots, F(P_d, u))} \\
+		& \geq \sum_{u \in \mathcal{U}} \frac{1}{d} h_{P_3}(u) \cdot \mathsf{V}_{d-1} (F(x, u), F(x, u), F(P_4, u), \ldots, F(P_d, u))^2 \\
+		& = \mathsf{V}_d (x, x, P_3, \ldots, P_d) \\
+		& = \langle x, Ax \rangle_P.
+	\end{align*}
+	Let $\lambda$ be an arbitrary eigenvalue of $A$. For the corresponding eigenvector $v$, we have that 
+	\[
+		\langle Av, Av \rangle_P \geq \langle v, Av \rangle_P \implies \lambda^2 \geq \lambda. 
+	\]
+	Thus, the eigenvalues satisfy $\lambda \geq 1$ or $\lambda \leq 0$. From Lemma~\ref{hyperbolic-quadratic-forms}, we know that $A$ is hyperbolic. Since $\langle h_{P_2}, A h_{P_2} \rangle_P = \mathsf{V}_d (P_2, P_2, \mathcal{P}) > 0$, we know from hyperbolicity that 
+	\begin{align*}
+		\mathsf{V}_d (x, P_2, \mathcal{P})^2 & = \langle x, A h_{P_2} \rangle_P^2 \\
+		& \geq \langle x, Ax \rangle_P \cdot \langle h_{P_2}, Ah_{P_2} \rangle_P \\
+		& = \mathsf{V}_d(x, x, \mathcal{P}) \cdot \mathsf{V}_d (P_2, P_2, \mathcal{P}).
+	\end{align*}
+	This completes the induction and suffices for the proof. 
+\end{proof}
+
+
+
+\begin{cor} \label{AF-log-concavity}
+	Let $K, L \subseteq \RR^n$ be convex bodies. For $0 \leq k \leq n$, we can define the mixed volumes
+	\[
+		V_k := \mathsf{V}_n (\underbrace{K, \ldots, K}_{k \text{ times}}, \underbrace{L, \dots, L}_{n-k \text{ times}}).
+	\]
+	Then, the sequence $V_0, V_1, \ldots, V_n$ is log-concave. 
+\end{cor}
+
+\begin{proof}
+	From Theorem~\ref{AF-inequality}, we immediately get $V_k^2 \geq V_{k-1}V_{k+1}$. This suffices for the proof. 
+\end{proof}
+
+
+
+\subsection{Equality Cases}
+
+Unlike Alexandrov's Inequality for Mixed Discriminants, the equality cases of the Alexandrov-Fenchel inequality are rich. In this thesis, we do not provide any deep explanations for the mechanisms involved in the equality of the Alexandrov-Fenchel inequality as this is not our main focus. For the reader interested in these questions, we direct them to read \cite{minkowski-quadratic-inequality} or \cite{shenfeld2022extremals} where the many of the extremals of the Alexandrov-Fenchel inequality are resolved. Instead, we will provide a rather surface-level overview of the equality cases of the Alexandrov-Fenchel inequality that we will need in later sections of this thesis when we cover log-concavity of combinatorial sequences. \\
+
+The Alexandrov-Fenchel inequality can be viewed as a generalization of Minkowski's Inequality and various isoperimetric inequalities. Recall, the Brunn-Minkowski inequality and its equality cases given in Theorem~\ref{brunn-minkowski}.
+\begin{thm}[Brunn-Minkowski Inequality, Theorem 3.13 in \cite{Hug2020-ue}] \label{brunn-minkowski}
+	Let $K, L \subseteq \RR^n$ be convex bodies and $\alpha \in (0, 1)$. Then
+	\[
+		\sqrt[n]{V(\alpha K + (1-\alpha) L)} \geq \alpha \sqrt[n]{V(K)} + (1-\alpha) \sqrt[n]{V(L)}
+	\]
+	with equality if and only if $K$ and $L$ lie in parallel hyperplanes or $K$ and $L$ are homothetic. 
+\end{thm}
+
+The inequality in Theorem~\ref{brunn-minkowski} will explain the equality cases of Minkowski's Inequality (Theorem~\ref{minkowski-inequality}) which follows from the Alexandrov-Fenchel inequality.
+
+\begin{thm}[Minkowski's Inequality, Theorem 3.14 in \cite{Hug2020-ue}] \label{minkowski-inequality}
+	Let $K, L \subseteq \RR^n$ be convex bodies. Then, 
+	\[
+		\mathsf{V}_n(\underbrace{K, \ldots, K}_{n-1 \text{ times}}, L)^n \geq \Vol_n(K)^{n-1} \cdot \Vol_n(L).
+	\]
+	Equality occurs if and only if $\dim K \leq n-2$ or $K$ and $L$ lie in parallel hyperplanes or $K$ and $L$ are homothetic. When $\mathsf{V}_n(K[k], L[n-k]) > 0$ for all $k$, then equality occurs if and only if 
+	\[
+		\mathsf{V}_n(\underbrace{K, \ldots, K}_{k \text{ times}}, \underbrace{L, \ldots, L}_{n-k \text{ times}})^2 = \mathsf{V}_n(\underbrace{K, \ldots, K}_{k-1 \text{ times}}, \underbrace{L, \ldots, L}_{n-k+1 \text{ times}}) \cdot \mathsf{V}_n(\underbrace{K, \ldots, K}_{k+1 \text{ times}}, \underbrace{L, \ldots, L}_{n-k-1 \text{ times}})
+	\]
+	for all $k$. 
+\end{thm}
+
+\begin{proof}
+	For $k$, $0 \leq k \leq n$, define the mixed volume $V_k = \mathsf{V}_n (K[k], L[n-k])$. Then, we want to prove that $V_{n-1}^n \geq V_n^{n-1}V_0$. Assuming that $V_k > 0$ for all $k$, from Theorem~\ref{AF-inequality}, we have that 
+	\[
+		\frac{V_{n-1}}{V_n} \geq \frac{V_{n-2}}{V_{n-1}} \geq \ldots \geq \frac{V_{0}}{V_1}.
+	\]
+	Thus, we have that 
+	\[	
+		\left ( \frac{V_{n-1}}{V_n} \right )^n \geq \prod_{k = 1}^{n-1} \frac{V_k}{V_{k-1}} = \frac{V_0}{V_n}.
+	\]
+	This proves that $V_{n-1}^n \geq V_n^{n-1} \cdot V_0$. When $V_k > 0$, equality occurs if and only if all of the ratios $V_k / V_{k-1}$ are equal, which is equivalent to the Alexandrov-Fenchel inequality holding at each $k$: $V_k^2 = V_{k-1} V_{k+1}$. Now, suppose we remove the assumption that $V_k > 0$ for all $k$. Then from the proof of Theorem 3.14 in \cite{Hug2020-ue}, using the concavity of $f(t) := \Vol_n (K + t L)^{1/n}$ we can prove that 
+	\[
+		\Vol_n(K)^{\frac{1}{n} - 1} \mathsf{V}_n (K[n-1], L) \geq \Vol_n(K+L)^{\frac{1}{n}} - \Vol_n(K)^{\frac{1}{n}} \geq \Vol_n(L)^{\frac{1}{n}}
+	\]
+	where the second inequality is exactly Theorem~\ref{brunn-minkowski}. The equality conditions in Theorem~\ref{brunn-minkowski} then give us the equality conditions in the theorem. 
+\end{proof}
+
+In general, the equality cases of the Alexandrov-Fenchel inequality are complicated. Indeed, the previous pattern of having only degenerate equality cases or homothetic equality cases ends when one considers even the simplest examples of Minkowski's Quadratic inequality. Minkowski's quadratic ienquality is version of the Alexandrov-Fenchel inequality where $n = 3$ and we have convex bodies $K, L, M \subseteq \RR^3$ satisfying 
+\begin{equation} \label{minkowski-quadratic-inequality-model}
+	\mathsf{V}_3(K, L, M)^2 \geq \mathsf{V}_3 (K, K, M) \mathsf{V}_3 (L, L, M). 
+\end{equation}
+In \cite{minkowski-quadratic-inequality}, Yair Shenfeld and Ramon van Handel completely characterize the extremals of Equation~\ref{minkowski-quadratic-inequality-model}. Even in the case where $M = K, L = B$ the equality cases are non-trivial. The inequality becomes
+\begin{equation} \label{isoperimetric-inequality-in-degree-3}
+	\mathsf{V}_3 (B, K, K)^2 \geq \mathsf{V}_3(B, B, K) \mathsf{V}_3(K, K, K). 
+\end{equation}
+Each of these mixed volumes has a geometric interpretation: $\mathsf{V}_3 (B, K, K)$ is the surface area of $K$, $\mathsf{V}_3 (B, B, K)$ is the mean width of $K$, and $\mathsf{V}_3 (K, K, K)$ is the volume of $K$. The problem of finding equality cases to Equation~\ref{isoperimetric-inequality-in-degree-3} can be rephrased as an isoperimetric inequality: given a fixed mean width and fixed volume, what convex body $K$ will achieve the minimum surface area? This is a generalization of the classical isoperimetric inequality:
+\[
+	\mathsf{V}_2(B, K)^2 \geq \mathsf{V}_2(B, B) \mathsf{V}_2(K, K)
+\]
+which the equality cases is trivial. Unlike the classical case, the equality cases of Equation~\ref{isoperimetric-inequality-in-degree-3} involves new objects called cap bodies which are the convex hull of the ball with some collection of points satisfying some disjointness conditions. From \cite{Bol}, the cap bodies end up being the only equality cases of the quadratic isoperimetric inequality. 
+
+\subsection{Equality Cases for Polytopes}
+
+In \cite{minkowski-quadratic-inequality}, Yair Shenfeld and Ramon van Handel completely characterize the equality cases of the Alexandrov-Fenchel inequality for polytopes. We record some of their results in this section for future use in this thesis. In \cite{shenfeld2022extremals}, Shenfeld and van Handel define the notion of a supercritical collection of convex bodies. 
+
+\begin{defn}[Definition 2.14 in \cite{shenfeld2022extremals}]
+	A collection of convex bodies $\mathcal{C} = (C_1, \ldots, C_{n-2})$ is \textbf{supercritical} if $\dim (C_{i_1} + \ldots + C_{i_k}) \geq k+2$ for all $k \in [n-2]$, $1 \leq i_1 < \ldots < i_k \leq n-2$. 
+\end{defn} 
+
+The paper \cite{shenfeld2022extremals} gives a characterization of the equality cases of 
+\[
+	\mathsf{V}_n(K, L, P_1, \ldots, P_{n-2})^2 \geq \mathsf{V}_n (K, K, P_1, \ldots, P_{n-2}) \mathsf{V}_n (L, L, P_1, \ldots, P_{n-2})
+\]
+in both the case where $(P_1, \ldots, P_{n-2})$ is critical and the case where $(P_1, \ldots, P_{n-2})$ is supercritical. In the case where the collection is supercritical, the characterization simplifies. We will only be concerned with the supercritical case since all of our applications will happen to only involve supercritical collections. For an application of the critical case, see the paper \cite{ma2022extremals} which studies the equality cases of the general Stanley's poset inequality. In this general case, the corresponding collection of polytopes is critical.
+	
+\begin{thm}[Corollary 2.16 in \cite{shenfeld2022extremals}] \label{AF-equality-polytopes-theorem}
+	Let $\mathcal{P} = (P_1, \ldots, P_{n-2})$ be a supercritical collection of polytopes in $\RR^n$, and let $K, L$ be convex bodies such that $\mathsf{V}_n (K, L, P_1, \ldots, P_{n-2}) > 0$. Then 
+	\[
+		\mathsf{V}_n (K, L, P_1, \ldots, P_{n-2})^2 = \mathsf{V}_n (K, K, P_1, \ldots, P_{n-2}) \mathsf{V}_n (L, L, P_1, \ldots, P_{n-2})
+	\]
+	if and only if there exist $a > 0$ and $v \in \RR^n$ so that $K$ and $a L + v$ have the same supporting hyperplanes in all $(B, \mathcal{P})$-extreme normal directions.
+\end{thm}
 
 \section{Lorentzian Polynomials}
 
@@ -592,7 +1272,7 @@ Our main reference for Lorentzian polynomials is \cite{lorentzian-polynomials}. 
 \end{defn}
 
 \begin{defn}
-	We define $J \subseteq \NN^n$ to be \textbf{$M$-convex} if for any $\alpha, \beta \in J$ and any index $i$ satisfying $\alpha_i > \beta_i$, there is an index $j$ satisfying $\alpha_j < \beta_j$ and $\alpha - e_i + e_j \in J$. 
+	We define $J \subseteq \NN^n$ to be \textbf{$M$-convex} if for any $\alpha, \beta \in J$ and any index $i$ satisfying $\alpha_i > \beta_i$, there is an index $j$ satisfying $\alpha_j < \beta_j$ and $\alpha - e_i + e_j \in J$. Equivalently, 
 \end{defn}
 
 \begin{defn}
@@ -624,26 +1304,328 @@ Our main reference for Lorentzian polynomials is \cite{lorentzian-polynomials}. 
 	\end{enumerate}
 \end{defn}
 
-In the literature, condition (iii) in Definition~\ref{defn-lorentzian} is also known as \textbf{strong log-concavity} \cite{strongly-log-concave}. These conditions are proven to be equivalent in \cite{lorentzian-polynomials}. 
+In the literature, condition (iii) in Definition~\ref{defn-lorentzian} is also known as \textbf{strong log-concavity} \cite{strongly-log-concave}. These conditions are proven to be equivalent in \cite{lorentzian-polynomials}. We now prove that the basis generating polynomial of a matroid is Lorentzian. This fact will be important in section (WHAT???) when we prove a stronger version of Stanley's matroid inequality. 
+
+\begin{thm} \label{basis-generating-polynomial-is-lorentzian-thm}
+	Let $M$ be a matroid. Then the basis generating polynomial $f_M$ is Lorentzian. 
+\end{thm}
+\begin{proof}
+	We prove the result by induction on the size of the matroid. We can check the theorem explicitly for small matroids. Now, suppose that the claim holds for all matroids of smaller size. Since the support of $f_M$ is the collection of bases of a matroid, the support is $M$-convex. Hence, it suffices to prove that all of its partial derivatives are Lorentzian. But, we know that $\partial_i f_M = f_{M / i}$ for all $i \in E$. From the inductive hypothesis this is Lorentzian. This completes the induction and prove that $f_M$ is Lorentzian. 
+\end{proof}
+
+The main properties of Lorentzian polynomials which are important to us are compiled in Proposition~\ref{properties-of-Lorentzian-polynomials}. 
+
+\begin{prop} \label{proposition-properties-of-Lorentzian-polynomials}
+	Let $f \in \RR[x_1, \ldots, x_n]$ be a Lorentzian polynomial of degree $d$. Then, $f$ satisfies the following properties: 
+	\begin{enumerate}[label = (\alph*)]
+		\item Let $A$ be any $n \times m$ matrix with nonnegative entries. Then $f : \RR^m \to \RR$ defined by $f(y) := f(Ay)$ is Lorentzian. 
+
+		\item For any $a_1, \ldots, a_n \geq 0$, the polynomial $\sum_{i = 1}^n a_i \partial_i f$ is Lorentzian. 
+
+		\item If $f \neq 0$, then $\Hess_f(a)$ has exactly one positive eigenvalue for all $a \in \RR_{> 0}^n$. 
+	\end{enumerate}
+\end{prop}
+\begin{proof}
+	For the proof of (a), see Theorem 2.10 in \cite{lorentzian-polynomials}. For the proof of (b), see Corollary 2.11 in \cite{lorentzian-polynomials}. For the proof of (c), see Proposition 2.14 in \cite{lorentzian-polynomials}. 
+\end{proof}
+
+To illustrate the log-concavity properties of Lorentzian polynomials, we can prove the following result. 
+
+\begin{prop} \label{proposition-log-concavity-property-of-lorentzian-polynomial}
+	If $f = \sum_{\alpha \in \Delta_n^d} \frac{c_\alpha}{\alpha!} x^\alpha$ is a Lorentzian polynomial, then $c_\alpha^2 \geq c_{\alpha + e_i - e_j} c_{\alpha - e_i + e_j}$ for any $i, j \in [n]$ and any $\alpha \in \Delta_n^d$. 
+\end{prop}
+
+\begin{proof}
+	Consider the Lorentzian polynomial $\partial^{\alpha - e_i - e_j} f$. After setting all of the variables except $x_i$ and $x_j$ to $0$, we get the Lorentzian quadratic $\frac{1}{2} c_{\alpha + e_i - e_j} x_i^2 + c_\alpha x_i x_j + \frac{1}{2} c_{\alpha - e_j + e_i} x_j^2$. The determinant of the Hessian must be at most $0$, hence we get $c_\alpha^2 \geq c_{\alpha + e_i - e_j} c_{\alpha - e_i + e_j}$. 
+\end{proof}
 
 \begin{prop}[Proposition 4.5 in \cite{lorentzian-polynomials}]
-	If $f$ is Lorentzian, then for any $v_1 \in \RR^n$ and $v_2, \ldots, v_d \in \RR_{\geq 0}^n$, we have that 
+	Let $f \in \RR[x_1, \ldots, x_n]$ be a Lorentzian polynomial. Then, for any $v_1 \in \RR^n$ and $v_2, \ldots, v_d \in \RR_{\geq 0}^n$, we have that 
 	\[
-		\widetilde{f}(v_1, v_2, v_3, \ldots, v_d)^2 \geq \widetilde{f}(v_1, v_1, v_3, \ldots, v_d) \cdot \widetilde{f}(v_2, v_2, v_3, \ldots, v_d)
+		F_f(v_1, v_2, v_3, \ldots, v_d)^2 \geq F_f(v_1, v_1, v_3, \ldots, v_d) \cdot F_f(v_2, v_2, v_3, \ldots, v_d)
 	\]
-	where $\widetilde{f}$ denotes the polarization of $f$. 
+	where $F_f$ denotes the polarization form of $f$.  
 \end{prop}
+
+\begin{proof}
+	
+\end{proof}
 
 \section{Combinatorial Atlas}
 
-\chapter{Log-concavity Results for Posets and Matroids}
 
-\section{Stanley's Poset Inequality}
+\chapter{Log-concavity Results for Posets and Matroids} \label{log-concavity-results}
+
+In this chapter we discuss in detail the proof of several concavity results. In section~\ref{stanley-poset-inequality} and section~\ref{kahn-saks-inequality} we discuss two log-concavity inequalities related to the linear extensions of a partially ordered set. Both of these results follows immediately from Theorem~\ref{AF-inequality} for particular convex bodies. In these sections, we also discuss how the results from \cite{shenfeld2022extremals} can be used to find combinatorial characterizations of the equality cases. 
+
+\section{Stanley's Poset Inequality} \label{stanley-poset-inequality}
+
+Let $(P, \leq)$ be a finite poset on $n$ elements and let $x \in P$ be a distinguished element in the poset. For every $k \in [n]$, we can let $N_k$ be the number of linear extensions of $P$ which map $x$ to the index $k$. Then we can consider properties of the sequence $N_1, \ldots, N_n$. Intuitively, one would expect that as a function in $[n]$, the sequence there should be some contiguous region in $[n]$ where $N_k$ is relatively large while at the tails the sequence becomes small. In fact, according to \cite{stanley-poset-inequality-origin}, Ronald Rivest proposed that the sequence is unimodal. In \cite{stanley-poset-inequality-origin}, they prove this conjecture in the case where $P$ can be covered by two linear orders. In \cite{STANLEY}, Richard Stanley proves the full conjecture by proving the stronger Theorem~\ref{stanley-poset-inequality-general-case}. 
+
+\begin{thm}[Stanley's Poset Inequality, Theorem 3.1 in \cite{STANLEY}] \label{stanley-poset-inequality-general-case}
+	Let $x_1 < \ldots < x_k$ be a fixed chain in $P$. If $1 \leq i_1 < \ldots < i_k \leq n$, then define $N(i_1, \ldots, i_k)$ to be the number of linear extensions $\sigma : P \to [n]$ satisfying $\sigma (x_j) = i_j$ for $1 \leq j \leq k$. Suppose that $1 \leq j \leq k$ and $i_{j-1} + 1 < i_j < i_{j+1} - 1$, where $i_0 = 0$ and $i_{k+1} = n+1$. Then 
+	\[
+		N(i_1, \ldots, i_k)^2 \geq N(i_1, \ldots, i_{j-1}, i_j - 1, i_{j+1}, \ldots, i_k) N(i_1, \ldots, i_{j-1}, i_j + 1, i_{j+1}, \ldots, i_k).
+	\]
+\end{thm}
+
+In the case where $k = 1$, the general result reduces to the desired conjecture. The conjecture follows because log-concavity implies unimodality when the sequence consists of non-negative numbers. 
+
+\begin{cor}[Stanley's Simple Poset Inequality] \label{stanley-inequality-poset-simple}
+	The sequence $N_1, \ldots, N_n$ is log-concave. That is, we have $N_k^2 \geq N_{k-1}N_{k+1}$ for all $k \in \{2, \ldots, n-1\}.$
+\end{cor}
+
+We will only present Stanley's proof of Corollary~\ref{stanley-inequality-poset-simple} since the argument generalizes easily to his stronger result. We will cover a combinatorial characterization of the equality cases of Corollary~\ref{stanley-inequality-poset-simple} due to Ramon van Handel's and Yair Shenfeld's breakthrough on the equality cases of the Alexandrov-Fenchel inequality in \cite{shenfeld2022extremals}. 
+
+\begin{proof}[Proof of Corollary~\ref{stanley-inequality-poset-simple}]
+	Define the polytopes $K, L \subseteq \RR^{n}$ by 
+	\begin{align*}
+		K & := \{t \in \mcO_P : t_\omega = 1 \text{ if } \omega \geq x\} \\
+		L & := \{t \in \mcO_P : t_\omega = 0 \text{ if } \omega \leq x\}.
+	\end{align*}
+	For any $\lambda \in [0, 1]$, we have that 
+	\[
+		\Vol_{n-1} \left ( (1 - \lambda) K + \lambda L \right ) = \sum_{l \in e(P)}  \Vol_{n-1} \left ( \Delta_l \cap \left((1-\lambda) K + \lambda L\right) \right )
+	\]
+	where we note that $\dim (1 - \lambda)K + \lambda L = n-1$. Since $K$ and $L$ lie in parallel hyperplanes, the expression on the left hand side is well-defined. Now suppose that $l$ satisfies $l(x) = k$. Then, we have 
+	\[
+		\Delta_l \cap ((1 - \lambda) K + \lambda L) = \{t \in [0, 1]^n : 0 \leq t_{\pi^{-1}(1)} \leq \ldots \leq t_{\pi^{-1}(k-1)} \leq t_{\pi^{-1}(k)} = 1-\lambda \leq t_{\pi^{-1}(k+1)} \leq \ldots \leq t_{\pi^{-1}(n)} \leq 1\}
+	\]
+	which has volume 
+	\[
+		\Vol_{n-1} (\Delta_l \cap \left((1 - \lambda) K + \lambda L\right)) = \frac{(1-\lambda)^{k-1} \lambda^{n-k}}{(k-1)! (n-k)!}.
+	\]
+	Thus, we have that 
+	\begin{align*}
+		\Vol_{n-1}\left((1-\lambda) K + \lambda L\right) & = \sum_{k = 1}^n \binom{n-1}{k-1} \frac{N_k}{(n-1)!} (1-\lambda)^{k-1} \lambda^{n-k}.
+	\end{align*}
+	From Theorem~\ref{mixed-volume-polynomial-expansion-FINAL}, we have for $1 \leq i \leq n-1$ the equality
+	\[
+		\mathsf{V}_{n-1} (K[i-1], L[n-i]) = \frac{N_i}{(n-1)!} \implies N_i = (n-1)! \cdot \mathsf{V}_{n-1} (K[i-1], L[n-i]).
+	\]
+	The log-concavity of the sequence $N_1, N_2, \ldots, N_n$ follows from Theorem~\ref{AF-log-concavity}. 
+\end{proof}
+
+The proof of Corollary~\ref{stanley-inequality-poset-simple} illustrates one strategy for proving log-concavity results. To prove that a sequence is log-concave, it is enough to associate each element in the sequence to some mixed volume. Log-concavity then follows immediately from the Alexandrov-Fenchel inequality. In the sequel, we will discuss how to use the results about the extremals of the Alexandrov Fenchel inequality from \cite{shenfeld2022extremals} to give a combinatorial characterization of the equality cases of $N_k^2 = N_{k-1} N_{k+1}$ in the Stanley post inequality. 
+
+\subsection{Equality Case for the Simple Stanley Poset Inequality}
+
+The equality cases for the Stanley poset inequality was computed in \cite{shenfeld2022extremals} using their results on the equality cases of the Alexandrov-Fenchel inequality. From the proof of Corollary~\ref{stanley-inequality-poset-simple}, we have the equalities $N_k = (n-1)! \mathsf{V}_{n-1} (K[k], L[n-k-1])$ where the polytopes $K$ and $L$ were defined in the proof. Thus, to find the equality cases of $N_k^2 = N_{k-1} N_{k+1}$, it is enough to find the equality cases of 
+\begin{equation} \label{stanley-equivalent-mixed-volume-inequality-interpretation-eqn}
+	\mathsf{V}_{n-1}(K[k-1], L[n-k])^2 \geq \mathsf{V}_{n-1}(K[k], L[n-k-1]) \cdot \mathsf{V}_{n-1}(K[k-2], L[n-k+1])
+\end{equation}
+Our goal is to give combinatorial conditions to the poset $P$ so that the corresponding polytopes $K$ and $L$ satisfy equality in Equation~\ref{stanley-equivalent-mixed-volume-inequality-interpretation-eqn}. We sketch the proof given in section 15 \cite{shenfeld2022extremals} to give an idea on how the argument works. The combinatorial characterization given in \cite{shenfeld2022extremals} is compiled in Theorem~\ref{combinatorially-characterization-of-stanley-poset-simple}. 
+
+\begin{thm}[Theorem 15.3 in \cite{shenfeld2022extremals}] \label{combinatorially-characterization-of-stanley-poset-simple}
+	Let $i \in \{2, \ldots, n-1\}$ be such that $N_i > 0$. Then the following are equivalent:
+	\begin{enumerate}[label = (\alph*)]
+		\item $N_i^2 = N_{i-1} N_{i+1}$. 
+		\item $N_i = N_{i-1} = N_{i+1}$. 
+		\item Every linear extension $\sigma : P \to [n]$ with $\sigma(x) = i$ assigns ranks $i-1$ and $i+1$ to elements of $P$ that are incomparable to $x$. 
+		\item $|P_{< y}| > i$ for all $y \in P_{> x}$, and $|P_{> y}| > n-i+1$ for all $y \in P_{< x}$. 
+	\end{enumerate}
+\end{thm}
+
+In Theorem~\ref{combinatorially-characterization-of-stanley-poset-simple}, it is not difficult to prove that $(d)\implies(c)\implies(b)\implies(a)$. The main difficulty lies in assuming $N_i^2 = N_{i-1} N_{i+1}$ and proving the combinatorial conditions in (c). From here, let us assume that $N_i^2 = N_{i-1} N_{i+1}$ and $N_i > 0$. From Lemma~\ref{positivity-of-mixed-volumes}, we can find necessary and sufficient conditions to guarantee $N_i > 0$. 
+
+\begin{lem} [Lemma 15.2 in \cite{shenfeld2022extremals}]
+	For any $i \in [n]$, we have that $N_i = 0$ if and only if $|P_{< x}| > i-1$ or $|P_{> x}| > n-i$. 
+\end{lem}
+
+\begin{proof}
+	Recall that $N_i = \mathsf{V}_{n-1} (\underbrace{K, \ldots, K}_{i-1 \text{ times}}, \underbrace{L, \ldots, L}_{n-i \text{ times}})$. From Lemma~\ref{positivity-of-mixed-volumes}, we know that $N_i > 0$ if and only if $\dim K \geq i-1$, $\dim L \geq n-i$, and $\dim (K+L) \geq n-1$. From the definition of $K$ and $L$, we can compute
+	\begin{align*}
+		\dim K & = n-1-|P_{> x}| \\
+		\dim L & = n-1 - |P_{< x}| \\
+		\dim (K+L) & = n-1. 
+	\end{align*} 
+	To see the details behind this computation, see Lemma 15.7 in \cite{shenfeld2022extremals}. Thus, $N_i = 0$ if and only if $|P_{> x}| > n-i$ and $|P_{<x}| > i-1$. 
+\end{proof}
+
+We get inequalities on the dimensions of $\dim K$ and $\dim L$ from the assumption $N_i > 0$. However, since $N_i^2 = N_{i-1}N_{i+1}$, we also have $N_{i-1}, N_{i+1} > 0$ and some inequalities from the same result. This gives us the inequalities
+\begin{align*}
+	|P_{< x}| \leq i-2, \quad \text{and } \quad |P_{>x}| \leq n-i-1. 
+\end{align*}
+With these inequalities and Theorem~\ref{AF-equality-polytopes-theorem} we get the following result.
+
+\begin{lem} [Lemma 15.8 in \cite{shenfeld2022extremals}] \label{stanley-lemma-to-extract-combinatorial-information}
+	Let $i \in \{2, \ldots, n-1\}$ be such that $N_i > 0$ and $N_i^2 = N_{i+1} N_{i-1}$. Then $|P_{<x}| \leq i-2$, $|P_{>x}| \leq n-i-1$, and there exist $a > 0$ and $v \in \RR^{n-1}$ so that 
+	\[
+		h_K(x) = h_{aL + v}(x) \text{ for all } x \in \supp S_{B, K[i-2], L[n-i-1]}.
+	\]
+
+\end{lem}
+
+Our analysis of the Stanley inequality started by considering $K$ and $L$ as parallel $(n-1)$-dimensional convex bodies lying in $\RR^n$. When studying equality, we must consider these bodies to lie in the same copy of $\RR^{n-1}$. Thus the vector $v$ will lie in the codimension one vector subspace parallel to both affine spans of $K$ and $L$. Lemma~\ref{stanley-lemma-to-extract-combinatorial-information} will be the main tool to extract combinatorial information about $P$ from the equality condition in the Alexandrov-Fenchel inequality. Recall in Definition~\ref{extreme-normal-directions}, we are giving a characterization for vectors in the support of the mixed area measure. By specializing this result in the Stanley case, we get the result in Lemma~\ref{support-vector-stanley-characterization}. 
+
+\begin{lem} \label{support-vector-stanley-characterization}
+	Let $u \in \RR^{n-1}$ be a unit vector. Then the following are equivalent. 
+	\begin{enumerate}[label = (\alph*)]
+		\item $u \in \supp S_{B, K[i-2], L[n-i-1]}$.
+
+		\item $\dim F_K(u) \geq i-2$, $\dim F_L(u) \geq n-i-1$, and $\dim F_{K+L}(u) \geq n-3$. 
+	\end{enumerate}
+\end{lem}
+
+From here, the argument will involve finding suitable vectors $u \in \mathbb{S}^{n-2} \subseteq \RR^{n-1}$ and applying Lemma~\ref{stanley-lemma-to-extract-combinatorial-information}. The suitability of the vector $u \in \mathbb{S}^{n-2}$ will depend on the corresponding inequalities in Lemma~\ref{support-vector-stanley-characterization}. When we find a ``suitable" vector $u \in \mathbb{S}^{n-2}$, one of two things generally occur. In the first case, the vector $u$ will unequivocally satisfy the dimension inequalities in Lemma~\ref{support-vector-stanley-characterization} and from Lemma~\ref{stanley-lemma-to-extract-combinatorial-information} we get the relation $h_K(u) = a h_L(u) + \langle v, u \rangle$. In this case, the identity we get usually tells us something about the translational vector $v$ or the scaling constant $a$. In the second case, it is unclear whether or not the vector $u$ will satisfy the dimension inequalities in Lemma~\ref{support-vector-stanley-characterization}. The dimension inequalities will usually involve some statistics about the combinatorial structure of our object. For example, it might involve the number of elements greater than another, or the number of elements between two elements in a poset. In this case, we know that if the dimension inequalities in Lemma~\ref{support-vector-stanley-characterization} are satisfied then we get the identity in Lemma~\ref{stanley-lemma-to-extract-combinatorial-information}. If we are lucky, the identity we get will contradict some information that we gleaned from the vectors in the first case. This will imply that at least one of the dimension inequalities are incorrect, giving a combinatorial condition that must be satisfied for equality. \\
+
+In the Stanley case, vectors in the first case are vectors of the form $-e_{\omega}$ where $\omega$ is a minimal element, $e_\omega$ where $\omega$ is a maximal element, and some vectors of the form $e_{\omega_1,\omega_2} := \frac{e_{\omega_1} - e_{\omega_2}}{\sqrt{2}}$ where $\omega_1, \omega_2 \in P$ are elements in the poset such that $\omega_1 \lessdot \omega_2$. From the first two vectors, we get that $v_\omega = 1-a$ for any maximal element $\omega$, the second vector gives $v_\omega = 0$ for any minimal element $\omega$. The third type of vector tells us that in some situations where $\omega_1 \lessdot \omega_2$ we have $v_{\omega_1} = v_{\omega_2}$. From the proof of Corollary 15.11 of \cite{shenfeld2022extremals}, it is possible to create a chain from a minimal element to a maximal element such as the adjacent relations are covering relations where the corresponding vector $e_{\omega_1, \omega_2}$ is in the support of the mixed area measure. This implies that all of the coordinates of $v$ with respect to this chain are equal to each other. In particular, the coordinate at the minimal element will be equal to the coordinate at the maximal element. This gives us $a = 1$. At this moment, we already have enough information to state the interesting result that if $N_i^2 = N_{i-1} N_{i+1}$ and $N_i > 0$, then $N_i = N_{i+1} = N_{i-1}$. \\
+
+Vectors in the second case consist of vectors of the form $-e_\omega$ where $\omega$ is a minimal element in $P_{> x}$ and also vectors of the form $e_\omega$ where $\omega$ is a maximal element in $P_{< x}$. From the information that $a = 1$, it is not difficult to show that the equality that we would get as a result of these vectors being in the support of the mixed area measure cannot happen. Thus, some of the dimension inequalities corresponding to these vectors must be incorrect. This is enough to give the combinatorial characterization in Theorem~\ref{combinatorially-characterization-of-stanley-poset-simple}. \\
+
+When discussing the equality cases of the Stanley inequality, we did not show any of the computations. To see the computations in full detail and rigour, we recommend the reader to read 
+the original source of the argument \cite{shenfeld2022extremals}. 
+
+\section{Kahn-Saks Inequality} \label{kahn-saks-inequality}
+
+In this section, we consider a slight generalization of the simple version of the Stanley poset inequality. 
+
 
 \section{Stanley's Matroid Inequality} 
 
-\section{Kahn-Saks Inequality}
+Stanley's poset inequality was proven by Richard Stanley in \cite{STANLEY}. We have already written about this inequality extensively in Section~\ref{stanley-poset-inequality}. In the same paper, Stanley proves an inequality associated to the bases of a matroid. Let $M = (E, \mcB)$ be a matroid of rank $r$ with ground set $E$ and bases $\mcB$. For any subsets $T_1, \ldots, T_r \subseteq E$, we can let $B(T_1, \ldots, T_r)$ denote the number of sequences $(y_1, \ldots, y_r)$ where $y_i \in T_i$ for $i \in [r]$ such that ${y_1, \ldots, y_r} \in \mathcal{B}$. That is, we have that 
+\[
+	B(T_1, \ldots, T_r) := \# \{ (y_1, \ldots, y_r) \in T_1 \times \ldots \times T_r : \{y_1, \ldots, y_r\} \in \mcB(M) \}.
+\]
+Stanley proves the following inequality involving the log-concavity of the basis counting number $B(T_1, \ldots, T_r)$. 
 
+\begin{thm}[Theorem 2.1 in \cite{STANLEY}] \label{stanley-matroid-inequality-full-generality}
+	Let $M = (E, \mcB)$ be a unimodular matroid of rank $r$. Let $\mathcal{T} = (T_1, \ldots, T_{r-m})$ be a collection $r-m$ subsets of $E$ and let $X, Y \subseteq E$. Then, 
+	\[
+		B(\mathcal{T}, \underbrace{X, \ldots, X}_{k \text{ times}}, \underbrace{Y, \ldots, Y}_{m-k \text{ times}})^2 \geq B(\mathcal{T}, \underbrace{X, \ldots, X}_{k-1 \text{ times}}, \underbrace{Y, \ldots, Y}_{m-k+1 \text{ times}}) B(\mathcal{T}, \underbrace{X, \ldots, X}_{k+1 \text{ times}}, \underbrace{Y, \ldots, Y}_{m-k-1 \text{ times}})
+	\]
+	for all $1 \leq k \leq m-1$. 
+\end{thm}
+
+Before we present the proof of Theorem~\ref{stanley-matroid-inequality-full-generality}, we will first go over two different ways to view the basis counting numbers $B(T_1, \ldots, T_r)$. The first way to view these numbers is to associate them with a mixed volume of suitable polytopes. This perspective should be familiar from our previous discussions. The second way to view these numbers is to associate them with a mixed discriminant of suitable discriminants. This will be the only application of mixed discriminants to log-concavity that we will present in this thesis. Both persepctives will work for the sake of proving the theorem, and it useful to have both perspectives when considering equality cases. \\
+
+\subsection{Mixed Volume Perspective of Basis Counting Number}
+
+Since our matroid $M = (E, \mcB)$ is unimodular, there is a vector valued function $v : E \to \RR^r$ such that the $r \times |E|$ matrix with $v(e)$ for $e \in E$ as columns is unimodular and the linear matroid generated by this matrix is isomorphic to $M$. We adopt the terminology of \cite{STANLEY} and call this a \textbf{unimodular coordinatization} of $M$. Then, to every subset $T \subseteq E$, we can associate the zonotope
+\[
+	Z(T) := Z(v(e) : e \in T) = \sum_{e \in T}[0, v(e)].
+\]
+Since $v : E \to \RR^r$ is a unimodular coordination, from Example~\ref{example-volume-of-a-zonotope}, we have that 
+\begin{equation} \label{volume-of-zonotope-unimodular-case-equation}
+	\Vol_r(Z(T)) = \sum_{I \subseteq T : |I| = r} |\text{Det}(v(e) : e \in I)| = \sum_{I \subseteq T : |I| = r} \1_{I \text{ is a basis}}. 
+\end{equation}
+Given subsets $T_1, \ldots, T_r \subseteq E$, consider the Minkowski sum $\sum_{i = 1}^r \lambda_i Z(T_i)$. From Equation~\ref{volume-of-zonotope-unimodular-case-equation}, we have that 
+\begin{align*}
+	\Vol_r \left ( \sum_{i = 1}^r \lambda_i Z(T_i) \right ) & = \Vol_n \left (\sum_{i = 1}^r \sum_{e \in T_i} [0, \lambda_i v(e)] \right ) = \sum_{a_1 + \ldots + a_r = r} C(a_1, \ldots, a_r) \lambda_1^{a_1} \ldots \lambda_r^{a_r}
+\end{align*}
+where $C(a_1, \ldots, a_r)$ is the number of ways to pick subsets $Q_i \subseteq T_i$ and $|Q_i| = a_i$ for $i \in [r]$ where $Q_1 \cup \ldots \cup Q_r$ is a basis of $M$. According to Theorem~\ref{mixed-volume-polynomial-expansion-FINAL}, we have that 
+\[
+	C(a_1, \ldots, a_r) = \binom{n}{a_1, \ldots, a_r} \mathsf{V}_r (Z(T_1)[a_1], \ldots, Z(T_r)[a_r])
+\]
+and combinatorially we have $B(T_1, \ldots, T_r) = C(1, \ldots, 1)$. Thus, we have the equation
+\begin{equation}
+	B(T_1, \ldots, T_r) = \binom{n}{1, \ldots, 1} \mathsf{V}_r(Z(T_1), \ldots, Z(T_r)) = n! \mathsf{V}_r(Z(T_1), \ldots, Z(T_r)). 
+\end{equation}
+
+\subsection{Mixed Discriminant Perspective of the Basis Counting Number}
+
+
+
+
+\subsection{Equality cases of Stanley's Matroid Inequality}
+
+\subsection{Lorentzian Perspective of the Basis Counting Number}
+
+One essential hypothesis in Stanley's matroid inequality was that the matroid $M = (E, \mcB)$ had to be regular. This condition was needed in order to have a unimodular coordinatization which was at the heart of the mixed discriminant and mixed volume constructions. In this section, we generalize Stanley's matroid inequality by removing the hypothesis of unimodularity using the theory of Lorentzian polynomials. Our proof will be based on the fact that the basis generating polynomial of a matroid is Lorentzian. For simplicity, suppose that the ground set of $M = (E, \mcI)$ is $E = [n]$ and $\rank (M) = r$. Recall that the basis generating polynomial of $M$ is defined as 
+\[
+	f_M(x_1, \ldots, x_n) = \sum_{B \in \mcB} x^B = \sum_{\substack{1 \leq i_1 < \ldots < i_r \leq n \\ \{i_1, \ldots, i_r\} \in \mcB (M)}} x_{i_1} \ldots x_{i_r}.
+\]
+For any sequence of subsets $\mathcal{T} := (T_1, \ldots, T_m) \subseteq E$, we can define the following polynomial which lets us get a better handle on the basis counting numbers. 
+
+\begin{defn}
+	Let $\mathcal{T} := (T_1, \ldots, T_m)$ be a sequence of subsets of $E$. Then, consider the polynomial 
+	\[
+		g_M^\mathcal{T} (y_1, \ldots, y_m) := f_M \left (x_e = \sum_{i : e \in T_i} y_i \right )
+	\]
+	where in the right hand side, we consider the basis generating polynomial where we replace each instance of the coordinate $x_e$ with the linear form $\sum_{i : e \in T_i} y_i$. 
+\end{defn}
+
+To accompany this polynomial, for $a_1, \ldots, a_m \geq 0$ satisfying $a_1 + \ldots + a_m = r$ we define the number $N(a_1, \ldots, a_m)$ as the number of ways to pick subsets $Q_i \subset T_i$ with $|Q_i| = a_i$ such that $Q_1 \cup \ldots \cup Q_r$ is a basis of $M$. 
+\begin{lem} \label{lem-simplifying-N-to-B}
+	For $T_1, \ldots, T_m \subseteq E$ and $a_1, \ldots, a_m \geq 0$ satisfying $a_1 + \ldots + a_m = r$, we have that 
+	\[	
+		N(a_1, \ldots, a_m) = \frac{B(T_1[a_1], \ldots, T_m[a_m])}{a_1! \ldots a_m!}.
+	\]
+\end{lem}
+
+\begin{proof}
+	Any choice of subsets $Q_i \subseteq T_i$ with $|Q_i| = a_i$ and $Q_1 \cup \ldots \cup Q_r$ a basis of $M$ gives $a_1! \ldots a_m!$ sequences which are included in the count of $B(T_1[a_1], \ldots, T_m[a_m])$. Conversely, every sequence determines subsets $Q_i \subseteq T_i$ with $|Q_i| = a_i$ and $Q_1 \cup \ldots \cup Q_r$ a basis of $M$. It is clear that this is a $1 : a_1! \ldots a_m!$ correspondence. This suffices for the proof of the lemma. 
+\end{proof}
+
+\begin{prop}
+	For $T_1, \ldots, T_m \subseteq E$, we have that 
+	\[	
+		g_M^{T_1, \ldots, T_m} (y_1, \ldots, y_m) = \sum_{a_1 + \ldots + a_m = r} \frac{B(T_1[a_1], \ldots, T_m[a_m])}{a_1! \ldots a_m!} \cdot y_1^{a_1} \ldots y_m^{a_m}.
+	\]
+\end{prop}
+
+\begin{proof}
+	By substituting $x_e = \sum_{i : e \in \mathcal{T}_i} y_i$ in the formula for the basis generating polynomial, we get that 
+	\begin{align*}
+		g_M^{\mathcal{T}}(y_1, \ldots, y_m) & = \sum_{\substack{1 \leq i_1 < \ldots < i_r \leq m \\ \{i_1, \ldots, i_r\} \in \mcB(M)}} \prod_{k = 1}^r \left ( \sum_{i_k \in T_j} y_j \right ) \\
+		& = \sum_{\substack{1 \leq i_1 < \ldots < i_r \leq m \\ \{i_1, \ldots, i_r\} \in \mcB(M)}} \left (\sum_{a_1 + \ldots + a_m = r} N^{\{i_1, \ldots, i_r\}}(a_1, \ldots, a_m) \right ) y_1^{a_1} \ldots y_m^{a_m}
+	\end{align*}
+	where $N^B(a_1, \ldots, a_m)$ is the number of ways to pick subsets $Q_i \subseteq T_i$ with $|Q_i| = a_i$ and $Q_1 \cup \ldots \cup Q_r = B$. In particular, we have that 
+	\[	
+		\sum_{B \in \mcB(M)} N^B (a_1, \ldots, a_m) = N(a_1, \ldots, a_m). 
+	\]
+	This allows us to simplify the equation after changing the order of summations: 
+	\begin{align*}
+		g_M^{\mathcal{T}}(y_1, \ldots, y_m) & = \sum_{a_1 + \ldots + a_m = r} \left ( \sum_{B \in \mcB(M)} N^B (a_1, \ldots, a_m) \right ) y_1^{a_1} \ldots y_m^{a_m} \\
+		& = \sum_{a_1 + \ldots + a_m = r} N(a_1, \ldots, a_m) \cdot y_1^{a_1} \ldots y_m^{a_m}.
+	\end{align*}
+	From Lemma~\ref{lem-simplifying-N-to-B}, we have proven the lemma. 
+\end{proof}
+
+\begin{lem}
+	For $T_1, \ldots, T_m \subseteq E$, the polynomial $g_M^{T_1, \ldots, T_m}$ is Lorentzian. 
+\end{lem}
+\begin{proof}
+	This follows from Theorem~\ref{basis-generating-polynomial-is-lorentzian-thm} and Proposition~\ref{proposition-properties-of-Lorentzian-polynomials}. 
+\end{proof}
+
+We can now prove the main theorem for this section. This theorem will be a generalization of Stanley's matroid inequality in Theorem~\ref{stanley-matroid-inequality-full-generality}. 
+
+\begin{thm} \label{main-thm-for-matroids}
+	Let $M = (E, \mcB)$ be any matroid of rank $r$. Let $\mathcal{T} = (T_1, \ldots, T_{r-m})$ be a sequence of subsets in $E$ and let $Q, R \subseteq E$ be subsets. Define the sequence
+	\[	
+		B_k(\mathcal{T}, Q, R) := B(T_1, \ldots, T_{r-m}, Q[k], R [m-k]).
+	\]
+	Then the sequence $B_0(\mathcal{T}, Q, R), \ldots, B_m(\mathcal{T}, Q, R)$ is log-concave. 
+\end{thm}
+
+\begin{proof}
+	Consider the Lorentzian polynomial $g_M^{T_1, \ldots, T_{r-m}, Q, R}$. The result then follows from Proposition~\ref{proposition-log-concavity-property-of-lorentzian-polynomial}. 
+\end{proof}
+
+Using Theorem~\ref{main-thm-for-matroids}, we can also remove the regularity hypothesis from Corollary 2.4 in \cite{STANLEY}. 
+
+\begin{cor} \label{cor-ultra-log-concavity-of-some-sequence-related-to-bases}
+	Let $M = (E, \mcB)$ be any matroid of rank $n$ and let $T_1, \ldots, T_r, Q, R$ be pairwise disjoint subsets of $E$ whose union is $E$. Fix non-negative integers $a_1, \ldots, a_r$ such that $m = n - a_1 - \ldots - a_r \geq 0$, and for $0 \leq k \leq m$ define $f_k$ to be the number of bases $B$ of $M$ such that $|B \cap T_i| = a_i$ for $1 \leq i \leq r$, and $|B \cap R| = k$ (so $|B \cap Q| = m-k$). Then the sequence $f_0, \ldots, f_m$ ultra-log-concave. 
+\end{cor}
+	
+\begin{proof}
+	Let $\mathcal{T} = (T_1[a_1], \ldots, T_r[a_r])$. Then we have $B_k(\mathcal{T}, Q, R) = a_1! \ldots a_r! k! (m-k)! f_k$ where we use the same notation as in Theorem~\ref{main-thm-for-matroids}. Thus, we have that
+	\[	
+		\frac{f_k}{\binom{m}{k}} = \frac{B_k(\mathcal{T}, Q, R)}{a_1 ! \ldots a_r!}.
+	\]
+	The ultra-log-concavity of $f_k$ then follows from Theorem~\ref{main-thm-for-matroids}. 
+\end{proof}
+
+According to Stanley in \cite{STANLEY}, Theorem~\ref{main-thm-for-matroids} would imply the first Mason conjecture. Indeed, this is the content of Theorem 2.9 in \cite{STANLEY}. We rewrite the proof now for the sake of completeness. 
+
+\begin{thm}[Mason's Conjecture]
+	Let $M = (E, \mcI)$ be a matroid of rank $n$. For all $0 \leq k \leq n$, let $I_k$ be the number of independent sets of $M$ of rank $k$. Then $I_k^2 \geq I_{k-1} I_{k+1}$ for all $2 \leq k \leq n-1$. 
+\end{thm}
+
+\begin{proof}
+	Let $B_n$ be the boolean matroid on $n$ elements. Consider $T^n (B_n + M)$ the level $n$ truncation of the matroid sum $B_n + M$. Let $f_k$ be the number of bases of $T^n(B_n + M)$ which shares $k$ elements with $E(M)$. Then, we have that $f_k = I_k \binom{n}{n-k}$. From Corollary~\ref{cor-ultra-log-concavity-of-some-sequence-related-to-bases}, we have that $I_k$ is log-concave. This suffices for the proof. 
+\end{proof}
 
 \chapter{Hard Lefschetz Property and Hodge-Riemann Relations}
 
@@ -723,7 +1705,7 @@ We say a pairing between finite-dimensional vector spaces is non-degenerate when
 	Let $f$ be a homogeneous polynomial of degree $d \geq 2$ and let $k$, $0 \leq k \leq d$, by a non-negative integer. Then $\dim_\RR A_f^k = \dim_\RR A_f^{d-k}$. 
 \end{cor}
 
-In Proposition(CITE), we can define $\deg_f : A_f^d \to \RR$ to be the isomorphism defined by evaluation at $f$. That is, for any $\xi \in A_f^d$, we can define $\deg_f (\xi) := \xi(f)$ where $\xi$ acts on $f$ by differentiation. FOllowing (CITE HODGE THEORY OF COMBINATORIAL GEOMETRIES), we formulate the following definition
+In Proposition(CITE), we can define $\deg_f : A_f^d \to \RR$ to be the isomorphism defined by evaluation at $f$. That is, for any $\xi \in A_f^d$, we can define $\deg_f (\xi) := \xi(f)$ where $\xi$ acts on $f$ by differentiation. Following the conventions in \cite{AHK}, we give the following definition. 
 
 \begin{defn}
 	Let $f$ be a homogeneous polynomial of degree $d$ and let $k \leq d/2$ be a non-negative integer. For an element $l \in A_f^1$, we define the following notions:
@@ -997,6 +1979,16 @@ Before moving on to the study of $\HRR_1$ on the facets of the positive orthant,
 	This follows immediately from Lemma~\ref{lorentzian-HL-iff-HRR}, Corollary~\ref{partial-independent-implies-hessian}, and Lemma~\ref{simple-partial-independent}.
 \end{proof}
 
+\begin{lem} \label{block-matrix-determinant-calculation}
+		When $D$ is invertible and $A$ is a square matrix, we have
+		\[
+			\det \begin{bmatrix} A & B \\ C & D \end{bmatrix} = \det (A - B D^{-1} C) \det (D).
+		\]
+	\end{lem}
+	\begin{proof}
+		See section 5 in \cite{block-matrices}.
+	\end{proof}
+
 \begin{thm}
 	Let $M = (E, \mcI)$ be a simple matroid of rank $r \geq 2$. If $a \in \RR_{\geq 0}^E$ satisfies $f_M(a) > 0$ and $a_e = 0$ for some $e \in E$ which is not a co-loop, then $A(M)$ satisfies $\HRR_1$ with respect to $l_a$ if and only if 
 	\[
@@ -1016,14 +2008,7 @@ Before moving on to the study of $\HRR_1$ on the facets of the positive orthant,
 			(\nabla f_{M/n})^{\mathsf{T}} & 0
 		\end{bmatrix}.
 	\]
-	We know that $M \backslash n$ is still simple. Thus $\Hess_{f_{M \backslash n}}$ is invertible since it has the same signature as the Hodge-Riemann form. Recall the following linear algebraic lemma. 
-	\begin{lem}
-		When $D$ is invertible and $A$ is a square matrix, we have
-		\[
-			\det \begin{bmatrix} A & B \\ C & D \end{bmatrix} = \det (A - B D^{-1} C) \det (D).
-		\]
-	\end{lem}
-	From the lemma, we have 
+	We know that $M \backslash n$ is still simple. Thus $\Hess_{f_{M \backslash n}}$ is invertible since it has the same signature as the Hodge-Riemann form. From the Lemma~\ref{block-matrix-determinant-calculation}, we have that
 	\[
 		\det \Hess_{f_M} = \det \left ( \nabla f_{M / n}^{\mathsf{T}} \cdot \Hess^{-1}_{f_{M \backslash n}} \cdot \nabla f_{M / n} \right ).
 	\]
@@ -1217,18 +2202,19 @@ In the case when $a = (1, \ldots, 1)$, we have
 \[
 	Q^k(\xi, \xi) = \sum_{\substack{\alpha_1, \alpha_2 \in \mcI \\ \alpha_1 \cup \alpha_2 \in \mcI_{2k}}} \mathsf{Ext}(\alpha_1 \cup \alpha_2) \cdot c_{\alpha_1} c_{\alpha_2}.
 \]
+\section{Graded Algebras associated to Matroids}
 \subsection{Graded Mobius Algebra}
 
 \begin{defn}[taken word for word in \cite{huh-semi-small}]
-	For any non-negative integer $k$, we define a vector space
+	Let $M$ be a matroid with no loops. For any non-negative integer $k$, we can define the vector space
 	\[
-		H^k(M) := \bigoplus_{F \in \mcL^k(M)} \QQ y_F,
+		H^k(M) := \bigoplus_{F \in \mcL^k(M)} \RR y_F
 	\]
-	where the direct sum is over the set $\mcL^k(M)$ of rank $k$ flats of $M$. The \textbf{graded Mobius algebra} of $M$ is the graded vector space
+	where for each $k$-flat $F \in \mcL^k(M)$, we have associated a variable $y_F$. We define the \textbf{graded Mobius algebra} of $M$ to be the graded real algebra
 	\[
-		H(M) := \bigoplus_{k \geq 0} H^k(M).
+		H(M) := \bigoplus_{k \geq 0} H^k(M)
 	\]
-	The multiplication in $H(M)$ is defined by the rule
+	where the mutliplicative structure is defined on the generators by the rule
 	\[
 		y_{F_1} y_{F_2} = \begin{cases}
 			y_{F_1 \vee F_2} & \text{if $\rank_M(F_1) + \rank_M(F_2) = \rank_M (F_1 \vee F_2)$} \\
@@ -1236,7 +2222,126 @@ In the case when $a = (1, \ldots, 1)$, we have
 		\end{cases}
 	\]
 \end{defn}
+In the definition of the graded Mobius algebra, the notation $F_1 \vee F_2$ refers to the least upper bound on the lattice of flats. It is defined to be $F_1 \vee F_2 = \overline{F_1 \cup F_2}$, the smallest flat containing both $F_1$ and $F_2$. 
+
+\begin{lem}
+	Let $M = (E, \mcI)$ be a matroid and $F \in \mcL^k (M \backslash i)$ for some $i \in M$. If $F \notin \mcL^k(M)$, then $F \cup \{i\} \in \mcL^k(M)$. 
+\end{lem}
+
+\begin{proof}
+	Since $F \in \mcL^k(M \backslash i)$, this implies that for any $j \in E \backslash i$, we have that 
+	\[
+		\rank_{M}(F \cup \{j\}) = \rank_{M \backslash i} (F \cup \{j\}) = \rank_{M \backslash i} (F) = \rank_M (F).
+	\]
+	The only reason why $F$ would not be a flat of dimension $k$ in $M$ is that $\rank_M(F \cup \{i\}) > \rank_M (F)$. In this case, we have $\rank_M (F \cup \{i\}) = \rank_M(F) + 1$. To prove that $F \cup \{i\}$ is closed, note that for any $j \in E \backslash i$, we have 
+	\[
+		\rank_M (F \cup \{i\} \cup \{j\}) \leq \rank_M (F \cup \{j\}) + \rank_M(\{i\}) = \rank_M(F) + 1 = \rank_M(F \cup \{i\}).
+	\]
+	This suffices for the proof. 
+\end{proof}
+
+\begin{thm}
+	Let $M = (E, \mcI)$ be a loopless matroid and let $i \in E$ be an arbitrary element. Then, there is an embedding of graded algebras $\theta_{M, i} : H(M \backslash i) \to H(M)$ defined by $y_F \to \theta(y_F)$ where
+	\[
+		\theta(y_F) = \begin{cases}
+			y_F & \text{ if $F \in \mcL^k(M)$} \\
+			y_{F \cup i} & \text{ if $F \notin \mcL^k(M)$}.
+		\end{cases}
+	\]
+\end{thm} 
+\begin{proof}
+	If $F \notin \mcL^k(M)$, then $F \cup i \in \mcL^k(M)$ from Lemma (CITE???). To prove that this morphism preserves the graded algebra structure, we need to prove that the diagram in Equation~\ref{graded-mobius-algebra-embedding-diagram} commutes. 
+
+	\begin{equation} \label{graded-mobius-algebra-embedding-diagram}
+		\begin{tikzcd}
+	{H^k(M \backslash i) \times H^l(M \backslash i)} && {H^{k+l}(M\backslash i)} \\
+	\\
+	{H^k(M) \times H^l(M)} && {H^{k+l}(M)}
+	\arrow[from=1-1, to=1-3]
+	\arrow["{\theta^k \times \theta^l}"', from=1-1, to=3-1]
+	\arrow[from=3-1, to=3-3]
+	\arrow["{\theta^{k+l}}", from=1-3, to=3-3]
+\end{tikzcd}
+	\end{equation}
+	Let $F \in \mcL^k(M \backslash i)$ and $G \in \mcL^l (M \backslash i)$. Suppose that $\rank_{M \backslash i} (F) + \rank_{M \backslash i}(G) > \rank_{M \backslash i} (F \vee G)$. Then in the diagram, if we map horizontally then vertically we get $0$. (write casework later, but it works!). For injectivity, a general element can be written as 
+	\[
+		\xi = \sum_{F \in \mcL^k (M \backslash i)} c_F y_F = \sum_{F \in \mcL^k(M \backslash i) \cap \mcL^k(M)}c_F y_F + \sum_{F \in \mcL^k(M \backslash i) \backslash \mcL^k(M)} c_F y_F 
+	\]
+	\[
+		\longmapsto \sum_{F \in \mcL^k(M \backslash i) \cap \mcL^k(M)} c_F y_F + \sum_{F \in \mcL^k(M \backslash i) \backslash \mcL^k(M)} c_F y_{F \cup i}. 
+	\]
+	It's clear that this will be injective. 
+\end{proof}
+
+Ultimately, our goal is to find a way to decompose $A(M)$ in terms of $A(M \backslash i)$ and shifted copies of this ring. Maybe it'll be easier to first find such a decomposition of $H(M)$, the graded Mobius algebra first. Note that
+\begin{align*}
+	H^k(M) & := \bigoplus_{F \in \mcL^k(M)} \RR y_F \\
+	H^k(H \backslash i) & := \bigoplus_{F \in \mcL^k(M \backslash i)} \RR y_F \\
+	H^k_{(i)} & = \bigoplus_{F \in \mcL^k(M \backslash i) \cap \mcL^k(M)} \RR y_F \oplus \bigoplus_{F \in \mcL^k(M \backslash i) \backslash \mcL^k(M)} \RR y_{F \cup \{i\}}.
+\end{align*}
+
+\begin{lem}
+	We have the set equality
+	\[
+		\{F \in \mcL^k(M) : F \in \mcL^k(M \backslash i)\} = \{F \in \mcL^k(M) : i \notin F\}.
+	\]
+\end{lem}
+
+\begin{proof}
+	It suffices to prove that if $F$ is a flat of $M$ which doesn't contain $i$ then it is a flat of $M \backslash i$. But this follows from the fact that for all $j \in E \backslash F$ where $ \neq i$, we have
+	\[
+		\rank_{M \backslash i} (F \cup \{j\}) = \rank_M (F \cup \{j\}) > \rank_M F = \rank_{M \backslash i} (F). 
+	\]
+\end{proof}
+Hence, we can write 
+\begin{align*}
+	H^k(M) & = \bigoplus_{F \in \mcL^k(M), i \notin F} \RR y_F \oplus \bigoplus_{F \in \mcL^k(M), i \in F} \RR y_F \\
+	H^k_{(i)} & = \bigoplus_{F \in \mcL^k(M), i \notin F} \RR y_F \oplus \bigoplus_{F \in \mcL^k(M / i), F \notin \mcL^k(M)} \RR y_{F \cup \{i\}} \\
+	& = \bigoplus_{F \in \mcL^k(M), i \notin F} \RR y_F \oplus \bigoplus_{\substack{F \in \mcL^k(M), \\ i \in F, \\ F \backslash i \in \mcL^k(M \backslash i) \backslash \mcL^k(M)}} \RR y_{F}.
+\end{align*}
+
+The missing puzzle piece is 
+\[
+	\bigoplus_{\substack{i \in F \in \mcL^k(M) \\ F \backslash i \in \mcL^k(M)}} \RR y_F \oplus \bigoplus_{\substack{i \in F \in \mcL^k(M) \\ F\backslash i \notin \mcL^k(M), \mcL^k(M \backslash i)}} \RR y_F = \bigoplus_{\substack{i \in F \in \mcL^k(M) \\ F\backslash i \notin \mcL^k(M) \cup \mcL^k(M \backslash i)}} \RR y_F.
+\]
+Note that
+\begin{align*}
+	\mcL(M) \backslash (\mcL^k(M \backslash i) \cup \mcL^k(M)) & = \mcL^{k-1}(M) \\
+	(\mcL(M) \cup \mcL & = 
+\end{align*}
+\begin{lem}
+	[Don't know if this is true]We have the set equality
+	\[
+		\{F \in \mcL^k(M) : i \in F, F \backslash i \in \mcL^k (M \backslash i) \backslash \mcL^k(M)\} = \{F \in \mcL^k(M) : \rank_M(F \backslash i) = \rank_M(F)\}.
+	\]
+\end{lem}
+
+\begin{proof}
+	Suppose that $F$ is a $k$-flat of $M$ containing $i$ such that $F \backslash i$ is a $k$-flat of $M \backslash i$ but not a $k$ flat of $M$. If $\rank_M(F) > \rank_M(F \backslash i)$, then $F$ would be a $k$-flat
+\end{proof}
+
+
+Question: For every flat $F \in \mcL(M)$ containing $i \in M$, does there exist a unique $F_* \in \mathcal{S}$ such that $F$ is a flat of $F_* \cup i$. Here $\mathcal{S}$ is the set of non-empty proper subsets of $E \backslash i$ such that $F \in \mcL(M)$ and $F \cup i \in \mcL(M)$. 
+
 \chapter{Appendix}
+
+\section{Brunn-Minkowski and the Base Case of the Alexandrov-Fenchel Inequality}
+
+\begin{prop} \label{base-case-for-AF-inequality}
+	Let $K, L \subseteq \RR^2$ be two convex bodies in the plane. Then $\mathsf{V}_2(K, L)^2 \geq \mathsf{V}(K, K) \mathsf{V}(L, L)$. 
+\end{prop}
+
+\begin{proof}
+	From Theorem~\ref{brunn-minkowski}, we have $\sqrt{\Vol_2(K + L)} \geq \sqrt{\Vol_2(A)} + \sqrt{\Vol_2(B)}$. Squaring both sides, we get the equivalent inequality
+	\[	
+		\Vol_2(K+L) - \Vol_2(K) - \Vol_2(L) \geq 2 \sqrt{\Vol_2(K) \Vol_2(L)} = 2 \sqrt{\mathsf{V}_2(K, K) \mathsf{V}_2(L, L)}.
+	\]
+	From Theorem~\ref{mixed-volume-polynomial-expansion-FINAL}, the left hand side is equal to 
+	\[		
+		\Vol_2(K+L) - \Vol_2(K) - \Vol_2(L) = 2 \mathsf{V}_2(K, L).
+	\]
+	This suffices for the proof. 
+\end{proof}
 
 \bibliographystyle{plain}
 \bibliography{ref}

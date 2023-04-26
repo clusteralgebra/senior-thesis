@@ -2,42 +2,54 @@
 \contentsline {section}{Acknowledgements}{iii}{}%
 \contentsline {chapter}{\numberline {1}Conventions and Notation}{1}{}%
 \contentsline {chapter}{\numberline {2}Introduction}{2}{}%
-\contentsline {chapter}{\numberline {3}Combinatorial Structures}{3}{}%
+\contentsline {chapter}{\numberline {3}Preliminaries: Combinatorial Structures and Convex Geometry}{3}{}%
 \contentsline {section}{\numberline {3.1}Partially Ordered Sets}{3}{}%
-\contentsline {subsection}{\numberline {3.1.1}Linear Extensions}{3}{}%
+\contentsline {subsection}{\numberline {3.1.1}Linear Extensions}{4}{}%
 \contentsline {subsection}{\numberline {3.1.2}Lattices}{4}{}%
 \contentsline {section}{\numberline {3.2}Graph Theory}{4}{}%
 \contentsline {subsection}{\numberline {3.2.1}Spectral Graph Theory}{4}{}%
 \contentsline {section}{\numberline {3.3}Matroids}{5}{}%
-\contentsline {subsection}{\numberline {3.3.1}Independent Sets}{5}{}%
+\contentsline {subsection}{\numberline {3.3.1}Independent Sets}{6}{}%
 \contentsline {subsection}{\numberline {3.3.2}Bases}{6}{}%
 \contentsline {subsection}{\numberline {3.3.3}Rank Functions}{7}{}%
 \contentsline {subsection}{\numberline {3.3.4}Closure Operators and Lattice of Flats}{7}{}%
 \contentsline {subsection}{\numberline {3.3.5}Loops and Parallel Elements}{8}{}%
 \contentsline {subsection}{\numberline {3.3.6}Contraction and Deletion}{9}{}%
-\contentsline {subsection}{\numberline {3.3.7}Regular Matroids}{10}{}%
-\contentsline {section}{\numberline {3.4}Mixed Discriminants}{10}{}%
-\contentsline {subsection}{\numberline {3.4.1}Polarization Form}{11}{}%
-\contentsline {subsection}{\numberline {3.4.2}Positivity}{12}{}%
-\contentsline {section}{\numberline {3.5}Convex Bodies}{13}{}%
-\contentsline {subsection}{\numberline {3.5.1}Support and facial structure}{13}{}%
-\contentsline {subsection}{\numberline {3.5.2}Polytopes and simple strongly isomorphic polytopes }{14}{}%
-\contentsline {subsection}{\numberline {3.5.3}Hausdorff metric on convex bodies}{15}{}%
-\contentsline {subsection}{\numberline {3.5.4}Mixed Volumes}{17}{}%
-\contentsline {chapter}{\numberline {4}Mechanisms for Log-concavity}{19}{}%
-\contentsline {section}{\numberline {4.1}Log-Concavity and Ultra Log-Concavity}{19}{}%
-\contentsline {section}{\numberline {4.2}Alexandrov's Inequality for Mixed Discriminants}{19}{}%
-\contentsline {section}{\numberline {4.3}Alexandrov-Fenchel Inequality}{20}{}%
-\contentsline {section}{\numberline {4.4}Lorentzian Polynomials}{20}{}%
-\contentsline {section}{\numberline {4.5}Combinatorial Atlas}{22}{}%
-\contentsline {chapter}{\numberline {5}Log-concavity Results for Posets and Matroids}{23}{}%
-\contentsline {section}{\numberline {5.1}Stanley's Poset Inequality}{23}{}%
-\contentsline {section}{\numberline {5.2}Stanley's Matroid Inequality}{23}{}%
-\contentsline {section}{\numberline {5.3}Kahn-Saks Inequality}{23}{}%
-\contentsline {chapter}{\numberline {6}Hard Lefschetz Property and Hodge-Riemann Relations}{24}{}%
-\contentsline {section}{\numberline {6.1}Gorenstein ring associated to a polynomial}{24}{}%
-\contentsline {section}{\numberline {6.2}Local Hodge-Riemann Relations}{28}{}%
-\contentsline {section}{\numberline {6.3}The Gorenstein ring associated to the basis generating polynomial of a matroid}{30}{}%
-\contentsline {section}{\numberline {6.4}Hodge-Riemann relations on the facets of the positive orthant}{35}{}%
-\contentsline {subsection}{\numberline {6.4.1}Graded Mobius Algebra}{42}{}%
-\contentsline {chapter}{\numberline {7}Appendix}{43}{}%
+\contentsline {subsection}{\numberline {3.3.7}Matroids sum and truncation}{10}{}%
+\contentsline {subsection}{\numberline {3.3.8}Regular Matroids}{11}{}%
+\contentsline {section}{\numberline {3.4}Mixed Discriminants}{11}{}%
+\contentsline {subsection}{\numberline {3.4.1}Polarization form of a homogeneous polynomial}{11}{}%
+\contentsline {subsection}{\numberline {3.4.2}Positivity}{15}{}%
+\contentsline {section}{\numberline {3.5}Convex Bodies}{15}{}%
+\contentsline {subsection}{\numberline {3.5.1}Support and facial structure}{16}{}%
+\contentsline {subsection}{\numberline {3.5.2}Polytopes and simple strongly isomorphic polytopes }{17}{}%
+\contentsline {subsection}{\numberline {3.5.3}Hausdorff metric on convex bodies}{20}{}%
+\contentsline {subsection}{\numberline {3.5.4}Mixed Volumes}{22}{}%
+\contentsline {subsection}{\numberline {3.5.5}Positivity and Normal Directions}{27}{}%
+\contentsline {chapter}{\numberline {4}Mechanisms for Log-concavity}{28}{}%
+\contentsline {section}{\numberline {4.1}Log-Concavity and Ultra Log-Concavity}{28}{}%
+\contentsline {section}{\numberline {4.2}Cauchy's Interlacing Theorem}{29}{}%
+\contentsline {section}{\numberline {4.3}Alexandrov's Inequality for Mixed Discriminants}{30}{}%
+\contentsline {section}{\numberline {4.4}Alexandrov-Fenchel Inequality}{34}{}%
+\contentsline {subsection}{\numberline {4.4.1}Equality Cases}{40}{}%
+\contentsline {subsection}{\numberline {4.4.2}Equality Cases for Polytopes}{42}{}%
+\contentsline {section}{\numberline {4.5}Lorentzian Polynomials}{43}{}%
+\contentsline {section}{\numberline {4.6}Combinatorial Atlas}{45}{}%
+\contentsline {chapter}{\numberline {5}Log-concavity Results for Posets and Matroids}{46}{}%
+\contentsline {section}{\numberline {5.1}Stanley's Poset Inequality}{46}{}%
+\contentsline {subsection}{\numberline {5.1.1}Equality Case for the Simple Stanley Poset Inequality}{48}{}%
+\contentsline {section}{\numberline {5.2}Kahn-Saks Inequality}{51}{}%
+\contentsline {section}{\numberline {5.3}Stanley's Matroid Inequality}{51}{}%
+\contentsline {subsection}{\numberline {5.3.1}Mixed Volume Perspective of Basis Counting Number}{52}{}%
+\contentsline {subsection}{\numberline {5.3.2}Mixed Discriminant Perspective of the Basis Counting Number}{53}{}%
+\contentsline {subsection}{\numberline {5.3.3}Equality cases of Stanley's Matroid Inequality}{53}{}%
+\contentsline {subsection}{\numberline {5.3.4}Lorentzian Perspective of the Basis Counting Number}{53}{}%
+\contentsline {chapter}{\numberline {6}Hard Lefschetz Property and Hodge-Riemann Relations}{57}{}%
+\contentsline {section}{\numberline {6.1}Gorenstein ring associated to a polynomial}{57}{}%
+\contentsline {section}{\numberline {6.2}Local Hodge-Riemann Relations}{61}{}%
+\contentsline {section}{\numberline {6.3}The Gorenstein ring associated to the basis generating polynomial of a matroid}{63}{}%
+\contentsline {section}{\numberline {6.4}Hodge-Riemann relations on the facets of the positive orthant}{68}{}%
+\contentsline {section}{\numberline {6.5}Graded Algebras associated to Matroids}{74}{}%
+\contentsline {subsection}{\numberline {6.5.1}Graded Mobius Algebra}{74}{}%
+\contentsline {chapter}{\numberline {7}Appendix}{78}{}%
+\contentsline {section}{\numberline {7.1}Brunn-Minkowski and the Base Case of the Alexandrov-Fenchel Inequality}{78}{}%

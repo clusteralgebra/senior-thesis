@@ -1,10 +1,20 @@
 \begin{thebibliography}{10}
 
+\bibitem{AHK}
+Karim Adiprasito, June Huh, and Eric Katz.
+\newblock Hodge theory for combinatorial geometries.
+\newblock {\em Annals of Mathematics}, 188, 11 2015.
+
 \bibitem{aleksandrov}
 A.~D. Aleksandrov.
 \newblock Zur {Theorie} der gemischten {Volumina} von konvexen {K{\"o}rpern}.
   {IV}.: {Die} gemischten {Diskriminanten} und die gemischten {Volumina}.
 \newblock {\em Rec. Math. Moscou, n. Ser.}, 3:227--251, 1938.
+
+\bibitem{anari2018logconcave}
+Nima Anari, Kuikui Liu, Shayan~Oveis Gharan, and Cynthia Vinzant.
+\newblock Log-concave polynomials iii: Mason's ultra-log-concavity conjecture
+  for independent sets of matroids, 2018.
 
 \bibitem{bapat_raghavan_1997}
 R.~B. Bapat and T.~E.~S. Raghavan.
@@ -17,6 +27,12 @@ Heinz~H. Bauschke, Osman Güler, Adrian~S. Lewis, and Hristo~S. Sendov.
 \newblock Hyperbolic polynomials and convex analysis.
 \newblock {\em Canadian Journal of Mathematics}, 53(3):470–488, 2001.
 
+\bibitem{Bol}
+G.~Bol.
+\newblock Beweis einer vermutung von h. minkowski.
+\newblock {\em Abhandlungen aus dem Mathematischen Seminar der Universit\"{a}t
+  Hamburg}, 15(1):37--56, March 1943.
+
 \bibitem{huh-semi-small}
 Tom Braden, June Huh, Jacob~P. Matherne, Nicholas Proudfoot, and Botong Wang.
 \newblock A semi-small decomposition of the chow ring of a matroid, 2020.
@@ -24,6 +40,12 @@ Tom Braden, June Huh, Jacob~P. Matherne, Nicholas Proudfoot, and Botong Wang.
 \bibitem{lorentzian-polynomials}
 Petter Brändén and June Huh.
 \newblock Lorentzian polynomials, 2019.
+
+\bibitem{stanley-poset-inequality-origin}
+F.~R.~K. Chung, P.~C. Fishburn, and R.~L. Graham.
+\newblock On unimodality for linear extensions of partial orders.
+\newblock {\em SIAM Journal on Algebraic Discrete Methods}, 1(4):405--410,
+  1980.
 
 \bibitem{chung-spectral-graph-theory}
 Fan R~K Chung.
@@ -39,6 +61,11 @@ Reinhard Diestel.
 Jack Edmonds.
 \newblock Matroids and the greedy algorithm.
 \newblock {\em Mathematical Programming}, 1(1):127--136, December 1971.
+
+\bibitem{fisk}
+Steve Fisk.
+\newblock A very short proof of cauchy's interlace theorem for eigenvalues of
+  hermitian matrices, 2005.
 
 \bibitem{schubert-cell}
 I.M Gelfand, R.M Goresky, R.D MacPherson, and V.V Serganova.
@@ -61,6 +88,11 @@ Leonid Gurvits.
   Combinatorial Mathematics}, pages 61--78, Berlin, Heidelberg, 2010. Springer
   Berlin Heidelberg.
 
+\bibitem{hardy1952inequalities}
+G.H. Hardy, J.E. Littlewood, and G.~P{\'o}lya.
+\newblock {\em Inequalities}.
+\newblock Cambridge Mathematical Library. Cambridge University Press, 1952.
+
 \bibitem{matroid-polytope}
 David~C. Haws.
 \newblock Matroid polytopes: Algorithms, theory, and applications, 2009.
@@ -74,6 +106,22 @@ Daniel Hug and Wolfgang Weil.
 June Huh.
 \newblock Milnor numbers of projective hypersurfaces and the chromatic
   polynomial of graphs, 2012.
+
+\bibitem{correlation-bounds}
+June Huh, Benjamin Schröter, and Botong Wang.
+\newblock Correlation bounds for fields and matroids.
+\newblock {\em Journal of the European Mathematical Society}, 24(4):1335--1351,
+  jun 2021.
+
+\bibitem{suk}
+Suk-Geun Hwang.
+\newblock Cauchy's interlace theorem for eigenvalues of hermitian matrices.
+\newblock {\em The American Mathematical Monthly}, 111(2):157--159, 2004.
+
+\bibitem{ma2022extremals}
+Zhao~Yu Ma and Yair Shenfeld.
+\newblock The extremals of stanley's inequalities for partially ordered sets,
+  2022.
 
 \bibitem{MN-gorenstein}
 Toshiaki Maeno and Yasuhide Numata.
@@ -92,10 +140,30 @@ James~G. Oxley.
 \newblock {\em Matroid Theory (Oxford Graduate Texts in Mathematics)}.
 \newblock Oxford University Press, Inc., USA, 2006.
 
+\bibitem{symmetric-eigenvalue-problem}
+Beresford~N. Parlett.
+\newblock {\em The Symmetric Eigenvalue Problem}.
+\newblock Society for Industrial and Applied Mathematics, 1998.
+
 \bibitem{lie-groups}
 Claudio Procesi.
 \newblock {\em Lie groups}.
 \newblock Universitext. Springer, New York, NY, 2007 edition, October 2006.
+
+\bibitem{rahman}
+Qazi~Ibadur Rahman and Gerhard Schmeisser.
+\newblock {\em Analytic Theory of Polynomials}.
+\newblock Oxford University Press, Oxford, 2005.
+
+\bibitem{rudin}
+Walter Rudin.
+\newblock {\em Real and Complex Analysis, 3rd Ed.}
+\newblock McGraw-Hill, Inc., USA, 1987.
+
+\bibitem{schneider-mixed-discriminants}
+ROLF SCHNEIDER.
+\newblock On a. d. aleksandrov's inequalities for mixed discriminants.
+\newblock {\em Journal of Mathematics and Mechanics}, 15(2):285--290, 1966.
 
 \bibitem{schneider_2013}
 Rolf Schneider.
@@ -107,6 +175,30 @@ Rolf Schneider.
 Bernd S~W Schroder.
 \newblock {\em Ordered sets}.
 \newblock Birkhauser, Basel, Switzerland, 2 edition, May 2016.
+
+\bibitem{bochner}
+Yair Shenfeld and Ramon van Handel.
+\newblock Mixed volumes and the bochner method, 2019.
+
+\bibitem{minkowski-quadratic-inequality}
+Yair Shenfeld and Ramon van Handel.
+\newblock The extremals of minkowski's quadratic inequality, 2021.
+
+\bibitem{shenfeld2022extremals}
+Yair Shenfeld and Ramon van Handel.
+\newblock The extremals of the alexandrov-fenchel inequality for convex
+  polytopes, 2022.
+
+\bibitem{block-matrices}
+John~R. Silvester.
+\newblock Determinants of block matrices.
+\newblock {\em The Mathematical Gazette}, 84(501):460--467, 2000.
+
+\bibitem{STANLEY}
+Richard~P Stanley.
+\newblock Two combinatorial applications of the aleksandrov-fenchel
+  inequalities.
+\newblock {\em Journal of Combinatorial Theory, Series A}, 31(1):56--65, 1981.
 
 \bibitem{Stanley-alg-combo}
 Richard~P Stanley.

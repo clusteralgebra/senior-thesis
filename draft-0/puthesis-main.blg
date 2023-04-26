@@ -7,45 +7,45 @@ Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
 Warning--empty publisher in chung-spectral-graph-theory
 Warning--there's a number but no volume in Zhao2015-kf
-You've used 24 entries,
+You've used 42 entries,
             2118 wiz_defined-function locations,
-            638 strings with 7077 characters,
-and the built_in function-call counts, 6647 in all, are:
-= -- 639
-> -- 282
+            735 strings with 9422 characters,
+and the built_in function-call counts, 11520 in all, are:
+= -- 1102
+> -- 498
 < -- 1
-+ -- 114
-- -- 88
-* -- 408
-:= -- 1136
-add.period$ -- 73
-call.type$ -- 24
-change.case$ -- 109
++ -- 205
+- -- 156
+* -- 713
+:= -- 1960
+add.period$ -- 122
+call.type$ -- 42
+change.case$ -- 193
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 265
-empty$ -- 580
-format.name$ -- 88
-if$ -- 1400
+cite$ -- 44
+duplicate$ -- 442
+empty$ -- 1004
+format.name$ -- 156
+if$ -- 2413
 int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 30
-newline$ -- 118
-num.names$ -- 50
-pop$ -- 154
+int.to.str$ -- 42
+missing$ -- 46
+newline$ -- 202
+num.names$ -- 86
+pop$ -- 268
 preamble$ -- 1
-purify$ -- 91
+purify$ -- 161
 quote$ -- 0
-skip$ -- 175
+skip$ -- 309
 stack$ -- 0
-substring$ -- 318
-swap$ -- 31
+substring$ -- 574
+swap$ -- 49
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 74
+type$ -- 138
 warning$ -- 2
-while$ -- 63
-width$ -- 26
-write$ -- 256
+while$ -- 111
+width$ -- 44
+write$ -- 435
 (There were 2 warnings)
