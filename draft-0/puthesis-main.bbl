@@ -41,6 +41,11 @@ Tom Braden, June Huh, Jacob~P. Matherne, Nicholas Proudfoot, and Botong Wang.
 Petter Brändén and June Huh.
 \newblock Lorentzian polynomials, 2019.
 
+\bibitem{chan2022extensions}
+Swee~Hong Chan, Igor Pak, and Greta Panova.
+\newblock Extensions of the kahn--saks inequality for posets of width two,
+  2022.
+
 \bibitem{stanley-poset-inequality-origin}
 F.~R.~K. Chung, P.~C. Fishburn, and R.~L. Graham.
 \newblock On unimodality for linear extensions of partial orders.
@@ -117,6 +122,16 @@ June Huh, Benjamin Schröter, and Botong Wang.
 Suk-Geun Hwang.
 \newblock Cauchy's interlace theorem for eigenvalues of hermitian matrices.
 \newblock {\em The American Mathematical Monthly}, 111(2):157--159, 2004.
+
+\bibitem{balancing-poset-extensions}
+Jeff Kahn and Michael Saks.
+\newblock Balancing poset extensions.
+\newblock {\em Order}, 1(2):113--126, 1984.
+
+\bibitem{Kato_2007}
+Akishi Kato.
+\newblock Zonotopes and four-dimensional superconformal field theories.
+\newblock {\em Journal of High Energy Physics}, 2007(06):037--037, jun 2007.
 
 \bibitem{ma2022extremals}
 Zhao~Yu Ma and Yair Shenfeld.

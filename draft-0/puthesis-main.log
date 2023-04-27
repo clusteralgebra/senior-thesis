@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  26 APR 2023 02:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  27 APR 2023 12:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -497,6 +497,9 @@ File: pgflibraryarrows.meta.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
 (C:\Users\alany\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\dsfont.sty
 Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
+) (C:\Users\alany\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\mathrsfs.sty
+Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
+\symrsfs=\mathgroup6
 )
 \c@thm=\count294
 \c@prop=\count295
@@ -580,13 +583,19 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
 (C:\Users\alany\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 1.
+
+
+(C:\Users\alany\AppData\Local\Programs\MiKTeX\tex/latex/jknappen\ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+)
 [5
 
-])
+] [6])
 \tf@toc=\write4
 \openout4 = `puthesis-main.toc'.
 
- [6] [7]
+ [7]
 Chapter 1.
 [1
 
@@ -602,63 +611,58 @@ Chapter 2.
 Chapter 3.
 [3
 
-] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16]
-<image5.PNG, id=96, 152.57pt x 107.40125pt>
+] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17]
+<image5.PNG, id=101, 152.57pt x 107.40125pt>
 File: image5.PNG Graphic file (type png)
 <use image5.PNG>
-Package pdftex.def Info: image5.PNG  used on input line 478.
+Package pdftex.def Info: image5.PNG  used on input line 504.
 (pdftex.def)             Requested size: 152.56963pt x 107.40097pt.
- [17 <./image5.PNG>] [18] [19] [20]
+ [18 <./image5.PNG>] [19] [20] [21]
 LaTeX Font Info:    Trying to load font information for U+dsrom on input line 6
-16.
+42.
 
 (C:\Users\alany\AppData\Local\Programs\MiKTeX\tex/latex/doublestroke\udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [21] [22]
-Overfull \hbox (26.83096pt too wide) detected at line 687
+) [22] [23]
+Overfull \hbox (26.83096pt too wide) detected at line 713
 []
  []
 
-[23] [24] [25] [26] [27]
+[24] [25] [26] [27] [28]
 Chapter 4.
-[28
+[29
 
-] [29] [30] [31]
-Underfull \hbox (badness 10000) in paragraph at lines 947--949
+] [30] [31] [32]
+Underfull \hbox (badness 10000) in paragraph at lines 973--975
 
- []
-
-[32]
-Underfull \hbox (badness 10000) in paragraph at lines 984--986
-
- []
-
-
-Overfull \hbox (38.27449pt too wide) detected at line 992
-[]
  []
 
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 1000--1002
+Underfull \hbox (badness 10000) in paragraph at lines 1010--1012
 
  []
 
-[34] [35] [36] [37] [38] [39]
-Underfull \hbox (badness 10000) in paragraph at lines 1182--1183
+
+Overfull \hbox (38.27449pt too wide) detected at line 1018
+[]
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1026--1028
 
  []
 
-[40] [41] [42] [43]
+[35] [36] [37] [38] [39] [40]
+Underfull \hbox (badness 10000) in paragraph at lines 1208--1209
 
-LaTeX Warning: Reference `properties-of-Lorentzian-polynomials' on page 44 unde
-fined on input line 1316.
+ []
 
-[44] [45]
+[41] [42] [43] [44] [45] [46]
 Chapter 5.
-[46
+[47
 
 ]
-Overfull \hbox (58.71986pt too wide) detected at line 1393
+Overfull \hbox (58.71986pt too wide) detected at line 1419
 \OT1/cmr/m/n/10 [] \OMS/cmsy/m/n/10 \ \OT1/cmr/m/n/10 ((1 \OMS/cmsy/m/n/10   \
 OML/cmm/m/it/10 \OT1/cmr/m/n/10 )\OML/cmm/m/it/10 K \OT1/cmr/m/n/10 + \OML/cmm
 /m/it/10 L\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 t \OMS/cmsy/m
@@ -669,18 +673,13 @@ L/cmm/m/it/10  \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 t[] \OMS/cmsy/m/n/10  [] 
  \OML/cmm/m/it/10 t[] \OMS/cmsy/m/n/10  \OT1/cmr/m/n/10 1\OMS/cmsy/m/n/10 g
  []
 
-[47] [48] [49]
-Underfull \hbox (badness 10000) in paragraph at lines 1470--1471
+[48] [49] [50]
+Underfull \hbox (badness 10000) in paragraph at lines 1496--1497
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1472--1473
-
- []
-
-[50]
-Underfull \hbox (badness 10000) in paragraph at lines 1474--1475
+Underfull \hbox (badness 10000) in paragraph at lines 1498--1499
 
  []
 
@@ -689,39 +688,80 @@ Underfull \hbox (badness 10000) in paragraph at lines 1500--1501
 
  []
 
-[52] [53] [54] [55] [56]
+[52]
+Underfull \hbox (badness 10000) in paragraph at lines 1521--1522
+
+ []
+
+[53] [54] [55] [56] [57] [58] [59]
+Underfull \hbox (badness 10000) in paragraph at lines 1753--1754
+
+ []
+
+[60]
+Underfull \hbox (badness 10000) in paragraph at lines 1762--1764
+
+ []
+
+[61] [62] [63]
+Overfull \hbox (5.46417pt too wide) in paragraph at lines 1873--1874
+[]\OT1/cmr/m/n/10 In Corol-lary 5.2.3[], the re-sult was only stated for poset 
+el-e-ments sat-is-fy-ing cer-tain min-i-mal/maximal
+ []
+
+[64] [65] [66] [67]
+Underfull \hbox (badness 10000) in paragraph at lines 2004--2005
+
+ []
+
+[68] [69]
+Underfull \hbox (badness 10000) in paragraph at lines 2048--2050
+
+ []
+
+[70] [71] [72]
+Overfull \hbox (23.52776pt too wide) in paragraph at lines 2124--2125
+[]\OT1/cmr/m/n/10 Since the poly-topes gen-er-ated by $\OML/cmm/m/it/10 Z\OT1/c
+mr/m/n/10 (\OML/cmm/m/it/10 v[]; [] ; v[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 Z
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 v[]; [] ; v[]\OT1/cmr/m/n/10 )$ and $\OML/cmm
+/m/it/10 Z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 w[]; [] ; w[]\OT1/cmr/m/n/10 ) = \O
+ML/cmm/m/it/10 Z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 w[]; [] ; w[]\OT1/cmr/m/n/10 
+)$,
+ []
+
+[73] [74] [75] [76] [77] [78] [79]
 Chapter 6.
-[57
+[80
 
-] [58] [59]
-Underfull \hbox (badness 10000) in paragraph at lines 1752--1754
-
- []
-
-[60] [61] [62] [63] [64]
-Underfull \hbox (badness 10000) in paragraph at lines 1908--1910
+] [81] [82]
+Underfull \hbox (badness 10000) in paragraph at lines 2446--2448
 
  []
 
-[65] [66]
-Underfull \hbox (badness 10000) in paragraph at lines 1969--1971
+[83] [84] [85] [86] [87]
+Underfull \hbox (badness 10000) in paragraph at lines 2602--2604
 
  []
 
-[67] [68] [69]
-Underfull \hbox (badness 10000) in paragraph at lines 2096--2098
+[88] [89]
+Underfull \hbox (badness 10000) in paragraph at lines 2663--2665
 
  []
 
-[70]
-Underfull \hbox (badness 10000) in paragraph at lines 2110--2112
+[90] [91] [92]
+Underfull \hbox (badness 10000) in paragraph at lines 2790--2792
 
  []
 
-[71] [72] [73] [74] [75] [76] [77]
+[93]
+Underfull \hbox (badness 10000) in paragraph at lines 2804--2806
+
+ []
+
+[94] [95] [96] [97] [98] [99] [100]
 Chapter 7.
 
-Overfull \hbox (21.50395pt too wide) in paragraph at lines 2331--2332
+Overfull \hbox (21.50395pt too wide) in paragraph at lines 3025--3026
 []\OT1/cmr/bx/n/10 Proposition 7.1.1. []\OT1/cmr/m/it/10 Let $\OML/cmm/m/it/10 
 K; L \OMS/cmsy/m/n/10  \U/msb/m/n/10 R[]$ \OT1/cmr/m/it/10 be two con-vex bod-
 ies in the plane. Then $\OT1/cmss/m/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K
@@ -730,55 +770,59 @@ ML/cmm/m/it/10 K; K\OT1/cmr/m/n/10 )\OT1/cmss/m/n/10 V\OT1/cmr/m/n/10 (\OML/cmm
 /m/it/10 L; L\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 . 
  []
 
-(puthesis-main.bbl [78
+[101
 
-] [79
+] [102] [103] [104]
+Underfull \hbox (badness 10000) in paragraph at lines 3157--3159
 
-] [80] [81]) [82] (puthesis-main.aux)
+ []
 
-LaTeX Warning: There were undefined references.
+[105] [106] [107] [108] (puthesis-main.bbl [109] [110
 
- ) 
+] [111] [112]) [113]
+(puthesis-main.aux) ) 
 Here is how much of TeX's memory you used:
- 15315 strings out of 478659
- 322750 string characters out of 2845920
- 597513 words of memory out of 3000000
- 33143 multiletter control sequences out of 15000+600000
- 415420 words of font info for 72 fonts, out of 8000000 for 9000
+ 15415 strings out of 478659
+ 325595 string characters out of 2845920
+ 598298 words of memory out of 3000000
+ 33233 multiletter control sequences out of 15000+600000
+ 416244 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 129i,17n,132p,1846b,1067s stack positions out of 5000i,500n,10000p,200000b,80000s
- <C:\Users\alany\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
-1000.pk><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
-ts/cm/cmbx10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmbx8.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/alany/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/alany/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/alany
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><C
-:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi
-10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmmi5.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmmi7.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmr10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/alany/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/alany/AppData/Local/Prog
-rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/alany/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/alany/AppD
-ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss10.pfb><C:/Users/a
-lany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:
-/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmsy5.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmsy7.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmti10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/alany/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/alany/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/alany
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on puthesis-main.pdf (89 pages, 626696 bytes).
+ 129i,19n,132p,1846b,1067s stack positions out of 5000i,500n,10000p,200000b,80000s
+ <C:\Users\alany\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
+ppen/ec/dpi600\tcrm1000.pk><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/alany/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/alany/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/alany/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/alany
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/U
+sers/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.
+pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+mextra/cmex7.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmmi5.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX
+/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/alany/AppData/Local/Program
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/alany/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/alany/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/alany
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/User
+s/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><
+C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cms
+s10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmss8.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/publi
+c/amsfonts/cm/cmsy10.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/amsfonts/cm/cmsy5.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/alany/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/alany/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti7.pfb><C:/Users/alany/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/doublestroke/dsrom10.pfb><C:/Users/
+alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.
+pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
+ymbols/msbm7.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/rsfs/rsfs10.pfb>
+Output written on puthesis-main.pdf (120 pages, 751464 bytes).
 PDF statistics:
- 424 PDF objects out of 1000 (max. 8388607)
+ 529 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
