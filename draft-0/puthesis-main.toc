@@ -34,7 +34,6 @@
 \contentsline {subsection}{\numberline {4.4.1}Equality Cases}{41}{}%
 \contentsline {subsection}{\numberline {4.4.2}Equality Cases for Polytopes}{43}{}%
 \contentsline {section}{\numberline {4.5}Lorentzian Polynomials}{44}{}%
-\contentsline {section}{\numberline {4.6}Combinatorial Atlas}{46}{}%
 \contentsline {chapter}{\numberline {5}Log-concavity Results for Posets and Matroids}{47}{}%
 \contentsline {section}{\numberline {5.1}Stanley's Poset Inequality}{47}{}%
 \contentsline {subsection}{\numberline {5.1.1}Equality Case for the Simple Stanley Poset Inequality}{49}{}%
@@ -44,20 +43,20 @@
 \contentsline {subsection}{\numberline {5.2.3}Transition Vectors}{57}{}%
 \contentsline {subsection}{\numberline {5.2.4}More Vectors}{62}{}%
 \contentsline {subsection}{\numberline {5.2.5}Understanding MID}{65}{}%
-\contentsline {section}{\numberline {5.3}Stanley's Matroid Inequality}{67}{}%
-\contentsline {subsection}{\numberline {5.3.1}Mixed Volume Perspective of Basis Counting Number}{68}{}%
-\contentsline {subsection}{\numberline {5.3.2}Mixed Discriminant Perspective of the Basis Counting Number}{69}{}%
-\contentsline {subsection}{\numberline {5.3.3}Equality cases of Stanley's Matroid Inequality for Graphic Matroids}{70}{}%
-\contentsline {subsection}{\numberline {5.3.4}Equality cases of Stanley's Matroid Inequality for Regular Matroids}{73}{}%
-\contentsline {subsection}{\numberline {5.3.5}Lorentzian Perspective of the Basis Counting Number}{77}{}%
-\contentsline {chapter}{\numberline {6}Hard Lefschetz Property and Hodge-Riemann Relations}{80}{}%
-\contentsline {section}{\numberline {6.1}Gorenstein ring associated to a polynomial}{80}{}%
-\contentsline {section}{\numberline {6.2}Local Hodge-Riemann Relations}{84}{}%
-\contentsline {section}{\numberline {6.3}The Gorenstein ring associated to the basis generating polynomial of a matroid}{86}{}%
-\contentsline {section}{\numberline {6.4}Hodge-Riemann relations on the facets of the positive orthant}{91}{}%
-\contentsline {section}{\numberline {6.5}Graded Algebras associated to Matroids}{97}{}%
-\contentsline {subsection}{\numberline {6.5.1}Graded Mobius Algebra}{97}{}%
-\contentsline {chapter}{\numberline {7}Appendix}{101}{}%
-\contentsline {section}{\numberline {7.1}Brunn-Minkowski and the Base Case of the Alexandrov-Fenchel Inequality}{101}{}%
-\contentsline {section}{\numberline {7.2}Computations in the Kahn-Saks Inequality}{101}{}%
-\contentsline {subsection}{\numberline {7.2.1}Modifications and linear extensions of posets}{106}{}%
+\contentsline {section}{\numberline {5.3}Stanley's Matroid Inequality}{69}{}%
+\contentsline {subsection}{\numberline {5.3.1}Mixed Volume Perspective of Basis Counting Number}{70}{}%
+\contentsline {subsection}{\numberline {5.3.2}Mixed Discriminant Perspective of the Basis Counting Number}{71}{}%
+\contentsline {subsection}{\numberline {5.3.3}Equality cases of Stanley's Matroid Inequality for Graphic Matroids}{72}{}%
+\contentsline {subsection}{\numberline {5.3.4}Equality cases of Stanley's Matroid Inequality for Regular Matroids}{74}{}%
+\contentsline {subsection}{\numberline {5.3.5}Lorentzian Perspective of the Basis Counting Number}{78}{}%
+\contentsline {chapter}{\numberline {6}Hard Lefschetz Property and Hodge-Riemann Relations}{82}{}%
+\contentsline {section}{\numberline {6.1}Gorenstein ring associated to a polynomial}{82}{}%
+\contentsline {section}{\numberline {6.2}Local Hodge-Riemann Relations}{86}{}%
+\contentsline {section}{\numberline {6.3}The Gorenstein ring associated to the basis generating polynomial of a matroid}{88}{}%
+\contentsline {section}{\numberline {6.4}Hodge-Riemann relations on the facets of the positive orthant}{93}{}%
+\contentsline {section}{\numberline {6.5}Graded Algebras associated to Matroids}{99}{}%
+\contentsline {subsection}{\numberline {6.5.1}Graded Mobius Algebra}{99}{}%
+\contentsline {chapter}{\numberline {7}Appendix}{103}{}%
+\contentsline {section}{\numberline {7.1}Brunn-Minkowski and the Base Case of the Alexandrov-Fenchel Inequality}{103}{}%
+\contentsline {section}{\numberline {7.2}Computations in the Kahn-Saks Inequality}{103}{}%
+\contentsline {subsection}{\numberline {7.2.1}Modifications and linear extensions of posets}{108}{}%

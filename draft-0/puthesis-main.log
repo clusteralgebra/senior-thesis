@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  27 APR 2023 12:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12.10) (preloaded format=pdflatex 2022.1.19)  27 APR 2023 21:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -662,7 +662,7 @@ Chapter 5.
 [47
 
 ]
-Overfull \hbox (58.71986pt too wide) detected at line 1419
+Overfull \hbox (58.71986pt too wide) detected at line 1416
 \OT1/cmr/m/n/10 [] \OMS/cmsy/m/n/10 \ \OT1/cmr/m/n/10 ((1 \OMS/cmsy/m/n/10   \
 OML/cmm/m/it/10 \OT1/cmr/m/n/10 )\OML/cmm/m/it/10 K \OT1/cmr/m/n/10 + \OML/cmm
 /m/it/10 L\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 t \OMS/cmsy/m
@@ -674,53 +674,53 @@ L/cmm/m/it/10  \OMS/cmsy/m/n/10  \OML/cmm/m/it/10 t[] \OMS/cmsy/m/n/10  [] 
  []
 
 [48] [49] [50]
-Underfull \hbox (badness 10000) in paragraph at lines 1496--1497
+Underfull \hbox (badness 10000) in paragraph at lines 1493--1494
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1498--1499
+Underfull \hbox (badness 10000) in paragraph at lines 1495--1496
 
  []
 
 [51]
-Underfull \hbox (badness 10000) in paragraph at lines 1500--1501
+Underfull \hbox (badness 10000) in paragraph at lines 1497--1498
 
  []
 
 [52]
-Underfull \hbox (badness 10000) in paragraph at lines 1521--1522
+Underfull \hbox (badness 10000) in paragraph at lines 1518--1519
 
  []
 
 [53] [54] [55] [56] [57] [58] [59]
-Underfull \hbox (badness 10000) in paragraph at lines 1753--1754
+Underfull \hbox (badness 10000) in paragraph at lines 1752--1753
 
  []
 
 [60]
-Underfull \hbox (badness 10000) in paragraph at lines 1762--1764
+Underfull \hbox (badness 10000) in paragraph at lines 1761--1763
 
  []
 
-[61] [62] [63]
-Overfull \hbox (5.46417pt too wide) in paragraph at lines 1873--1874
-[]\OT1/cmr/m/n/10 In Corol-lary 5.2.3[], the re-sult was only stated for poset 
-el-e-ments sat-is-fy-ing cer-tain min-i-mal/maximal
- []
-
-[64] [65] [66] [67]
-Underfull \hbox (badness 10000) in paragraph at lines 2004--2005
-
- []
-
-[68] [69]
-Underfull \hbox (badness 10000) in paragraph at lines 2048--2050
+[61] [62] [63] [64] [65] [66] [67]
+<image6.png, id=267, 292.59312pt x 160.09813pt>
+File: image6.png Graphic file (type png)
+<use image6.png>
+Package pdftex.def Info: image6.png  used on input line 2003.
+(pdftex.def)             Requested size: 234.0748pt x 128.07866pt.
+ [68 <./image6.png>] [69]
+Underfull \hbox (badness 10000) in paragraph at lines 2045--2046
 
  []
 
-[70] [71] [72]
-Overfull \hbox (23.52776pt too wide) in paragraph at lines 2124--2125
+[70] [71]
+Underfull \hbox (badness 10000) in paragraph at lines 2089--2091
+
+ []
+
+[72] [73] [74]
+Overfull \hbox (23.52776pt too wide) in paragraph at lines 2165--2166
 []\OT1/cmr/m/n/10 Since the poly-topes gen-er-ated by $\OML/cmm/m/it/10 Z\OT1/c
 mr/m/n/10 (\OML/cmm/m/it/10 v[]; [] ; v[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 Z
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 v[]; [] ; v[]\OT1/cmr/m/n/10 )$ and $\OML/cmm
@@ -729,39 +729,39 @@ ML/cmm/m/it/10 Z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 w[]; [] ; w[]\OT1/cmr/m/n/10
 )$,
  []
 
-[73] [74] [75] [76] [77] [78] [79]
+[75] [76] [77] [78] [79] [80] [81]
 Chapter 6.
-[80
+[82
 
-] [81] [82]
-Underfull \hbox (badness 10000) in paragraph at lines 2446--2448
-
- []
-
-[83] [84] [85] [86] [87]
-Underfull \hbox (badness 10000) in paragraph at lines 2602--2604
+] [83] [84]
+Underfull \hbox (badness 10000) in paragraph at lines 2487--2489
 
  []
 
-[88] [89]
-Underfull \hbox (badness 10000) in paragraph at lines 2663--2665
+[85] [86] [87] [88] [89]
+Underfull \hbox (badness 10000) in paragraph at lines 2643--2645
 
  []
 
-[90] [91] [92]
-Underfull \hbox (badness 10000) in paragraph at lines 2790--2792
+[90] [91]
+Underfull \hbox (badness 10000) in paragraph at lines 2704--2706
 
  []
 
-[93]
-Underfull \hbox (badness 10000) in paragraph at lines 2804--2806
+[92] [93] [94]
+Underfull \hbox (badness 10000) in paragraph at lines 2831--2833
 
  []
 
-[94] [95] [96] [97] [98] [99] [100]
+[95]
+Underfull \hbox (badness 10000) in paragraph at lines 2845--2847
+
+ []
+
+[96] [97] [98] [99] [100] [101] [102]
 Chapter 7.
 
-Overfull \hbox (21.50395pt too wide) in paragraph at lines 3025--3026
+Overfull \hbox (21.50395pt too wide) in paragraph at lines 3066--3067
 []\OT1/cmr/bx/n/10 Proposition 7.1.1. []\OT1/cmr/m/it/10 Let $\OML/cmm/m/it/10 
 K; L \OMS/cmsy/m/n/10  \U/msb/m/n/10 R[]$ \OT1/cmr/m/it/10 be two con-vex bod-
 ies in the plane. Then $\OT1/cmss/m/n/10 V[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K
@@ -770,22 +770,22 @@ ML/cmm/m/it/10 K; K\OT1/cmr/m/n/10 )\OT1/cmss/m/n/10 V\OT1/cmr/m/n/10 (\OML/cmm
 /m/it/10 L; L\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 . 
  []
 
-[101
+[103
 
-] [102] [103] [104]
-Underfull \hbox (badness 10000) in paragraph at lines 3157--3159
+] [104] [105] [106]
+Underfull \hbox (badness 10000) in paragraph at lines 3198--3200
 
  []
 
-[105] [106] [107] [108] (puthesis-main.bbl [109] [110
+[107] [108] [109] [110] (puthesis-main.bbl [111] [112
 
-] [111] [112]) [113]
+] [113] [114]) [115]
 (puthesis-main.aux) ) 
 Here is how much of TeX's memory you used:
- 15415 strings out of 478659
- 325595 string characters out of 2845920
- 598298 words of memory out of 3000000
- 33233 multiletter control sequences out of 15000+600000
+ 15425 strings out of 478659
+ 325732 string characters out of 2845920
+ 598381 words of memory out of 3000000
+ 33241 multiletter control sequences out of 15000+600000
  416244 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  129i,19n,132p,1846b,1067s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -820,9 +820,9 @@ alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.
 pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/s
 ymbols/msbm7.pfb><C:/Users/alany/AppData/Local/Programs/MiKTeX/fonts/type1/publ
 ic/rsfs/rsfs10.pfb>
-Output written on puthesis-main.pdf (120 pages, 751464 bytes).
+Output written on puthesis-main.pdf (122 pages, 767802 bytes).
 PDF statistics:
- 529 PDF objects out of 1000 (max. 8388607)
+ 538 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 

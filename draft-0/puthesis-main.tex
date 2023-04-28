@@ -1377,9 +1377,6 @@ To illustrate the log-concavity properties of Lorentzian polynomials, we can pro
 	
 \end{proof}
 
-\section{Combinatorial Atlas}
-
-
 \chapter{Log-concavity Results for Posets and Matroids} \label{log-concavity-results}
 
 In this chapter we discuss in detail the proof of several concavity results. In section~\ref{stanley-poset-inequality} and section~\ref{kahn-saks-inequality} we discuss two log-concavity inequalities related to the linear extensions of a partially ordered set. Both of these results follows immediately from Theorem~\ref{AF-inequality} for particular convex bodies. In these sections, we also discuss how the results from \cite{shenfeld2022extremals} can be used to find combinatorial characterizations of the equality cases. 
@@ -1577,7 +1574,9 @@ We now give our characterization of the equality case $N_k^2 = N_{k-1} N_{k+1}$.
 	\end{enumerate}
 \end{thm}
 
-Theorem~\ref{kahn-saks-thm-2} resolves Conjecture 8.7 in \cite{chan2022extensions}. In the paper, Swee Hong Chan, Igor Pak, and Greta Panova prove the implication $(b) \implies (a)$. Since this result will be central for the full characterization, we record the result in Proposition~\ref{almost-theorem}. 
+\begin{remark}
+	Theorem~\ref{kahn-saks-thm-2} resolves Conjecture 8.7 in \cite{chan2022extensions}. In the paper, Swee Hong Chan, Igor Pak, and Greta Panova prove the implication $(b) \implies (a)$. Since this result will be central for the full characterization, we record the result in Proposition~\ref{almost-theorem}. In Theorem~\ref{kahn-saks-thm-3}, it turns out property (iii) will follow from (i). However, we still put the condition in the theorem as it gives a better idea of the structure of the poset. 
+\end{remark}
 
 \begin{prop} [Theorem 8.9, Proposition 8.8 in \cite{chan2022extensions}]\label{almost-theorem}
 	If $(x, y)$ satisfies the $k$-midway property or the dual $k$-midway property, then $N_{k-1} = N_k = N_{k+1}$. 
@@ -1795,6 +1794,7 @@ To finish off this section on transition vectors, we give conditions for when a 
 	This suffices for the proof. 
 \end{proof}
 
+
 \subsection{More Vectors}
 
 Unlike in the Stanley case, we will need more than just the minimal, maximal, and transition vectors. We will only need two more types of vectors which will help us extract the inequalities in the midway and dual-midway properties. 
@@ -1858,19 +1858,30 @@ Using Theorem~\ref{kahn-saks-main-workhorse-theorem} and the table of support va
 	\end{enumerate}
 \end{prop}
 
-From Corollary~\ref{cor-coordinates-in-the-regions}, we already know some of the values of $v_i$ in Proposition~\ref{prop-conditions-for-special-vectors-on-a-v}. This immediately gives Corollary~\ref{cor-more-explicit-conditions-for-covering-relations}. 
+In Proposition~\ref{prop-conditions-for-special-vectors-on-a-v}, the result was only stated for poset elements satisfying certain minimal/maximal relations. But, the result is still true for all poset elements in the corresponding region. This immediately gives Corollary~\ref{cor-key-result}. 
 
-\begin{cor} \label{cor-more-explicit-conditions-for-covering-relations}
+\begin{cor} \label{cor-key-result}
 	Let $z_i \in P \backslash \{x, y\}$ be an element of our poset. Let $v_{xy} := \frac{1}{2} (v_x + v_y)$. Then, the following statements are true. 
 	\begin{enumerate}[label = (\alph*)]
-		\item Suppose that $z_i \in \MID_x^{\text{min}}$. Then $a \neq \frac{2}{3} (1 - v_{xy}) \implies |P_{<z_i}| > n-k-|P_{>y}|$. 
-		\item Suppose that $z_i \in \MID_y^{\text{max}}$ and $z_i \lessdot y$. Then $a \neq 2v_{xy} \implies |P_{>z_i}| > n-k-|P_{< x}|$. 
-		\item Suppose that $z_i \in \END_x$ and $z_i \lessdot x$. Then $a \neq -2v_{xy} \implies |P_{z_i < \cdot < y}| > k$. 
-		\item Suppose that $z_i \in \END_y$ and $z_i \gtrdot y$. Then $a \neq 2 (1 - v_{xy}) \implies |P_{x < \cdot < z_i}| > k$. 
+		\item If $z_i \in \MID$, then $v_i \neq v_{xy} - a/2 \implies |P_{> z_i}| > n-k - |P_{< x}|$. 
+		\item If $z_i \in \MID$, then $v_i \neq v_{xy} + a/2 \implies |P_{< z_i}| > n-k-|P_{>y}|$. 
+		\item If $z_i \in \MID_x$, then $v_i \neq v_{xy} + a/2 \implies |P_{<z_i}| > n-k-|P_{>y}|$.
+		\item If $z_i \in \MID_y$, then $v_i \neq v_{xy} - a/2 \implies |P_{> z_i}| > n-k - |P_{< x}|$. 
+		\item If $z_i \in \END_x$ and $z_i \lessdot x$, then $v_i \neq v_{xy} + a/2 \implies |P_{z_i < \ldots < y}| > k$. 
+		\item If $z_i \in \END_y$ and $z_i \gtrdot y$, then $v_i \neq v_{xy} - a/2 \implies |P_{x < \cdot < z_i}| > k$.  
 	\end{enumerate}
 \end{cor}
 
-In Corollary~\ref{cor-more-explicit-conditions-for-covering-relations}, the result was only stated for poset elements satisfying certain minimal/maximal relations. But, the result is still true for all poset elements in the corresponding region. We prove this fact in Corollary~\ref{cor-more-explicit-conditions}
+\begin{proof}
+	We only prove (a) since the rest are similar. Let $z_i \in \MID$. Then there is some $z_0 \in \MID$ so that $z_i \leq z_0 \lessdot y$. Then, since $v_{z_i} = v_{z_0}$, we have that 
+	\[
+		|P_{>z_i}| \geq |P_{>z_0}| > n- k - |P_{< x}|.
+	\]
+	This suffices for the proof. 
+\end{proof}
+
+
+From Corollary~\ref{cor-coordinates-in-the-regions}, we already know some of the values of $v_i$ in Proposition~\ref{prop-conditions-for-special-vectors-on-a-v}. This immediately implies Corollary~\ref{cor-more-explicit-conditions}. 
 
 \begin{cor} \label{cor-more-explicit-conditions}
 	Let $z_i \in P \backslash \{x, y\}$ be an element of our poset. Let $v_{xy} := \frac{1}{2} (v_x + v_y)$. Then, the following statements are true. 
@@ -1881,15 +1892,6 @@ In Corollary~\ref{cor-more-explicit-conditions-for-covering-relations}, the resu
 		\item Suppose that $z_i \in \END_y$. Then $a \neq 2 (1 - v_{xy}) \implies |P_{x < \cdot < z_i}| > k$. 
 	\end{enumerate}
 \end{cor}
-
-\begin{proof}
-	We only prove (a) since the rest are similar. Suppose that $z_i \in \MID_x$. Then we can pick $z' \in \MID_x^{\text{min}}$ so that $z' \leq z_i$. Then, we have that 
-	\[
-		|P_{<z_i}| \geq |P_{<z'}| > n-k - |P_{> y}|.
-	\]
-	This suffices for the proof. 
-\end{proof}
-
 \begin{lem} \label{lem-when-a-not-half-then-either-mid-or-dual-mid}
 	If $a \neq 1/2$, then either dual-midway holds for $\END_y$ and $\MID_y$ or midway holds for $\END_x$ and $\MID_x$.
 \end{lem}
@@ -1928,7 +1930,7 @@ We now introduce some results that will give us a better understand of the regio
 \end{lem}
 
 \begin{proof}
-	We only prove (a) as (b) is symmetric. Since $|P_{< x}| + |P_{> y}| \leq n-k$, we have that $v_z = v_{xy} + a/2$ from Proposition~\ref{prop-conditions-for-special-vectors-on-a-v}. Suppose for the sake of contradictoin that $|P_{>y}| + |P_{< w}| \leq n-k$ as well. Then Propositoin~\ref{prop-conditions-for-special-vectors-on-a-v} would imply that $v_w = v_{xy} - a/2$. But, we know from (c) of Corollary~\ref{cor-coordinates-in-the-regions} that $v_z = v_w$. Hence, we would have $a = 0$, which contradicts the hypothesis that $N_k > 0$. 
+	We only prove (a) as (b) is symmetric. Since $|P_{< x}| + |P_{> y}| \leq n-k$, we have that $v_z = v_{xy} + a/2$ from Proposition~\ref{prop-conditions-for-special-vectors-on-a-v}. Suppose for the sake of contradiction that $|P_{>y}| + |P_{< w}| \leq n-k$ as well. Then Proposition~\ref{prop-conditions-for-special-vectors-on-a-v} would imply that $v_w = v_{xy} - a/2$. But, we know from (c) of Corollary~\ref{cor-coordinates-in-the-regions} that $v_z = v_w$. Hence, we would have $a = 0$, which contradicts the hypothesis that $N_k > 0$. 
 \end{proof}
 
 \begin{prop} \label{prop-connective-alan-kahn-saks}
@@ -1948,12 +1950,16 @@ We now introduce some results that will give us a better understand of the regio
  	where the last inequality follows from Theorem~\ref{kahn-saks-main-workhorse-theorem}. This is a contradiction and suffices for the proof of the proposition. 
 \end{proof}
 
-\begin{lem}
-	If $a \neq 1/2$, then the hypothesis in Theorem~\ref{kahn-saks-main-workhorse-theorem} implies that $(x, y)$ satisfies $k$-midway or dual $k$-midway. 
+\begin{lem} \label{lem-midway-then-mx-false-and-other-version}
+	Let $z_i \in \MID$ be an element in the poset. If $z_i$ violates midway then $M_x$ is false. If $z_i$ violates dual midway, then $M_y$ is false. In other words, we have the following implications:
+	\begin{align*}
+		|P_{> y}| + |P_{< z_i}| \leq n-k & \implies a = \frac{2}{3} (1 - v_{xy}) \\
+		|P_{< x}| + |P_{> z_i}| \leq n-k & \implies a = 2v_{xy}. 
+	\end{align*}
 \end{lem}
 
 \begin{proof}
-	From Lemma~\ref{lem-when-a-not-half-then-either-mid-or-dual-mid}, we know that either $\END_x$ and $\MID_x$ both satisfy midway or $\END_y$ and $\MID_y$ satisfy dual-midway. Suppose that $z_j \in \MID$ violates midway. That is, we have that $|_{> y}| + |P_{<z_j}| \leq n-k$. Then, from Proposition~\ref{prop-connective-alan-kahn-saks}, we know that there is an element $z'$ satisfying $x < z_j \leq z' \lessdot y$ so that there exists $z'' \in \MID_x$ where $z' \lessdot z''$. From Proposition~\ref{lem-simultaneously-violate-mid-and-dual-mid}, we have the inequality $|P_{< x}| + |P_{>z'}| \geq n-k+1$. Let 
+	From Lemma~\ref{lem-when-a-not-half-then-either-mid-or-dual-mid}, we know that either $\END_x$ and $\MID_x$ both satisfy midway or $\END_y$ and $\MID_y$ satisfy dual-midway. Suppose that $z_j \in \MID$ violates midway. That is, we have that $|P_{> y}| + |P_{<z_j}| \leq n-k$. Then, from Proposition~\ref{prop-connective-alan-kahn-saks}, we know that there is an element $z'$ satisfying $x < z_j \leq z' \lessdot y$ so that there exists $z'' \in \MID_x$ where $z' \lessdot z''$. From Proposition~\ref{lem-simultaneously-violate-mid-and-dual-mid}, we have the inequality $|P_{< x}| + |P_{>z'}| \geq n-k+1$. Let 
 	\[
 		S = P_{x < \cdot < z''} \backslash \MID = \{z : x < z < z'', z \notin \MID\}.
 	\]
@@ -1969,7 +1975,15 @@ We now introduce some results that will give us a better understand of the regio
 	\[
 		|P_{< z_0}| + |P_{> y}| \leq |P_{< z_j}| + |P_{> y}| \leq n-k.
 	\]
-	This implies that $v_{z_0} = v_{xy} + a/2$ from Proposition~\ref{prop-conditions-for-special-vectors-on-a-v}. But then this implies that $1 - a = v_{xy} + a/2$ or $a = \frac{2}{3} (1 - v_{xy})$. This means that $M_x$ is false. Similarly, if $z_j$ violates dual-midway, then we would know that $a = 2v_{xy}$ or $M_y$ is false. From Lemma~\ref{lem-simultaneously-violate-mid-and-dual-mid}, we know that every element either satisfies dual-midway or satisfies midway (or possibly both). Suppose that there is an element which violates midway and another element which violates dual-midway. Then we must have $M_x$ and $M_y$ are both false, which cannot happens since $a \neq 1/2$. Thus every element in $\MID$ either all satisfies midway or all satisfies dual-midway or all satisfies both. If it all satisfies both, then we are done. If there is at least one element in $\MID$ which violates midway, then that means that $M_x$ is false and $M_y$ and $E_y$. This means that $\MID$, and $\MID_y$ and $\END_y$ satisfies dual-midway, i.e. $P$ satisfies dual $k$-midway. By similar reasoning, if there is at least one element which violates dual-midway, then $P$ satisfies $k$-midway. This suffices for the proof. 
+	This implies that $v_{z_0} = v_{xy} + a/2$ from Proposition~\ref{prop-conditions-for-special-vectors-on-a-v}. But then this implies that $1 - a = v_{xy} + a/2$ or $a = \frac{2}{3} (1 - v_{xy})$. This means that $M_x$ is false. Similarly, if $z_j$ violates dual-midway, then we would know that $a = 2v_{xy}$ or $M_y$ is false.
+\end{proof}
+
+\begin{lem}
+	If $a \neq 1/2$, then the hypothesis in Theorem~\ref{kahn-saks-main-workhorse-theorem} implies that $(x, y)$ satisfies $k$-midway or dual $k$-midway. 
+\end{lem}
+
+\begin{proof}
+	From Lemma~\ref{lem-simultaneously-violate-mid-and-dual-mid}, we know that every element either satisfies dual-midway or satisfies midway (or possibly both). Suppose that there is an element which violates midway and another element which violates dual-midway. Then we must have $M_x$ and $M_y$ are both false, which cannot happen since $a \neq 1/2$. Thus every element in $\MID$ either all satisfies midway or all satisfies dual-midway or all satisfies both. If it all satisfies both, then we are done. If there is at least one element in $\MID$ which violates midway, then all elements in MID satisfies dual-midway. Moreover, it also means that $M_x$ is false from Lemma~\ref{lem-midway-then-mx-false-and-other-version} and $M_y, E_y$ are true. This means that $\MID$, and $\MID_y$ and $\END_y$ satisfies dual-midway, i.e. $P$ satisfies dual $k$-midway. By similar reasoning, if there is at least one element which violates dual-midway, then $P$ satisfies $k$-midway. This suffices for the proof. 
 \end{proof}
 
 We can now prove Theorem~\ref{kahn-saks-thm-1} and Theorem~\ref{kahn-saks-thm-2}. 
@@ -1982,9 +1996,36 @@ We can now prove Theorem~\ref{kahn-saks-thm-1} and Theorem~\ref{kahn-saks-thm-2}
 	If $a \neq 1/2$, then we have that $P$ satisfies $k$-midway or dual $k$-midway. But this implies that $N_k = N_{k-1} = N_{k+1}$, or $a = 1$. Hence the only two choices of $a$ are $a = 1, 1/2$. This corresponds to $N_{k+1} = N_k = N_{k-1}$ and $N_{k+1} = 2N_k = 4 N_{k-1}$. 
 \end{proof}
 
+The only case that is remaining is the case $N_{k+1} = 2N_k = 4 N_{k-1}$. To show that this case actually occurs, we give an example in Figure~\ref{fig:example-of-a-is-two}. In this poset, we can compute explicitly compute $N_1 = 1, N_2 = 2$ and $N_3 = 4$. This satisfies $N_3 = 2N_2 = 4N_1$. 
 
+\begin{figure}[ht] 
+	\begin{center}
+		\includegraphics[scale = 0.8]{image6.png}
+		\caption{Example with $N_{i+1} = 2N_i = 4 N_{i-1}$}
+		\label{fig:example-of-a-is-two}
+	\end{center}
+\end{figure}
 
-
+\begin{proof}[Proof of Theorem~\ref{kahn-saks-thm-3}.]
+	We first prove that if $N_{k+1} = 2N_k = 4 N_{k-1}$ and $N_k > 0$, then conditions (i)-(iv) are true in Theorem~\ref{kahn-saks-thm-3}. Since $a = 1/2$, we either have that both $M_x$ and $M_y$ are true or both $E_x$ and $E_y$ are true. Suppose that both $M_x$ and $M_y$ are true. Then every element in $\MID$ does not violate midway or dual midway. Moreover, at least one of $E_x$ and $E_y$ must be true as well. This proves that $P$ satisfies midway and dual midway. But this would imply that $a = 1$, which contradicts $a = 1/2$. Hence, it must be the case that $E_x$ and $E_y$ are true. In other words, $\END_x$ and $\END_y$ both satisfy the midway and dual-midway property, respectively.  This is exactly the property that (i) describes. The fact that $\MID$ is empty follows from the fact that $\END_x$ satisfies midway and $\END_y$ satisfies dual midway. Consider an arbitrary $z \in \MID$. Then, we can pick $z_1, z_2 \in P$ so that $x \lessdot z_1 \leq z \leq z_2 \lessdot y$. Since $v_{z_1} = v_{z_2} = v_z$, if both of the inequalities
+	\begin{align*}
+		|P_{> y}| + |P_{< z_1}| & \leq n-k \\
+		|P_{< x}| + |P_{> z_2}| & \leq n-k 
+	\end{align*}
+	are true, then Corollary~\ref{cor-key-result} implies that $a = 0$, which cannot happen. This means that one of the inequalities must be wrong. Without loss of generality, suppose that $|P_{> y}| + |P_{<z_1}| > n-k$. Note that $\MID_x \sqcup \MID \sqcup \{y\} \sqcup P_{< z_1} \sqcup P_{> y} \subseteq P$ is a disjoint union of sets. Thus, we have that 
+	\[
+		|\MID_x| + |\MID| + |P_{< z_1}| + |P_{> y}| + 1 \leq n \implies |\MID_x| + |\MID| \leq k-2.
+	\]
+	Let $z'' \gtrdot y$. This element exists because $P$ has a $1$ element. Then, we have that 
+	\[
+		|P_{x < \cdot < z''}| \leq |\MID_x| + |\MID| \leq k-2.  
+	\]
+	But this is a contradiction since $|P_{x < \cdot < z''}| > k$ from the fact that $\END_y$ satisfies dual-midway. This proves (iii). To prove (ii), suppose that $z \in P$ is incomparable to $x$ and $y$. Then, we can build a chain from $z$ to a maximal element by picking only elements incomparable to $x$ and $y$ until we are forced to pick elements in $\MID_x$ or $\END_y$. We can do the same to reach a minimal element. It is not hard to prove that all of these vectors are transition vectors. Hence, we get that $0 = 1 - a$. But this cannot be true since $a = 1/2$. This proves (ii). To prove (iv), suppose that $z \in \MID_y$ and $z' \in \MID_x$ so that $z < z'$. Then, we can find $z_1 \in \MID_y$ and $z_2 \in \MID_x$ such that $z \leq z_1 \lessdot z_2 \leq z'$ since $\MID = \emptyset$. We analyze the conditions needed for $e_{z_1, z_2}$ to be a transition vector. Note that 
+	\begin{align*}
+		\aff F_{K_0}(e_{z_1, z_2}) & = \bigoplus_{\omega \notin P_{z_1 \leq \cdot \leq y} \cup P_{x \leq \cdot \leq z_2}} \RR[e_\omega] \oplus \RR \left [ \sum_{\omega \in P_{z_1 \leq \cdot \leq y} \cup P_{x \leq \cdot \leq z_2}} e_\omega \right ] \\
+		\aff F_{K_1} (e_{z_1, z_2}) & = \sum_{\omega \geq y} e_\omega + 
+	\end{align*} 
+\end{proof}
 \section{Stanley's Matroid Inequality} 
 
 Stanley's poset inequality was proven by Richard Stanley in \cite{STANLEY}. We have already written about this inequality extensively in Section~\ref{stanley-poset-inequality}. In the same paper, Stanley proves an inequality associated to the bases of a matroid. Let $M = (E, \mcB)$ be a matroid of rank $r$ with ground set $E$ and bases $\mcB$. For any subsets $T_1, \ldots, T_r \subseteq E$, we can let $B(T_1, \ldots, T_r)$ denote the number of sequences $(y_1, \ldots, y_r)$ where $y_i \in T_i$ for $i \in [r]$ such that ${y_1, \ldots, y_r} \in \mathcal{B}$. That is, we have that 
