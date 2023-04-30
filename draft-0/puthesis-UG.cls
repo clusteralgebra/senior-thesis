@@ -20,6 +20,8 @@
 \ProvidesClass{puthesis-UG}
          [2011/02/16 v1.4.2 Princeton University Thesis class]
 \RequirePackage{setspace}
+
+
 % the next two lines are needed to make packages using xcolor happy
 \RequirePackage{xcolor}
 \def\current@color{ Black}
@@ -46,6 +48,7 @@
 \makelot\clearpage\makelof\clearpage\makelos
 \clearpage\mainmatter}
 \def\@submitted{\@submittedmonth~\@submittedyear}
+
 \def\@dept{Mathematics}
 \def\@deptpref{Department of}
 \def\departmentprefix#1{\gdef\@deptpref{#1}}
@@ -65,9 +68,9 @@
   \end{center}
   \vspace{.6in}
   \begin{center}
-		\sc a senior thesis submitted in partial fulfillment\\
-		of the requirements for the degree of\\
-		 Bachelor of Arts in Mathematics at\\ Princeton University\\
+    \sc a senior thesis submitted in partial fulfillment\\
+    of the requirements for the degree of\\
+     Bachelor of Arts in Mathematics at\\ Princeton University\\
   \end{center}
   \vspace{.3in}
   \begin{center}
@@ -125,9 +128,8 @@
 }
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions
-%% Not necessary to specify the point size - we inherit it from above
-%% \LoadClass[12pt]{report}
 \LoadClass{report}
+\RequirePackage[colorlinks]{hyperref}
 \setlength{\oddsidemargin}{.5in}   %{.4375in}
 \setlength{\evensidemargin}{.5in} %{.4375in}
 \setlength{\topmargin}{-.5in}  %{-.5625in}

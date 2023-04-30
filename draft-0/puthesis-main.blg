@@ -6,46 +6,47 @@ The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 4 items.
 Database file #1: ref.bib
 Warning--empty publisher in chung-spectral-graph-theory
+Warning--empty booktitle in Huh2016TropicalGO
 Warning--there's a number but no volume in Zhao2015-kf
-You've used 45 entries,
+You've used 60 entries,
             2118 wiz_defined-function locations,
-            751 strings with 9771 characters,
-and the built_in function-call counts, 12416 in all, are:
-= -- 1191
-> -- 536
-< -- 1
-+ -- 220
-- -- 168
-* -- 778
-:= -- 2108
-add.period$ -- 130
-call.type$ -- 45
-change.case$ -- 208
+            819 strings with 11345 characters,
+and the built_in function-call counts, 15929 in all, are:
+= -- 1527
+> -- 663
+< -- 0
++ -- 275
+- -- 206
+* -- 966
+:= -- 2707
+add.period$ -- 170
+call.type$ -- 60
+change.case$ -- 271
 chr.to.int$ -- 0
-cite$ -- 47
-duplicate$ -- 471
-empty$ -- 1080
-format.name$ -- 168
-if$ -- 2597
+cite$ -- 63
+duplicate$ -- 606
+empty$ -- 1415
+format.name$ -- 206
+if$ -- 3332
 int.to.chr$ -- 0
-int.to.str$ -- 45
-missing$ -- 48
-newline$ -- 216
-num.names$ -- 92
-pop$ -- 284
+int.to.str$ -- 60
+missing$ -- 60
+newline$ -- 285
+num.names$ -- 120
+pop$ -- 375
 preamble$ -- 1
-purify$ -- 173
+purify$ -- 223
 quote$ -- 0
-skip$ -- 332
+skip$ -- 436
 stack$ -- 0
-substring$ -- 639
-swap$ -- 52
-text.length$ -- 1
+substring$ -- 807
+swap$ -- 60
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 150
-warning$ -- 2
-while$ -- 121
-width$ -- 47
-write$ -- 465
-(There were 2 warnings)
+type$ -- 204
+warning$ -- 3
+while$ -- 156
+width$ -- 62
+write$ -- 610
+(There were 3 warnings)

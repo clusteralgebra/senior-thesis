@@ -6,7 +6,7 @@
 \usepackage{dsfont}
 \usepackage{mathrsfs}
 
-
+\hypersetup{allcolors = blue}
 % Theorem Environments ...
 % Includes
 % 1. Theorem
@@ -15,20 +15,22 @@
 % 4. Lemma
 % 5. Fact
 % 6. Corollary
-\newtheorem{thm}{Theorem}[section]
+\newtheorem{thm}{Theorem}[chapter]
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{lem}{Lemma}[section]
 \newtheorem{conj}{Conjecture}[section]
 \newtheorem{cor}{Corollary}[section]
 \newtheorem{fact}{Fact}[section]
-\newtheorem{question}{Question}[section]
+\newtheorem{claim}{Claim}[section]
+
 
 \theoremstyle{remark}
-\newtheorem*{remark}{Remark}
+\newtheorem{remark}{Remark}
 
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
 \newtheorem{example}{Example}[section]
+\newtheorem{question}{Question}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
 \DeclareMathOperator{\rank}{rank}
@@ -36,6 +38,13 @@
 \DeclareMathOperator{\Hess}{Hess}
 \newcommand{\HRR}{\mathsf{HRR}}
 % Math Calligraphy
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\CH}{CH}
+
+\DeclareMathOperator{\A}{A}
+\DeclareMathOperator{\opH}{H}
+\DeclareMathOperator{\opS}{S}
+
 \newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\mcA}{\mathcal{A}}
 \newcommand{\mcB}{\mathcal{B}}
@@ -92,6 +101,9 @@
 \newcommand{\msX}{\mathsf{X}}
 \newcommand{\msY}{\mathsf{Y}}
 \newcommand{\msZ}{\mathsf{Z}}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
 
 % Convex Geometry
 \DeclareMathOperator{\relint}{relint}

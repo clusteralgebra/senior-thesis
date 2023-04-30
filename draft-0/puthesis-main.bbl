@@ -16,16 +16,36 @@ Nima Anari, Kuikui Liu, Shayan~Oveis Gharan, and Cynthia Vinzant.
 \newblock Log-concave polynomials iii: Mason's ultra-log-concavity conjecture
   for independent sets of matroids, 2018.
 
+\bibitem{Apostol2013-an}
+Tom~M Apostol.
+\newblock {\em Introduction to analytic number theory}.
+\newblock Undergraduate Texts in Mathematics. Springer, New York, NY, 1976
+  edition, June 2013.
+
+\bibitem{ardila2022lagrangian}
+Federico Ardila, Graham Denham, and June Huh.
+\newblock Lagrangian geometry of matroids, 2022.
+
+\bibitem{krull-schmidt}
+Michael~F. Atiyah.
+\newblock On the {Krull-Schmidt} theorem with application to sheaves.
+\newblock {\em Bulletin de la Soci\'et\'e Math\'ematique de France},
+  84:307--317, 1956.
+
+\bibitem{axler}
+Sheldon~Jay Axler.
+\newblock {\em Linear Algebra Done Right}.
+\newblock Undergraduate Texts in Mathematics. Springer, New York, 1997.
+
+\bibitem{baker_2022}
+Matt Baker.
+\newblock Lorentzian polynomials i: Theory, Aug 2022.
+
 \bibitem{bapat_raghavan_1997}
 R.~B. Bapat and T.~E.~S. Raghavan.
 \newblock {\em Nonnegative Matrices and Applications}.
 \newblock Encyclopedia of Mathematics and its Applications. Cambridge
   University Press, 1997.
-
-\bibitem{hyperbolic-polynomials}
-Heinz~H. Bauschke, Osman Güler, Adrian~S. Lewis, and Hristo~S. Sendov.
-\newblock Hyperbolic polynomials and convex analysis.
-\newblock {\em Canadian Journal of Mathematics}, 53(3):470–488, 2001.
 
 \bibitem{Bol}
 G.~Bol.
@@ -40,6 +60,15 @@ Tom Braden, June Huh, Jacob~P. Matherne, Nicholas Proudfoot, and Botong Wang.
 \bibitem{lorentzian-polynomials}
 Petter Brändén and June Huh.
 \newblock Lorentzian polynomials, 2019.
+
+\bibitem{logconcave-poset-inequalities}
+Swee~Hong Chan and Igor Pak.
+\newblock Log-concave poset inequalities, 2021.
+
+\bibitem{combinatorial-atlas}
+Swee~Hong Chan and Igor Pak.
+\newblock Introduction to the combinatorial atlas.
+\newblock {\em Expositiones Mathematicae}, 40(4):1014--1048, dec 2022.
 
 \bibitem{chan2022extensions}
 Swee~Hong Chan, Igor Pak, and Greta Panova.
@@ -67,10 +96,25 @@ Jack Edmonds.
 \newblock Matroids and the greedy algorithm.
 \newblock {\em Mathematical Programming}, 1(1):127--136, December 1971.
 
+\bibitem{eur2022stellahedral}
+Christopher Eur, June Huh, and Matt Larson.
+\newblock Stellahedral geometry of matroids, 2022.
+
+\bibitem{Feichtner_2004}
+Eva~Maria Feichtner and Sergey Yuzvinsky.
+\newblock Chow rings of toric varieties defined by atomic lattices.
+\newblock {\em Inventiones Mathematicae}, 155(3):515--536, mar 2004.
+
 \bibitem{fisk}
 Steve Fisk.
 \newblock A very short proof of cauchy's interlace theorem for eigenvalues of
   hermitian matrices, 2005.
+
+\bibitem{fujishige}
+Satoru Fujishige.
+\newblock A system of linear inequalities with a submodular function on
+  {0,±1}; vectors.
+\newblock {\em Linear Algebra and its Applications}, 63:253--266, 1984.
 
 \bibitem{schubert-cell}
 I.M Gelfand, R.M Goresky, R.D MacPherson, and V.V Serganova.
@@ -85,13 +129,6 @@ Israel~M. Gelfand and Robert~D. MacPherson.
 Gene~H. Golub and Charles~F. Van~Loan.
 \newblock {\em Matrix Computations}.
 \newblock The Johns Hopkins University Press, third edition, 1996.
-
-\bibitem{strongly-log-concave}
-Leonid Gurvits.
-\newblock On multivariate newton-like inequalities.
-\newblock In Ilias~S. Kotsireas and Eugene~V. Zima, editors, {\em Advances in
-  Combinatorial Mathematics}, pages 61--78, Berlin, Heidelberg, 2010. Springer
-  Berlin Heidelberg.
 
 \bibitem{hardy1952inequalities}
 G.H. Hardy, J.E. Littlewood, and G.~P{\'o}lya.
@@ -111,6 +148,11 @@ Daniel Hug and Wolfgang Weil.
 June Huh.
 \newblock Milnor numbers of projective hypersurfaces and the chromatic
   polynomial of graphs, 2012.
+
+\bibitem{Huh2016TropicalGO}
+June Huh.
+\newblock Tropical geometry of matroids.
+\newblock 2016.
 
 \bibitem{correlation-bounds}
 June Huh, Benjamin Schröter, and Botong Wang.
@@ -144,11 +186,21 @@ Toshiaki Maeno and Yasuhide Numata.
   associated to matroids}.
 \newblock {\em Journal of Commutative Algebra}, 8(4):549 -- 570, 2016.
 
+\bibitem{maeno2009lefschetz}
+Toshiaki Maeno and Junzo Watanabe.
+\newblock Lefschetz elements of artinian gorenstein algebras and hessians of
+  homogeneous polynomials, 2009.
+
 \bibitem{MNY}
 Satoshi Murai, Takahiro Nagaoka, and Akiko Yazawa.
 \newblock Strictness of the log-concavity of generating polynomials of
   matroids.
 \newblock {\em Journal of Combinatorial Theory, Series A}, 181:105351, 2021.
+
+\bibitem{discete-convex-analysis}
+Kazuo Murota.
+\newblock {\em Discrete Convex Analysis}.
+\newblock Society for Industrial and Applied Mathematics, 2003.
 
 \bibitem{10.5555/1197093}
 James~G. Oxley.
@@ -169,6 +221,18 @@ Claudio Procesi.
 Qazi~Ibadur Rahman and Gerhard Schmeisser.
 \newblock {\em Analytic Theory of Polynomials}.
 \newblock Oxford University Press, Oxford, 2005.
+
+\bibitem{Read-conjecture}
+Ronald~C. Read.
+\newblock An introduction to chromatic polynomials.
+\newblock {\em Journal of Combinatorial Theory}, 4(1):52--71, 1968.
+
+\bibitem{Rota1964}
+Gian-Carlo Rota.
+\newblock On the foundations of combinatorial theory i. theory of m\"obius
+  functions.
+\newblock {\em Z. Wahrscheinlichkeitstheorie verw Gebiete}, 2(4):340--368,
+  1964.
 
 \bibitem{rudin}
 Walter Rudin.
@@ -215,11 +279,21 @@ Richard~P Stanley.
   inequalities.
 \newblock {\em Journal of Combinatorial Theory, Series A}, 31(1):56--65, 1981.
 
+\bibitem{Stanley1989LogConcaveAU}
+Richard~P. Stanley.
+\newblock Log‐concave and unimodal sequences in algebra, combinatorics, and
+  geometry.
+\newblock {\em Annals of the New York Academy of Sciences}, 576, 1989.
+
 \bibitem{Stanley-alg-combo}
 Richard~P Stanley.
 \newblock {\em Algebraic combinatorics}.
 \newblock Undergraduate texts in mathematics. Springer, New York, NY, 2013
   edition, June 2013.
+
+\bibitem{wagner2009multivariate}
+David~G. Wagner.
+\newblock Multivariate stable polynomials: theory and applications, 2009.
 
 \bibitem{welsh}
 D.J.A. Welsh.
