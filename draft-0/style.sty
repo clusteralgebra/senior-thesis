@@ -15,21 +15,21 @@
 % 4. Lemma
 % 5. Fact
 % 6. Corollary
-\newtheorem{thm}{Theorem}[chapter]
-\newtheorem{prop}{Proposition}[section]
-\newtheorem{lem}{Lemma}[section]
-\newtheorem{conj}{Conjecture}[section]
-\newtheorem{cor}{Corollary}[section]
-\newtheorem{fact}{Fact}[section]
-\newtheorem{claim}{Claim}[section]
 
 
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
 
 \theoremstyle{definition}
-\newtheorem{defn}{Definition}[section]
-\newtheorem{example}{Example}[section]
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
 \newtheorem{question}{Question}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\QQ}{\mathbb{Q}}
@@ -44,6 +44,8 @@
 \DeclareMathOperator{\A}{A}
 \DeclareMathOperator{\opH}{H}
 \DeclareMathOperator{\opS}{S}
+\DeclareMathOperator{\opI}{I}
+\DeclareMathOperator{\opJ}{J}
 
 \newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\mcA}{\mathcal{A}}

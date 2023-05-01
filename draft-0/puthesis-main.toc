@@ -6,13 +6,13 @@
 \contentsline {subsection}{\numberline {1.1.1}Morphisms of Posets and Linear Extensions}{5}{subsection.1.1.1}%
 \contentsline {subsection}{\numberline {1.1.2}Lattices}{5}{subsection.1.1.2}%
 \contentsline {section}{\numberline {1.2}Graph Theory}{6}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Spectral Graph Theory}{6}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.1}Spectral Graph Theory}{7}{subsection.1.2.1}%
 \contentsline {section}{\numberline {1.3}Matroids}{8}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}Independent Sets}{8}{subsection.1.3.1}%
 \contentsline {subsection}{\numberline {1.3.2}Bases}{10}{subsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.3.3}Rank Functions}{11}{subsection.1.3.3}%
-\contentsline {subsection}{\numberline {1.3.4}Closure and Flats}{11}{subsection.1.3.4}%
-\contentsline {subsection}{\numberline {1.3.5}Loops, Parallelism, and Simplification}{12}{subsection.1.3.5}%
+\contentsline {subsection}{\numberline {1.3.4}Closure and Flats}{12}{subsection.1.3.4}%
+\contentsline {subsection}{\numberline {1.3.5}Loops, Parallelism, and Simplification}{13}{subsection.1.3.5}%
 \contentsline {subsection}{\numberline {1.3.6}Restriction, Deletion, and Contraction}{14}{subsection.1.3.6}%
 \contentsline {subsection}{\numberline {1.3.7}Matroid Sum and Truncation}{15}{subsection.1.3.7}%
 \contentsline {subsection}{\numberline {1.3.8}Regular Matroids}{16}{subsection.1.3.8}%
@@ -22,44 +22,45 @@
 \contentsline {subsection}{\numberline {1.4.3}Positivity}{21}{subsection.1.4.3}%
 \contentsline {section}{\numberline {1.5}Convex Bodies}{22}{section.1.5}%
 \contentsline {subsection}{\numberline {1.5.1}Support and Facial Structure}{23}{subsection.1.5.1}%
-\contentsline {subsection}{\numberline {1.5.2}Polytopes and SSI Polytopes }{25}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.2}Polytopes and SSI Polytopes}{24}{subsection.1.5.2}%
 \contentsline {subsection}{\numberline {1.5.3}Hausdorff Metric on Convex Bodies}{28}{subsection.1.5.3}%
 \contentsline {subsection}{\numberline {1.5.4}Mixed Volumes}{29}{subsection.1.5.4}%
-\contentsline {subsection}{\numberline {1.5.5}Positivity and Normal Directions}{35}{subsection.1.5.5}%
-\contentsline {chapter}{\numberline {2}Mechanisms for Log-concavity}{37}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Log-concavity and Ultra-log-concavity}{37}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Cauchy's Interlacing Theorem}{39}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Alexandrov's Inequality for Mixed Discriminants}{40}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Alexandrov-Fenchel Inequality}{44}{section.2.4}%
-\contentsline {subsection}{\numberline {2.4.1}Equality Cases}{49}{subsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.4.2}Equality Cases for Polytopes}{52}{subsection.2.4.2}%
-\contentsline {section}{\numberline {2.5}Basic Theory of Lorentzian polynomials}{53}{section.2.5}%
-\contentsline {chapter}{\numberline {3}Log-concavity Results for Posets and Matroids}{58}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Stanley's Poset Inequality}{58}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Equality Case for the Simple Stanley Poset Inequality}{60}{subsection.3.1.1}%
-\contentsline {section}{\numberline {3.2}Extremals of the Kahn-Saks Inequality}{63}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Simplifications and Special Regions}{64}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Combinatorial characterization of the extremals}{65}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Transition Vectors}{68}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}More Vectors}{72}{subsection.3.2.4}%
-\contentsline {subsection}{\numberline {3.2.5}Understanding MID}{75}{subsection.3.2.5}%
-\contentsline {section}{\numberline {3.3}Stanley's Matroid Inequality}{81}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Mixed Volume Perspective of Basis Counting Number}{82}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Mixed Discriminant Perspective of the Basis Counting Number}{83}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Equality cases of Stanley's Matroid Inequality for Graphic Matroids}{83}{subsection.3.3.3}%
-\contentsline {subsection}{\numberline {3.3.4}Equality cases of Stanley's Matroid Inequality for Regular Matroids}{86}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Lorentzian Perspective of the Basis Counting Number}{90}{subsection.3.3.5}%
-\contentsline {chapter}{\numberline {4}Hodge Theory for Matroids}{94}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Cohomology Rings for Matroids}{95}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Graded M\"obius Algebra}{95}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Chow Ring of a Matroid}{97}{subsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.1.3}Augmented Chow Ring of a Matroid}{98}{subsection.4.1.3}%
-\contentsline {section}{\numberline {4.2}Gorenstein Ring associated to a polynomial}{99}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Local Hodge-Riemann Relations}{103}{section.4.3}%
-\contentsline {section}{\numberline {4.4}The Gorenstein Ring associated to the Basis Generating Polynomial of a Matroid}{105}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Hodge-Riemann Relations on the Facets of the Positive Orthant}{110}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Future Work}{117}{section.4.6}%
-\contentsline {chapter}{\numberline {5}Appendix}{120}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Brunn-Minkowski and the Base Case of the Alexandrov-Fenchel Inequality}{120}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Computations in the Kahn-Saks Inequality}{120}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Modifications and linear extensions of posets}{125}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {1.5.5}Positivity and Normal Directions}{34}{subsection.1.5.5}%
+\contentsline {chapter}{\numberline {2}Mechanisms for Log-concavity}{36}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Log-concavity and Ultra-log-concavity}{36}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Cauchy's Interlacing Theorem}{37}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Alexandrov's Inequality for Mixed Discriminants}{39}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Alexandrov-Fenchel Inequality}{43}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Equality Cases}{48}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Equality Cases for Polytopes}{51}{subsection.2.4.2}%
+\contentsline {section}{\numberline {2.5}Basic Theory of Lorentzian polynomials}{52}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Log-concavity Results for Posets and Matroids}{57}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Stanley's Poset Inequality}{57}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Equality Case for the Simple Stanley Poset Inequality}{59}{subsection.3.1.1}%
+\contentsline {section}{\numberline {3.2}Extremals of the Kahn-Saks Inequality}{62}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Simplifications and Special Regions}{63}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Combinatorial characterization of the extremals}{64}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Transition Vectors}{67}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}More Vectors}{71}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5}Understanding MID}{74}{subsection.3.2.5}%
+\contentsline {section}{\numberline {3.3}Stanley's Matroid Inequality}{80}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Mixed Volume Perspective of Basis Counting Number}{81}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Mixed Discriminant Perspective of the Basis Counting Number}{82}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Equality cases of Stanley's Matroid Inequality for Graphic Matroids}{82}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Equality cases of Stanley's Matroid Inequality for Regular Matroids}{85}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Lorentzian Perspective of the Basis Counting Number}{88}{subsection.3.3.5}%
+\contentsline {chapter}{\numberline {4}Hodge Theory for Matroids}{92}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Cohomology Rings for Matroids}{93}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Graded M\"obius Algebra}{93}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Chow Ring of a Matroid}{95}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Augmented Chow Ring of a Matroid}{96}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}Gorenstein Ring associated to a polynomial}{97}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Local Hodge-Riemann Relations}{101}{section.4.3}%
+\contentsline {section}{\numberline {4.4}The Gorenstein Ring associated to the Basis Generating Polynomial of a Matroid}{103}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Hodge-Riemann Relations on the Facets of the Positive Orthant}{108}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Future Work}{115}{section.4.6}%
+\contentsline {chapter}{\numberline {5}Appendix}{118}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Brunn-Minkowski and the Base Case of the Alexandrov-Fenchel Inequality}{118}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Computations in the Kahn-Saks Inequality}{118}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Modifications and linear extensions of posets}{123}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}Stanley Basis Inequality for Graphic Matroids}{126}{section.5.3}%
