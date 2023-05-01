@@ -14,8 +14,28 @@
 \author{Alan Yan}
 \adviser{Professor June E. Huh}
 \title{Log-concavity in Combinatorics}
-\abstract{(write something flowery)}
-\acknowledgements{I would like to thank}
+
+\abstract{In this thesis we survey some of the mechanisms used to prove that naturally defined sequences in combinatorics are log-concave. Among these mechanisms are Alexandrov's inequality for mixed discriminants, Alexandrov's Fenchel inequality for mixed volumes, Lorentzian polynomials, and the Hard Lefschetz theorem. We use these mechanisms to prove some new log-concavity and extremal results related to partially ordered sets and matroids. We present joint work with Ramon van Handel and Xinmeng Zeng to give a complete characterization for the extremals of the Kahn-Saks inequality. We extend Stanley's inequality for regular matroids to arbitrary matroids using the technology of Lorentzian polynomials. We also prove necessary and sufficient conditions for the Gorenstein ring associated to the basis generating polynomial of a matroid to satisfy Hodge-Riemann relations of degree one on the facets of the positive orthant.}
+
+\acknowledgements{First and foremost, I would like to thank June Huh for his mentorship throughout this senior thesis project. Through our numerous discussions, I have grown both as a mathematician and as a researcher. Your attentiveness and patience faciliated an environment where I could explore research ideas freely. For that, I am immensely grateful. This thesis would not have been as successful without your help.
+
+I would also like to thank Ramon van Handel for introducing me to the topic of convex bodies and the Alexandrov-Fenchel inequality. The Kahn-Saks project that you suggested was an excellent way for me to enter the study of log-concavity and algebraic combinatorics. I am grateful for your suggestions and comments on my thesis. 
+
+I am grateful to Evita Nestoridi for suggesting algebraic combinatorics as a possible field of interest to me. Although our work in Markov chain mixing times is orthogonal to the topic of the thesis, I was introduced to a rich variety of algebraic objects and techniques which informed my decision to purue a senior thesis topic in algebraic combinatorics. 
+
+I am grateful to Christopher Eur for our discussions in the Harvard common room about my thesis, matroids, and graduate school life.
+
+I would like to thank the department of mathematics for providing the environment, resources, and opportunity to complete a senior thesis. Throughout the four years of undergraduate education, I never once felt unwelcome or pressured by departmental graduation requirements. 
+
+Thank you to Christopher Guan, Daniel Hu, Josh Lau, Cindy Li, Elie Svoll, Erin Watson, and all other Tora Taiko members (there are a lot of you now!) It was truly a pleasure to hang out and play music together. The next few years after I am gone will mark the Golden Age of Tora Taiko. I'm looking forward to witnessing your growth as an ensemble!
+
+I would like to sincerely thank Ollie Thakar and Ben Bobell for their friendship and camaraderie. Thank you for being the best people you could be. I deeply admire your kindness, and I wish you two the best in your future endeavors. In general, I would like to thank the entire mathematical community localized at the Fine Hall common room. Even though I couldn't show up as frequently this year, the mathematical community remained a welcoming space whenever I returned. 
+
+I would like to express my deepest appreciation to Karen Li. Thank you for putting up with many of my late nights and early mornings. Since meeting you, my life has brightened in ways that I would have never imagined. 
+
+Finally, I want to thank my family for all of their love and support throughout the years. 
+}
+
 \date{May 1st, 2023}
 
 \begin{document}
@@ -25,9 +45,11 @@
 
 Given a sequence of non-negative real numbers $a_0, \ldots, a_n, a_{n+1}$, we say that the sequence is log-concave if and only if $a_i^2 \geq a_{i-1} a_{i+1}$ for all $i \in [n]$. If a sequence of non-negative numbers is log-concave, then it is also unimodal. There is a phenomenon in mathematics that many naturally defined sequences in algebra, combinatorics, and geometry satisfy some sort of log-concavity. To explain this phenomenon, there is a rich variety of methods that have been developed to prove log-concavity problems in combinatorics. Our goal in this thesis is to survey a few of log-concavity mechanisms. Specifically, we will survey some of the theory behind mixed discriminants, mixed volumes, Lorentzian polynomials, and Hodge-Riemann relations. Note that this is only a small subset of the techniques to prove sequences are log-concave. In particular, we do not mention analytic techniques, linear algebraic techniques, or real-rootedness techniques. For a more thorough treatment of these techniques, we refer the reader the excellent survey paper by Richard Stanley \cite{Stanley1989LogConcaveAU}. We also do not mention the recent technology of the combinatorial atlas defined by Swee Hong Chan and Igor Pak which provides a purely combinatorial method to prove log-concavity. For background on the combinatorial atlas, we refer the reader to the original sources \cite{logconcave-poset-inequalities,combinatorial-atlas}. \\
 
-We will be especially interested in the log-concavity of sequences related to partially ordered sets and matroids. This thesis was motivated by a previous 
+We will be especially interested in the log-concavity of sequences related to partially ordered sets and matroids. The thesis topic was motivated by a project recommended by Ramon van Handel about the extremals of the Kahn-Saks inequality. In a paper by him and Yair Shenfeld, they give a characterization for equality to hold for the Alexandrov-Fenchel inequalitys when the mixed area measure is associated to polytopes. Using this characterization, they were able to give a characterization for equality cases of the Stanley poset inequality \cite{STANLEY}. As an extension of the result, it was suggested to give a similar characterization for the Kahn-Saks inequality. Given a finite poset $P$ and two distinguished elements $x, y \in P$, we can count $N_k$ the number of linear extensions $\sigma$ satisfying $\sigma (y) - \sigma (x) = k$. In \cite{balancing-poset-extensions}, Jeff Kahns and Michael Saks prove that this sequence is log-concave using the theory of mixed volumes and the Alexandrov-Fenchel inequality. Through joint work with Ramon van Handel and Xinmeng Zeng, we were able to get a complete combinatorial characterization for the Kahn-Saks inequality. We present these results in Section~\ref{kahn-saks-inequality}. \\
 
+As an extension of the project, we considered the second inequality proved by Stanley in \cite{STANLEY} for matroids. Given a regular matroid $M = (E, \mcI)$ of rank $n$ and a partition $E = R \sqcup Q$ of the ground set, we define $B_k$ to be the number of bases of $M$ which share $k$ elements with $R$. Using the theory of mixed volumes, Stanley proves that the sequence $B_k$ is ultra-log-concave. In his paper, Stanley gives a characterization for the extremals of the slightly weaker inequality $B_1^n \geq B_0^{n} B_{n-1}$. In \cite{bapat_raghavan_1997}, Bapat and Raghavan give a proof of Stanley's matroid inequality by associating each number $B_k$ with a mixed discriminant rather than a mixed volume. Suppose our sequence $B_k$ consists of only positive integers. From our better understanding of the equality cases of the mixed discriminant perspective, the extremals $B_k^2 \geq B_{k-1} B_{k+1}$ are exactly the extremals of the weaker inquality $B_{1}^n \geq B_0^{n-1} B_n$. This gives a satisfactory characterization of Stanley's matroid inequality for regular matroids. With respect to Stanley's inequality for regular matroids, we were interested in two questions. Is Stanley's inequality true for arbitrary matroids? If Stanley's inequality is true for arbitrary matroids, will the characterization for the extremals be the same? In Section~\ref{subsection-matroid-lorentzian-stanley-general}, we prove that the answer to the first question is in the affirmative. The proof uses the fact that the basis generating polynomial of a matroid is Lorentzian. For the second question, we proved that the combinatorial characterization guarentees equality. However, we made little progress for the reverse implication. \\
 
+In our attempt to combinatorial characterize the extremals of Stanley's matroid inequality for arbitrary matroids, we began exploring the Hodge theory of matroids. In Section~\ref{sec:gorenstein-ring-of-matroid}, we define $\A(M)$ called the Gorenstein ring associated to the basis generating polynomial of the matroid $M$. In their paper \cite{MNY}, Murai-Nagaoka-Yazawa prove that the ring $\A(M)$ satisfies the Hard Lefschetz property and the Hodge-Riemann relations degree $1$. They conjecture that the ring satisfies the Hard Lefschetz property in all degrees $k \leq \frac{\rank (M)}{2}$. Our current goal is to prove the stronger conjecture that $\A(M)$ satisfies the K\"ahler package. Our progress towards the general conjecture is outlined in Chapter~\ref{chap:hodge-theory-for-matroids}. 
 
 \chapter{Combinatorial Structures and Convex Geometry}
 
@@ -131,7 +153,7 @@ The incidence matrix and Laplacian of a matrix are related by Proposition~\ref{i
 \begin{proof}
 	For every $e = \{v_i, v_j\} \in E$ with $v_i < v_j$, we define $\pi_e(v_i) = -1$ and $\pi_e (v_j) = 1$. The function $\pi_e$ indicators which vertex in an edge is the smaller one with respect to the total ordering on the vertices. We can compute that 
 	\[
-		(BB^T)_{v, w} = \sum_{e \in E : v, w \in e} \pi_e(v) \pi_e(w). 
+		\left ( BB^T \right )_{v, w} = \sum_{e \in E : v, w \in e} \pi_e(v) \pi_e(w). 
 	\]
 	When $v = w$, then each summand is equal to $1$ and we get exactly $\deg (v_i)$. If $v$ and $w$ are not adjacent, then the sum is empty and the netry is equal to zero. Otherwise, each summand is $-1$ and there are $E_{v_i, v_j}$ elements in this sum. This suffices for the proof. 
 \end{proof}
@@ -2469,7 +2491,7 @@ According to Stanley in \cite{STANLEY}, Theorem~\ref{main-thm-for-matroids} woul
 	With the technology of Lorentzian polynomials, we can see that Stanley would have been unable to prove his matroid inequality without the hypothesis that the matroid is regular. Indeed, from Remark 4.3, the basis generating polynomial of a matroid on $[n]$ is the volume polynomial of $n$ convex bodies precisely when the matroid is regular.
 \end{remark}
 
-\chapter{Hodge Theory for Matroids}
+\chapter{Hodge Theory for Matroids} \label{chap:hodge-theory-for-matroids}
 
 In this chapter we will study cohomology rings associated to matroids. We will also be interested in how to extract combinatorial information from these rings. In the general case, our cohomology ring will be a graded $\RR$-algebra of the form $A^\bullet = \bigoplus_{i = 0}^d A^i$. On the top degree, we will have an isomorphism $\mathsf{deg} : A^d \to \RR$ called the degree map. In addition, the natural pairing $A^i \times A^{d-i} \to A^d \to \RR$ is non-degenerate for all $i$, we will call our ring $A^\bullet$ a \textbf{Poincar\'e duality algebra}. In the finite dimensional case, this will automatically imply that $\dim A^k = \dim A^{d-k}$ for all $k$. Cohomology rings with these properties show up naturally in topology and algebraic geometry. For an overview of such examples, we refer the reader to \cite{Huh2016TropicalGO}. Given a cohomology ring associated to a matroid, we will study when this graded object satisfies Poincar\'e duality, Hard Lefschetz, and Hodge-Riemann relations. If it satisfies all three properties in all degrees ($\leq \frac{d}{2}$) we say that it satisfies the K\"ahler package. For the development of the Hodge theory of matroids, we refer the reader to the papers \cite{AHK,huh-semi-small,ardila2022lagrangian,eur2022stellahedral,Feichtner_2004} where the notions of the Chow ring, intersection cohomology, and conormal Chow ring are studied. Through this development, many difficult and long standing conjectures in combinatorics have been solved by proving that a suitable matroid cohomology satisfies the K\"ahler package. In the next three sections, we define the notions of the graded M\"obius algebra, the Chow ring of a matroid, and the augmented Chow ring of a matroid. We discuss these notions at a surface level, and the sections primarily serve as a place to write down definitions and semi-small decomposition results for future sections (see Section~\ref{sec:future-work}).
 
@@ -2797,7 +2819,7 @@ The next result in Corollary~\ref{partial-independent-implies-hessian} gives a c
 	This proves that the signature of $-Q^1_{l_a}$ is the same as the signature of $\Hess_f |_{x = a}$.  We are done from Lemma~\ref{conditions-for-HL-HRR}(b).
 \end{proof}
 
-\section{The Gorenstein Ring associated to the Basis Generating Polynomial of a Matroid}
+\section{The Gorenstein Ring associated to the Basis Generating Polynomial of a Matroid} \label{sec:gorenstein-ring-of-matroid}
 
 In this section, we specialize the Gorenstein ring associated to a polynomial to the Gorenstein ring associated to the basis generating polynomial of a matroid. This graded $\RR$-algebra is another cohomology ring associated to a matroid. Thus, it is interesting study the Hard Lefschetz property and Hodge-Riemann relations on this algebra. 
 
