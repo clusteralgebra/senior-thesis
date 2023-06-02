@@ -170,10 +170,12 @@ Jeff Kahn and Michael Saks.
 \newblock Balancing poset extensions.
 \newblock {\em Order}, 1(2):113--126, 1984.
 
-\bibitem{Kato_2007}
-Akishi Kato.
-\newblock Zonotopes and four-dimensional superconformal field theories.
-\newblock {\em Journal of High Energy Physics}, 2007(06):037--037, jun 2007.
+\bibitem{riemann-roch-thm-for-virtual-polytopes}
+A.~G. Khovanskii and A.~V. Pukhlikov.
+\newblock {A Riemann-Roch Theorem for Integrals and Sums of Quasipolynomials
+  over Virtual Polytopes}.
+\newblock {\em Algebra and Analysis}, 4(4):188--216, 1992.
+\newblock translation in {\em St. Petersburg Math. J.} {\bf 4} (1993), 789-812.
 
 \bibitem{ma2022extremals}
 Zhao~Yu Ma and Yair Shenfeld.
@@ -206,6 +208,11 @@ Kazuo Murota.
 James~G. Oxley.
 \newblock {\em Matroid Theory (Oxford Graduate Texts in Mathematics)}.
 \newblock Oxford University Press, Inc., USA, 2006.
+
+\bibitem{Panov_1987}
+A~A Panov.
+\newblock On some properties of mixed discriminants.
+\newblock {\em Mathematics of the USSR-Sbornik}, 56(2):279, feb 1987.
 
 \bibitem{symmetric-eigenvalue-problem}
 Beresford~N. Parlett.
@@ -240,8 +247,8 @@ Walter Rudin.
 \newblock McGraw-Hill, Inc., USA, 1987.
 
 \bibitem{schneider-mixed-discriminants}
-ROLF SCHNEIDER.
-\newblock On a. d. aleksandrov's inequalities for mixed discriminants.
+Rolf Schneider.
+\newblock On a.d. aleksandrov's inequalities for mixed discriminants.
 \newblock {\em Journal of Mathematics and Mechanics}, 15(2):285--290, 1966.
 
 \bibitem{schneider_2013}
@@ -268,6 +275,11 @@ Yair Shenfeld and Ramon van Handel.
 \newblock The extremals of the alexandrov-fenchel inequality for convex
   polytopes, 2022.
 
+\bibitem{Shephard_Zonotopes}
+G.~C. Shephard.
+\newblock Combinatorial properties of associated zonotopes.
+\newblock {\em Canadian Journal of Mathematics}, 26(2):302–321, 1974.
+
 \bibitem{block-matrices}
 John~R. Silvester.
 \newblock Determinants of block matrices.
@@ -290,6 +302,12 @@ Richard~P Stanley.
 \newblock {\em Algebraic combinatorics}.
 \newblock Undergraduate texts in mathematics. Springer, New York, NY, 2013
   edition, June 2013.
+
+\bibitem{Timorin_1999}
+V~A Timorin.
+\newblock An analogue of the hodge-riemann relations for simple convex
+  polytopes.
+\newblock {\em Russian Mathematical Surveys}, 54(2):381, apr 1999.
 
 \bibitem{wagner2009multivariate}
 David~G. Wagner.

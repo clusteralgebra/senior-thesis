@@ -8,45 +8,45 @@ Database file #1: ref.bib
 Warning--empty publisher in chung-spectral-graph-theory
 Warning--empty booktitle in Huh2016TropicalGO
 Warning--there's a number but no volume in Zhao2015-kf
-You've used 60 entries,
+You've used 63 entries,
             2118 wiz_defined-function locations,
-            819 strings with 11345 characters,
-and the built_in function-call counts, 15929 in all, are:
-= -- 1527
-> -- 663
+            841 strings with 11867 characters,
+and the built_in function-call counts, 16766 in all, are:
+= -- 1607
+> -- 690
 < -- 0
-+ -- 275
-- -- 206
-* -- 966
-:= -- 2707
-add.period$ -- 170
-call.type$ -- 60
-change.case$ -- 271
++ -- 287
+- -- 214
+* -- 1028
+:= -- 2852
+add.period$ -- 180
+call.type$ -- 63
+change.case$ -- 284
 chr.to.int$ -- 0
-cite$ -- 63
-duplicate$ -- 606
-empty$ -- 1415
-format.name$ -- 206
-if$ -- 3332
+cite$ -- 66
+duplicate$ -- 639
+empty$ -- 1490
+format.name$ -- 214
+if$ -- 3506
 int.to.chr$ -- 0
-int.to.str$ -- 60
-missing$ -- 60
-newline$ -- 285
-num.names$ -- 120
-pop$ -- 375
+int.to.str$ -- 63
+missing$ -- 63
+newline$ -- 301
+num.names$ -- 126
+pop$ -- 381
 preamble$ -- 1
-purify$ -- 223
+purify$ -- 233
 quote$ -- 0
-skip$ -- 436
+skip$ -- 458
 stack$ -- 0
-substring$ -- 807
-swap$ -- 60
+substring$ -- 864
+swap$ -- 63
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 204
+type$ -- 216
 warning$ -- 3
-while$ -- 156
-width$ -- 62
-write$ -- 610
+while$ -- 164
+width$ -- 65
+write$ -- 645
 (There were 3 warnings)

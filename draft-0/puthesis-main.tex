@@ -12,18 +12,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \author{Alan Yan}
-\adviser{Professor June E. Huh}
+\adviser{Professor June E Huh}
 \title{Log-concavity in Combinatorics}
 
 \abstract{In this thesis we survey some of the mechanisms used to prove that naturally defined sequences in combinatorics are log-concave. Among these mechanisms are Alexandrov's inequality for mixed discriminants, Alexandrov's Fenchel inequality for mixed volumes, Lorentzian polynomials, and the Hard Lefschetz theorem. We use these mechanisms to prove some new log-concavity and extremal results related to partially ordered sets and matroids. We present joint work with Ramon van Handel and Xinmeng Zeng to give a complete characterization for the extremals of the Kahn-Saks inequality. We extend Stanley's inequality for regular matroids to arbitrary matroids using the technology of Lorentzian polynomials. As a result, we provide a new proof of the weakest Mason conjecture. We also prove necessary and sufficient conditions for the Gorenstein ring associated to the basis generating polynomial of a matroid to satisfy Hodge-Riemann relations of degree one on the facets of the positive orthant.}
 
 \acknowledgements{First and foremost, I would like to thank June Huh for his mentorship throughout this senior thesis project. Through our numerous discussions, I have grown both as a mathematician and as a researcher. Your attentiveness and patience faciliated an environment where I could explore research ideas freely. For that, I am immensely grateful. This thesis would not have been as successful without your help.
 
-I would also like to thank Ramon van Handel for introducing me to the topic of convex bodies and the Alexandrov-Fenchel inequality. The Kahn-Saks project that you suggested was an excellent way for me to enter the study of log-concavity and algebraic combinatorics. I am grateful for your suggestions and comments on my thesis. 
+I would also like to thank Ramon van Handel for introducing me to the topic of convex bodies and the Alexandrov-Fenchel inequality. The Kahn-Saks project that you suggested was an excellent way for me to enter the study of log-concavity and algebraic combinatorics. Thank you for your thorough proofreading and suggestions. 
 
-I am grateful to Evita Nestoridi for suggesting algebraic combinatorics as a possible field of interest to me. Although our work in Markov chain mixing times is orthogonal to the topic of the thesis, I was introduced to a rich variety of algebraic objects and techniques which informed my decision to purue a senior thesis topic in algebraic combinatorics. 
+I am grateful to Evita Nestoridi for suggesting algebraic combinatorics as a possible field of interest to me. Although our work in Markov chain mixing times is orthogonal to the topic of the thesis, I was introduced to a rich variety of algebraic objects and techniques which informed my decision to pursue a senior thesis topic in algebraic combinatorics. 
 
-I am grateful to Christopher Eur for our discussions in the Harvard common room about my thesis, matroids, and graduate school life.
+I am grateful to Christopher Eur for our discussions in the Harvard common room. I am grateful to Connor Simpson for providing a counterexample to Conjecture~\ref{conj:my-conjecture}.
 
 I would like to thank the department of mathematics for providing the environment, resources, and opportunity to complete a senior thesis. Throughout the four years of undergraduate education, I never once felt unwelcome or pressured by departmental graduation requirements. 
 
@@ -75,9 +75,9 @@ In this thesis, we will only consider posets where the ground set is finite. Let
 \]
 Posets appear all throughout mathematics. For example, the set of integers $\ZZ$ can be equipped with divisibility to give it a partially ordered set structure. The M\"obius function associated with the lattice of integers is a common object in the study of analytic number theory (see \cite{Apostol2013-an}). In category theory, posets are examples of the most basic form of categories. In particular, they are categories where the morphisms between any two objects consists of a single element. Given a collection of sets, they can be given a poset structure with set inclusion as the partial order. Finally, in graph theory, we can equip the vertices of a directed graph with a poset structure where two vertices are comparable if and only if one can be reached from the other. 
 
-\subsection{Morphisms of Posets and Linear Extensions}
+\subsection{Linear Extensions}
 
-Given two posets $(P_1, \leq_1)$ and $(P_2, \leq_2)$, we define a poset morphism to be a map $f : P_1 \to P_2$ of the underlying sets satisfying the condition $f(x) \leq_2 f(y)$ whenever $x, y \in P_1$ satisfy $x \leq_1 y$. Two posets are isomorphic if and only if there is a bijective poset morphism between them. If $|P| = n$, we call any isomorphism $f : P \to [n]$ a linear extension where $[n]$ is equipped with the total order inherited from $\ZZ$. 
+Given two posets $(P_1, \leq_1)$ and $(P_2, \leq_2)$, we define say a map $f : P_1 \to P_2$ is \textbf{order-preserving} if $f(x) \leq_2 f(y)$ whenever $x, y \in P_1$ satisfy $x \leq_1 y$. If $|P| = n$, we call any bijective order-preserving map $f : P \to [n]$ a linear extension where $[n]$ is equipped with its natural total order. 
 
 \begin{defn} \label{defn:linear-extension}
 	Let $(P, \leq)$ be a poset on $n$ elements. A \textbf{linear extension} is any bijective map $f : P \to [n]$ such that $f(x) < f(y)$ whenever $x, y \in P$ satisfies $x < y$.
@@ -87,10 +87,10 @@ Recall that a partial order on $P$ is called a $\textbf{total order}$ if every p
 
 \subsection{Lattices}
 
-Let $P$ be a poset and let $x, y \in P$ be two arbitrary elements. We say that $z \in P$ is a \textbf{greatest lower bound} or \textbf{meet} of $x$ and $y$ if $z \geq x$, $z \geq y$, and for any $w \in P$ satisfying $w \geq x, w \geq y$ we have that $w \geq z$. Similarly, we say $z$ is a \textbf{least upper bound} or \textbf{join} if $z \leq x$, $z \leq y$, and for any $w \in P$ satisfying $w \leq x, w \leq y$, we have that $w \leq z$. If the meet or join of two elements exist, they must be unique. In a general poset, the meet and join of two elements does not necessarily exist. When they do exist for every pair of elements, we call the poset a lattice. 
+Let $P$ be a poset and let $x, y \in P$ be two arbitrary elements. We say that $z \in P$ is a \textbf{least upper bound} or \textbf{join} of $x$ and $y$ if $z \geq x$, $z \geq y$, and for any $w \in P$ satisfying $w \geq x, w \geq y$ we have that $w \geq z$. Similarly, we say $z$ is a \textbf{greatest lower bound} or \textbf{meet} if $z \leq x$, $z \leq y$, and for any $w \in P$ satisfying $w \leq x, w \leq y$, we have that $w \leq z$. If the meet or join of two elements exist, they must be unique. In a general poset, the meet and join of two elements does not necessarily exist. When they do exist for every pair of elements, we call the poset a lattice. 
 
 \begin{defn} \label{defn:lattice}
-	Let $\mcL$ be a finite poset. We say $\mcL$ is a lattice if every pair of elements in $\mcL$ has a meet and a join. When $x, y \in \mcL$, we let $x \vee y$  and $x \wedge y$ denote the meet and join of $x$ and $y$. 
+	Let $\mcL$ be a finite poset. We say $\mcL$ is a lattice if every pair of elements in $\mcL$ has a meet and a join. When $x, y \in \mcL$, we let $x \wedge y$  and $x \vee y$ denote the meet and join of $x$ and $y$. 
 \end{defn}
 
 Given a lattice, it is not hard to show that the meet and join operations are commutative and associative. The partially ordered set of natural numbers equipped with divisibility forms a lattice under the greatest common denominator and the least common multiple. A lattice will automatically have a unique minimal element which is a global minimum and a unique maximal element which is a global maximum. If a poset has a global minimum, we call this element the $0$ element. If a poset has a global maximum, we call this element the $1$ element. Let $x \in P$ be an element which covers the $0$ element. In this case, we call $x$ an \textbf{atom}. Dually, if $x$ is covered by the $1$ element, then we call $x$ a \textbf{co-atom}. For some examples of lattices, we will be introduced to the lattice of faces of a polytope and the lattices of flats of a matroid. The latter example satisfies extra conditions which makes it \textbf{geometric lattice}. For a thorough treatment of geometric lattices and their connections to matroids, we refer the reader to \cite{10.5555/1197093}. 
@@ -228,7 +228,7 @@ We call an independent set $B \in \mathcal{I}$ a \textbf{basis} if it is a maxim
 
 For any matroid $M = (E, \mcB)$ where $\mcB = \mcB(M)$ are the bases of $M$, we can define the \textbf{basis generating polynomial} of a matroid $M = (E, \mcB)$ by
 \[
-	f_M (x) := \prod_{B \in \mcB} x^B \in \RR[x_e : e \in E].
+	f_M (x) := \sum_{B \in \mcB} x^B \in \RR[x_e : e \in E].
 \]
 The polynomial $f_M$ is a homomogeneous polynomial of degree $d$ where $d$ is the size of a basis in $M$. In Section~\ref{sec:rank}, we define the number $d$ as the \textbf{rank} or \textbf{dimension} of the matroid $M$. 
 
@@ -363,7 +363,7 @@ To describe the matroid sum, let $M = (E, \mathcal{I}_M)$ and $N = (F, \mathcal{
 \]
 It is not difficult to see that this produces a well-defined collection of independent sets on the set $E \sqcup F$. Now, we describe the truncation of a matroid. For a matroid $M = (E, \mcI)$, we define $TM$ to be the \textbf{truncation} of $M$. This is the matroid on the same ground set $E$ with independent sets given by 
 \[
-	\mcI(TM) := \{I(M)\in \mcI : |I| \leq \rank_M(M) - 1\}.
+	\mcI(TM) := \{I \in \mcI (M) : |I| \leq \rank_M(M) - 1\}.
 \]
 This collection of sets inherits the properties of independent sets from $\mcI(M)$. Thus, our definition $TM$ gives a well-defined matroid. We can repeatedly apply our truncation operation to get a matroid $T^k(M)$ which lowers the rank of $M$ by $k$. 
 
@@ -381,7 +381,7 @@ In this section, we study a subclass of matroids called regular matroids. As a p
 	\end{enumerate}
 \end{defn}
 
-For a proof of the equivalences of the conditions in Definition~\ref{def:regular-matroid}, we refer the reader to Theorem 5.16 in \cite{10.5555/1197093}. In the definition, we define a \textbf{totally unimodular matrix} to be a real matrix for which every square submatrix has determinant in the set $\{0, \pm 1\}$. In this thesis, we use the terminology totally unimodular and unimodular interchangeably even though they have different meanings in the literature. The main property that we will use for regular matroids is (d) in Definition~\ref{def:regular-matroid}. Note that when we represent $M$ by a unimodular matrix over $\RR$, property (d) does not indicate how small the dimension of the ambient space can be made. Ideally, we want the column vectors of the matrix to lie in a $d$-dimensional real vector space where $d$ is the rank of the matroid. This is the minimu possible dimension of an ambient vector space for which a matroid can be embedded. Fortunately, Theorem~\ref{thm-representing-regular-in-d-dim} implies that we can achieve this minimum dimension.
+For a proof of the equivalences of the conditions in Definition~\ref{def:regular-matroid}, we refer the reader to Theorem 5.16 in \cite{10.5555/1197093}. In the definition, we define a \textbf{totally unimodular matrix} to be a real matrix for which every square submatrix has determinant in the set $\{0, \pm 1\}$. In this thesis, we use the terminology totally unimodular and unimodular interchangeably even though they have different meanings in the literature. The main property that we will use for regular matroids is (d) in Definition~\ref{def:regular-matroid}. Note that when we represent $M$ by a unimodular matrix over $\RR$, property (d) does not indicate how small the dimension of the ambient space can be made. Ideally, we want the column vectors of the matrix to lie in a $d$-dimensional real vector space where $d$ is the rank of the matroid. This is the minimum possible dimension of an ambient vector space for which a matroid can be embedded. Fortunately, Theorem~\ref{thm-representing-regular-in-d-dim} implies that we can achieve this minimum dimension.
 
 \begin{thm}[Lemma 2.2.21 in \cite{10.5555/1197093}] \label{thm-representing-regular-in-d-dim}
 	Let $\{e_1, \ldots, e_r\}$ be a basis of a matroid $M$ of non-zero rank. Then $M$ is regular if and only if there is a totally unimodular matrix $[I_r | D]$ representing $M$ over $\RR$ whose first $r$ columns are labelled, in order, $e_1, e_2, \ldots, e_r$. 
@@ -545,6 +545,21 @@ We have just proved that all positive semi-definite matrices can be written as t
 	This follows from Lemma~\ref{mixed-discriminant-explicit-formula} and Theorem~\ref{cholesky}. 
 \end{proof}
 
+In Lemma~\ref{lem:mixed-discriminant-properties}, we compile a few properties of mixed discriminants that will prove useful in future chapters. For example, in the proof of Theorem~\ref{thm:only-inequality-mixed-discriminants}, the property Lemma~\ref{lem:mixed-discriminant-properties}(c) is used as an inductive tool. 
+
+\begin{lem}[Properties of Mixed Discriminants] \label{lem:mixed-discriminant-properties}
+	Let $M, M_1, \ldots, M_n$ be $n$-dimensional real symmetric matrices. Then, the following properties are true. 
+	\begin{enumerate}[label = (\alph*)]
+		\item $\mathsf{D}(M, \ldots, M) = \det (M)$. 
+		\item $\mathsf{D}(U M_1 U^T, \ldots, U M_n U^T) = \det (UU^T) \mathsf{D}(M_1, \ldots, M_n)$ for any $n$ dimensional real matrix $U$.
+		\item $\mathsf{D}(e_ie_i^T, M_1, \ldots, M_{n-1}) = \frac{1}{n} \mathsf{D}(M_1^{\langle i \rangle}, \ldots, M_{n-1}^{\langle i \rangle})$ where $e_1, \ldots, e_n$ is the standard orthonormal basis in $\RR^n$ and $M^{\langle i \rangle}$ is obtained from $M$ by removing its $i$th row and $i$th column. 
+	\end{enumerate}
+\end{lem}
+
+\begin{proof}
+	See Lemma 2.6 in \cite{bochner}. 
+\end{proof}
+
 \section{Convex Bodies} \label{sec:convex-bodies}
 
 In this section, we review the notions of convexity and convex bodies. We use \cite{schneider_2013} as our main reference for the theory of convex bodies and Brunn-Minkowski theory. Recall that a subset $C \subseteq \RR^n$ is convex if for every $x, y \in C$, the line segment $[x, y]$ is contained in $C$. Even though convexity is quite a rigid condition to impose, there still exist topologically wild convex sets. For example, let $S \subseteq \mathbb{S}^{n-1}$ be an arbitrary subset of the unit sphere. Then, the set $S \cup \{x : \norm{x}_2 < 1\}$ is always a convex set. Measure theoretically, this same example gives examples of convex sets which are not even Borel measurable. In this thesis, we will only consider a subclass of convex sets called convex bodies. A \textbf{convex body} is a non-empty, compact, convex subset of $\RR^n$. Let $\mathsf{K}^n$ be the space of convex bodies in $\RR^n$. We can define an associative, commutative binary operation on the set of convex bodies called the Minkowski sum. 
@@ -564,7 +579,7 @@ This proves that $K + L$ is a well-defined convex body. In fact, a subset $K \su
 
 \subsection{Support and Facial Structure}
 
-For a convex body $K \subseteq \RR^n$, we define its dimension as $\dim K := \dim \aff K$. The boundary of convex bodies can be characterized in terms of supporting hyperplanes and faces. We call $H$ a \textbf{supporting hyperplane} of $K$ if $K$ lies on one side of the hyperplane and $K \cap H \neq \emptyset$. A \textbf{supporting hyperspace} is the half-space of a supporting hyperplane which contains $K$. Any convex body will be equal to the intersection of all of its supporting hyperspaces. To explore the boundary structure in greater detail, we define the notion of a face and an exposed face. 
+For a convex body $K \subseteq \RR^n$, we define its dimension as $\dim K := \dim \aff K$. The boundary of convex bodies can be characterized in terms of supporting hyperplanes and faces. We call $H$ a \textbf{supporting hyperplane} of $K$ if $K$ lies on one side of the hyperplane and $K \cap H \neq \emptyset$. A \textbf{supporting half-space} is the half-space of a supporting hyperplane which contains $K$. Any convex body will be equal to the intersection of all of its supporting hyperspaces. To explore the boundary structure in greater detail, we define the notion of a face and an exposed face. 
 \begin{defn} \label{face-and-exposed-face}
 	Let $K \subseteq \RR^n$ be a convex body and let $F \subseteq K$ be a subset. 
 	\begin{enumerate}[label = (\alph*)]
@@ -651,7 +666,7 @@ We now give a few examples of special polytopes and their combinatorial properti
 	\[
 		\mcO_P := \bigsqcup_{l \in e(P)} \Delta_l.
 	\]
-	In the union, the simplices are disjoint except possibly in a set of measure zero. This implies that $\Vol_n(\mcO_P) = e(P) / (n!)$. When $P$ is the matroid on $n$ elements with an empty partial order, we recover the familiar fact that the $\Vol_n(\Delta) = 1/n!$ for a simplex $\Delta$ whose vertices lie in $\{0, 1\}^n$ and no two vertices lie in the same affine hyperplane orthogonal to $(1, \ldots, 1)$.  
+	In the union, the simplices are disjoint except possibly in a set of measure zero. This implies that $\Vol_n(\mcO_P) = e(P) / (n!)$. When $P$ is the poset on $n$ elements with an empty partial order, we recover the familiar fact that the $\Vol_n(\Delta) = 1/n!$ for a simplex $\Delta$ whose vertices lie in $\{0, 1\}^n$ and no two vertices lie in the same affine hyperplane orthogonal to $(1, \ldots, 1)$.  
 \end{example}
 
 \begin{example}[Zonotope] \label{zonotope-example}
@@ -1036,7 +1051,7 @@ Before proving this result, we need Theorem~\ref{interlacing-roots-of-polynomial
 
 \section{Alexandrov's Inequality for Mixed Discriminants} \label{sec:a-inequality}
 
-In this section we prove Alexandrov's inequality for mixed discriminants. This is an inequality which describes the log-concavity of mixed discriminants. In Section~\ref{sec:af-inequality}, we will discuss the mixed volume analog. 
+In this section we prove Alexandrov's inequality for mixed discriminants. This is an inequality which describes the log-concavity of mixed discriminants. The equality cases of Alexandrov's inequality are fully resolved in \cite{Panov_1987}. In Section~\ref{sec:af-inequality}, we will discuss the mixed volume analog. In Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT}, we give a special case of the mixed discriminant inequality where the equality case is simple. In Theorem~\ref{thm:only-inequality-mixed-discriminants} we give a more general statement of Alexandrov's inequality without mention of equality cases. 
 
 \begin{thm} [Alexandrov's Inequality for Mixed Discriminants] \label{A-Inequality-MIXED-DISCRIMINANT}
 	Let $A_1, \ldots, A_{n-2}$ be real symmetric positive definite $n \times n$ matrices. Let $X$ be a real symmetric positive definite $n \times n$ square matrix and let $Y$ be a real symmetric positive semidefinite $n \times n$ square matrix. Then 
@@ -1046,7 +1061,16 @@ In this section we prove Alexandrov's inequality for mixed discriminants. This i
 	where equality holds if and only if $Y = \lambda X$ for a real number $\lambda \in \RR$. 
 \end{thm}
 
-We will provide a self-contained proof of Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT} given in \cite{bapat_raghavan_1997} and \cite{schneider-mixed-discriminants}.  Before we begin the proof, we first need the following result from \cite{hardy1952inequalities} about real-rootedness. 
+We present a proof given in \cite{bochner} of the inequality Theorem~\ref{thm:only-inequality-mixed-discriminants}. For a proof of Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT} including the equality cases, we refer the reader to \cite{Panov_1987}. 
+
+\begin{thm} \label{thm:only-inequality-mixed-discriminants}
+	Let $A, B, M_1, \ldots, M_{n-2}$ be $n$-dimensional symmetric matrices where the last $n-1$ matrices are positive semi-definite. Then, we have 
+	\[
+		\mathsf{D}(A, B, M_1, \ldots, M_{n-2})^2 \geq \mathsf{D}(A, A, M_1, \ldots, M_{n-2}) \mathsf{D} (B, B, M_1, \ldots, M_{n-2}).
+	\]
+\end{thm}
+
+Before we begin the proof, we first prove the following result from \cite{hardy1952inequalities} about real-rootedness. Only the case $n = 2$ is needed. Even though the case $n = 2$ can be proven using elementary facts about quadratic polynomials, we prove the general result for the sake of completeness. 
 
 \begin{lem} [\cite{hardy1952inequalities} and Lemma 5.3.2 in \cite{bapat_raghavan_1997}] \label{newton}
 	Let $p(x) = \sum_{k = 0}^n \binom{n}{k} a_k x^k$ be a real-rooted univariate polynomial. Then, we have $a_k^2 \geq a_{k-1}a_{k+1}$ for all $1 \leq i \leq n-1$. If $a_0 \neq 0$ then equality occurs for any $i$ if and only if all the roots of $f(x)$ are equal. 
@@ -1056,77 +1080,54 @@ We will provide a self-contained proof of Theorem~\ref{A-Inequality-MIXED-DISCRI
 	From Rolle's Theorem, if a polynomial is real-rooted, then so are all of its derivatives. When we reverse the coefficients of a real-rooted polynomial, it remains real-rooted. We call the result of reversing the coefficients of a polynomial the \textbf{reciprocation} of the polynomial. Through a sequence of derivatives and reciprocations, we can reach a polynomial of the form $\alpha_{i-1} + 2\alpha_i x + \alpha_{i+1} x^2$. Since we arrived at this polynomial through a sequence of derivatives and reciprocations, we know that this polynomial is real-rooted. Hence, the discriminant is non-negative and $\alpha_i^2 \geq \alpha_{i-1} \alpha_{i+1}$. The equality case follows from the fact that Rolle's Theorem implies that the roots of the derivative of a real-rooted polynomial interlaces the roots of the original polynomial. 
 \end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT}]
-	Let $A_1, \ldots, A_m$ be positive semi-definite $n \times n$ matrices. For $(r_1, \ldots, r_m) \in \Delta_m^{n}$ we define the term
-	\[
-		D(r_1, \ldots, r_m) := \mathsf{D}_n \left ( \underbrace{A_1, \ldots, A_1}_{r_1 \text{ times}}, \ldots, \underbrace{A_m, \ldots, A_m}_{r_m \text{ times}} \right ).
-	\] 
-	It suffices to prove that 
-	\[
-		D(r_1, \ldots, r_{m-2}, r_{m-1}, r_m)^2 \geq D(r_1, \ldots, r_{m-2}, r_{m-1}+1, r_m-1) \cdot D(r_1 \ldots, r_{m-2}, r_{m-1}-1, r_m+1).
-	\]
-	To prove this, we induct on $m$. Suppose that $m=2$. Consider the polynomial 
-	\[
-		\det (xA_1 + A_2) = \sum_{i = 0}^n \binom{n}{i} D(i, r-i) x^i.
-	\]
-	Since $A_1$ is positive definite, there is some positive definite $\Sigma_1$ such that $\Sigma_1^2 = A_1$. Thus, we have 
-	\[
-		\det (xA_1 + A_2) = \det (x\Sigma_1^2 + A_2) = \det (\Sigma_1)^2 \cdot \det (x I + \Sigma_1^{-1} A_2 \Sigma_1^{-1}).
-	\]
-	This proves that the polynomial $\det (xA_1 + A_2)$ is real-rooted. From Lemma~\ref{newton}, this implies that $D(i, r-i)^2 \geq D(i-1, r-i+1) \cdot D(i+1, r-i-1)$ where equality holds whenever all of the roots are the same. In this case, we have $\Sigma_1^{-1} A_2 \Sigma_1^{-1} = \lambda I \implies A_2 = \lambda A_1$ for some $\lambda \in \RR$. This proves the base case. \\
+We will employ an inductive proof of Theorem~\ref{A-Inequality-MIXED-DISCRIMINANT}. Lemma~\ref{newton} proves the base case immediately. For the base case, we want to prove that if $A, B$ are two-dimensional symmetric matrices with $B$ positive semi-definite, then $\mathsf{D}(A, B)^2 \geq \mathsf{D}(A, A) \mathsf{D}(B, B)$. From continuity, we can assume that $B$ is positive definite. Thus, we have that the polynomial $p(t)$ given by 
+\[
+	p(t) = \det (A + tB) = \det (B) \cdot \det (B^{-1/2} A B^{-1/2} + t)
+\] 
+is real-rooted. Since the coefficients of $\det (A + tB)$ are $\mathsf{D}(A, A), 2 \mathsf{D}(A, B)$, and $\mathsf{D}(B, B)$, the base case follows. Now we prove a subcase of Theorem~\ref{thm:only-inequality-mixed-discriminants} given in Lemma 4.2 in \cite{bochner}. The proof will require a result about hyperbolic forms that we introduce later in the thesis (see Lemma~\ref{hyperbolic-quadratic-forms}).
 
-	Now suppose that the claim is true for $m$. Consider a $m+1$-tuple $(r_1, \ldots, r_{m+1}) \in \Delta_{m+1}^n$ satisfying $r_1 + \ldots + r_{m+1} = n$. We want to prove that 
+\begin{lem} \label{lem:reduced-inequality}
+	Let $n \geq 3$ and let $M_1, \ldots, M_{n-3}$ be $n$-dimensional positive definite matrices. Suppose that Theorem~\ref{thm:only-inequality-mixed-discriminants} holds for mixed discriminants of dimension $n-1$. Then, for any $n$-dimensional diagonal matrix $Z$, we have 
 	\[
-		D(r_1, \ldots, r_{m-1}, r_m, r_{m+1})^2 \geq D(r_1, \ldots, r_{m-1}, r_m - 1, r_{m+1}+1) \cdot D(r_1, \ldots, r_{m-1}, r_m+1, r_{m+1}-1).
+		\mathsf{D} (Z, I, I, M_1, \ldots, M_{n-3} )^2 \geq \mathsf{D}(Z, Z, I, M_1, \ldots, M_{n-3}) \mathsf{D} (I, I, I, M_1, \ldots, M_{n-3}).
 	\]
-	We can define $B_y := y A_m + A_{m+1}$ where $y$ is a real parameter. Then, we have that
-	\[
-		\det \left ( \sum_{i = 1}^{m-1} x_i A_i + x_m B_y \right ) = \sum_{r_1 + \ldots + r_m = n} \binom{n}{r_1, \ldots, r_m} D(r_1, \ldots, r_m) (y) \cdot x_1^{r_1} \ldots x_m^{r_m}
-	\]
-	where $D(r_1, \ldots, r_m)(y)$ is a polynomial in $y$ of degree $r_m$. We can also write 
-	\begin{align*}
-		\det \left ( \sum_{i = 1}^{m-1} x_i A_i + x_m B_y \right ) & = \det \left ( \sum_{i = 1}^{m-1} x_i A_i + x_m y A_m + x_m A_{m+1} \right ) 
-	\end{align*}
-	\[ = \sum_{r_1 + \ldots + r_{m+1} = n} \binom{n}{r_1, \ldots, r_{m+1}} D_{m+1}(r_1, \ldots, r_{m+1}) \cdot (x_1^{r_1} \ldots x_{m-1}^{r_{m-1}}) \cdot x_m^{r_m + r_{m+1}} \cdot y^{r_m} 
-	\]
-	\[
-	= \sum_{r_1 + \ldots + r_{m-1} + r_m = n} \left \{ \sum_{i = 0}^{r_m} \binom{n}{r_1, \ldots, r_{m-1}, i, r_m - i} D_{m+1}(r_1, \ldots, r_{m-1}, i, r_m - i) \cdot y^i \right \} \cdot x_1^{r_1} \cdot x_m^{r_m}.
-	\]
-	Comparing coefficients, we have that 
-	\begin{align*}
-		D(r_1, \ldots, r_m)(y) & = \sum_{i = 0}^{r_m} \binom{n}{r_1, \ldots, r_{m-1}, i, r_m - i} D_{m+1}(r_1, \ldots, r_{m-1},i, r_m-i) y^i \\
-		& = \binom{n}{r_1, \ldots, r_m} \sum_{i = 0}^{r_m} \binom{r_m}{i} D_{m+1}(r_1, \ldots, r_{m-1}, i, r_m - i) y^i.
-	\end{align*}
-	Now we show that if $A_m$ and $A_{m+1}$ are not proportional, then $D(r_1, \ldots, r_m)(y)$ is real-rooted with simple roots. Once we show this fact, we will be done from Lemma~\ref{newton}. Following the notation in \cite{schneider-mixed-discriminants}, for fixed $r_1 + \ldots + r_{m-2} \neq n$, we define the polynomial
-	\begin{align*}
-		Q_k(y) & := D_m(r_1, \ldots, r_{m-2}, s-k, k) (y) \\
-		& = \mathsf{D}_m (\underbrace{A_1, \ldots, A_1}_{r_1}, \ldots, \underbrace{A_{m-2}, \ldots, A_{m-2}}_{r_{m-2}}, \underbrace{A_{m-1}, \ldots, A_{m-1}}_{s-k}, \underbrace{B_y, \ldots, B_y}_k).
-	\end{align*}
-	where $s = n - r_1 - \ldots - r_{m-2} = r_{m-1} + r_m$. From the inductive hypothesis, we have 
-	\begin{equation} \label{eqn:hello-its-me}
-		Q_k(y)^2 \geq Q_{k-1}(y) \cdot Q_{k+1}(y)
-	\end{equation}
-	where equality holds if and only if $B_y = \lambda_y A_{m-1}$ for some $\lambda_y \in \RR$. Let $y_0$ be a root of $Q_k$. If equality held at $y_0$, we would have $0 = Q_k^2(y_0) = Q_{k-1}(y_0) Q_{k+1}(y_0)$. We have $B_{y_0} = \lambda A_{m-1}$ for some $\lambda \in \RR$ from the inductive hypothesis. This gives us $y_0 A_m + A_{m+1} = \lambda A_{m-1}$. Note that $\lambda \neq 0$ because then $A_m$ and $A_{m+1}$ would be proportional to each other. If $\lambda > 0$, then $B_{y_0}$ would be positive definite. But Corollary~\ref{final-positivity-corollary} implies that $Q_k(y_0) > 0$, which cannot happen. If $\lambda < 0$, then $B_{y_0}$ is negative definite. This implies that the sign of $Q_k(y_0)$ is $(-1)^k$ and is not zero. This also cannot happen. It must be the case that at all roots of $Q_k(y)$ the inequality in Equation~\ref{eqn:hello-its-me} is strict. \\
+\end{lem}
 
-	Now we prove that $Q_k(y)$ has $k$ simple real roots where the roots of $Q_{k-1}(y)$ and $Q_k(y)$ are interlaced for $2 \leq k \leq s$. To prove that $Q_1(y)$ satisfies the claim, note that 
+\begin{proof}
+	For any $x, y \in \RR^n$, we can define the bilinear form 
 	\begin{align*}
-		Q_1(y) & = D_m(r_1, \ldots, r_{m-2}, s-1, 1)(y) \\
-		& = \mathsf{D}_m (\underbrace{A_1, \ldots, A_1}_{r_1}, \ldots, \underbrace{A_{m-2}, \ldots, A_{m-2}}_{r_{m-2}}, \underbrace{A_{m-1}, \ldots, A_{m-1}}_{s-1}, B_y) \\
-		& = \mathsf{D}_m (A_1[r_1], \ldots, A_{m-2}[r_{m-2}], A_{m-1}[s-1], A_m) y + \mathsf{D}_m (A_1[r_1], \ldots, A_{m-2}[r_{m-2}], A_{m-1}[s-1], A_{m+1}).
+		D(x, y) & := \mathsf{D} (\operatorname{Diag}(x), \operatorname{Diag}(y), I, M_1, \ldots, M_{n-3} ) \\
+		& = \mathsf{D} \left ( \sum_{i = 1}^n x_i e_ie_i^T, \operatorname{Diag}(y), I, M_1, \ldots, M_{n-3} \right ) \\
+		& = \frac{1}{n} \sum_{i = 1}^n x_i \mathsf{D} \left ( \operatorname{Diag}(y)^{\langle i \rangle}, I, M_1^{\langle i \rangle}, \ldots, M_{n-3}^{\langle i \rangle} \right ).
 	\end{align*}
-	The coefficient in front of $y$ is positive from Corollary~\ref{final-positivity-corollary}. Thus the polynomial $Q_1(y)$ has $1$ simple real zero. Let $q_1 := q_1^{(1)}$ be the unique root of this polynomial. Then, from our earlier discussion, we have the strict inequality $Q_1(q_1)^2 > Q_0(q_1) \cdot Q_2(q_1)$. This implies that $Q_2(q_1) < 0$ since $Q_0(q_1) > 0$ from Corollary~\ref{final-positivity-corollary}. Since $Q_2(y)$ is a quadratic with a positive leading coefficient and $Q_2(q_1) < 0$, the intermediate value theorem implies that there exist $q_2^{(1)}$ and $q_2^{(2)}$ which are roots of $Q_2$ and $q_2^{(1)} < q_1^{(1)} < q_2^{(2)}$. Now, suppose that the roots of $Q_{k-1}$ are $q_{k-1}^{(1)}, \ldots, q_{k-1}^{(k-1)}$ and the roots of $Q_k$ are $q_k^{(1)}, \ldots, q_k^{(k)}$ satisfy 
+	The equality follows from linearity and Lemma~\ref{lem:mixed-discriminant-properties}(c). We can defined the linear map $A : \RR^n \to \RR^n$ and constants $p_i$ for $1 \leq i \leq n$ by
+	\begin{align*}
+		Ay & :=  \sum_{i = 1}^n \frac{\mathsf{D}(\operatorname{Diag}(y)^{\langle i \rangle}, I, M_1^{\langle i \rangle}, \ldots, M_{n-3}^{\langle i \rangle})}{\mathsf{D}(I, I, M_1^{\langle i \rangle}, \ldots, M_{n-3}^{\langle i \rangle})} \\
+		p_i & := \frac{1}{n} \mathsf{D} (I, I, M_1^{\langle i \rangle}, \ldots, M_{n-3}^{\langle i \rangle}).
+	\end{align*}
+	Note that in the definition of $Ay$ we are allowed to divide by the mixed discriminants $\mathsf{D}(I, I, M_1^{\langle i \rangle}, \ldots, M_{n-3}^{\langle i \rangle})$ because all of the arguments are positive definite. In particular, $p_i > 0$ for all $i$. If we define the inner product $\langle x, y \rangle_P := \langle x, P y \rangle$ where $P = \operatorname{Diag}(p_1, \ldots, p_n)$, it follows that 
 	\[
-		q_k^{(1)} < q_{k-1}^{(1)} < q_k^{(2)} < \ldots < q_k^{(k-1)} < q_{k-1}^{(k-1)} < q_k^{(k)}.
+		\langle x, Ay \rangle_P = \langle x, PA y \rangle = \mathsf{D}(\operatorname{Diag}(x), \operatorname{Diag}(y), I, M_1, \ldots, M_{n-3} ).
 	\]
-	Note that we have 
+	Since the mixed discriminant is symmetric, we know $A$ is self-adjoint with respect to the inner product $\langle \cdot, \cdot \rangle_P$. Moreover, we know that $A \sum_{i = 1}^n e_i = \sum_{i = 1}^n e_i$ and $A$ is a positive matrix. From Theorem 1.4.4 in \cite{bapat_raghavan_1997}, the largest eigenvalue of $A$ is $1$ and this is a simple eigenvalue. Using the assumption that Alexandrov's inequality holds for dimension $n-1$, we can bound
+	\begin{align*}
+		\langle Ay, Ay \rangle_P & = \frac{1}{n} \sum_{i = 1}^n \frac{\mathsf{D}(\operatorname{Diag}(y)^{\langle i \rangle}, I, M_1^{\langle i \rangle}, \ldots, M_{n-3}^{\langle i \rangle})^2}{\mathsf{D} (I, I, M_1^{\langle i \rangle}, \ldots, M_{n-3}^{\langle i \rangle})} \\
+		& \geq \frac{1}{n} \sum_{i = 1}^n \mathsf{D}(\operatorname{Diag}(y)^{\langle i \rangle}, \operatorname{Diag}(y)^{\langle i \rangle}, M_1^{\langle i \rangle}, \ldots, M_{n-3}^{\langle i \rangle} ) \\
+		& = \frac{1}{n} \mathsf{D}(I, \operatorname{Diag}(y), \operatorname{Diag}(y), M_1, \ldots, M_{n-3}) \\
+		& = \langle y, Ay \rangle_P.
+	\end{align*}
+	For any eigenvalue of $v$ of $A$ with corresponding eigenvalue $\lambda$, we must have 
 	\[
-		Q_k(q_k^{(i)})^2 > Q_{k-1}(q_k^{(i)}) \cdot Q_{k+1}(q_k^{(i)}).
+		\lambda^2 \norm{v}_P^2 \geq \lambda \norm{v}_P^2 \implies \lambda \geq 1 \text{ or } \lambda \leq 0.
 	\]
-	From the inductive hypothesis, $Q_{k-1}(q_k^{(i)})$ alternates in sign. Thus $Q_{k+1}(q_k^{(i)})$ also alternates in sign. Thus the roots of $Q_{k+1}$ are simple, real, and interlace $Q_k$. This proves the auxiliary claim that $Q_k$ has $k$ simple real roots. \\
-
-	This claim proves that $D_m(r_1, \ldots, r_{m-1}, k)(y)$ has $k$ simple real roots. The desired inequality then follows immediately. We also know that the inequality is strict in the case where $A_m$ and $A_{m+1}$ are not proportional. This completes the induction and suffices for the proof. 
+	This implies that the positive eigenspace of $A$ has dimension $1$. From Lemma~\ref{hyperbolic-quadratic-forms}, this suffices for the proof. 
 \end{proof}
 
+\begin{proof}[Proof of Theorem~\ref{thm:only-inequality-mixed-discriminants}.]
+	To complete the proof of Theorem~\ref{thm:only-inequality-mixed-discriminants} it suffices to show that we can reduce the inequality to that in Lemma~\ref{lem:reduced-inequality}. We omit this proof and refer the reader to the proof of Corollary 4.3 in \cite{bochner}. 
+\end{proof}
+
+Corollary~\ref{mixed-discriminant-log-concave-sequence} illustrates that mixed discriminants involving two positive definite bodies are log-concave. Corollary~\ref{cor-one-implies-all-mixed-discriminants} says that in this situation equality at one point will give equality at all points. 
 
 \begin{cor} \label{mixed-discriminant-log-concave-sequence}
 	Let $A, B$ be $n \times n$ positive definite symmetric real matrices. For $0 \leq k \leq n$, define the mixed discriminant
@@ -1305,7 +1306,7 @@ From Lemma 1.4 in \cite{bochner}, we find necessary and sufficient conditions fo
 
 \subsection{Equality Cases} \label{sec:AF-equality-cases}
 
-Unlike Alexandrov's inequality for mixed discriminants, the equality cases of the Alexandrov-Fenchel inequality are rich and highly non-trivial. In this thesis, we do not provide any deep explanations for the mechanisms involved in the equality of the Alexandrov-Fenchel inequality as this is not our main focus. If interested in these topics, we refer the reader to \cite{minkowski-quadratic-inequality,shenfeld2022extremals}. We provide an overview of the equality cases of the Alexandrov-Fenchel inequality. We mainly list the results from \cite{shenfeld2022extremals} that we will need in Chapter~\ref{log-concavity-results}.
+In both Alexandrov's inequality for mixed discriminants and the Alexandrov-Fenchel inequality, the equality cases are split into two types: supercritical and critical. Unlike the Alexandrov's inequality for mixed discriminants, the equality cases of the Alexandrov-Fenchel inequality are rich and highly non-trivial even in the supercritical case. In this thesis, we do not provide any deep explanations for the mechanisms involved in the equality of the Alexandrov-Fenchel inequality as this is not our main focus. If interested in these topics, we refer the reader to \cite{minkowski-quadratic-inequality,shenfeld2022extremals}. We provide an overview of the equality cases of the Alexandrov-Fenchel inequality. We mainly list the results from \cite{shenfeld2022extremals} that we will need in Chapter~\ref{log-concavity-results}.
 
 The Alexandrov-Fenchel inequality can be viewed as a generalization of Minkowski's Inequality and various isoperimetric inequalities. We recall the Brunn-Minkowski inequality and its equality cases in Theorem~\ref{brunn-minkowski}.
 \begin{thm}[Brunn-Minkowski Inequality, Theorem 3.13 in \cite{Hug2020-ue}] \label{brunn-minkowski}
@@ -1392,7 +1393,7 @@ Hence, the constant $a > 0$ indicates the ratio between the mixed volumes.
 
 \section{Basic Theory of Lorentzian polynomials} \label{sec:lorentzian-polynomials}
 
-In this section, we give an overview of the theory of Lorentzian polynomials. Lorentzian polynomials are polynomials which log-concavity in various different ways. According to \cite{baker_2022}, the notion of Lorentzian polynomials was independently discovered by Brändén-Huh \cite{lorentzian-polynomials} and Anari-Oveis-Garan-Vinzant \cite{anari2018logconcave}. For our main reference on the basic theory of Lorentzian polynomials, we primarily use the paper \cite{lorentzian-polynomials} by Brändén-Huh. Following their notation, we let $\opH_n^d$ be the degree $d$ homogeneous subring defined by 
+In this section, we give an overview of the theory of Lorentzian polynomials. Lorentzian polynomials are polynomials which encode log-concavity in various ways. According to \cite{baker_2022}, the notion of Lorentzian polynomials was independently discovered by Brändén-Huh \cite{lorentzian-polynomials} and Anari-Oveis-Garan-Vinzant \cite{anari2018logconcave}. For our main reference on the basic theory of Lorentzian polynomials, we primarily use the paper \cite{lorentzian-polynomials} by Brändén-Huh. Following their notation, we let $\opH_n^d$ be the degree $d$ homogeneous subring defined by 
 \[
 	\opH_n^d := \{f \in \RR[x_1, \ldots, x_n] : \text{$f$ is homogeneous,} \deg (f) = d\}.
 \] 
@@ -1503,7 +1504,18 @@ Recall that the mixed discriminant $\mathsf{D}_n(A_1, \ldots, A_n)$ can be defin
 \end{proof}
 
 \begin{remark}
-	In Proposition 4.5 of \cite{lorentzian-polynomials}, Br\"aden-Huh prove a stronger version of Proposition~\ref{prop:analog-of-alexandrov-fenchel} where we allow the first vector $v_1$ to be any vector in $\RR^n$. The proof of this stronger fact uses the Cauchy interlacing theorem from Section~\ref{sec:cauchy-interlacing-theorem}. Through private discussions with Ramon van Handel, it may be possible to use the ideas in \cite{shenfeld2022extremals} to give a characterization of the equality cases of Proposition~\ref{prop:analog-of-alexandrov-fenchel}. In the expansion of Equation~\ref{eqn:yesyesyes} for the case $m = n$, by substituting $v_i = e_i$ for all $1 \leq i \leq n$ we get the equation
+	In Proposition 4.5 of \cite{lorentzian-polynomials}, Br\"aden-Huh prove a stronger version of Proposition~\ref{prop:analog-of-alexandrov-fenchel} where we allow the first vector $v_1$ to be any vector in $\RR^n$. The proof of this stronger fact uses the Cauchy interlacing theorem from Section~\ref{sec:cauchy-interlacing-theorem}. This stronger fact also follows from the version we proved in Proposition~\ref{prop:analog-of-alexandrov-fenchel}. Indeed, suppose that $v_1 \in \RR^n$ and $v_2 \in \RR_{> 0}^n$. Then, we can pick $\alpha > 0$ sufficiently large so that $v_1 + \alpha v_2 \in \RR_{> 0}^n$. To simplify notation, we define 
+	\[
+		\operatorname{F}(x, y) := F_f(x, y, v_3, \ldots, v_d).
+	\]
+	From Proposition~\ref{prop:analog-of-alexandrov-fenchel}, we have that
+	\[
+		\operatorname{F}(v_1 + \alpha v_2, v_2)^2 \geq \operatorname{F}(v_1 + \alpha v_2, v_1 + \alpha v_2) \operatorname{F}(v_2, v_2).
+	\]
+	This is equivalent to $\operatorname{F}(v_1, v_2) \geq \operatorname{F}(v_1, v_1) \operatorname{F}(v_2, v_2)$. From continuity, the inequality holds for all $v_2 \in \RR_{\geq 0}^n$. 
+\end{remark}
+\begin{remark}
+	Through private discussions with Ramon van Handel, it may be possible to use the ideas in \cite{shenfeld2022extremals} to give a characterization of the equality cases of Proposition~\ref{prop:analog-of-alexandrov-fenchel}. In the expansion of Equation~\ref{eqn:yesyesyes} for the case $m = n$, by substituting $v_i = e_i$ for all $1 \leq i \leq n$ we get the equation
 	\[
 		f(x_1, \ldots, x_n) = d! \sum_{\alpha \in \Delta_n^d} \frac{F_f(e_1 [\alpha_1], \ldots, e_n [\alpha_n])}{\alpha!} x^\alpha.
 	\]
@@ -1701,7 +1713,7 @@ In Conjecture 8.7 in \cite{chan2022extensions}, Chan-Pak-Panova conjecture that 
 \end{thm}
 
 \begin{remark}
-	Theorem~\ref{kahn-saks-thm-2} resolves Conjecture 8.7 in \cite{chan2022extensions}. In their paper, Chan-Pak-Panova prove the important implication $(b) \implies (a)$. Since this result is central for the full characterization, we record it in Proposition~\ref{almost-theorem}. In Theorem~\ref{kahn-saks-thm-3}, it turns out property (iii) will follow from the other conditions. However, we keep the condition in the theorem as it gives a better idea of the structure of the poset. 
+	Theorem~\ref{kahn-saks-thm-2} resolves Conjecture 8.7 in \cite{chan2022extensions}. In their paper, Chan-Pak-Panova prove the important implication $(b) \implies (a)$. Since this result is central for the full characterization, we record it in Proposition~\ref{almost-theorem}.
 \end{remark}
 
 \begin{prop} [Theorem 8.9, Proposition 8.8 in \cite{chan2022extensions}]\label{almost-theorem}
@@ -2162,7 +2174,7 @@ Stanley's poset inequality was proven by Richard Stanley in \cite{STANLEY}. We h
 Stanley's inequality associated to this sequence is written in Theorem~\ref{stanley-matroid-inequality-full-generality}. The inequality describes the log-concavity of the basis counting sequence $B(T_1, \ldots, T_r)$. 
 
 \begin{thm}[Theorem 2.1 in \cite{STANLEY}] \label{stanley-matroid-inequality-full-generality}
-	Let $M = (E, \mcB)$ be a unimodular matroid of rank $r$. Let $\mathcal{T} = (T_1, \ldots, T_{r-m})$ be a collection $r-m$ subsets of $E$ and let $X, Y \subseteq E$. Then, 
+	Let $M = (E, \mcB)$ be a regular matroid of rank $r$. Let $\mathcal{T} = (T_1, \ldots, T_{r-m})$ be a collection $r-m$ subsets of $E$ and let $X, Y \subseteq E$. Then, 
 	\[
 		B(\mathcal{T}, \underbrace{X, \ldots, X}_{k \text{ times}}, \underbrace{Y, \ldots, Y}_{m-k \text{ times}})^2 \geq B(\mathcal{T}, \underbrace{X, \ldots, X}_{k-1 \text{ times}}, \underbrace{Y, \ldots, Y}_{m-k+1 \text{ times}}) B(\mathcal{T}, \underbrace{X, \ldots, X}_{k+1 \text{ times}}, \underbrace{Y, \ldots, Y}_{m-k-1 \text{ times}})
 	\]
@@ -2248,7 +2260,7 @@ Before we present Stanley's proof of Theorem~\ref{stanley-equality-cases-matroid
 	\begin{align*}
 		B_R & = \begin{bmatrix} X_R \\ v_R^T \end{bmatrix}, \quad \text{ and } \quad B_Q = \begin{bmatrix} X_Q \\ v_Q^T \end{bmatrix}
 	\end{align*}
-	where $X_R$ and $X_Q$ are $B_R$ and $B_Q$ with the bottom row removed. We know that the reduced incidence matrix $C = [X_R | X_Q]$ is a unimodular coordinatization of our graphic matroid. From the equality cases of Alexandrov's inequality for mixed discriminants, the equality in (a) implies that $X_RX_R^T = \alpha X_Q X_Q^T$ for some $\alpha \in \RR$. Let $L_R$ be the Laplacian of the subgraph on $V$ with $R$-edges and $L_Q$ be the Laplacian of the subgraph on $V$ with $Q$-edges. Proposition~\ref{incidence-and-laplacian-relation-prop} gives us
+	where $X_R$ and $X_Q$ are $B_R$ and $B_Q$ with the bottom row removed. We know that the reduced incidence matrix $C = [X_R | X_Q]$ is a unimodular coordinatization of our graphic matroid. From the equality cases of Alexandrov's inequality for mixed discriminants, the equality in (a) implies that $X_RX_R^T = \alpha X_Q X_Q^T$ for some $\alpha \in \RR$. We can apply the mixed discriminant equality characterization because $X_R, X_Q$ are both full rank and $X_RX_R^T$, $X_QX_Q^T$ are positive definite. Let $L_R$ be the Laplacian of the subgraph on $V$ with $R$-edges and $L_Q$ be the Laplacian of the subgraph on $V$ with $Q$-edges. Proposition~\ref{incidence-and-laplacian-relation-prop} gives us
 	\begin{align*}
 		L_{G|_R} & = B_R B_R^T = \begin{bmatrix}
 			X_RX_R^T & \bullet \\ \bullet & \bullet
@@ -2270,33 +2282,64 @@ Before we present Stanley's proof of Theorem~\ref{stanley-equality-cases-matroid
 
 \subsection{Equality cases of Stanley's Matroid Inequality for Regular Matroids}
 
+Before we prove Theorem~\ref{stanley-equality-cases-matroid-thm} for regular matroids, we give necessary and sufficient conditions for when two zonotopes are homothetic to each other. For any $v_1, \ldots, v_m \in \RR^n$, we define the \textbf{centrally symmetric zonotope} generated by $v_1, \ldots, v_m$ as the convex body given by
+\[
+	Z_0 (v_1, \ldots, v_m) = \sum_{i = 1}^m [-v_i, v_i] = \left \{ \sum_{i = 1}^m \lambda_i v_i : \lambda_i \in [-1, 1] \text{ for all } 1 \leq i \leq m \right \}.
+\]
+This is related to our definition of a zonotope by the relation 
+\[
+	Z_0(v_1, \ldots, v_m) = 2 Z(v_1, \ldots, v_m) - \sum_{i = 1}^m v_i.
+\]
+In the literature, a zonotope is generally defined to be simply the Minkowski sum of a collection of segments. However, it is common to see the study of zonotopes restricted to either centrally symmetric zonotopes or zonotopes in the sense we have defined them. For examples of such conventions, we refer the reader to \cite{schneider_2013,Shephard_Zonotopes,STANLEY}. We call a convex body a (centrally symmetric) \textbf{zonoid} if it is the limit, in the sense of Hausdorff distance, of a sequence of (centrally symmetric) zonotopes. From Theorem~\ref{thm:representation-of-zonoid}, to every centrally symmetric zonoid we can associate an even measure on $\mathbb{S}^{n-1}$. From Theorem~\ref{thm:uniqueness-of-even-measure}, this even measure is unique. Both of these facts are found in \cite{schneider_2013}. 
 
-To prove Theorem~\ref{stanley-equality-cases-matroid-thm} for the case of regular matroids, we prove Lemma~\ref{lem-zonotope-homothetic} which gives necessary and sufficient conditions for when two zonotopes are homothetic to each other. Slightly weaker versions of Lemma~\ref{lem-zonotope-homothetic} are proven in Lemma 2.7 of \cite{STANLEY} and Lemma 5.3 of \cite{Kato_2007}. Strangely, for Stanley's application in \cite{STANLEY}, it is not immediately obvious why the version of Lemma~\ref{lem-zonotope-homothetic} that he proves is enough to give equality cases. For this reason, we will the prove a stronger version of the homothety characterization for zonotopes in Lemma~\ref{lem-zonotope-homothetic}. 
+\begin{thm} \label{thm:representation-of-zonoid}
+	A convex body $K \subseteq \RR^n$ is a centrally symmetric zonoid if and only if its support function can be represented in the form 
+	\[
+		h_K(x) = \int_{\mathbb{S}^{n-1}} |\langle x, v \rangle | \, \rho (dv) \text{ for all $x \in \RR^n$}
+	\]
+	where $\rho$ is some even measure on $\mathbb{S}^{n-1}$.
+\end{thm}
+\begin{proof}
+	See Theorem 3.5.3 in \cite{schneider_2013}.
+\end{proof}
 
-\begin{lem}[Lemma 2.7 in \cite{STANLEY}] \label{lem-zonotope-homothetic}
-	Let $v_1, \ldots, v_r$, $w_1, \ldots, w_s$ be vectors in $\RR^n$ such that all of the vectors are contained in the same vector half-space of $\RR^n$. Let $v_1', \ldots, v_l'$ be the vectors obtained from $v_1, \ldots, v_r$ from discarding any $v_i = 0$ and by adding together all remaining $v_j$'s which are scalar multiples of each other. Similarly, define $w_1', \ldots, w_u'$. The zonotopes $Z(v_1, \ldots, v_r)$ and $Z(w_1, \ldots, w_s)$ are homothetic if and only if $t = u$ and after suitable indexing $v_i' = \gamma w_i'$ for $1 \leq i \leq t$ and some fixed $\gamma > 0$. 
+\begin{thm} \label{thm:uniqueness-of-even-measure}
+	If $\rho$ is an even signed measure on $\mathbb{S}^{n-1}$ with 
+	\[
+		\int_{\mathbb{S}^{n-1}} |\langle u, v \rangle | \, \rho(dv) = 0 \text{ for } u \in \mathbb{S}^{n-1}, 
+	\]
+	then $\rho = 0$. 
+\end{thm}
+
+\begin{proof}
+	See Theorem 3.5.4 in \cite{schneider_2013}. 
+\end{proof}
+
+For a centrally symmetric zonotope $Z_0 = Z_0(v_1, \ldots, v_m)$, the support function is given by the equation $h_{Z_0}(x) = \sum_{i = 1}^k \norm{v_i} \cdot  | \langle x, u_i \rangle |$ where $u_i := v_i / \norm{v_i}$. Thus, the corresponding even signed measure will be given by 
+\begin{equation} \label{eqn:even-signed-measure-of-zonotope}
+	\rho_{Z_0} = \sum_{i = 1}^k \frac{\norm{v_i}}{2} ( \delta_{u_i} + \delta_{-u_i}).
+\end{equation}
+With the description and the uniqueness of the even measure corresponding to centrally symmetric zonoids, we immediately get the result in Lemma~\ref{lem-condition-zonotope-homothety}. 
+
+\begin{lem} \label{lem-condition-zonotope-homothety}
+	Let $v_1, \ldots, v_r, w_1, \ldots, w_s \in \RR^n$ be non-zero vectors such that none of the $v_i$'s are parallel and none of the $w_i$'s are parallel. Then, there exists $\lambda \in \RR$ and $x \in \RR^n$ such that
+	\[
+		Z(v_1, \ldots, v_r) = \lambda Z(w_1, \ldots, w_s) + x
+	\]
+	if and only if $r = s$, and up to a permutation of the vectors $v_i = \lambda w_i$ for all $i$.
 \end{lem}
 
 \begin{proof}
- 	Since we have that $Z(v_1, \ldots, v_r) = Z(v_1', \ldots, v_l')$ and $Z(w_1, \ldots, w_s) = Z(w_1', \ldots, w_u')$, we can assume that the linear matroids generated by $v_1, \ldots, v_r$ and $w_1, \ldots, w_r$ are simple. Since all of our vectors lie in the same vector half-space, we know that $0$ is a vertex of both zonotopes. Hence, the homothety must be of the form 
- 	\[
- 		Z(v_1, \ldots, v_r) = \lambda Z(w_1, \ldots, w_s)
- 	\] 
- 	for some $\lambda > 0$. By scaling each $w_i$ by $\lambda$, we can further assume that $Z(v_1, \ldots, v_r) = Z(w_1, \ldots, w_s)$. At least one of the vectors $v_i$ must be a vertex of $Z(v_1, \ldots, v_r)$. Since this point is not the sum of other points in the zonotope, there must be a $w_j$ such that $v_i = w_j$. Without loss of generality, let us say $v_1 = w_1$. Then, we have that 
- 	\[
- 		[0, v_1] + Z(v_2, \ldots, v_r) = Z(v_1, \ldots, v_r) = Z(w_1, \ldots, w_s) = [0, w_1] +Z(w_2, \ldots, w_s).
- 	\]
- 	From Proposition~\ref{prop-cancellation-law}, this gives us $Z(v_2, \ldots, v_r) = Z(w_2, \ldots, w_s)$. The lemma then follows from induction.  
+	It is clear that the conditions in the lemma imply that $Z(v_1, \ldots, v_r)$ and $Z(w_1, \ldots, w_s)$ are homothetic. For the other direction, note that $Z(v_1, \ldots, v_r)$ and $Z(w_1, \ldots, w_s)$ being homothetic implies that $Z_0(v_1, \ldots, v_r)$ and $Z_0(w_1, \ldots, w_s)$ are also homothetic. Hence, we must have
+	\[
+		Z_0 (v_1, \ldots, v_r) = \lambda Z_0(w_1, \ldots, w_s)
+	\]
+	where $\lambda$ is the same dilation factor in the homothety for $Z(v_1, \ldots, v_r)$ and $Z(w_1, \ldots, w_s)$. In the homothety between centrally symmetric zonotopes, there is only a dilation factor since they both have center of mass at $0$. From the uniqueness and description in Equation~\ref{eqn:even-signed-measure-of-zonotope} of the even measure corresponding to centrally symmetric zonoids, we can conclude that $r = s$ and $v_i = \lambda s_i w_i$ for all $i$ up to a reordering of the vectors and some choice of $s_i \in \{\pm 1\}$. This suffices for the proof of the lemma. 
 \end{proof}
 
-\begin{remark}
-	The version of Lemma~\ref{lem-zonotope-homothetic} that Stanley proves requires that the vectors lie in the same orthant. However, it is not clear whether or not for any regular matroid we can find a unimodular coordinatization such that all of the vectors lie in the same orthant. 
-\end{remark}
-
-In order to apply Lemma~\ref{lem-zonotope-homothetic}, we want to show that in the unimodular coordinatization $v : E \to \RR^r$, we can let $v(E)$ lie in the same vector half-space. If we negate any vector the coordinatization, this will not break the unimodularity since it will multiply the determinants of submatrices by $1$ or $-1$. We can also negative all vectors so that the first coordinate is positive. This will guarentee that all vectors lie in the same closed half-space. Thus, we can apply Lemma 5.3.1 and prove Theorem~\ref{stanley-equality-cases-matroid-thm}. 
-
+We can now begin the proof of Theorem~\ref{stanley-equality-cases-matroid-thm}. 
 \begin{proof}[Proof of Theorem~\ref{stanley-equality-cases-matroid-thm}]
-	The fact that (b) implies (a) is the subject of Theorem~\ref{one-direction-of-the-conjecture}. For the other direction, let $Q = E \backslash R$ and let $v : E \to \RR^n$ be a unimodular coordinatization of $M$ so that the vectors $v(E)$ lie in the same vector half-space. Recall that for all $0 \leq k \leq n$, we have that 
+	The fact that (b) implies (a) is the subject of Theorem~\ref{one-direction-of-the-conjecture}. For the other direction, let $Q = E \backslash R$ and let $v : E \to \RR^n$ be a unimodular coordinatization of $M$. Since negating vectors in our coordinatization will not break the unimodularity, we can assume that whenever two vectors are parallel, they are positive scalar multiples of each other. Since our coordinatization is unimodular, we know that two vectors are equal to each other if and only if they are parallel. Moreover, since our matroid is loopless, all of the vectors are non-zero. So, for every parallel class $\overline{x}$ there is a vector $v_{\overline{x}} \in \RR^n$ such that $v_y = v_{\overline{x}}$ if and only if $y \in \overline{x}$. Recall that for all $0 \leq k \leq n$, we have that 
 	\[
 		N_k = \binom{n}{i} \mathsf{V}_n \left ( \underbrace{Z(R), \ldots, Z(R)}_{k \text{ times}}, \underbrace{Z(Q), \ldots, Z(Q)}_{n-k \text{ times}} \right ). 
 	\]
@@ -2310,13 +2353,17 @@ In order to apply Lemma~\ref{lem-zonotope-homothetic}, we want to show that in t
 		\item $\dim Z(R)$ and $\dim Z(Q)$ lie in parallel hyperplanes. 
 		\item $Z(R)$ and $Z(Q)$ are homothetic. 
 	\end{enumerate}
-	If $\dim Z(R) \leq n-2$ or $\dim Z(R)$ and $\dim Z(Q)$ lie in parallel hyperplanes, then we know that $\Vol_n (Z(R)) = \Vol_n(Z(Q)) = 0$. This implies that $\widetilde{N}_1 = 0$. Now suppose that $Z(R)$ and $Z(Q)$ are homothetic. Let $R = \{v_1, \ldots, v_r\}$ and $Q = \{w_1, \ldots, w_s\}$ with $r + s = |E|$ be the vectors in the coordinations. Let $R' = \{v_1', \ldots, v_t'\}$ and $Q' =\{w_1', \ldots, w_u'\}$ be the result of the modification in Lemma~\ref{lem-zonotope-homothetic}. Then $t = u$ and there must be a $\lambda > 0$ so that after a relabeling of indices we have $v_i' = \lambda w_i'$ for all $1 \leq i \leq t$. In the coordinatization, note that $v(e) = v(f)$ if and only if $e$ and $f$ lie in the same parallel class. Thus, it must be the case that equality holds if and only if there exists $\lambda > 0$ so that $|R \cap \overline{x}| = \lambda |Q \cap \overline{x}|$ for all $x \in E$. This suffices for the proof. 
+	If $\dim Z(R) \leq n-2$ or $\dim Z(R)$ and $\dim Z(Q)$ lie in parallel hyperplanes, then we know that $\Vol_n (Z(R)) = \Vol_n(Z(Q)) = 0$. This implies that $\widetilde{N}_1 = 0$. Now suppose that $Z(R)$ and $Z(Q)$ are homothetic. Let $R = \{v_1, \ldots, v_r\}$ and $Q = \{w_1, \ldots, w_s\}$ with $r + s = |E|$ be the vectors in the coordinations. Let $R' = \{v_1', \ldots, v_t'\}$ and $Q' = \{w_1', \ldots, w_u'\}$ be the result of adding parallel vectors together. The collection $R'$ consists of vectors of the form $|R \cap \overline{x}| v_{\overline{x}}$ for all $x$ satisfying $|R \cap \overline{x}| > 0$. The same is true for the collection $Q'$. Since these zonotopes are homothetic, we know from Lemma~\ref{lem-condition-zonotope-homothety} that $t = u$ and there exists a $\lambda > 0$ so that after a relabeling of indices we have $v_i' = \lambda s_i w_i'$ for all $1 \leq i \leq t$ where $s_i \in \{\pm 1\}$. From our construction, we are forced to have $s_i = 1$. Thus, it must be the case that equality holds if and only if there exists $\lambda > 0$ so that $|R \cap \overline{x}| = \lambda |Q \cap \overline{x}|$ for all $x \in E$. This suffices for the proof. 
 \end{proof}
+
+\begin{remark}
+	In his paper \cite{STANLEY}, Stanley gives a combinatorial proof of Theorem~\ref{stanley-equality-cases-matroid-thm} by proving Lemma~\ref{lem-condition-zonotope-homothety} with the additional hypothesis that all vectors lie in the same orthant. Because the vectors are forced to be in the same positive orthant, he can conclude that $v_i = \lambda w_i$ without any sign constraints from the $s_i$. However, it is not clear to us why he can apply this fact to Theorem~\ref{stanley-equality-cases-matroid-thm}. In particular, Stanley did not prove that for any regular matroid, it is possible to find a unimodular coordinatization such that all of the vectors lie in the same orthant. 
+\end{remark}
 
 With the mixed discriminant perspective, we can extend Theorem~\ref{stanley-equality-cases-matroid-thm} slightly to the case where we are only guarenteed that one of the inequalities $\widetilde{N}_k^2 \geq \widetilde{N}_{k-1} \widetilde{N}_{k+1}$ is equality. Indeed, by viewing the sequence $\widetilde{N}_k$ as a sequence of mixed discriminants, we can prove Lemma~\ref{connection-lemma}. 
 
 \begin{lem} \label{connection-lemma}
-	Let $M$ be a matroid of rank $n$. Suppose that $\widetilde{N}_0 > 0$ and $\widetilde{N}_n > 0$. Then $\widetilde{N}_1^n = \widetilde{N}_0^{n-1} \widetilde{N}_n$ if and only if $\widetilde{N}_k^2 = \widetilde{N}_{k-1} \widetilde{N}_{k+1}$ for some $k \in \{1, \ldots, n-1\}$.
+	Let $M$ be a regular, loopless matroid of rank $n$. Suppose that $\widetilde{N}_0 > 0$ and $\widetilde{N}_n > 0$. Then $\widetilde{N}_1^n = \widetilde{N}_0^{n-1} \widetilde{N}_n$ if and only if $\widetilde{N}_k^2 = \widetilde{N}_{k-1} \widetilde{N}_{k+1}$ for some $k \in \{1, \ldots, n-1\}$.
 \end{lem}
 
 \begin{proof}
@@ -2324,13 +2371,13 @@ With the mixed discriminant perspective, we can extend Theorem~\ref{stanley-equa
 	\[
 		\widetilde{N}_k = \mathsf{D} (A_R [k], A_Q [n-k])
 	\]
-	where $A_R = X_R X_R^T$, $A_Q = X_Q X_Q^T$, and $X_R, X_Q$ are the matrices which consist of the unimodular representations of the elements in $R$ and $Q$ as columns. From Corollary~\ref{cor-one-implies-all-mixed-discriminants}, we get that $\widetilde{N}_k^2 = \widetilde{N}_{k-1} \widetilde{N}_{k+1}$ holds for all $k \in \{1, \ldots, n-1\}.$
+	where $A_R = X_R X_R^T$, $A_Q = X_Q X_Q^T$, and $X_R, X_Q$ are the matrices which consist of the unimodular representations of the elements in $R$ and $Q$ as columns. From Corollary~\ref{cor-one-implies-all-mixed-discriminants}, we get that $\widetilde{N}_k^2 = \widetilde{N}_{k-1} \widetilde{N}_{k+1}$ holds for all $k \in \{1, \ldots, n-1\}$. We can apply Corollary~\ref{cor-one-implies-all-mixed-discriminants} because the condition $\widetilde{N}_0 > 0$ and $\widetilde{N}_n > 0$ implies that the matrices $X_R X_R^T$ and $X_QX_Q^T$ are positive definite. 
 \end{proof}
 
 From Lemma~\ref{connection-lemma}, whenever $\widetilde{N}_0, \widetilde{N}_n > 0$ (which translate to $R$ and $Q$ both having full rank), we get that the necessary and sufficient conditions for equality in Theorem~\ref{stanley-equality-cases-matroid-thm} are exactly the necessary and sufficient conditions to guarentee equality at a single instance of the log-concavity inequality. Thus, we make the following conjecture for all matroids (not necessarily regular). 
 
 \begin{conj} \label{matroid-conjecture}
-	Let $M$ be a loopless matroid of rank of rank $n$ on a set $E$. Let $R \subseteq E$ be a subset and let $Q = E \backslash R$. For $k$, $0 \leq k \leq n$, we define $N_k$ to be the number of bases of $M$ with $k$ elements in $R$. Define $\widetilde{N}_k = \frac{N_k}{\binom{n}{k}}$. Suppose that $R$ and $Q$ both have rank $n$. Then, the following are equivalent. 
+	Let $M$ be a loopless matroid of rank $n$ on a set $E$. Let $R \subseteq E$ be a subset and let $Q = E \backslash R$. For $k$, $0 \leq k \leq n$, we define $N_k$ to be the number of bases of $M$ with $k$ elements in $R$. Define $\widetilde{N}_k = \frac{N_k}{\binom{n}{k}}$. Suppose that $R$ and $Q$ both have rank $n$. Then, the following are equivalent. 
 	\begin{enumerate}[label = (\alph*)]
 		\item $\widetilde{N}_k^2 = \widetilde{N}_{k-1} \widetilde{N}_{k+1}$ for some $k \in \{1, \ldots, n-1\}$. 
 
@@ -2369,8 +2416,6 @@ To show some evidence of Conjecture~\ref{matroid-conjecture}, we will prove one 
 	This implies that $\widetilde{N}_k = \frac{q}{r} \widetilde{N}_{k-1}$. This proves the theorem. 
 \end{proof}
 In the subsequent subsection, we prove Stanley's matroid inequality without the regularity condition using the technology of Lorentzian polynomials. 
-
-
 
 \subsection{Lorentzian Perspective of the Basis Counting Number} \label{subsection-matroid-lorentzian-stanley-general}
 
@@ -2475,7 +2520,7 @@ According to Stanley in \cite{STANLEY}, Theorem~\ref{main-thm-for-matroids} woul
 \end{remark}
 
 \begin{remark}
-	In hindsight, it seems that Stanley would have been unable to prove his matroid inequality for arbitrary matroids using mixed volumes without the hypothesis that the matroid is regular. Indeed, from Remark 4.3, the basis generating polynomial of a matroid on $[n]$ is the volume polynomial of $n$ convex bodies precisely when the matroid is regular.
+	In hindsight, it seems that Stanley would have been unable to prove his matroid inequality for arbitrary matroids using mixed volumes without the hypothesis that the matroid is regular. Indeed, from Remark 4.3 in \cite{lorentzian-polynomials}, the basis generating polynomial of a matroid on $[n]$ is the volume polynomial of $n$ convex bodies precisely when the matroid is regular.
 \end{remark}
 
 \chapter{Hodge Theory for Matroids} \label{chap:hodge-theory-for-matroids}
@@ -2484,15 +2529,15 @@ In this chapter we will study cohomology rings associated to matroids. In the ge
 
 \section{Cohomology Rings for Matroids} \label{sec:cohomology-rings-for-matroids}
 	
-In this section, we will review the definitions and properties of three cohomology rings associated to matroids: the graded M\"obius algebra, the Chow ring, and the augmented Chow ring. The Chow ring and the augmented Chow ring of a matroid are automatically Poincar\'e duality algebras. The graded M\"obius algebra is in general not a Poincar\'e duality algebra. 
+In this section, we will review the definitions and properties of three graded commutative algebras associated to matroids: the graded M\"obius algebra, the Chow ring, and the augmented Chow ring. The Chow ring and the augmented Chow ring of a matroid are automatically Poincar\'e duality algebras. The graded M\"obius algebra is in general not a Poincar\'e duality algebra. 
 
 \subsection{Graded M\"obius Algebra}
 
-Let $M$ be a matroid on ground set $E$ and let $\mcL$ be its lattice of flats. For $k \geq 0$, let $\mcL^k(M)$ be the set of lattices of rank $k$. For every $k$, we can define the real vector space $\opH^k(M)$ given by 
+Let $M$ be a matroid on ground set $E$ and let $\mcL$ be its lattice of flats. For $k \geq 0$, let $\mcL^k(M)$ be the set of flats of rank $k$. For every $k$, we can define the real vector space $\opH^k(M)$ given by 
 \[
 	\opH^k(M) := \bigoplus_{F \in \mcL^k(M)} \RR y_F
 \]
-where we have a variable $y_F$ for every flat $F \in \mcL^k(M)$. We can then define a graded multiplicative structure $\opH^k(M) \times \opH^l(M) \to \opH^{k+1}(M)$ where for $F_1 \in \mcL^k(M)$ and $F_2 \in \mcL^l(M)$ we have 
+where we have a variable $y_F$ for every flat $F \in \mcL^k(M)$. We can then define a graded multiplicative structure $\opH^k(M) \times \opH^l(M) \to \opH^{k+l}(M)$ where for $F_1 \in \mcL^k(M)$ and $F_2 \in \mcL^l(M)$ we have 
 \begin{equation}\label{eqn:multiplicative-structure-on-graded-mobius-algebra}
 	y_{F_1} \cdot y_{F_2} = 
 	\begin{cases}
@@ -2503,7 +2548,7 @@ where we have a variable $y_F$ for every flat $F \in \mcL^k(M)$. We can then def
 \begin{defn}
 	For every matroid $M$, we define the \textbf{graded M\"obius algebra} to be the graded ring $\opH(M) = \bigoplus_{k \geq 0} \opH^k(M)$ equipped with the multiplicative structure defined in Equation~\ref{eqn:multiplicative-structure-on-graded-mobius-algebra}. 
 \end{defn}
-For every $e \in E$ in the ground set, we can define a graded ring homomorphism $\theta_e : \opH(M \backslash e) \to \opH(M)$ where $\theta_e (y_F) = y_{\text{clo}_M(F)}$ for all $F \in \mcL(M \backslash i)$. Explicitly, we have that $\clo_M(F)$ is $F$ if $F \in \mcL(M)$ and $F \cup \{e\}$ if $F \notin \mcL(M)$. Since the flats of $M \backslash e$ are of the form $F - \{e\}$ where $F$ is a flat of $M$, this map is well-defined. It is also a degree preserving map since $\rank (S) = \rank (\clo(S))$. It is also easy to see that $\theta_i$ is injective. We prove that $\theta_e$ is a ring homomorphism in Lemma~\ref{lem:theta-is-a-ring-homomorphism}. 
+For every $e \in E$ in the ground set, we can define a graded ring homomorphism $\theta_e : \opH(M \backslash e) \to \opH(M)$ where $\theta_e (y_F) = y_{\text{clo}_M(F)}$ for all $F \in \mcL(M \backslash e)$. Explicitly, we have that $\clo_M(F)$ is $F$ if $F \in \mcL(M)$ and $F \cup \{e\}$ if $F \notin \mcL(M)$. Since the flats of $M \backslash e$ are of the form $F - \{e\}$ where $F$ is a flat of $M$, this map is well-defined. It is also a degree preserving map since $\rank (S) = \rank (\clo(S))$. It is also easy to see that $\theta_i$ is injective. We prove that $\theta_e$ is a ring homomorphism in Lemma~\ref{lem:theta-is-a-ring-homomorphism}. 
 
 \begin{lem}\label{lem:theta-is-a-ring-homomorphism}
 	For every $e \in M$, the map $\theta_e : \opH(M \backslash i) \to \opH(M)$ is a ring homomorphism. 
@@ -2625,7 +2670,7 @@ This decomposition is similar to that of Theorem~\ref{thm:chow-ring-decomp}. Thi
 
 \section{Gorenstein Ring associated to a polynomial}
 
-In this section, we study a ring introduced by Toshiaki Maeno and Yasuhide Numata in their paper \cite{MN-gorenstein} which we call the Gorenstein ring associated to a polynomial. As the name suggests, there is such a ring for every homogeneous polynomial $f \in \RR [x_1, \ldots, x_n]$. 
+In this section, we examine a Poincar\'e algebra associated to a homogeneous polynomial. We call this ring the Gorenstein ring associated to a polynomial. As the name suggests, there is such a ring for every homogeneous polynomial $f \in \RR [x_1, \ldots, x_n]$. The case where the polynomial is the basis generating polynomial of a matroid was studied by Toshiaki Maeno and Yasuhide Numata in their paper \cite{MN-gorenstein}. In the case where the polynomial is the volume polynomial of a polytope, the ring was studied in \cite{riemann-roch-thm-for-virtual-polytopes} and \cite{Timorin_1999}. The idea of associating a Poincar\'e duality algebra to a polynomial is an old one due to Macaulay. 
 
 \begin{defn}
 	Let $f \in \RR[x_1, \ldots, x_n]$ be a homomgeneous polynoimal and let $S := \RR[\partial_1, \ldots, \partial_n]$ be the polynomial ring of differentials where $\partial_i := \partial_{x_i}$. Let $A_f^\bullet := S / \Ann_S (f)$. Then, we call $A_f^\bullet$ the \textbf{Gorenstein ring} associated to the polynomial $f$. Alternatively, we can view $\RR[x_1, \ldots, x_n]$ as a $\RR[X_1, \ldots, X_n]$ modules where the action is defined by the relation
@@ -2950,17 +2995,17 @@ From Theorem~\ref{only-simplification-matters}, Corollary~\ref{complex-isomorphi
 	See Theorem 2.5 in \cite{MNY}
 \end{proof}	
 
-From Corollary~\ref{partial-independent-implies-hessian}, this implies that when $M$ is simple, the Hessian of the basis generating polynomial $f_M$ has signature $(+,-, \ldots, -)$ at every point in the positive orthant. Thus, the basis generating polynomial for a simple matroid is strictly log-concave on the positive orthant, which was one of the main results in \cite{MNY}. In the same paper, they formulate Conjecture~\ref{conj:mny}. In the rest of the thesis, we would like to work towards a proof of Conjecture~\ref{conj:my-conjecture}. 
+From Corollary~\ref{partial-independent-implies-hessian}, this implies that when $M$ is simple, the Hessian of the basis generating polynomial $f_M$ has signature $(+,-, \ldots, -)$ at every point in the positive orthant. Thus, the basis generating polynomial for a simple matroid is strictly log-concave on the positive orthant, which was one of the main results in \cite{MNY}. In the same paper, they formulate Conjecture~\ref{conj:mny}. One of my goals was to work towards a proof of Conjecture~\ref{conj:my-conjecture}. 
 
 \begin{conj} \label{conj:mny}
-	Let $M = (E, \mcI)$ be a matroid of rank $d$. The ring $\A(M)$ satisfies $\HRR_k$ for some $a \in \RR^E_{> 0}$ for all $k \leq \frac{d}{2}$.  
+	Let $M = (E, \mcI)$ be a matroid of rank $d$. The ring $\A(M)$ satisfies $\HL_k$ for some $a \in \RR^E_{> 0}$ for all $k \leq \frac{d}{2}$.  
 \end{conj}
 
 \begin{conj} \label{conj:my-conjecture}
 	Let $M = (E, \mcI)$ be a matroid of rank $d$. The ring $\A(M)$ satisfies the K\"ahler package for all $a \in \RR^E_{> 0}$.
 \end{conj}
 
-Conjecture~\ref{conj:my-conjecture} is technically stronger than Conjecture~\ref{conj:mny}, but it is hard to imagine a world where Conjecture~\ref{conj:mny} is proven without Conjecture~\ref{conj:my-conjecture} being proved along the way. We believe that a crucial step in resolving Conjecture~\ref{conj:my-conjecture} is to analyze when $\A(M)$ satisfies $\HRR_1$ on the facets of the positive orthant. We will resolve this question completely in Section~\ref{sec:HRR-on-facets}. Before moving on to this question, we first give necessary and sufficient conditions on $\A(M)$ for $\HRR_1$ with respect to $a \in \RR^n$ in the case where $f(a) > 0$ and $M$ is simple.
+Unfortunately, Conjecture~\ref{conj:my-conjecture} is false. The counterexample was given to us through private communication between June Huh and Connor Simpson. We discuss the counterexample in more detail in Section~\ref{sec:future-work}. For the rest of the thesis, we analyze when $\A(M)$ satisfies $\HRR_1$ on the facets of the positive orthant. We will resolve this question completely in Section~\ref{sec:HRR-on-facets}. Before moving on to this question, we first give necessary and sufficient conditions on $\A(M)$ for $\HRR_1$ with respect to $a \in \RR^n$ in the case where $f(a) > 0$ and $M$ is simple.
 
 \begin{cor} \label{simple-matroids-HRR-condition}
 	Let $M = (E, \mcI)$ be a simple matroid of rank $r \geq 2$. If $a \in \RR_{\geq 0}^E$ satisfies $f_M(a) > 0$, then $A(M)$ satisfies $\HRR_1$ with respect to $l_a$ if and only if $\Hess_{f_M} |_{x = a}$ is non-singular.
@@ -3202,7 +3247,7 @@ In the situation where we know that $\A(M)$ satisfies $\HRR_i$ for $1 \leq i \le
 
 \section{Future Work} \label{sec:future-work}
 
-In our attempt to prove Conjecture~\ref{conj:my-conjecture}, we proved Theorem~\ref{thm:main-result-general-to-lower-facet}. This describes the exact conditions needed for $\A(M)$ to satisfy $\HRR_1$ on the faces of the positive orthant. Theorem~\ref{thm:inductive-procedure} tells us that for general $k$, we have a mechanism from going from local $\HRR_k$ to $\HL_k$ on the positive orthant and possibly its boundary depending on some dimension conditions. This means that to prove the general conjecture, it suffices to prove that we can go from $\HRR_i$ for $1 \leq i \leq k-1$ and $\HL_i$ for $1 \leq i \leq k$ to $\HRR_k$. In Lemma~\ref{one-element-is-enough}, we further reasoned that given $\HRR_i$ for $1 \leq i \leq k-1$ and $\HL_i$ for $1 \leq i \leq k$ as the inductive hypothesis, it suffices to prove that $\HRR_k$ is satisfied on a suitable boundary point. The reason why we might want to pick a boundary point even though it may seem more accessible is because we may hope for a semi-small decomposition for $\A(M)$ as in Theorem~\ref{thm:chow-ring-decomp} and Theorem~\ref{thm:augmented-chow-ring-krull-schmidt-decomp}. Indeed, if we were to have such a decomposition, we could reduce $\HRR_k$ on the boundary for $\A(M)$ to $\HRR_k$ for $\A(M \backslash i)$. The conjecture would then follow from a more elaborate induction argument. Before we can contemplate such an argument, there are a few questions we must answer. 
+As noted in the thesis, the Conjecture~\ref{conj:my-conjecture} was recently to be found erroneous. However, we will still describe our thought process in our attempt to prove it. We first proved Theorem~\ref{thm:main-result-general-to-lower-facet}. This describes the exact conditions needed for $\A(M)$ to satisfy $\HRR_1$ on the faces of the positive orthant. Theorem~\ref{thm:inductive-procedure} tells us that for general $k$, we have a mechanism from going from local $\HRR_k$ to $\HL_k$ on the positive orthant and possibly its boundary depending on some dimension conditions. This means that to prove the general conjecture, it suffices to prove that we can go from $\HRR_i$ for $1 \leq i \leq k-1$ and $\HL_i$ for $1 \leq i \leq k$ to $\HRR_k$. In Lemma~\ref{one-element-is-enough}, we further reasoned that given $\HRR_i$ for $1 \leq i \leq k-1$ and $\HL_i$ for $1 \leq i \leq k$ as the inductive hypothesis, it suffices to prove that $\HRR_k$ is satisfied on a suitable boundary point. The reason why we might want to pick a boundary point even though it may seem more accessible is because we may hope for a semi-small decomposition for $\A(M)$ as in Theorem~\ref{thm:chow-ring-decomp} and Theorem~\ref{thm:augmented-chow-ring-krull-schmidt-decomp}. Indeed, if we were to have such a decomposition, we could reduce $\HRR_k$ on the boundary for $\A(M)$ to $\HRR_k$ for $\A(M \backslash i)$. The conjecture would then follow from a more elaborate induction argument. Before we can contemplate such an argument, there are a few questions we must answer. 
 \begin{question}
 	Does there exist a graded ring homomorphism $\theta : \A(M \backslash i) \to \A(M)$ for every $i \in E$? 
 \end{question}
@@ -3257,6 +3302,8 @@ For any graded ring $R$ of top dimension $d$, we let $D^k R$ be the graded ring 
 \begin{question} \label{question:question5}
 	Is $D^k\opH(M \backslash i)$ a summand in the Krull-Schmidt decomposition of $D^k \opH(M)$ for $k \leq \frac{d}{2}$? 
 \end{question}
+
+However, much of this strategy will not work because of a counter-example to Conjecture~\ref{conj:my-conjecture} that was provided to us by Connor Simpson. This counter-example also gives a negative answer to Question~\ref{question:question4}. Let $G = K_{2, 3}$ be the complete bipartite graph on $2+3$ vertices. Let $M = M(G)$ be the graphic matroid of rank $4$ with $G$ as the underlying graph. Then, $M$ has $15$ flats of rank $2$. The pairing on $\opH^2(M)$ has $6$ positive eigenvalues, $6$ negative eigenvalues, and $3$ zero eigenvalues. The zero eigenvalues implies that the answer of Question~\ref{question:question4} is \textbf{no}. The negative eigenvalues gives the contradiction to Conjecture~\ref{conj:my-conjecture}. However, there is still a possibility for Conjecture~\ref{conj:mny} to be true. If it were, this would provide an example of a polynomial algebra for which Hard Lefschetz holds but in general the Hodge-Riemann relations do not.
 
 
 
