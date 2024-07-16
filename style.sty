@@ -1,0 +1,139 @@
+\ProvidesPackage{style}
+% Nice features provided by AMS-TeX
+\usepackage{amsmath, amsfonts, amsthm, amssymb}
+\usepackage{enumitem}
+\usepackage{tikz-cd}
+\usepackage{dsfont}
+\usepackage{mathrsfs}
+
+\hypersetup{allcolors = blue}
+% Theorem Environments ...
+% Includes
+% 1. Theorem
+% 2. Definition
+% 3. Proposition
+% 4. Lemma
+% 5. Fact
+% 6. Corollary
+
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{question}{Question}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\DeclareMathOperator{\rank}{rank}
+\newcommand{\HL}{\mathsf{HL}}
+\DeclareMathOperator{\Hess}{Hess}
+\newcommand{\HRR}{\mathsf{HRR}}
+% Math Calligraphy
+\DeclareMathOperator{\Det}{Det}
+\DeclareMathOperator{\CH}{CH}
+
+\DeclareMathOperator{\A}{A}
+\DeclareMathOperator{\opH}{H}
+\DeclareMathOperator{\opS}{S}
+\DeclareMathOperator{\opI}{I}
+\DeclareMathOperator{\opJ}{J}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mcA}{\mathcal{A}}
+\newcommand{\mcB}{\mathcal{B}}
+\newcommand{\mcC}{\mathcal{C}}
+\newcommand{\mcD}{\mathcal{D}}
+\newcommand{\mcE}{\mathcal{E}}
+\newcommand{\mcF}{\mathcal{F}}
+\newcommand{\mcG}{\mathcal{G}}
+\newcommand{\mcH}{\mathcal{H}}
+\newcommand{\mcI}{\mathcal{I}}
+\newcommand{\mcJ}{\mathcal{J}}
+\newcommand{\mcK}{\mathcal{K}}
+\newcommand{\mcL}{\mathcal{L}}
+\newcommand{\mcM}{\mathcal{M}}
+\newcommand{\mcN}{\mathcal{N}}
+\newcommand{\mcO}{\mathcal{O}}
+\newcommand{\mcP}{\mathcal{P}}
+\newcommand{\mcQ}{\mathcal{Q}}
+\newcommand{\mcR}{\mathcal{R}}
+\newcommand{\mcS}{\mathcal{S}}
+\newcommand{\mcT}{\mathcal{T}}
+\newcommand{\mcU}{\mathcal{U}}
+\newcommand{\mcV}{\mathcal{V}}
+\newcommand{\mcW}{\mathcal{W}}
+\newcommand{\mcX}{\mathcal{X}}
+\newcommand{\mcY}{\mathcal{Y}}
+\newcommand{\mcZ}{\mathcal{Z}}
+
+% Math Serif Sets
+
+\newcommand{\msA}{\mathsf{A}}
+\newcommand{\msB}{\mathsf{B}}
+\newcommand{\msC}{\mathsf{C}}
+\newcommand{\msD}{\mathsf{D}}
+\newcommand{\msE}{\mathsf{E}}
+\newcommand{\msF}{\mathsf{F}}
+\newcommand{\msG}{\mathsf{G}}
+\newcommand{\msH}{\mathsf{H}}
+\newcommand{\msI}{\mathsf{I}}
+\newcommand{\msJ}{\mathsf{J}}
+\newcommand{\msK}{\mathsf{K}}
+\newcommand{\msL}{\mathsf{L}}
+\newcommand{\msM}{\mathsf{M}}
+\newcommand{\msN}{\mathsf{N}}
+\newcommand{\msO}{\mathsf{O}}
+\newcommand{\msP}{\mathsf{P}}
+\newcommand{\msQ}{\mathsf{Q}}
+\newcommand{\msR}{\mathsf{R}}
+\newcommand{\msS}{\mathsf{S}}
+\newcommand{\msT}{\mathsf{T}}
+\newcommand{\msU}{\mathsf{U}}
+\newcommand{\msV}{\mathsf{V}}
+\newcommand{\msW}{\mathsf{W}}
+\newcommand{\msX}{\mathsf{X}}
+\newcommand{\msY}{\mathsf{Y}}
+\newcommand{\msZ}{\mathsf{Z}}
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\FF}{\mathbb{F}}
+
+% Convex Geometry
+\DeclareMathOperator{\relint}{relint}
+\DeclareMathOperator{\relbd}{relbd}
+\DeclareMathOperator{\ext}{ext}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\pos}{pos}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\aff}{aff}
+
+% Topology
+\DeclareMathOperator{\tint}{int} % topological interior
+\DeclareMathOperator{\clo}{clo} % topogical closure
+\DeclareMathOperator{\supp}{supp} % support of a function
+
+% Probability
+
+\newcommand{\pconverge}{\xrightarrow[]{\PP}}
+\newcommand{\FRAG}{\mathsf{P}_{\mathsf{FRAG}}}
+\newcommand{\BRANCH}{\mathsf{P}_{\mathsf{BRANCH}}}
+\newcommand{\1}{\mathds{1}}
+
+\DeclareMathOperator{\Ann}{Ann}
+\DeclareMathOperator{\bd}{bd}
+
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\DeclareMathOperator{\codim}{codim}
+
+\newcommand{\MID}{\mathsf{MID}}
+\newcommand{\END}{\mathsf{END}}
